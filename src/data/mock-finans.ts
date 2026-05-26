@@ -7,6 +7,7 @@ import type {
   MaliTabloKalemi,
   NakitGun,
   ParaHaritasiKategori,
+  UrunMarji,
   YilTrendNoktasi,
 } from "@/types/domain";
 
