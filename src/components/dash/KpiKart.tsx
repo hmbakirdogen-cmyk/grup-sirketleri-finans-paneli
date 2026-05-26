@@ -1,49 +1,135 @@
 // KpiKart — üst 4'lü grid'in ana kartı.
-// Tek mesaj: bir büyük rakam + küçük etiket + tek satır delta.
-// Sparkline / dekoratif ikon / glow yok (brief KATİ).
+// MEBA KpiCard trio'sundan adapte: react-countup + Sparkline + tone-based color.
+//
+// Yapı (sol → sağ):
+//   [ikon kapsül] ━━━━━━━━━━━━━━━ [sparkline]
+//   ETIKET
+//   Büyük sayı (count-up)
+//   delta + alt bilgi
 
+import { motion } from "framer-motion";
+import CountUp from "react-countup";
+import { TrendingUp, TrendingDown, Minus, type LucideIcon } from "lucide-react";
+import { Sparkline } from "./Sparkline";
 import { TEMA, FONT } from "@/lib/tema";
 
 interface Props {
-  etiket: string;          // ör. "TOPLAM CİRO"
-  deger: string;           // ör. "147,3M ₺" — önceden formatlanmış
-  delta?: number;          // % geçen yıla göre
-  deltaEtiketi?: string;   // ör. "yıllık" / "12 ay"
-  vurgu?: boolean;         // tek bir kartı belirgin yapmak için (max 1)
+  etiket: string;
+  /** Sayısal değer — count-up için */
+  numerikDeger: number;
+  /** Format için decimals (0 / 1 / 2) */
+  ondalik?: number;
+  /** Sayı önü ek (örn. "%") */
+  onek?: string;
+  /** Sayı sonu ek (örn. " ₺", "M ₺") */
+  sonek?: string;
+  /** Sıfırdan değere kaç saniye */
+  sure?: number;
+  /** % delta — pozitif/negatif rozet */
+  delta?: number;
+  /** Delta etiketi (örn. "geçen döneme göre") */
+  deltaEtiketi?: string;
+  /** Trend sparkline verisi (12 ay genelde) */
+  sparkline?: number[];
+  /** Tone — kart renk kimliği */
+  tone?: string;
+  /** Üst sol ikon */
+  ikon?: LucideIcon;
+  /** Vurgu (tek bir KPI, max 1) */
+  vurgu?: boolean;
 }
 
-export function KpiKart({ etiket, deger, delta, deltaEtiketi = "yıllık", vurgu = false }: Props) {
-  const renk = delta === undefined ? undefined : delta > 0 ? TEMA.yesil : delta < 0 ? TEMA.kirmizi : TEMA.inkMuted;
+export function KpiKart({
+  etiket,
+  numerikDeger,
+  ondalik = 0,
+  onek = "",
+  sonek = "",
+  sure = 1.4,
+  delta,
+  deltaEtiketi = "geçen dönem",
+  sparkline,
+  tone = TEMA.mavi,
+  ikon: Ikon,
+  vurgu = false,
+}: Props) {
+  const deltaRenk =
+    delta === undefined
+      ? TEMA.inkMuted
+      : delta > 0
+        ? TEMA.yesil
+        : delta < 0
+          ? TEMA.kirmizi
+          : TEMA.inkMuted;
+  const deltaIkon = delta === undefined || Math.abs(delta) < 0.05
+    ? Minus
+    : delta > 0
+      ? TrendingUp
+      : TrendingDown;
+  const DeltaIc = deltaIkon;
 
   return (
-    <div
+    <motion.div
       data-anim="kpi"
+      whileHover={{ y: -2 }}
+      transition={{ type: "tween", duration: 0.18, ease: [0.22, 0.61, 0.36, 1] }}
       style={{
         position: "relative",
-        background: `linear-gradient(180deg, ${TEMA.bgKart}, ${TEMA.bgKartAlt})`,
-        border: `1px solid ${vurgu ? TEMA.borderAktif : TEMA.border}`,
+        overflow: "hidden",
         borderRadius: 14,
-        padding: "26px 24px 22px",
-        minHeight: 140,
+        border: `1px solid ${vurgu ? TEMA.borderAktif : TEMA.border}`,
+        background: `linear-gradient(180deg, ${TEMA.bgKart}, ${TEMA.bgKartAlt})`,
+        padding: "16px 18px 18px",
+        minHeight: 156,
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between",
-        transition: "border-color 180ms ease, transform 180ms ease",
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = TEMA.borderAktif;
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = vurgu ? TEMA.borderAktif : TEMA.border;
+        transition: "border-color 180ms ease",
       }}
     >
+      {/* Hover top hairline reveal */}
+      <span
+        aria-hidden
+        className="kpi-hover-line"
+        style={{
+          position: "absolute",
+          inset: "0 0 auto 0",
+          height: 2,
+          opacity: 0,
+          background: `linear-gradient(90deg, transparent, ${tone}, transparent)`,
+          transition: "opacity 180ms ease",
+        }}
+      />
+
+      {/* Üst satır — ikon + sparkline */}
+      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between" }}>
+        <span
+          aria-hidden
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: 32,
+            width: 32,
+            borderRadius: 9,
+            background: tone + "26",
+            color: tone,
+          }}
+        >
+          {Ikon ? <Ikon size={16} /> : null}
+        </span>
+        {sparkline && sparkline.length > 0 && (
+          <Sparkline data={sparkline} width={92} height={26} stroke={tone} fill={tone} />
+        )}
+      </div>
+
       {/* Etiket */}
       <div
         style={{
+          marginTop: 12,
           fontFamily: FONT.ana,
           fontSize: 11,
-          fontWeight: 500,
-          letterSpacing: "0.12em",
+          fontWeight: 600,
+          letterSpacing: "0.14em",
           textTransform: "uppercase",
           color: TEMA.inkMuted,
         }}
@@ -51,43 +137,67 @@ export function KpiKart({ etiket, deger, delta, deltaEtiketi = "yıllık", vurgu
         {etiket}
       </div>
 
-      {/* Büyük sayı */}
+      {/* Büyük sayı — count-up */}
       <div
         style={{
-          fontFamily: FONT.num,
-          fontSize: 38,
-          fontWeight: 500,
-          letterSpacing: "-0.02em",
-          color: TEMA.ink,
-          fontVariantNumeric: "tabular-nums",
-          lineHeight: 1.05,
-          marginTop: 14,
-          marginBottom: 12,
+          marginTop: 6,
+          display: "flex",
+          alignItems: "baseline",
+          gap: 6,
         }}
       >
-        {deger}
+        <span
+          style={{
+            fontFamily: FONT.num,
+            fontSize: 32,
+            fontWeight: 600,
+            letterSpacing: "-0.02em",
+            color: TEMA.ink,
+            fontVariantNumeric: "tabular-nums",
+            lineHeight: 1,
+          }}
+        >
+          <CountUp
+            end={numerikDeger}
+            duration={sure}
+            decimals={ondalik}
+            decimal=","
+            separator="."
+            prefix={onek}
+            suffix={sonek}
+          />
+        </span>
       </div>
 
-      {/* Alt — delta */}
+      {/* Alt satır — delta + etiket */}
       {delta !== undefined && (
         <div
           style={{
-            fontFamily: FONT.ana,
-            fontSize: 12,
-            color: TEMA.inkFaded,
+            marginTop: "auto",
+            paddingTop: 12,
             display: "flex",
             alignItems: "center",
             gap: 6,
+            fontFamily: FONT.ana,
+            fontSize: 12,
+            color: TEMA.inkFaded,
             fontVariantNumeric: "tabular-nums",
           }}
         >
-          <span style={{ color: renk, fontWeight: 600 }}>
+          <DeltaIc size={12} color={deltaRenk} />
+          <span style={{ color: deltaRenk, fontWeight: 700 }}>
             {delta > 0 ? "+" : ""}
             {delta.toFixed(1)}%
           </span>
-          <span style={{ color: TEMA.inkFaded }}>{deltaEtiketi}</span>
+          <span>{deltaEtiketi}</span>
         </div>
       )}
-    </div>
+
+      <style>{`
+        [data-anim='kpi']:hover .kpi-hover-line {
+          opacity: 1;
+        }
+      `}</style>
+    </motion.div>
   );
 }

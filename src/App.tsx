@@ -1,12 +1,16 @@
 // App — Grup Şirketleri Finans Paneli.
-// Mehmet Bey direktifi 2026-05-26: "diğer programdaki yapıyı al da çek" +
-// "renkler ve tonları hep farklı olsun".
+// MEBA Komuta Merkezi pattern aktarımı: EliteHeader + KpiKart(Sparkline+CountUp)
+// + Chart3DBackdrop + ProgressRing + Yönetici Özeti + Mali Takvim rozet.
 //
-// MEBA Komuta Merkezi'nden adapte edilen EliteHeader (Spatial Command Bar v3.1)
-// kullanılır; aktif firma rengine göre tüm vurgu rengi dinamik kayar
-// (CSS variable `--accent` root'tan set edilir, alt component'ler okur).
+// Aktif firmaya göre tüm vurgu rengi dinamik kayar (CSS var --accent).
 
 import { useMemo, useState } from "react";
+import {
+  Wallet,
+  TrendingUp,
+  Coins,
+  Banknote,
+} from "lucide-react";
 import { FIRMALAR } from "./data/firmalar";
 import { FINANS_VERISI } from "./data/mock-finans";
 import { KULLANICILAR } from "./data/kullanicilar";
@@ -16,12 +20,14 @@ import { OzetKart } from "./components/dash/OzetKart";
 import { MaliTakvimRozetMini } from "./components/dash/MaliTakvimRozetMini";
 import { YoneticiOzeti } from "./components/dash/YoneticiOzeti";
 import { EliteHeader } from "./components/dash/EliteHeader";
+import { ProgressRing } from "./components/dash/ProgressRing";
+import { Chart3DBackdrop } from "./components/dash/Chart3DBackdrop";
 import type { Sekme } from "./components/dash/SekmeNav";
 import { TEMA, FONT, fmtTL, fmtYuzde } from "./lib/tema";
 import type { FirmaId } from "./types/domain";
 
-// Şimdilik mock aktif kullanıcı; v2'de useAuth'a bağlanır.
-const aktifKullanici = KULLANICILAR["mehmet-maras"]!; // Çekirdek ortak — 4 firma görür
+// Mock aktif kullanıcı — Çekirdek ortak (4 firma görür)
+const aktifKullanici = KULLANICILAR["mehmet-maras"]!;
 
 export function App() {
   const [aktif, setAktif] = useState<FirmaId>("meba");
@@ -30,7 +36,7 @@ export function App() {
   const firma = FIRMALAR[aktif];
   const finans = FINANS_VERISI[aktif];
 
-  // Yıllık özet — mevcut hesap mantığı korundu
+  // Yıllık özet — hesap mantığı korundu
   const ozet = useMemo(() => {
     const son12 = finans.son12Ay;
     const son = son12[son12.length - 1]!;
@@ -56,6 +62,12 @@ export function App() {
     const aylikOrtGider = (yillikCiro - netKarYillik) / 12;
     const nakitYeterliligi = Math.min(100, (nakitAylik / Math.max(aylikOrtGider, 1)) * 100);
 
+    // KPI kartları için sparkline verisi (12 aylık trendler)
+    const sparkCiro = son12.map((a) => a.ciro);
+    const sparkBrut = son12.map((a) => a.ciro * (a.brutMarj / 100));
+    const sparkNet = son12.map((a) => a.netKar);
+    const sparkNakit = son12.map((a) => a.nakit);
+
     return {
       yillikCiro,
       brutKarYillik,
@@ -69,6 +81,10 @@ export function App() {
       hedefGerceklesme,
       operasyonel,
       nakitYeterliligi,
+      sparkCiro,
+      sparkBrut,
+      sparkNet,
+      sparkNakit,
     };
   }, [finans]);
 
@@ -83,14 +99,20 @@ export function App() {
         ? `Hedefe ${(100 - ozet.hedefGerceklesme).toFixed(0)} puan uzaktayız; son çeyrekte ivme yakalanırsa kapanabilir. Açık alacaklar takipte tutulmalı.`
         : `Hedefin altında seyrediyoruz; tahsilat hızı ve marj baskısı gözden geçirilmeli. Bayilerle mutabakat tazelenirse toparlanma olası.`;
 
-  // Çekirdek ortak için 4 firma; tek firma yöneticisi için sadece izinli olanlar
   const erisilebilirFirmalar = aktifKullanici.firmaIzin;
+
+  // 4 KPI için tone (her biri farklı renk)
+  // Ana vurgu: aktif firma; diğerleri yardımcı tonlar
+  const tones = {
+    ciro: firma.renk,            // aktif firma rengi
+    brut: TEMA.altin,            // altın — kâr
+    net: TEMA.yesil,             // yumuşak yeşil — net kâr
+    nakit: "#60a5fa",            // mavi — nakit
+  };
 
   return (
     <div
       style={{
-        // Aktif firma rengini tüm sayfa scope'una CSS var olarak set et
-        // Alt componentler `var(--accent, fallback)` ile okur
         ["--accent" as never]: firma.renk,
         background: TEMA.bg,
         color: TEMA.ink,
@@ -112,14 +134,13 @@ export function App() {
         style={{
           maxWidth: 1480,
           margin: "0 auto",
-          padding: "28px 24px 80px",
+          padding: "24px 24px 80px",
         }}
       >
-        {/* Mali Takvim üst rozet */}
         <MaliTakvimRozetMini />
 
         {/* Sayfa başlığı */}
-        <div style={{ marginBottom: 24 }}>
+        <div style={{ marginBottom: 20 }}>
           <div
             style={{
               fontSize: 11,
@@ -148,72 +169,160 @@ export function App() {
 
         {sekme === "nabiz" && (
           <>
-            {/* ÜST — 4 KPI */}
+            {/* ÜST — 4 KPI (sparkline + count-up + tone) */}
             <section
               style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(4, 1fr)",
-                gap: 16,
-                marginBottom: 24,
+                gap: 14,
+                marginBottom: 20,
               }}
             >
               <KpiKart
                 etiket="Toplam Ciro"
-                deger={fmtTL(ozet.yillikCiro)}
+                numerikDeger={ozet.yillikCiro / 1_000_000}
+                ondalik={1}
+                sonek="M ₺"
                 delta={ozet.ciroYilDelta}
-                deltaEtiketi="geçen döneme göre"
+                deltaEtiketi="yıllık"
+                sparkline={ozet.sparkCiro}
+                tone={tones.ciro}
+                ikon={Wallet}
                 vurgu
               />
               <KpiKart
                 etiket="Brüt Kâr"
-                deger={fmtTL(ozet.brutKarYillik)}
+                numerikDeger={ozet.brutKarYillik / 1_000_000}
+                ondalik={1}
+                sonek="M ₺"
                 delta={ozet.marjYilDelta}
                 deltaEtiketi="marj puanı"
+                sparkline={ozet.sparkBrut}
+                tone={tones.brut}
+                ikon={TrendingUp}
               />
               <KpiKart
                 etiket="Net Kâr"
-                deger={fmtTL(ozet.netKarYillik)}
+                numerikDeger={ozet.netKarYillik / 1_000_000}
+                ondalik={1}
+                sonek="M ₺"
                 delta={ozet.ciroYilDelta * 0.62}
-                deltaEtiketi="geçen döneme göre"
+                deltaEtiketi="yıllık"
+                sparkline={ozet.sparkNet}
+                tone={tones.net}
+                ikon={Coins}
               />
               <KpiKart
                 etiket="Nakit Akışı"
-                deger={fmtTL(ozet.nakitAylik)}
+                numerikDeger={ozet.nakitAylik / 1_000_000}
+                ondalik={1}
+                sonek="M ₺"
                 delta={4.2}
                 deltaEtiketi="son ay"
+                sparkline={ozet.sparkNakit}
+                tone={tones.nakit}
+                ikon={Banknote}
               />
             </section>
 
-            {/* ORTA — büyük grafik (sol 2/3) + Yönetici Özeti (sağ 1/3) */}
+            {/* ORTA — büyük grafik (sol 2/3, Chart3DBackdrop sahnesi içinde)
+                + Yönetici Özeti (sağ 1/3, ProgressRing ile) */}
             <section
               style={{
                 display: "grid",
                 gridTemplateColumns: "2fr 1fr",
                 gap: 16,
-                marginBottom: 24,
+                marginBottom: 20,
               }}
             >
-              <AnaGrafik
-                veri={finans.son12Ay.map((a) => ({ ay: a.ay, ciro: a.ciro }))}
-                hedefAylik={ozet.aylikHedef}
-                baslik="Gelir ve Kâr Trendi"
-                altBaslik={`Aylık karşılaştırmalı performans · ort ${fmtTL(ozet.yillikCiro / 12)}`}
-                accent={firma.renk}
-              />
+              <Chart3DBackdrop tint={firma.renk} style={{ background: TEMA.bgKart }}>
+                <AnaGrafik
+                  veri={finans.son12Ay.map((a) => ({ ay: a.ay, ciro: a.ciro }))}
+                  hedefAylik={ozet.aylikHedef}
+                  baslik="Gelir ve Kâr Trendi"
+                  altBaslik={`Aylık karşılaştırmalı performans · ort ${fmtTL(ozet.yillikCiro / 12)}`}
+                  accent={firma.renk}
+                />
+              </Chart3DBackdrop>
 
-              <YoneticiOzeti
-                baslik="Yönetici Özeti"
-                altBaslik="Bu dönem performansı"
-                accent={firma.renk}
-                satirlar={[
-                  { etiket: "Hedef Gerçekleşme", yuzde: ozet.hedefGerceklesme, renk: "accent" },
-                  { etiket: "Operasyonel Verimlilik", yuzde: ozet.operasyonel, renk: "yesil" },
-                  { etiket: "Nakit Yeterliliği", yuzde: ozet.nakitYeterliligi, renk: "altin" },
-                ]}
-                durumBasligi="Genel Durum"
-                durumMetni={durumMetni}
-                durumRengi={durumRengi}
-              />
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 16,
+                }}
+              >
+                {/* Hedef ProgressRing — büyük 3D gauge */}
+                <div
+                  data-anim="ozet"
+                  style={{
+                    background: `linear-gradient(180deg, ${TEMA.bgKart}, ${TEMA.bgKartAlt})`,
+                    border: `1px solid ${TEMA.border}`,
+                    borderRadius: 16,
+                    padding: "20px 16px 16px",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: 11,
+                      fontWeight: 600,
+                      letterSpacing: "0.14em",
+                      textTransform: "uppercase",
+                      color: TEMA.inkMuted,
+                      marginBottom: 12,
+                      alignSelf: "flex-start",
+                    }}
+                  >
+                    Hedef Gerçekleşme
+                  </div>
+                  <ProgressRing
+                    value={ozet.hedefGerceklesme}
+                    size={148}
+                    stroke={12}
+                    color={firma.renk}
+                  >
+                    <span
+                      style={{
+                        fontFamily: FONT.num,
+                        fontSize: 30,
+                        fontWeight: 600,
+                        color: TEMA.ink,
+                        fontVariantNumeric: "tabular-nums",
+                        letterSpacing: "-0.02em",
+                      }}
+                    >
+                      {ozet.hedefGerceklesme.toFixed(0)}%
+                    </span>
+                    <span
+                      style={{
+                        fontSize: 10,
+                        color: TEMA.inkFaded,
+                        marginTop: 2,
+                        letterSpacing: "0.06em",
+                      }}
+                    >
+                      yıllık hedef
+                    </span>
+                  </ProgressRing>
+                </div>
+
+                {/* Yönetici Özeti — kompakt */}
+                <YoneticiOzeti
+                  baslik="Yönetici Özeti"
+                  altBaslik="Bu dönem performansı"
+                  accent={firma.renk}
+                  satirlar={[
+                    { etiket: "Operasyonel Verimlilik", yuzde: ozet.operasyonel, renk: "yesil" },
+                    { etiket: "Nakit Yeterliliği", yuzde: ozet.nakitYeterliligi, renk: "altin" },
+                  ]}
+                  durumBasligi="Genel Durum"
+                  durumMetni={durumMetni}
+                  durumRengi={durumRengi}
+                />
+              </div>
             </section>
 
             {/* ALT — 3 destek kart */}
@@ -221,7 +330,7 @@ export function App() {
               style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(3, 1fr)",
-                gap: 16,
+                gap: 14,
               }}
             >
               <OzetKart
@@ -252,7 +361,6 @@ export function App() {
 
         {sekme !== "nabiz" && <SayfaIskelet sekme={sekme} />}
 
-        {/* Alt — minimal byline */}
         <footer
           style={{
             marginTop: 48,
@@ -377,16 +485,6 @@ function SayfaIskelet({ sekme }: { sekme: Sekme }) {
         }}
       >
         {aciklama}
-      </p>
-      <p
-        style={{
-          fontSize: 12,
-          color: TEMA.inkFaded,
-          marginTop: 20,
-          fontStyle: "italic",
-        }}
-      >
-        Bu sayfa Lovable brief paketinde tanımlı; bir sonraki sprint'te bağlanacak.
       </p>
     </div>
   );
