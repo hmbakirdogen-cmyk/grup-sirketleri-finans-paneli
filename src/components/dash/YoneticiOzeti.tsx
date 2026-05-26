@@ -6,7 +6,8 @@ import { TEMA, FONT } from "@/lib/tema";
 interface SatirVeri {
   etiket: string;
   yuzde: number;            // 0-100 arası
-  renk?: "mavi" | "yesil" | "altin" | "kirmizi";
+  /** "accent" → aktif firma rengi (App.tsx'ten prop ile gelir) */
+  renk?: "accent" | "yesil" | "altin" | "kirmizi";
 }
 
 interface Props {
@@ -16,13 +17,15 @@ interface Props {
   durumBasligi: string;     // "GENEL DURUM"
   durumMetni: string;       // AI yorum, Anadolu iş dili
   durumRengi?: "iyi" | "dikkat" | "kotu";
+  /** Aktif firmanın signature rengi; "accent" satırı bu renkte çizilir */
+  accent?: string;
 }
 
-function renkCozumle(r?: "mavi" | "yesil" | "altin" | "kirmizi"): string {
+function renkCozumle(r: SatirVeri["renk"], accent: string): string {
   if (r === "yesil") return TEMA.yesil;
   if (r === "altin") return TEMA.altin;
   if (r === "kirmizi") return TEMA.kirmizi;
-  return TEMA.mavi;
+  return accent;
 }
 
 function durumNoktasi(d?: "iyi" | "dikkat" | "kotu"): string {
@@ -39,6 +42,7 @@ export function YoneticiOzeti({
   durumBasligi,
   durumMetni,
   durumRengi = "iyi",
+  accent = TEMA.mavi,
 }: Props) {
   return (
     <div
@@ -72,7 +76,7 @@ export function YoneticiOzeti({
       {/* Progress bar satırlar */}
       <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
         {satirlar.map((s, i) => {
-          const renk = renkCozumle(s.renk);
+          const renk = renkCozumle(s.renk, accent);
           const y = Math.max(0, Math.min(100, s.yuzde));
           return (
             <div key={i}>

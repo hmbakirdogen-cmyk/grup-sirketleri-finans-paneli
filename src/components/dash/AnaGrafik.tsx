@@ -10,9 +10,18 @@ interface Props {
   hedefAylik?: number;     // sabit yatay hedef çizgisi (isteğe bağlı)
   baslik?: string;
   altBaslik?: string;
+  /** Aktif firmanın signature rengi — çizgi ve dolgu bu renkten türetilir.
+   *  Atanmazsa TEMA.mavi (varsayılan). */
+  accent?: string;
 }
 
-export function AnaGrafik({ veri, hedefAylik, baslik = "Aylık Ciro", altBaslik }: Props) {
+export function AnaGrafik({
+  veri,
+  hedefAylik,
+  baslik = "Aylık Ciro",
+  altBaslik,
+  accent = TEMA.mavi,
+}: Props) {
   const [hoverIdx, setHoverIdx] = useState<number | null>(null);
   const svgRef = useRef<SVGSVGElement>(null);
 
@@ -175,8 +184,8 @@ export function AnaGrafik({ veri, hedefAylik, baslik = "Aylık Ciro", altBaslik 
       >
         <defs>
           <linearGradient id="ana-fill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor={TEMA.mavi} stopOpacity={0.18} />
-            <stop offset="100%" stopColor={TEMA.mavi} stopOpacity={0} />
+            <stop offset="0%" stopColor={accent} stopOpacity={0.18} />
+            <stop offset="100%" stopColor={accent} stopOpacity={0} />
           </linearGradient>
         </defs>
 
@@ -243,7 +252,7 @@ export function AnaGrafik({ veri, hedefAylik, baslik = "Aylık Ciro", altBaslik 
           data-anim="line"
           d={path}
           fill="none"
-          stroke={TEMA.mavi}
+          stroke={accent}
           strokeWidth={2}
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -265,7 +274,7 @@ export function AnaGrafik({ veri, hedefAylik, baslik = "Aylık Ciro", altBaslik 
               cy={aktifNokta.y}
               r={5}
               fill={TEMA.bg}
-              stroke={TEMA.mavi}
+              stroke={accent}
               strokeWidth={2}
             />
           </g>

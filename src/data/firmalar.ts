@@ -19,7 +19,9 @@ export const FIRMALAR: Record<FirmaId, Firma> = {
     isKolu: "Elektrik + otomasyon mühendislik (PLC/HMI/SCADA)",
     konum: "Kayseri Melikgazi OSB 12. cad. 5/9",
     web: "mesaenerji.com.tr",
-    renk: "#8b5cf6",
+    // Mehmet Bey direktifi 2026-05-26: MESA imza rengi mor (#8b5cf6) → kırmızı (#dc2626).
+    // Kurumsal kırmızı, saf bayrak çağrışımı yok (red-600); MESA güçlü/ciddi kimlik.
+    renk: "#dc2626",
     kurulus: 2008,
     logoDosya: "logo-mesa.png",
   },

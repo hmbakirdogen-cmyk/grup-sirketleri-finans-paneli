@@ -1,22 +1,27 @@
-// App — Grup Şirketleri Finans Paneli ana sayfası.
-// Mehmet Bey brief 2026-05-26: Apple sadeliği + Tesla premiumluğu.
-// Lovable AI'nın çıkardığı standart: sekme nav + Mali Takvim rozet + 4 KPI +
-// büyük grafik + Yönetici Özeti dikey panel + GENEL DURUM kutusu.
+// App — Grup Şirketleri Finans Paneli.
+// Mehmet Bey direktifi 2026-05-26: "diğer programdaki yapıyı al da çek" +
+// "renkler ve tonları hep farklı olsun".
+//
+// MEBA Komuta Merkezi'nden adapte edilen EliteHeader (Spatial Command Bar v3.1)
+// kullanılır; aktif firma rengine göre tüm vurgu rengi dinamik kayar
+// (CSS variable `--accent` root'tan set edilir, alt component'ler okur).
 
 import { useMemo, useState } from "react";
 import { FIRMALAR } from "./data/firmalar";
 import { FINANS_VERISI } from "./data/mock-finans";
+import { KULLANICILAR } from "./data/kullanicilar";
 import { KpiKart } from "./components/dash/KpiKart";
 import { AnaGrafik } from "./components/dash/AnaGrafik";
 import { OzetKart } from "./components/dash/OzetKart";
-import { FirmaSecici } from "./components/dash/FirmaSecici";
-import { SekmeNav, type Sekme } from "./components/dash/SekmeNav";
 import { MaliTakvimRozetMini } from "./components/dash/MaliTakvimRozetMini";
 import { YoneticiOzeti } from "./components/dash/YoneticiOzeti";
+import { EliteHeader } from "./components/dash/EliteHeader";
+import type { Sekme } from "./components/dash/SekmeNav";
 import { TEMA, FONT, fmtTL, fmtYuzde } from "./lib/tema";
 import type { FirmaId } from "./types/domain";
 
-const FIRMA_LISTE: FirmaId[] = ["meba", "mesa", "elmos", "arkon"];
+// Şimdilik mock aktif kullanıcı; v2'de useAuth'a bağlanır.
+const aktifKullanici = KULLANICILAR["mehmet-maras"]!; // Çekirdek ortak — 4 firma görür
 
 export function App() {
   const [aktif, setAktif] = useState<FirmaId>("meba");
@@ -47,9 +52,7 @@ export function App() {
     const son3Ay = son12.slice(-3);
     const tahmin3Ay = Math.round((son3Ay.reduce((s, a) => s + a.ciro, 0) / 3) * 3);
 
-    // Operasyonel verimlilik: marj × tahsilat hızı (mock)
     const operasyonel = Math.min(100, ortalamaMarj * 5 + 35);
-    // Nakit yeterliliği: nakit / (aylık ortalama gider) × 100
     const aylikOrtGider = (yillikCiro - netKarYillik) / 12;
     const nakitYeterliligi = Math.min(100, (nakitAylik / Math.max(aylikOrtGider, 1)) * 100);
 
@@ -80,66 +83,38 @@ export function App() {
         ? `Hedefe ${(100 - ozet.hedefGerceklesme).toFixed(0)} puan uzaktayız; son çeyrekte ivme yakalanırsa kapanabilir. Açık alacaklar takipte tutulmalı.`
         : `Hedefin altında seyrediyoruz; tahsilat hızı ve marj baskısı gözden geçirilmeli. Bayilerle mutabakat tazelenirse toparlanma olası.`;
 
+  // Çekirdek ortak için 4 firma; tek firma yöneticisi için sadece izinli olanlar
+  const erisilebilirFirmalar = aktifKullanici.firmaIzin;
+
   return (
     <div
       style={{
+        // Aktif firma rengini tüm sayfa scope'una CSS var olarak set et
+        // Alt componentler `var(--accent, fallback)` ile okur
+        ["--accent" as never]: firma.renk,
         background: TEMA.bg,
         color: TEMA.ink,
         minHeight: "100vh",
         fontFamily: FONT.ana,
         WebkitFontSmoothing: "antialiased",
-      }}
+      } as React.CSSProperties}
     >
+      <EliteHeader
+        aktifSekme={sekme}
+        onSekmeSec={setSekme}
+        aktifFirma={aktif}
+        erisilebilirFirmalar={erisilebilirFirmalar}
+        onFirmaSec={setAktif}
+        aktifKullanici={aktifKullanici}
+      />
+
       <div
         style={{
-          maxWidth: 1440,
+          maxWidth: 1480,
           margin: "0 auto",
-          padding: "32px 32px 80px",
+          padding: "28px 24px 80px",
         }}
       >
-        {/* Üst bar */}
-        <header
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            marginBottom: 20,
-            gap: 24,
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-            <FirmaSecici liste={FIRMA_LISTE} aktif={aktif} onSec={setAktif} />
-            <span style={{ fontSize: 13, color: TEMA.inkMuted }}>{firma.konum.split(" ")[0]}</span>
-          </div>
-
-          <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              fontSize: 11,
-              color: TEMA.yesil,
-              letterSpacing: "0.16em",
-              textTransform: "uppercase",
-              fontWeight: 600,
-            }}
-          >
-            <span
-              style={{
-                width: 7,
-                height: 7,
-                borderRadius: "50%",
-                background: TEMA.yesil,
-                boxShadow: `0 0 8px ${TEMA.yesil}80`,
-              }}
-            />
-            Canlı · Mayıs 2026
-          </div>
-        </header>
-
-        {/* Sekmeler */}
-        <SekmeNav aktif={sekme} onSec={setSekme} />
-
         {/* Mali Takvim üst rozet */}
         <MaliTakvimRozetMini />
 
@@ -150,9 +125,10 @@ export function App() {
               fontSize: 11,
               letterSpacing: "0.18em",
               textTransform: "uppercase",
-              color: TEMA.inkMuted,
-              fontWeight: 500,
+              color: firma.renk,
+              fontWeight: 600,
               marginBottom: 6,
+              opacity: 0.85,
             }}
           >
             Finansal Nabız · {firma.konum.split(" ")[0]}
@@ -222,13 +198,15 @@ export function App() {
                 hedefAylik={ozet.aylikHedef}
                 baslik="Gelir ve Kâr Trendi"
                 altBaslik={`Aylık karşılaştırmalı performans · ort ${fmtTL(ozet.yillikCiro / 12)}`}
+                accent={firma.renk}
               />
 
               <YoneticiOzeti
                 baslik="Yönetici Özeti"
                 altBaslik="Bu dönem performansı"
+                accent={firma.renk}
                 satirlar={[
-                  { etiket: "Hedef Gerçekleşme", yuzde: ozet.hedefGerceklesme, renk: "mavi" },
+                  { etiket: "Hedef Gerçekleşme", yuzde: ozet.hedefGerceklesme, renk: "accent" },
                   { etiket: "Operasyonel Verimlilik", yuzde: ozet.operasyonel, renk: "yesil" },
                   { etiket: "Nakit Yeterliliği", yuzde: ozet.nakitYeterliligi, renk: "altin" },
                 ]}
@@ -334,8 +312,6 @@ export function App() {
   );
 }
 
-// Sayfa iskeleti — diğer sekmeler için placeholder
-// Lovable brief paketinden takip eden sayfalar buraya bağlanacak.
 function SayfaIskelet({ sekme }: { sekme: Sekme }) {
   const baslik =
     sekme === "akis"
