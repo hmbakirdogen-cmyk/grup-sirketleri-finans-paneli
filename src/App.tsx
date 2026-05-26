@@ -12,6 +12,7 @@ import { EliteHeader } from "./components/dash/EliteHeader";
 import { MaliTakvimRozetMini } from "./components/dash/MaliTakvimRozetMini";
 import { MansetBandi } from "./components/dash/MansetBandi";
 import { CommandPalette } from "./components/dash/CommandPalette";
+import { AiAsistanFAB } from "./components/dash/AiAsistanFAB";
 import type { Sekme } from "./components/dash/SekmeNav";
 import { NabizSayfasi } from "./pages/NabizSayfasi";
 import { AkisSayfasi } from "./pages/AkisSayfasi";
@@ -162,6 +163,9 @@ export function App() {
           <span>Grup Şirketleri · MEBA · MESA · ELMOS · ARKON</span>
         </footer>
       </div>
+
+      {/* AI Asistan FAB — sağ alt sabit, Cmd+K */}
+      <AiAsistanFAB accent={firma.renk} onClick={() => setPaletAcik(true)} />
 
       {/* Sonner Toaster mount — notify.* buradan render */}
       <Toaster
