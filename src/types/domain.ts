@@ -126,6 +126,24 @@ export interface CekSenet {
   not?: string;
 }
 
+/** Personel verimlilik — Logo Go bordro + satış modülünden türetilen kayıt. */
+export interface Personel {
+  id: string;
+  ad: string;
+  rol: string;
+  bolum: "Satış" | "Operasyon" | "Mali İşler" | "Üretim" | "Yönetim";
+  /** ISO date — işe başlama */
+  baslangic: string;
+  /** Aylık brüt maaş (₺) */
+  brutMaas: number;
+  /** Aylık SGK işveren payı */
+  sgkIsveren: number;
+  /** Yıllık satış katkısı (sadece satış ekibi için anlamlı) */
+  yillikSatis?: number;
+  /** Aylık hedef (satış ekibi için) */
+  aylikHedef?: number;
+}
+
 /** Ürün marjı analizi — Logo Go fatura kalemlerinden türetilir.
  *  V1 muhasebe odaklı: ciro = satış fatura kalemleri, maliyet = alış kalemleri. */
 export interface UrunMarji {
@@ -156,6 +174,8 @@ export interface FirmaFinans {
   cekSenet: CekSenet[];
   /** Ürün/segment marjı analiz — Logo Go fatura kalemlerinden */
   urunMarji: UrunMarji[];
+  /** Personel listesi — Logo Go bordro modülünden */
+  personel: Personel[];
   bilanco: { aktif: MaliTabloKalemi[]; pasif: MaliTabloKalemi[] };
   gelirTablosu: MaliTabloKalemi[];
 }

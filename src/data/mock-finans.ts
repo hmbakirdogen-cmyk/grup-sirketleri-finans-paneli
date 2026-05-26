@@ -7,9 +7,53 @@ import type {
   MaliTabloKalemi,
   NakitGun,
   ParaHaritasiKategori,
+  Personel,
   UrunMarji,
   YilTrendNoktasi,
 } from "@/types/domain";
+
+// ===========================================================================
+// Personel mock (Logo Go bordro modülü)
+// ===========================================================================
+
+const MEBA_PERSONEL: Personel[] = [
+  { id: "p1", ad: "Mehmet Bakırdöğen", rol: "Genel Müdür", bolum: "Yönetim", baslangic: "2015-01-01", brutMaas: 145_000, sgkIsveren: 32_000 },
+  { id: "p2", ad: "Yusuf Bostancı", rol: "Satış Mühendisi", bolum: "Satış", baslangic: "2019-03-15", brutMaas: 78_000, sgkIsveren: 18_000, yillikSatis: 14_200_000, aylikHedef: 1_400_000 },
+  { id: "p3", ad: "Furkan Öztürk", rol: "Satış Temsilcisi", bolum: "Satış", baslangic: "2022-06-10", brutMaas: 52_000, sgkIsveren: 12_500, yillikSatis: 8_800_000, aylikHedef: 900_000 },
+  { id: "p4", ad: "Ayşe Demir", rol: "Muhasebe Sorumlusu", bolum: "Mali İşler", baslangic: "2018-11-20", brutMaas: 48_000, sgkIsveren: 11_200 },
+  { id: "p5", ad: "Ali Kaya", rol: "Depo Sorumlusu", bolum: "Operasyon", baslangic: "2020-04-05", brutMaas: 34_000, sgkIsveren: 8_500 },
+  { id: "p6", ad: "Fatma Şahin", rol: "Sipariş Operatörü", bolum: "Operasyon", baslangic: "2023-09-01", brutMaas: 28_500, sgkIsveren: 7_200 },
+];
+
+const MESA_PERSONEL: Personel[] = [
+  { id: "p1", ad: "Mehmet Maraş", rol: "Genel Müdür", bolum: "Yönetim", baslangic: "2008-01-01", brutMaas: 220_000, sgkIsveren: 48_000 },
+  { id: "p2", ad: "Fatih Lazoğlu", rol: "Teknik Müdür", bolum: "Yönetim", baslangic: "2008-01-01", brutMaas: 195_000, sgkIsveren: 42_000 },
+  { id: "p3", ad: "Mustafa Yılmaz", rol: "Kıdemli PLC Mühendisi", bolum: "Operasyon", baslangic: "2012-05-15", brutMaas: 125_000, sgkIsveren: 28_500 },
+  { id: "p4", ad: "Hakan Çelik", rol: "SCADA Mühendisi", bolum: "Operasyon", baslangic: "2016-08-20", brutMaas: 98_000, sgkIsveren: 22_500 },
+  { id: "p5", ad: "Emre Aksoy", rol: "Saha Mühendisi", bolum: "Operasyon", baslangic: "2019-02-10", brutMaas: 82_000, sgkIsveren: 19_000 },
+  { id: "p6", ad: "Selin Korkmaz", rol: "Kıdemli Satış Mühendisi", bolum: "Satış", baslangic: "2014-07-01", brutMaas: 110_000, sgkIsveren: 25_500, yillikSatis: 38_400_000, aylikHedef: 3_600_000 },
+  { id: "p7", ad: "Burak Doğan", rol: "Satış Mühendisi", bolum: "Satış", baslangic: "2020-10-15", brutMaas: 72_000, sgkIsveren: 17_000, yillikSatis: 14_200_000, aylikHedef: 1_300_000 },
+  { id: "p8", ad: "Zeynep Acar", rol: "Mali İşler Müdürü", bolum: "Mali İşler", baslangic: "2015-03-01", brutMaas: 95_000, sgkIsveren: 21_500 },
+];
+
+const ELMOS_PERSONEL: Personel[] = [
+  { id: "p1", ad: "Ahmet Esmeray", rol: "Genel Müdür", bolum: "Yönetim", baslangic: "2014-01-01", brutMaas: 215_000, sgkIsveren: 47_000 },
+  { id: "p2", ad: "Cem Aydın", rol: "Üretim Müdürü", bolum: "Üretim", baslangic: "2015-04-10", brutMaas: 145_000, sgkIsveren: 32_500 },
+  { id: "p3", ad: "Ferhat Yıldız", rol: "Tasarım Mühendisi", bolum: "Üretim", baslangic: "2017-06-15", brutMaas: 108_000, sgkIsveren: 24_500 },
+  { id: "p4", ad: "Murat Şen", rol: "CNC Operatörü", bolum: "Üretim", baslangic: "2018-09-20", brutMaas: 64_000, sgkIsveren: 15_000 },
+  { id: "p5", ad: "Kemal Yılmaz", rol: "Montaj Sorumlusu", bolum: "Üretim", baslangic: "2019-02-01", brutMaas: 58_000, sgkIsveren: 13_500 },
+  { id: "p6", ad: "Esra Tunç", rol: "Satış Mühendisi", bolum: "Satış", baslangic: "2020-08-15", brutMaas: 88_000, sgkIsveren: 20_500, yillikSatis: 24_600_000, aylikHedef: 2_200_000 },
+  { id: "p7", ad: "Onur Karaca", rol: "Bakım Tekniker", bolum: "Operasyon", baslangic: "2021-11-10", brutMaas: 52_000, sgkIsveren: 12_000 },
+];
+
+const ARKON_PERSONEL: Personel[] = [
+  { id: "p1", ad: "Fatih (Konya)", rol: "Genel Müdür", bolum: "Yönetim", baslangic: "2010-01-01", brutMaas: 175_000, sgkIsveren: 38_500 },
+  { id: "p2", ad: "Serdar Kılıç", rol: "Otomasyon Müdürü", bolum: "Operasyon", baslangic: "2012-03-20", brutMaas: 128_000, sgkIsveren: 29_000 },
+  { id: "p3", ad: "Mehmet Polat", rol: "Vision Mühendisi", bolum: "Operasyon", baslangic: "2016-07-15", brutMaas: 102_000, sgkIsveren: 23_500 },
+  { id: "p4", ad: "Tolga Aksu", rol: "PLC + Motion Mühendisi", bolum: "Operasyon", baslangic: "2018-10-01", brutMaas: 88_000, sgkIsveren: 20_500 },
+  { id: "p5", ad: "Gizem Eren", rol: "Satış Mühendisi", bolum: "Satış", baslangic: "2019-05-12", brutMaas: 78_000, sgkIsveren: 18_000, yillikSatis: 13_200_000, aylikHedef: 1_300_000 },
+  { id: "p6", ad: "Yusuf Aydın", rol: "Saha Tekniker", bolum: "Operasyon", baslangic: "2022-01-15", brutMaas: 48_000, sgkIsveren: 11_500 },
+];
 
 // ===========================================================================
 // Çek/Senet mock üretici
@@ -418,6 +462,7 @@ const MEBA_FINANS: FirmaFinans = {
     1_200,
     ["ELMOS Otomasyon", "MESA Enerji", "Kayseri OSB A", "Konya Bayi", "Ankara Dağıtım"],
   ),
+  personel: MEBA_PERSONEL,
   bilanco: bilancoOrnegi(24_800_000, 8_400_000, 14_200_000, 19_000_000),
   gelirTablosu: gelirTablosuOrnegi(29_540_000, 16.3),
 };
@@ -482,6 +527,7 @@ const MESA_FINANS: FirmaFinans = {
     18,
     ["Endüstri Tesisleri A", "Su Kurumu", "Enerji Dağıtım", "OSB Fabrika B", "Bakım Müşterileri"],
   ),
+  personel: MESA_PERSONEL,
   bilanco: bilancoOrnegi(38_400_000, 14_200_000, 19_800_000, 32_800_000),
   gelirTablosu: gelirTablosuOrnegi(52_600_000, 23.4),
 };
@@ -548,6 +594,7 @@ const ELMOS_FINANS: FirmaFinans = {
     9,
     ["OSB Sanayi A", "OSB Sanayi B", "Yurt Dışı Sipariş", "MESA Enerji", "Servis Müşterileri"],
   ),
+  personel: ELMOS_PERSONEL,
   bilanco: bilancoOrnegi(31_200_000, 16_800_000, 18_400_000, 29_600_000),
   gelirTablosu: gelirTablosuOrnegi(43_200_000, 19.8),
 };
@@ -612,6 +659,7 @@ const ARKON_FINANS: FirmaFinans = {
     12,
     ["Konya OSB A", "Konya OSB B", "Aksaray Sanayi", "Niğde Müşteri", "Vision Proje"],
   ),
+  personel: ARKON_PERSONEL,
   bilanco: bilancoOrnegi(16_800_000, 7_200_000, 11_400_000, 12_600_000),
   gelirTablosu: gelirTablosuOrnegi(22_000_000, 17.2),
 };
