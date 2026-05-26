@@ -99,6 +99,33 @@ export interface YilTrendNoktasi {
   hedef: number;
 }
 
+/** Türk B2B çek/senet portföyü — Logo Go cari modülünde mevcut veri.
+ *  Mehmet Bey vurgu: Türk muhasebede kritik modül. */
+export type CekSenetTip = "cek" | "senet";
+export type CekSenetYon = "gelen" | "verilen";
+export type CekSenetDurum =
+  | "portfoyde"        // henüz vadesi gelmedi
+  | "tahsilatta"        // bankaya verildi, tahsil edilecek
+  | "tahsil-edildi"     // tahsil edildi (kapalı)
+  | "karsiliksiz"       // karşılıksız çıktı (sorun)
+  | "iade";             // iade edildi
+
+export interface CekSenet {
+  id: string;
+  tip: CekSenetTip;
+  yon: CekSenetYon;
+  /** Çek/senedi veren veya verilen cari */
+  cari: string;
+  banka: string;
+  /** Çek numarası veya senet referansı */
+  belgeNo: string;
+  tutar: number;
+  /** ISO date — vade tarihi */
+  vade: string;
+  durum: CekSenetDurum;
+  not?: string;
+}
+
 export interface FirmaFinans {
   firmaId: FirmaId;
   son12Ay: AylikKpi[];
@@ -107,6 +134,8 @@ export interface FirmaFinans {
   paraHaritasi: ParaHaritasiKategori[];
   nakit90Gun: NakitGun[];
   cariler: Cari[];
+  /** Çek/senet portföyü (alacak + verilen) */
+  cekSenet: CekSenet[];
   bilanco: { aktif: MaliTabloKalemi[]; pasif: MaliTabloKalemi[] };
   gelirTablosu: MaliTabloKalemi[];
 }

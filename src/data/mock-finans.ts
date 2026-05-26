@@ -1,6 +1,7 @@
 import type {
   AylikKpi,
   Cari,
+  CekSenet,
   FirmaFinans,
   FirmaId,
   MaliTabloKalemi,
@@ -8,6 +9,107 @@ import type {
   ParaHaritasiKategori,
   YilTrendNoktasi,
 } from "@/types/domain";
+
+// ===========================================================================
+// Çek/Senet mock üretici
+// ===========================================================================
+
+const BANKALAR_KOBI = [
+  "Ziraat Bankası",
+  "Türkiye İş Bankası",
+  "Yapı Kredi",
+  "Garanti BBVA",
+  "QNB Finansbank",
+  "Halkbank",
+  "DenizBank",
+  "Kuveyt Türk",
+];
+
+function uretCekSenet(
+  alacakCariler: string[],
+  borcCariler: string[],
+  ortalamaTutar: number,
+): CekSenet[] {
+  const portfoy: CekSenet[] = [];
+  const bugun = new Date("2026-05-27");
+
+  // 8 gelen (alacak) çek/senet — vadesi gelecek + 2 yakın geçmiş
+  alacakCariler.forEach((c, i) => {
+    const vadeGun = i < 5 ? 7 + i * 11 : 90 + (i - 5) * 30; // 7, 18, 29, 40, 51 gün + uzun vadeli
+    const tarih = new Date(bugun);
+    tarih.setDate(bugun.getDate() + vadeGun);
+    const tip: "cek" | "senet" = i % 3 === 0 ? "senet" : "cek";
+    const tutar = Math.round(ortalamaTutar * (0.5 + (i / alacakCariler.length) * 1.5));
+    portfoy.push({
+      id: `a${i + 1}`,
+      tip,
+      yon: "gelen",
+      cari: c,
+      banka: BANKALAR_KOBI[i % BANKALAR_KOBI.length]!,
+      belgeNo: `${tip === "cek" ? "C" : "S"}${20260000 + i * 137}`,
+      tutar,
+      vade: tarih.toISOString().slice(0, 10),
+      durum: "portfoyde",
+    });
+  });
+
+  // 2 tahsil edilen yakın geçmişten (kapalı)
+  alacakCariler.slice(0, 2).forEach((c, i) => {
+    const tarih = new Date(bugun);
+    tarih.setDate(bugun.getDate() - (5 + i * 9));
+    portfoy.push({
+      id: `at${i + 1}`,
+      tip: "cek",
+      yon: "gelen",
+      cari: c,
+      banka: BANKALAR_KOBI[(i + 3) % BANKALAR_KOBI.length]!,
+      belgeNo: `C${20259500 + i * 211}`,
+      tutar: Math.round(ortalamaTutar * 0.8),
+      vade: tarih.toISOString().slice(0, 10),
+      durum: "tahsil-edildi",
+    });
+  });
+
+  // 1 karşılıksız (uyarı satırı)
+  if (alacakCariler.length > 0) {
+    const tarih = new Date(bugun);
+    tarih.setDate(bugun.getDate() - 18);
+    portfoy.push({
+      id: "ak1",
+      tip: "cek",
+      yon: "gelen",
+      cari: alacakCariler[alacakCariler.length - 1]!,
+      banka: BANKALAR_KOBI[2]!,
+      belgeNo: "C20259244",
+      tutar: Math.round(ortalamaTutar * 0.6),
+      vade: tarih.toISOString().slice(0, 10),
+      durum: "karsiliksiz",
+      not: "İcra takip dosyası açıldı",
+    });
+  }
+
+  // 5 verilen (borç) çek/senet — kendi yazdığımız
+  borcCariler.forEach((c, i) => {
+    const vadeGun = 14 + i * 22;
+    const tarih = new Date(bugun);
+    tarih.setDate(bugun.getDate() + vadeGun);
+    const tip: "cek" | "senet" = i % 2 === 0 ? "cek" : "senet";
+    const tutar = Math.round(ortalamaTutar * 0.7 * (0.6 + i * 0.25));
+    portfoy.push({
+      id: `v${i + 1}`,
+      tip,
+      yon: "verilen",
+      cari: c,
+      banka: BANKALAR_KOBI[(i + 1) % BANKALAR_KOBI.length]!,
+      belgeNo: `${tip === "cek" ? "VC" : "VS"}${20260100 + i * 89}`,
+      tutar,
+      vade: tarih.toISOString().slice(0, 10),
+      durum: "portfoyde",
+    });
+  });
+
+  return portfoy;
+}
 
 const TAKVIM_AYLAR = [
   "Oca", "Şub", "Mar", "Nis", "May", "Haz",
@@ -258,6 +360,11 @@ const MEBA_FINANS: FirmaFinans = {
     ["SMC Türkiye", "Lojistik A.Ş.", "OSB Ofis Hizmetleri"],
     18_000_000,
   ),
+  cekSenet: uretCekSenet(
+    ["ELMOS Otomasyon", "MESA Enerji", "Kayseri OSB A", "Konya Bayi", "Ankara Dağıtım", "Sivas Yedek", "Aksaray Sanayi", "Niğde Müşteri"],
+    ["SMC Türkiye", "Lojistik A.Ş.", "OSB Ofis Hizmetleri", "Banka Kredi", "Sigorta"],
+    340_000,
+  ),
   bilanco: bilancoOrnegi(24_800_000, 8_400_000, 14_200_000, 19_000_000),
   gelirTablosu: gelirTablosuOrnegi(29_540_000, 16.3),
 };
@@ -300,6 +407,11 @@ const MESA_FINANS: FirmaFinans = {
     ["Endüstri Tesisleri A", "Su Kurumu", "Enerji Dağıtım", "OSB Fabrika B", "Bakım Müşterileri"],
     ["ELMOS Otomasyon", "MEBA Mekanik", "Yurt dışı tedarikçi"],
     32_000_000,
+  ),
+  cekSenet: uretCekSenet(
+    ["Endüstri Tesisleri A", "Su Kurumu", "Enerji Dağıtım", "OSB Fabrika B", "Bakım Müşterileri", "Yurt Dışı A", "Sanayi C", "Petrokimya"],
+    ["ELMOS Otomasyon", "MEBA Mekanik", "Yurt dışı tedarikçi", "Banka Kredi", "Sigorta"],
+    580_000,
   ),
   bilanco: bilancoOrnegi(38_400_000, 14_200_000, 19_800_000, 32_800_000),
   gelirTablosu: gelirTablosuOrnegi(52_600_000, 23.4),
@@ -346,6 +458,11 @@ const ELMOS_FINANS: FirmaFinans = {
     ["MEBA Mekanik", "Çelik Tedarik", "Yurt dışı komponent"],
     25_000_000,
   ),
+  cekSenet: uretCekSenet(
+    ["OSB Sanayi A", "OSB Sanayi B", "Yurt Dışı Sipariş", "MESA Enerji", "Servis Müşterileri", "Otomotiv Yan Sanayi", "Beyaz Eşya", "Tarım Makine"],
+    ["MEBA Mekanik", "Çelik Tedarik", "Yurt dışı komponent", "Banka Kredi", "Sigorta"],
+    460_000,
+  ),
   bilanco: bilancoOrnegi(31_200_000, 16_800_000, 18_400_000, 29_600_000),
   gelirTablosu: gelirTablosuOrnegi(43_200_000, 19.8),
 };
@@ -388,6 +505,11 @@ const ARKON_FINANS: FirmaFinans = {
     ["Konya OSB A", "Konya OSB B", "Aksaray Sanayi", "Niğde Müşteri", "Vision Proje"],
     ["Lenze TR", "Honeywell TR", "Phoenix TR"],
     14_000_000,
+  ),
+  cekSenet: uretCekSenet(
+    ["Konya OSB A", "Konya OSB B", "Aksaray Sanayi", "Niğde Müşteri", "Vision Proje", "Çevre İl Sanayi", "Karaman Üretim", "Tarım Otomasyon"],
+    ["Lenze TR", "Honeywell TR", "Phoenix TR", "Banka Kredi", "Sigorta"],
+    240_000,
   ),
   bilanco: bilancoOrnegi(16_800_000, 7_200_000, 11_400_000, 12_600_000),
   gelirTablosu: gelirTablosuOrnegi(22_000_000, 17.2),
