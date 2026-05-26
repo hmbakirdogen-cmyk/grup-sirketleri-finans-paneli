@@ -10,6 +10,7 @@ export const FIRMALAR: Record<FirmaId, Firma> = {
     web: "mebamekanik.com.tr",
     renk: "#0ea5e9",
     kurulus: 2015,
+    logoDosya: "logo-meba.png",
   },
   mesa: {
     id: "mesa",
@@ -20,6 +21,7 @@ export const FIRMALAR: Record<FirmaId, Firma> = {
     web: "mesaenerji.com.tr",
     renk: "#8b5cf6",
     kurulus: 2008,
+    logoDosya: "logo-mesa.png",
   },
   elmos: {
     id: "elmos",
@@ -30,6 +32,7 @@ export const FIRMALAR: Record<FirmaId, Firma> = {
     web: "elmos.com.tr",
     renk: "#10b981",
     kurulus: 2014,
+    logoDosya: "logo-elmos.png",
   },
   arkon: {
     id: "arkon",
@@ -40,8 +43,15 @@ export const FIRMALAR: Record<FirmaId, Firma> = {
     web: "arkonotomasyon.com.tr",
     renk: "#f59e0b",
     kurulus: 2010,
+    logoDosya: "logo-arkon.svg",
   },
 };
+
+/** Helper: firma için logo URL'i veya null */
+export function firmaLogoUrl(firmaId: FirmaId): string | null {
+  const f = FIRMALAR[firmaId];
+  return f.logoDosya ? `/firma-logo/${f.logoDosya}` : null;
+}
 
 export const ORTAKLIK_MATRISI: Record<FirmaId, OrtaklikPay[]> = {
   mesa: [

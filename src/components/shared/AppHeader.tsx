@@ -24,8 +24,42 @@ import {
   Bell,
 } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
-import { FIRMALAR } from "@/data/firmalar";
+import { FIRMALAR, firmaLogoUrl } from "@/data/firmalar";
 import type { FirmaId } from "@/types/domain";
+
+interface FirmaLogoOrInitialProps {
+  firmaId: FirmaId;
+  boyut?: number;
+}
+
+function FirmaLogoOrInitial({ firmaId, boyut = 24 }: FirmaLogoOrInitialProps) {
+  const firma = FIRMALAR[firmaId];
+  const logoUrl = firmaLogoUrl(firmaId);
+
+  if (logoUrl) {
+    return (
+      <span
+        className="grid place-items-center rounded-md overflow-hidden shrink-0 bg-white"
+        style={{ width: boyut, height: boyut }}
+      >
+        <img
+          src={logoUrl}
+          alt={firma.kisaAd}
+          className="w-full h-full object-contain p-0.5"
+        />
+      </span>
+    );
+  }
+
+  return (
+    <span
+      className="grid place-items-center rounded-md text-[10px] font-bold text-white shrink-0"
+      style={{ width: boyut, height: boyut, background: firma.renk }}
+    >
+      {firma.kisaAd.slice(0, 2)}
+    </span>
+  );
+}
 
 interface NavItem {
   to: string;
@@ -128,12 +162,7 @@ export function AppHeader() {
             style={GLASS_CHIP_STYLE}
             aria-label="Firma seçici"
           >
-            <span
-              className="grid h-6 w-6 place-items-center rounded-md text-[10px] font-bold text-white shrink-0"
-              style={{ background: aktifFirmaData.renk }}
-            >
-              {aktifFirmaData.kisaAd.slice(0, 2)}
-            </span>
+            <FirmaLogoOrInitial firmaId={aktifFirma} boyut={24} />
             <span className="text-[13px] font-semibold text-zinc-100 truncate max-w-[180px]">
               {aktifFirmaData.kisaAd}
             </span>
@@ -185,12 +214,7 @@ export function AppHeader() {
                         background: aktif ? "rgba(255,255,255,0.04)" : "transparent",
                       }}
                     >
-                      <span
-                        className="grid h-8 w-8 place-items-center rounded-lg text-[11px] font-bold text-white shrink-0"
-                        style={{ background: f.renk }}
-                      >
-                        {f.kisaAd.slice(0, 2)}
-                      </span>
+                      <FirmaLogoOrInitial firmaId={fId} boyut={32} />
                       <div className="flex-1 min-w-0">
                         <div className="text-[13px] font-semibold text-zinc-100">{f.kisaAd}</div>
                         <div className="text-[10px] text-zinc-500 truncate">{f.isKolu}</div>

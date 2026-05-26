@@ -18,6 +18,8 @@ export interface Firma {
   web: string;
   renk: string;
   kurulus: number;
+  /** public/firma-logo/ altındaki dosya adı (örn: "logo-meba.png") */
+  logoDosya?: string;
 }
 
 export interface OrtaklikPay {
