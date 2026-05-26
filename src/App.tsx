@@ -1,13 +1,17 @@
 // App — Grup Şirketleri Finans Paneli ana orkestratör.
-// 6 sayfa: Nabız / Akış / Alacaklar / Raporlar / Vergi Atölyesi / Ayarlar.
-// Aktif firmaya göre CSS var --accent dinamik kayar (5 renk diski + 4 firma kimliği).
+// 7 sayfa: Nabız / Akış / Alacaklar / Raporlar / Vergi / Konsolide / Ayarlar.
+// + Toaster (sonner), CommandPalette (Cmd+K), MansetBandi.
+// Aktif firmaya göre CSS var --accent dinamik kayar.
 
 import { useState } from "react";
+import { Toaster } from "sonner";
 import { FIRMALAR } from "./data/firmalar";
 import { FINANS_VERISI } from "./data/mock-finans";
 import { KULLANICILAR } from "./data/kullanicilar";
 import { EliteHeader } from "./components/dash/EliteHeader";
 import { MaliTakvimRozetMini } from "./components/dash/MaliTakvimRozetMini";
+import { MansetBandi } from "./components/dash/MansetBandi";
+import { CommandPalette } from "./components/dash/CommandPalette";
 import type { Sekme } from "./components/dash/SekmeNav";
 import { NabizSayfasi } from "./pages/NabizSayfasi";
 import { AkisSayfasi } from "./pages/AkisSayfasi";
@@ -16,17 +20,40 @@ import { RaporlarSayfasi } from "./pages/RaporlarSayfasi";
 import { VergiAtolyesiSayfasi } from "./pages/VergiAtolyesiSayfasi";
 import { KonsolideSayfasi } from "./pages/KonsolideSayfasi";
 import { AyarlarSayfasi } from "./pages/AyarlarSayfasi";
+import { notify } from "./lib/notify";
 import { TEMA, FONT } from "./lib/tema";
 import type { FirmaId } from "./types/domain";
 
-const aktifKullanici = KULLANICILAR["mehmet-maras"]!; // Çekirdek ortak (4 firma)
+const aktifKullanici = KULLANICILAR["mehmet-maras"]!;
 
 export function App() {
   const [aktif, setAktif] = useState<FirmaId>("meba");
   const [sekme, setSekme] = useState<Sekme>("nabiz");
+  const [paletAcik, setPaletAcik] = useState(false);
 
   const firma = FIRMALAR[aktif];
   const finans = FINANS_VERISI[aktif];
+
+  function senkronTetikle() {
+    const startMs = performance.now();
+    notify.info("Logo Go senkronizasyonu başlatıldı", {
+      description: "MESA server'a bağlanılıyor…",
+    });
+    // Simüle: 1.5sn sonra başarı
+    setTimeout(() => {
+      const sn = ((performance.now() - startMs) / 1000).toFixed(1);
+      notify.success(`Senkronizasyon tamam · ${sn} sn`, {
+        description: "47 yeni fatura · 12 yeni cari · 3 yeni hareket",
+        aiAction: {
+          label: "Sapma raporu hazırla",
+          onAccept: () =>
+            notify.info("AI sapma raporu hazırlanıyor", {
+              description: "Anlık marj sapması ve nakit pozisyon analizi tamamlanınca bildirilecek.",
+            }),
+        },
+      });
+    }, 1500);
+  }
 
   return (
     <div
@@ -46,6 +73,18 @@ export function App() {
         erisilebilirFirmalar={aktifKullanici.firmaIzin}
         onFirmaSec={setAktif}
         aktifKullanici={aktifKullanici}
+        onSearchClick={() => setPaletAcik(true)}
+        onSyncClick={senkronTetikle}
+      />
+
+      <CommandPalette
+        open={paletAcik}
+        onOpenChange={setPaletAcik}
+        aktifFirma={aktif}
+        erisilebilirFirmalar={aktifKullanici.firmaIzin}
+        konsolideErisim={aktifKullanici.konsolideGorur}
+        onSekmeSec={setSekme}
+        onFirmaSec={setAktif}
       />
 
       <div
@@ -56,6 +95,7 @@ export function App() {
         }}
       >
         <MaliTakvimRozetMini />
+        <MansetBandi />
 
         {sekme === "nabiz" && <NabizSayfasi firma={firma} finans={finans} />}
         {sekme === "akis" && <AkisSayfasi firma={firma} finans={finans} />}
@@ -118,6 +158,14 @@ export function App() {
           <span>Grup Şirketleri · MEBA · MESA · ELMOS · ARKON</span>
         </footer>
       </div>
+
+      {/* Sonner Toaster mount — notify.* buradan render */}
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          style: { background: "transparent", border: "none", padding: 0, boxShadow: "none" },
+        }}
+      />
 
       <style>{`
         [data-anim] {

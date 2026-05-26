@@ -84,6 +84,8 @@ interface Props {
   aktifKullanici: Kullanici;
   /** Cmd+K palette açma callback'i */
   onSearchClick?: () => void;
+  /** "Senkron" buton tıklama */
+  onSyncClick?: () => void;
 }
 
 export function EliteHeader({
@@ -94,6 +96,7 @@ export function EliteHeader({
   onFirmaSec,
   aktifKullanici,
   onSearchClick,
+  onSyncClick,
 }: Props) {
   const firma = FIRMALAR[aktifFirma];
   const adKisa = aktifKullanici.hitap;
@@ -536,6 +539,7 @@ export function EliteHeader({
         <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 8 }}>
           <button
             type="button"
+            onClick={onSyncClick}
             style={{
               position: "relative",
               display: "inline-flex",

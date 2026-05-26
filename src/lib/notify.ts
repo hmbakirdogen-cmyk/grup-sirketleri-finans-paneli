@@ -1,21 +1,10 @@
-// Notify — Sonner üzerinde AI aksiyon + Cmd+Z global undo + stacking toast
-// MEBA Komuta Merkezi'nden aktarıldı (2026-05-26 Sprint 1).
-//
-// Özellikler:
-// - Sağ-üst stack (Türk evrak protokolü: imza-tarih sağ-üst)
-// - AI aksiyon butonu ("MEBA nakit forecast güncellendi — sapma raporu açayım mı?")
-// - ⌘Z global undo (son 1 undo callback'i tetiklenir)
-// - 8sn auto-dismiss varsayılan
-// - 4 seviye: success / info / warning / error
+// notify — Sonner üzerinde grup paneli için sade toast altyapısı.
+// MEBA notify.ts'ten adapte; iconify → lucide, Anadolu iş dili.
 //
 // Kullanım:
-//   notify.success("MEBA 2026-05 hedef güncellendi");
-//   notify.warning("Logo Go sync 4 dakika geç kaldı", {
-//     aiAction: { label: "Tekrar dene", onAccept: () => syncTekrar() }
-//   });
-//   notify.info("Cari silindi", {
-//     undo: { onUndo: () => geriAl(silinenId) }
-//   });
+//   notify.success("Logo Go senkronize edildi");
+//   notify.warning("Açık alacaklar yüksek", { description: "ELMOS Otomasyon 4.4M ₺" });
+//   notify.info("Yeni mali takvim girdisi", { aiAction: { label: "Detay", onAccept: () => ... } });
 
 import { toast as sonnerToast } from "sonner";
 import { createElement } from "react";
@@ -25,33 +14,27 @@ import {
   AlertTriangle,
   AlertOctagon,
   Sparkles,
-  Undo2,
   X,
 } from "lucide-react";
 
 interface NotifyOpts {
   description?: string;
-  /** AI önerisi — küçük buton olarak gösterilir, kabul edilirse onAccept tetiklenir */
+  /** AI önerisi — küçük buton; kabul edilirse onAccept çağrılır */
   aiAction?: {
     label: string;
     onAccept: () => void;
   };
-  /** Geri al — ⌘Z ile veya buton tıkla */
-  undo?: {
-    label?: string;
-    onUndo: () => void;
-  };
-  /** Süre — varsayılan 8sn */
+  /** Süre — ms, default 6 sn */
   duration?: number;
 }
 
 type Seviye = "success" | "info" | "warning" | "error";
 
 const SEVIYE_AYAR: Record<Seviye, { renk: string; Icon: typeof CheckCircle2 }> = {
-  success: { renk: "#22c55e", Icon: CheckCircle2 },
-  info: { renk: "#0ea5e9", Icon: Info },
-  warning: { renk: "#f59e0b", Icon: AlertTriangle },
-  error: { renk: "#ef4444", Icon: AlertOctagon },
+  success: { renk: "#4ade80", Icon: CheckCircle2 },
+  info: { renk: "#5b9dff", Icon: Info },
+  warning: { renk: "#d4af7a", Icon: AlertTriangle },
+  error: { renk: "#f87171", Icon: AlertOctagon },
 };
 
 function aiActionRender(ai: { label: string; onAccept: () => void }, dismiss: () => void) {
@@ -63,97 +46,108 @@ function aiActionRender(ai: { label: string; onAccept: () => void }, dismiss: ()
         ai.onAccept();
         dismiss();
       },
-      className:
-        "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.98]",
       style: {
-        background: "linear-gradient(135deg, #8b5cf6, #a855f7)",
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 6,
+        padding: "5px 10px",
+        borderRadius: 8,
+        fontSize: 11,
+        fontWeight: 600,
+        color: "white",
+        cursor: "pointer",
+        border: "none",
+        background: "linear-gradient(135deg, #8b5cf6, #a78bfa)",
         boxShadow: "0 2px 6px rgba(139, 92, 246, 0.3)",
       },
     },
-    createElement(Sparkles, { size: 12 }),
+    createElement(Sparkles, { size: 11 }),
     ai.label,
   );
 }
 
-function undoRender(undo: { label?: string; onUndo: () => void }, dismiss: () => void) {
-  return createElement(
-    "button",
-    {
-      type: "button",
-      onClick: () => {
-        undo.onUndo();
-        dismiss();
-      },
-      className:
-        "inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-semibold text-zinc-400 hover:text-zinc-100 border border-zinc-700 hover:bg-zinc-800 transition-colors uppercase tracking-wider",
-    },
-    createElement(Undo2, { size: 10 }),
-    undo.label ?? "Geri al",
-  );
-}
-
 function build(level: Seviye, message: string, opts?: NotifyOpts) {
-  const { renk, Icon: SeviyeIcon } = SEVIYE_AYAR[level];
-
-  // ⌘Z undo register
-  if (opts?.undo) {
-    sonUndoCallback = opts.undo.onUndo;
-  }
-
+  const { renk, Icon: Ic } = SEVIYE_AYAR[level];
   const id = sonnerToast.custom(
     (t) => {
       const dismiss = () => sonnerToast.dismiss(t);
-
       return createElement(
         "div",
         {
-          className:
-            "flex items-start gap-3 rounded-2xl border border-zinc-800 bg-zinc-950/95 backdrop-blur-xl p-3.5 min-w-[320px] max-w-[420px]",
           style: {
-            boxShadow: "0 12px 32px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.05)",
+            display: "flex",
+            alignItems: "flex-start",
+            gap: 12,
+            borderRadius: 14,
+            border: `1px solid rgba(255,255,255,0.06)`,
+            background: "rgba(15, 17, 22, 0.92)",
+            backdropFilter: "blur(20px) saturate(170%)",
+            padding: 14,
+            minWidth: 320,
+            maxWidth: 420,
+            boxShadow: "0 12px 32px rgba(0,0,0,0.40), inset 0 1px 0 rgba(255,255,255,0.05)",
+            fontFamily: "Inter, system-ui, sans-serif",
           },
         },
-        // İkon
         createElement(
           "div",
           {
-            className: "flex h-8 w-8 shrink-0 items-center justify-center rounded-xl",
-            style: { background: `${renk}1f`, color: renk },
+            style: {
+              display: "flex",
+              width: 32,
+              height: 32,
+              flexShrink: 0,
+              alignItems: "center",
+              justifyContent: "center",
+              borderRadius: 10,
+              background: `${renk}1f`,
+              color: renk,
+            },
           },
-          createElement(SeviyeIcon, { size: 18 }),
+          createElement(Ic, { size: 18 }),
         ),
-        // İçerik
         createElement(
           "div",
-          { className: "flex-1 min-w-0" },
+          { style: { flex: 1, minWidth: 0 } },
           createElement(
             "div",
             {
-              className: "font-semibold text-zinc-100 text-[13px] leading-snug",
+              style: {
+                fontWeight: 600,
+                color: "#f3f4f6",
+                fontSize: 13,
+                lineHeight: 1.4,
+              },
             },
             message,
           ),
           opts?.description &&
             createElement(
               "div",
-              { className: "text-[11px] text-zinc-400 mt-0.5 leading-snug" },
+              { style: { fontSize: 11.5, color: "#94a3b8", marginTop: 3, lineHeight: 1.45 } },
               opts.description,
             ),
-          (opts?.aiAction || opts?.undo) &&
+          opts?.aiAction &&
             createElement(
               "div",
-              { className: "flex items-center gap-1.5 mt-2.5" },
-              opts.aiAction ? aiActionRender(opts.aiAction, dismiss) : null,
-              opts.undo ? undoRender(opts.undo, dismiss) : null,
+              { style: { display: "flex", gap: 6, marginTop: 10 } },
+              aiActionRender(opts.aiAction, dismiss),
             ),
         ),
-        // Kapatma butonu
         createElement(
           "button",
           {
             type: "button",
             onClick: dismiss,
-            className: "shrink-0 text-zinc-500 hover:text-zinc-100 transition-colors",
+            style: {
+              flexShrink: 0,
+              background: "transparent",
+              border: "none",
+              color: "#64748b",
+              cursor: "pointer",
+              padding: 0,
+              transition: "color 180ms ease",
+            },
             "aria-label": "Bildirimi kapat",
           },
           createElement(X, { size: 16 }),
@@ -161,11 +155,10 @@ function build(level: Seviye, message: string, opts?: NotifyOpts) {
       );
     },
     {
-      duration: opts?.duration ?? 8000,
+      duration: opts?.duration ?? 6000,
       position: "top-right",
     },
   );
-
   return id;
 }
 
@@ -176,24 +169,3 @@ export const notify = {
   error: (m: string, o?: NotifyOpts) => build("error", m, o),
   dismiss: (id: string | number) => sonnerToast.dismiss(id),
 };
-
-// ⌘Z / Ctrl+Z global undo — son undo callback'i tetiklenir
-let sonUndoCallback: (() => void) | null = null;
-
-if (typeof window !== "undefined") {
-  window.addEventListener("keydown", (e) => {
-    const cmdZ = (e.metaKey || e.ctrlKey) && e.key === "z" && !e.shiftKey;
-    if (cmdZ && sonUndoCallback) {
-      const tag = (e.target as HTMLElement | null)?.tagName;
-      if (tag !== "INPUT" && tag !== "TEXTAREA") {
-        e.preventDefault();
-        sonUndoCallback();
-        sonUndoCallback = null;
-      }
-    }
-  });
-}
-
-export function registerUndo(cb: () => void): void {
-  sonUndoCallback = cb;
-}

@@ -1,13 +1,14 @@
 // AlacaklarSayfasi — açık cari takibi, vade dağılımı, riskli müşteriler.
 // Aynı 3D dil: KPI + 3D progress bar + tablo + AI yorum.
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Users, AlertTriangle, Wallet, Clock } from "lucide-react";
 import { KpiKart } from "@/components/dash/KpiKart";
 import { OzetKart } from "@/components/dash/OzetKart";
 import { YoneticiOzeti } from "@/components/dash/YoneticiOzeti";
+import { CariDetayDrawer } from "@/components/dash/CariDetayDrawer";
 import { TEMA, FONT, fmtTL } from "@/lib/tema";
-import type { Firma, FirmaFinans } from "@/types/domain";
+import type { Cari, Firma, FirmaFinans } from "@/types/domain";
 
 interface Props {
   firma: Firma;
@@ -15,6 +16,8 @@ interface Props {
 }
 
 export function AlacaklarSayfasi({ firma, finans }: Props) {
+  const [seciliCari, setSeciliCari] = useState<Cari | null>(null);
+
   const ozet = useMemo(() => {
     const musteriler = finans.cariler.filter((c) => c.tip === "musteri");
     const tedarikciler = finans.cariler.filter((c) => c.tip === "tedarikci");
@@ -199,19 +202,36 @@ export function AlacaklarSayfasi({ firma, finans }: Props) {
             const vadeAcil = c.vadesi <= 7;
             const vadeUyari = c.vadesi <= 30 && c.vadesi > 7;
             return (
-              <div
+              <button
                 key={c.id}
+                type="button"
+                onClick={() => setSeciliCari(c)}
                 style={{
                   display: "grid",
                   gridTemplateColumns: "1.6fr 1fr 1fr 80px",
                   gap: 12,
-                  padding: "10px 0",
+                  padding: "10px 8px",
                   borderBottom:
                     i === ozet.enBuyuk.length - 1 ? "none" : `1px solid rgba(255,255,255,0.03)`,
                   fontSize: 13,
                   alignItems: "center",
-                  transition: "background 180ms ease",
-                  borderRadius: 4,
+                  transition: "background 180ms ease, border-color 180ms ease",
+                  borderRadius: 8,
+                  cursor: "pointer",
+                  background: "transparent",
+                  border: "1px solid transparent",
+                  borderLeftWidth: 0,
+                  borderRightWidth: 0,
+                  color: TEMA.ink,
+                  textAlign: "left",
+                  width: "100%",
+                  fontFamily: FONT.ana,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "rgba(255,255,255,0.025)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "transparent";
                 }}
               >
                 <span
@@ -266,7 +286,7 @@ export function AlacaklarSayfasi({ firma, finans }: Props) {
                 >
                   {c.vadesi} gün
                 </span>
-              </div>
+              </button>
             );
           })}
         </div>
@@ -318,6 +338,12 @@ export function AlacaklarSayfasi({ firma, finans }: Props) {
           baglamRengi="notr"
         />
       </section>
+
+      <CariDetayDrawer
+        cari={seciliCari}
+        onClose={() => setSeciliCari(null)}
+        accent={firma.renk}
+      />
     </>
   );
 }
