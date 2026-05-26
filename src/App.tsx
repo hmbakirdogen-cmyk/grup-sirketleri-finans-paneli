@@ -14,6 +14,7 @@ import { AkisSayfasi } from "./pages/AkisSayfasi";
 import { AlacaklarSayfasi } from "./pages/AlacaklarSayfasi";
 import { RaporlarSayfasi } from "./pages/RaporlarSayfasi";
 import { VergiAtolyesiSayfasi } from "./pages/VergiAtolyesiSayfasi";
+import { KonsolideSayfasi } from "./pages/KonsolideSayfasi";
 import { AyarlarSayfasi } from "./pages/AyarlarSayfasi";
 import { TEMA, FONT } from "./lib/tema";
 import type { FirmaId } from "./types/domain";
@@ -61,6 +62,37 @@ export function App() {
         {sekme === "alacaklar" && <AlacaklarSayfasi firma={firma} finans={finans} />}
         {sekme === "raporlar" && <RaporlarSayfasi firma={firma} finans={finans} />}
         {sekme === "vergi" && <VergiAtolyesiSayfasi firma={firma} finans={finans} />}
+        {sekme === "grup" && aktifKullanici.konsolideGorur && <KonsolideSayfasi />}
+        {sekme === "grup" && !aktifKullanici.konsolideGorur && (
+          <div
+            style={{
+              padding: "60px 32px",
+              textAlign: "center",
+              background: `linear-gradient(180deg, ${TEMA.bgKart}, ${TEMA.bgKartAlt})`,
+              border: `1px solid ${TEMA.border}`,
+              borderRadius: 16,
+            }}
+          >
+            <div
+              style={{
+                fontSize: 11,
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                color: TEMA.altin,
+                fontWeight: 600,
+                marginBottom: 10,
+              }}
+            >
+              Erişim Sınırlı
+            </div>
+            <h2 style={{ fontSize: 22, fontWeight: 600, margin: 0, color: TEMA.ink }}>
+              Konsolide Grup yalnızca Çekirdek Ortaklara açık
+            </h2>
+            <p style={{ fontSize: 13, color: TEMA.inkSoft, marginTop: 8 }}>
+              Bu görünüm 4 firmanın hepsine yetkili olan ortaklar içindir.
+            </p>
+          </div>
+        )}
         {sekme === "ayarlar" && <AyarlarSayfasi firma={firma} aktifKullanici={aktifKullanici} />}
 
         <footer
