@@ -10,6 +10,7 @@ import { YoneticiOzeti } from "@/components/dash/YoneticiOzeti";
 import { ProgressRing } from "@/components/dash/ProgressRing";
 import { Chart3DBackdrop } from "@/components/dash/Chart3DBackdrop";
 import { FirmaHedefDuzenleModal } from "@/components/modals/FirmaHedefDuzenleModal";
+import { MuhasebeBriefKart } from "@/components/dash/MuhasebeBriefKart";
 import { TEMA, FONT, fmtTL, fmtYuzde } from "@/lib/tema";
 import type { Firma, FirmaFinans, Kullanici } from "@/types/domain";
 
@@ -325,6 +326,11 @@ export function NabizSayfasi({ firma, finans, aktifKullanici }: Props) {
           }
           baglamRengi={ozet.hedefGerceklesme >= 100 ? "iyi" : "notr"}
         />
+      </section>
+
+      {/* Aylık Muhasebe Brief — Osman Bey'in WhatsApp/email mesajı parse */}
+      <section style={{ marginTop: 20 }}>
+        <MuhasebeBriefKart />
       </section>
 
       <FirmaHedefDuzenleModal
