@@ -318,6 +318,42 @@ function gelirTablosuOrnegi(ciro: number, marj: number): MaliTabloKalemi[] {
   ];
 }
 
+// ===========================================================================
+// Ürün marjı mock — her firma için 10 ürün (Logo Go fatura kalemlerinden)
+// ===========================================================================
+
+interface UrunSablon {
+  kod: string;
+  ad: string;
+  segment: string;
+  birimFiyat: number;
+  marj: number;
+  trend: number;
+}
+
+function uretUrunMarji(
+  sablonlar: UrunSablon[],
+  satisOlcek: number,
+  topCariler: string[],
+): UrunMarji[] {
+  return sablonlar.map((s, i) => {
+    const adet = Math.max(1, Math.round(satisOlcek * (1 - i * 0.06)));
+    const ciro = adet * s.birimFiyat;
+    const maliyet = Math.round(ciro * (1 - s.marj / 100));
+    return {
+      kod: s.kod,
+      ad: s.ad,
+      segment: s.segment,
+      yillikSatisAdet: adet,
+      yillikCiro: ciro,
+      yillikMaliyet: maliyet,
+      marj: s.marj,
+      topMusteriler: topCariler.slice(0, 3),
+      trend: s.trend,
+    };
+  });
+}
+
 const MEBA_FINANS: FirmaFinans = {
   firmaId: "meba",
   son12Ay: uretKpi(2_400_000, 18.4, -2.1),
