@@ -1,11 +1,17 @@
-// AnaGrafik — MEBA TrendChart adaptasyonu.
-// 3D illüzyon kombinasyonu:
-//   - Shadow copy line (4px, blur(3px), translateY(6px)) → çizgi altında gölge
-//   - Glow filter (feGaussianBlur 3.2) → çizgi parıltısı
-//   - Multi-stop gradient stroke + area fill → hacim hissi
-//   - LabelList → her nokta üzerinde değer
+// AnaGrafik — MEBA TrendChart adaptasyonu, 3 yıllık karşılaştırma destekli.
 //
-// Chart3DBackdrop ile sarmalandığında broadcast moment tam olur.
+// 3D illüzyon kombinasyonu:
+//   - Shadow copy line (4px, blur(3px), translateY(7px)) → derinlik
+//   - Glow filter (feGaussianBlur 3.2) → çizgi parıltısı
+//   - Multi-stop gradient stroke + area fill → hacim
+//   - Drop depth filter → SVG düşüm gölgesi
+//
+// 3 yıl karşılaştırma (Mehmet Bey 2026-05-26 direktifi):
+//   - 2024 soluk gri Line (#475569), strokeWidth 1.25, dot yok
+//   - 2025 orta gri Line (#94a3b8), strokeWidth 1.75, dot yok
+//   - 2026 accent Area + Line + glow + shadow copy + dot (ana 3D efekti burada)
+//   - Hedef yatay referans (altın kesik)
+//   - Tooltip 3 yıl yan yana + Δ y/y delta rozet
 
 import { useMemo, useState } from "react";
 import {
@@ -19,39 +25,20 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { TEMA, FONT, fmtTL } from "@/lib/tema";
+import { TEMA, FONT, fmtTL, rengiKaristir } from "@/lib/tema";
+import type { YilTrendNoktasi } from "@/types/domain";
 
 interface Props {
-  veri: { ay: string; ciro: number }[];
-  hedefAylik?: number;
+  /** 3 yıllık karşılaştırma verisi (12 ay × 3 yıl) */
+  veri: YilTrendNoktasi[];
   baslik?: string;
   altBaslik?: string;
-  /** Aktif firmanın signature rengi — çizgi + dolgu bu renkten türetilir */
+  /** Aktif firmanın signature rengi — 2026 serisi bu renkten türetilir */
   accent?: string;
 }
 
-interface ChartDatum {
-  ay: string;
-  ciro: number;
-  hedef: number | null;
-}
-
-// Color helper — accent renginden açık/koyu varyant
-function rengiKaristir(renk: string, oran: number, hedef: "lighter" | "darker"): string {
-  // Basit hex → rgb → tone shift. accent #5b9dff gibi tam hex bekleniyor.
-  const r = parseInt(renk.slice(1, 3), 16);
-  const g = parseInt(renk.slice(3, 5), 16);
-  const b = parseInt(renk.slice(5, 7), 16);
-  const factor = hedef === "lighter" ? 1 + oran : 1 - oran;
-  const yeniR = Math.max(0, Math.min(255, Math.round(r * factor)));
-  const yeniG = Math.max(0, Math.min(255, Math.round(g * factor)));
-  const yeniB = Math.max(0, Math.min(255, Math.round(b * factor)));
-  return `rgb(${yeniR}, ${yeniG}, ${yeniB})`;
-}
-
 interface TooltipPayload {
-  value: number;
-  payload: ChartDatum;
+  payload: YilTrendNoktasi;
 }
 
 function CustomTooltip({
@@ -68,55 +55,83 @@ function CustomTooltip({
   if (!active || !payload?.length) return null;
   const row = payload[0]?.payload;
   if (!row) return null;
-  const hedef = row.hedef;
-  const delta = hedef !== null && hedef > 0 ? ((row.ciro - hedef) / hedef) * 100 : null;
+  const delta25_26 = row.y2025 > 0 ? ((row.y2026 - row.y2025) / row.y2025) * 100 : null;
+  const delta24_26 = row.y2024 > 0 ? ((row.y2026 - row.y2024) / row.y2024) * 100 : null;
 
   return (
     <div
       style={{
-        borderRadius: 12,
+        borderRadius: 14,
         border: `1px solid ${TEMA.border}`,
         background: "rgba(15, 17, 22, 0.92)",
         backdropFilter: "blur(20px) saturate(170%)",
-        boxShadow: "0 12px 32px rgba(0,0,0,0.40)",
-        padding: "10px 14px",
+        boxShadow: "0 16px 40px rgba(0,0,0,0.50)",
+        padding: "12px 16px 14px",
         fontSize: 12,
-        minWidth: 180,
+        minWidth: 230,
         fontFamily: FONT.ana,
       }}
     >
-      <div style={{ fontWeight: 600, color: TEMA.ink, marginBottom: 6 }}>{label} 2026</div>
-      <div style={{ display: "flex", flexDirection: "column", gap: 4, fontVariantNumeric: "tabular-nums" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", gap: 12 }}>
-          <span style={{ color: accent }}>● Gerçekleşen</span>
-          <span style={{ color: TEMA.ink, fontWeight: 600 }}>{fmtTL(row.ciro)}</span>
+      <div style={{ fontWeight: 700, color: TEMA.ink, marginBottom: 8, fontSize: 13 }}>
+        {label} ayı karşılaştırma
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 6,
+          fontVariantNumeric: "tabular-nums",
+        }}
+      >
+        <div style={satirStili}>
+          <span style={{ color: "#94a3b8" }}>● 2024</span>
+          <span style={{ color: TEMA.inkSoft }}>{fmtTL(row.y2024)}</span>
         </div>
-        {hedef !== null && (
-          <div style={{ display: "flex", justifyContent: "space-between", gap: 12 }}>
-            <span style={{ color: TEMA.altin }}>— Hedef</span>
-            <span style={{ color: TEMA.inkSoft }}>{fmtTL(hedef)}</span>
-          </div>
-        )}
-        {delta !== null && (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              gap: 12,
-              paddingTop: 4,
-              borderTop: `1px solid ${TEMA.border}`,
-              marginTop: 2,
-            }}
-          >
-            <span style={{ color: TEMA.inkFaded }}>Δ vs hedef</span>
+        <div style={satirStili}>
+          <span style={{ color: "#cbd5e1" }}>● 2025</span>
+          <span style={{ color: TEMA.inkSoft }}>{fmtTL(row.y2025)}</span>
+        </div>
+        <div style={satirStili}>
+          <span style={{ color: accent, fontWeight: 700 }}>● 2026</span>
+          <span style={{ color: TEMA.ink, fontWeight: 700 }}>{fmtTL(row.y2026)}</span>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            paddingTop: 6,
+            borderTop: `1px solid ${TEMA.border}`,
+            marginTop: 2,
+          }}
+        >
+          <span style={{ color: TEMA.altin }}>— Hedef</span>
+          <span style={{ color: TEMA.inkSoft }}>{fmtTL(row.hedef)}</span>
+        </div>
+        {delta25_26 !== null && (
+          <div style={satirStili}>
+            <span style={{ color: TEMA.inkFaded }}>Δ 2025 → 2026</span>
             <span
               style={{
-                color: delta >= 0 ? TEMA.yesil : TEMA.kirmizi,
+                color: delta25_26 >= 0 ? TEMA.yesil : TEMA.kirmizi,
+                fontWeight: 700,
+              }}
+            >
+              {delta25_26 >= 0 ? "+" : ""}
+              {delta25_26.toFixed(0)}%
+            </span>
+          </div>
+        )}
+        {delta24_26 !== null && (
+          <div style={satirStili}>
+            <span style={{ color: TEMA.inkFaded }}>Δ 2024 → 2026</span>
+            <span
+              style={{
+                color: delta24_26 >= 0 ? TEMA.yesil : TEMA.kirmizi,
                 fontWeight: 600,
               }}
             >
-              {delta >= 0 ? "+" : ""}
-              {delta.toFixed(0)}%
+              {delta24_26 >= 0 ? "+" : ""}
+              {delta24_26.toFixed(0)}%
             </span>
           </div>
         )}
@@ -125,10 +140,15 @@ function CustomTooltip({
   );
 }
 
+const satirStili: React.CSSProperties = {
+  display: "flex",
+  justifyContent: "space-between",
+  gap: 12,
+};
+
 export function AnaGrafik({
   veri,
-  hedefAylik,
-  baslik = "Aylık Ciro",
+  baslik = "3 Yıllık Karşılaştırma",
   altBaslik,
   accent = TEMA.mavi,
 }: Props) {
@@ -136,25 +156,13 @@ export function AnaGrafik({
 
   const accentLight = useMemo(() => rengiKaristir(accent, 0.35, "lighter"), [accent]);
   const accentDark = useMemo(() => rengiKaristir(accent, 0.30, "darker"), [accent]);
-
-  // Filter ID'ler için benzersiz suffix (birden fazla AnaGrafik aynı sayfada olabilir)
   const uid = useMemo(() => `ag-${accent.replace("#", "")}`, [accent]);
 
-  const data: ChartDatum[] = useMemo(
-    () =>
-      veri.map((d) => ({
-        ay: d.ay,
-        ciro: d.ciro,
-        hedef: hedefAylik ?? null,
-      })),
-    [veri, hedefAylik],
-  );
-
-  const sonCiro = data[data.length - 1]?.ciro ?? 0;
-  const enYukIdx = data.reduce(
-    (maxI, d, i) => (d.ciro > (data[maxI]?.ciro ?? 0) ? i : maxI),
-    0,
-  );
+  const son2026 = veri[veri.length - 1]?.y2026 ?? 0;
+  const hedefAylik = veri[0]?.hedef ?? 0;
+  const yillik2026 = veri.reduce((s, d) => s + d.y2026, 0);
+  const yillik2025 = veri.reduce((s, d) => s + d.y2025, 0);
+  const delta_y_y = yillik2025 > 0 ? ((yillik2026 - yillik2025) / yillik2025) * 100 : 0;
 
   return (
     <div
@@ -163,7 +171,7 @@ export function AnaGrafik({
         padding: "24px 24px 18px",
         position: "relative",
         height: "100%",
-        minHeight: 420,
+        minHeight: 460,
       }}
     >
       {/* Üst başlık */}
@@ -173,7 +181,7 @@ export function AnaGrafik({
           alignItems: "flex-start",
           justifyContent: "space-between",
           gap: 24,
-          marginBottom: 16,
+          marginBottom: 14,
         }}
       >
         <div>
@@ -191,11 +199,11 @@ export function AnaGrafik({
             {baslik}
           </div>
           <div style={{ fontFamily: FONT.ana, fontSize: 13, color: TEMA.inkSoft }}>
-            {altBaslik ?? "Son 12 ay"}
+            {altBaslik ?? "2024 · 2025 · 2026 yıllık ciro karşılaştırması"}
           </div>
         </div>
 
-        {/* Sağ özet — aktif/son ay */}
+        {/* Sağ özet — yıllık toplam + y/y delta */}
         <div style={{ textAlign: "right" }}>
           <div
             style={{
@@ -209,7 +217,7 @@ export function AnaGrafik({
               textShadow: `0 0 24px ${accent}55`,
             }}
           >
-            {fmtTL(sonCiro)}
+            {fmtTL(yillik2026)}
           </div>
           <div
             style={{
@@ -217,86 +225,108 @@ export function AnaGrafik({
               fontSize: 11,
               color: TEMA.inkMuted,
               marginTop: 4,
-              letterSpacing: "0.06em",
+              letterSpacing: "0.04em",
+              display: "flex",
+              gap: 6,
+              justifyContent: "flex-end",
+              alignItems: "center",
+              fontVariantNumeric: "tabular-nums",
             }}
           >
-            {data[data.length - 1]?.ay ?? ""} · son ay
+            <span>2026 yıllık</span>
+            <span
+              style={{
+                color: delta_y_y >= 0 ? TEMA.yesil : TEMA.kirmizi,
+                fontWeight: 700,
+              }}
+            >
+              {delta_y_y >= 0 ? "▲ +" : "▼ "}
+              {delta_y_y.toFixed(0)}% y/y
+            </span>
           </div>
         </div>
       </div>
 
-      {/* Legend */}
+      {/* Legend — 3 yıl + hedef */}
       <div
         style={{
           display: "flex",
-          gap: 16,
+          gap: 18,
           marginBottom: 8,
           fontSize: 11,
           color: TEMA.inkMuted,
+          fontFamily: FONT.ana,
+          flexWrap: "wrap",
         }}
       >
         <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
-          <span style={{ width: 8, height: 8, borderRadius: "50%", background: accent }} />
-          Gerçekleşen
+          <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#94a3b8" }} />
+          2024
         </span>
-        {hedefAylik !== undefined && (
-          <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
-            <span
-              style={{
-                width: 14,
-                height: 0,
-                borderTop: `1.5px dashed ${TEMA.altin}`,
-              }}
-            />
-            Aylık Hedef
-          </span>
-        )}
+        <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
+          <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#cbd5e1" }} />
+          2025
+        </span>
+        <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
+          <span
+            style={{
+              width: 10,
+              height: 10,
+              borderRadius: "50%",
+              background: accent,
+              boxShadow: `0 0 8px ${accent}80`,
+            }}
+          />
+          <strong style={{ color: TEMA.ink }}>2026</strong>
+        </span>
+        <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
+          <span
+            style={{
+              width: 14,
+              height: 0,
+              borderTop: `1.5px dashed ${TEMA.altin}`,
+            }}
+          />
+          Aylık Hedef
+        </span>
       </div>
 
-      {/* Recharts ComposedChart — 3D shadow + glow */}
-      <ResponsiveContainer width="100%" height={300}>
+      <ResponsiveContainer width="100%" height={320}>
         <ComposedChart
-          data={data}
-          margin={{ top: 24, right: 12, bottom: 4, left: -8 }}
+          data={veri}
+          margin={{ top: 24, right: 16, bottom: 4, left: -4 }}
           onMouseMove={(e) => {
             if (e?.activeTooltipIndex !== undefined) setHoverIdx(e.activeTooltipIndex);
           }}
           onMouseLeave={() => setHoverIdx(null)}
         >
           <defs>
-            {/* Multi-stop area gradient — derinlik hissi */}
-            <linearGradient id={`fill-${uid}`} x1="0" y1="0" x2="0" y2="1">
+            {/* 2026 area gradient — multi-stop derinlik */}
+            <linearGradient id={`fill-26-${uid}`} x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor={accentLight} stopOpacity={0.65} />
               <stop offset="35%" stopColor={accent} stopOpacity={0.40} />
               <stop offset="75%" stopColor={accent} stopOpacity={0.15} />
               <stop offset="100%" stopColor={accentDark} stopOpacity={0} />
             </linearGradient>
 
-            {/* Gradient stroke — çizgi boyu renk değişimi */}
-            <linearGradient id={`stroke-${uid}`} x1="0" y1="0" x2="1" y2="0">
+            {/* 2026 stroke — horizontal gradient */}
+            <linearGradient id={`stroke-26-${uid}`} x1="0" y1="0" x2="1" y2="0">
               <stop offset="0%" stopColor={accentDark} />
               <stop offset="50%" stopColor={accent} />
               <stop offset="100%" stopColor={accentLight} />
             </linearGradient>
 
-            {/* Glow filter — çizgi parıltısı */}
+            {/* 2025 area gradient — soluk gri */}
+            <linearGradient id={`fill-25-${uid}`} x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#cbd5e1" stopOpacity={0.18} />
+              <stop offset="100%" stopColor="#475569" stopOpacity={0} />
+            </linearGradient>
+
+            {/* Glow filter — sadece 2026 line için */}
             <filter id={`glow-${uid}`} x="-20%" y="-20%" width="140%" height="140%">
               <feGaussianBlur stdDeviation="3.2" result="b" />
               <feMerge>
                 <feMergeNode in="b" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-
-            {/* Drop depth — alttan gölge düşümü */}
-            <filter id={`drop-${uid}`} x="-20%" y="-20%" width="140%" height="160%">
-              <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
-              <feOffset dx="0" dy="6" result="off" />
-              <feComponentTransfer>
-                <feFuncA type="linear" slope="0.50" />
-              </feComponentTransfer>
-              <feMerge>
-                <feMergeNode />
                 <feMergeNode in="SourceGraphic" />
               </feMerge>
             </filter>
@@ -307,7 +337,6 @@ export function AnaGrafik({
             vertical={false}
             strokeDasharray="2 4"
           />
-
           <XAxis
             dataKey="ay"
             tick={{ fontSize: 11, fill: TEMA.inkFaded, fontFamily: FONT.ana }}
@@ -322,7 +351,6 @@ export function AnaGrafik({
             width={120}
             tickFormatter={(v) => fmtTL(Number(v))}
           />
-
           <Tooltip
             content={<CustomTooltip accent={accent} />}
             cursor={{
@@ -332,47 +360,72 @@ export function AnaGrafik({
             }}
           />
 
-          {/* Hedef referans line — turuncu kesik */}
-          {hedefAylik !== undefined && (
-            <ReferenceLine
-              y={hedefAylik}
-              stroke={TEMA.altin}
-              strokeWidth={1.5}
-              strokeDasharray="6 4"
-              opacity={0.7}
-            />
-          )}
+          {/* Hedef referans — altın kesik yatay */}
+          <ReferenceLine
+            y={hedefAylik}
+            stroke={TEMA.altin}
+            strokeWidth={1.5}
+            strokeDasharray="6 4"
+            opacity={0.7}
+          />
 
-          {/* SHADOW COPY — kalın siyah çizgi, blur + translateY → 3D depth */}
+          {/* 2024 — soluk solid çizgi (en geride) */}
           <Line
             type="monotone"
-            dataKey="ciro"
+            dataKey="y2024"
+            stroke="#475569"
+            strokeWidth={1.25}
+            strokeOpacity={0.55}
+            dot={false}
+            animationDuration={1400}
+            animationEasing="ease-out"
+            legendType="none"
+          />
+
+          {/* 2025 — orta gri area + line */}
+          <Area
+            type="monotone"
+            dataKey="y2025"
+            stroke="#94a3b8"
+            strokeWidth={1.75}
+            strokeOpacity={0.75}
+            fill={`url(#fill-25-${uid})`}
+            animationDuration={1500}
+            animationEasing="ease-out"
+            dot={false}
+            activeDot={{ r: 4, fill: "#cbd5e1", stroke: TEMA.bg, strokeWidth: 2 }}
+            legendType="none"
+          />
+
+          {/* 2026 SHADOW COPY — derinlik (3D) */}
+          <Line
+            type="monotone"
+            dataKey="y2026"
             stroke="rgba(0,0,0,0.55)"
             strokeWidth={4}
             dot={false}
-            connectNulls={false}
             animationDuration={1500}
             style={{ filter: "blur(3px)", transform: "translateY(7px)" }}
             legendType="none"
           />
 
-          {/* ANA AREA — gradient fill */}
+          {/* 2026 ANA AREA — gradient fill */}
           <Area
             type="monotone"
-            dataKey="ciro"
+            dataKey="y2026"
             stroke="none"
-            fill={`url(#fill-${uid})`}
+            fill={`url(#fill-26-${uid})`}
             animationDuration={1500}
             animationEasing="ease-out"
+            legendType="none"
           />
 
-          {/* ANA LINE — gradient stroke + glow */}
+          {/* 2026 ANA LINE — gradient stroke + glow */}
           <Line
             type="monotone"
-            dataKey="ciro"
-            stroke={`url(#stroke-${uid})`}
+            dataKey="y2026"
+            stroke={`url(#stroke-26-${uid})`}
             strokeWidth={3}
-            connectNulls={false}
             animationDuration={1500}
             animationEasing="ease-out"
             filter={`url(#glow-${uid})`}
@@ -382,7 +435,7 @@ export function AnaGrafik({
         </ComposedChart>
       </ResponsiveContainer>
 
-      {/* Alt info bar — en yüksek nokta etiketi */}
+      {/* Alt info — son ay + hover noktası */}
       <div
         style={{
           marginTop: 8,
@@ -397,15 +450,14 @@ export function AnaGrafik({
         }}
       >
         <span>
-          Yıl içi en yüksek: <strong style={{ color: accent }}>{data[enYukIdx]?.ay}</strong>{" "}
-          ·{" "}
-          <span style={{ color: TEMA.inkSoft, fontVariantNumeric: "tabular-nums" }}>
-            {fmtTL(data[enYukIdx]?.ciro ?? 0)}
+          Son ay (Aralık 2026):{" "}
+          <span style={{ color: accent, fontWeight: 600, fontVariantNumeric: "tabular-nums" }}>
+            {fmtTL(son2026)}
           </span>
         </span>
-        {hoverIdx !== null && data[hoverIdx] && (
-          <span style={{ color: accent, fontWeight: 600 }}>
-            {data[hoverIdx].ay} · {fmtTL(data[hoverIdx].ciro)}
+        {hoverIdx !== null && veri[hoverIdx] && (
+          <span style={{ color: accent, fontWeight: 600, fontVariantNumeric: "tabular-nums" }}>
+            {veri[hoverIdx].ay} 2026 · {fmtTL(veri[hoverIdx].y2026)}
           </span>
         )}
       </div>

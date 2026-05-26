@@ -1,7 +1,7 @@
 // YoneticiOzeti — sağ kolon dikey panel.
 // Lovable AI'nın çıkardığı standart: 3-4 progress bar + alt "GENEL DURUM" özet.
 
-import { TEMA, FONT } from "@/lib/tema";
+import { TEMA, FONT, rengiKaristir } from "@/lib/tema";
 
 interface SatirVeri {
   etiket: string;
@@ -73,8 +73,8 @@ export function YoneticiOzeti({
         <div style={{ fontSize: 12, color: TEMA.inkMuted }}>{altBaslik}</div>
       </div>
 
-      {/* Progress bar satırlar */}
-      <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
+      {/* Progress bar satırlar — 3D glow stili (feedback_3d_grafik_stili_kati) */}
+      <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
         {satirlar.map((s, i) => {
           const renk = renkCozumle(s.renk, accent);
           const y = Math.max(0, Math.min(100, s.yuzde));
@@ -95,28 +95,59 @@ export function YoneticiOzeti({
                     color: TEMA.ink,
                     fontWeight: 600,
                     fontVariantNumeric: "tabular-nums",
+                    textShadow: `0 0 8px ${renk}55`,
                   }}
                 >
                   {y.toFixed(0)}%
                 </span>
               </div>
+              {/* Track — inset shadow (recessed çukur hissi) */}
               <div
                 style={{
-                  height: 6,
-                  background: "rgba(255,255,255,0.05)",
+                  position: "relative",
+                  height: 8,
+                  background:
+                    "linear-gradient(180deg, rgba(0,0,0,0.35), rgba(255,255,255,0.02))",
                   borderRadius: 999,
-                  overflow: "hidden",
+                  overflow: "visible",
+                  boxShadow:
+                    "inset 0 1px 2px rgba(0,0,0,0.50), inset 0 -1px 0 rgba(255,255,255,0.03)",
                 }}
               >
+                {/* Doluş — multi-stop gradient (darker → tone → lighter) */}
                 <div
                   style={{
-                    height: "100%",
+                    position: "absolute",
+                    inset: 0,
                     width: `${y}%`,
-                    background: renk,
+                    background: `linear-gradient(90deg, ${rengiKaristir(renk, 0.25, "darker")}, ${renk} 55%, ${rengiKaristir(renk, 0.35, "lighter")})`,
                     borderRadius: 999,
-                    transition: "width 600ms cubic-bezier(0.22,0.61,0.36,1)",
+                    transition: "width 1200ms cubic-bezier(0.22,0.61,0.36,1)",
+                    boxShadow: [
+                      `inset 0 1px 0 rgba(255,255,255,0.35)`,        // top inner highlight
+                      `inset 0 -1px 0 rgba(0,0,0,0.20)`,              // bottom inner depth
+                      `0 0 12px ${renk}60`,                           // outer accent halo
+                    ].join(", "),
                   }}
                 />
+                {/* Doluş ucunda parıltı topu (her satıra ufak vurgu) */}
+                {y > 4 && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "50%",
+                      left: `calc(${y}% - 6px)`,
+                      transform: "translateY(-50%)",
+                      width: 12,
+                      height: 12,
+                      borderRadius: "50%",
+                      background: `radial-gradient(closest-side, ${renk}, ${renk}00)`,
+                      filter: "blur(4px)",
+                      transition: "left 1200ms cubic-bezier(0.22,0.61,0.36,1)",
+                      pointerEvents: "none",
+                    }}
+                  />
+                )}
               </div>
             </div>
           );

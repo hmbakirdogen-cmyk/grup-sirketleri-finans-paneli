@@ -6,7 +6,34 @@ import type {
   MaliTabloKalemi,
   NakitGun,
   ParaHaritasiKategori,
+  YilTrendNoktasi,
 } from "@/types/domain";
+
+const TAKVIM_AYLAR = [
+  "Oca", "Şub", "Mar", "Nis", "May", "Haz",
+  "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara",
+];
+
+/**
+ * 3 yıllık takvim trendi üretir (2024 / 2025 / 2026).
+ * Her ay için 3 yıl × ciro + aylık hedef.
+ *
+ * Mantık:
+ *  - 2026 = mevcut ölçek (bazCiro civarı, mevsim varyans)
+ *  - 2025 = 2026'nın ~%82'si (geçen yıl)
+ *  - 2024 = 2026'nın ~%68'i (2 yıl önce)
+ *  - Hedef = yıllık hedefin aylık eşdeğeri (2026 ortalama × 1.04)
+ */
+function uretYillarTrend(bazCiro: number, mevsimGenligi = 0.10): YilTrendNoktasi[] {
+  return TAKVIM_AYLAR.map((ay, i) => {
+    const mevsim = 1 + Math.sin((i / 12) * Math.PI * 2 + 0.6) * mevsimGenligi;
+    const y2026 = Math.round(bazCiro * mevsim);
+    const y2025 = Math.round(bazCiro * 0.82 * mevsim);
+    const y2024 = Math.round(bazCiro * 0.68 * mevsim);
+    const hedef = Math.round(bazCiro * 1.04);
+    return { ay, y2024, y2025, y2026, hedef };
+  });
+}
 
 const AYLAR = [
   "Haz 25", "Tem 25", "Ağu 25", "Eyl 25", "Eki 25", "Kas 25",
@@ -192,6 +219,7 @@ function gelirTablosuOrnegi(ciro: number, marj: number): MaliTabloKalemi[] {
 const MEBA_FINANS: FirmaFinans = {
   firmaId: "meba",
   son12Ay: uretKpi(2_400_000, 18.4, -2.1),
+  yillarTrend: uretYillarTrend(2_460_000, 0.10),
   paraHaritasi: [
     { ad: "SMC Pnömatik", tip: "gelir", tutar: 18_240_000, oran: 62, trend: -3.2, cariler: [
       { ad: "ELMOS Otomasyon", tutar: 4_320_000 },
@@ -237,6 +265,7 @@ const MEBA_FINANS: FirmaFinans = {
 const MESA_FINANS: FirmaFinans = {
   firmaId: "mesa",
   son12Ay: uretKpi(3_800_000, 22.8, +0.8),
+  yillarTrend: uretYillarTrend(4_380_000, 0.12),
   paraHaritasi: [
     { ad: "PLC / SCADA projeleri", tip: "gelir", tutar: 28_400_000, oran: 54, trend: +5.2, cariler: [
       { ad: "Endüstri Tesisleri", tutar: 18_200_000 },
@@ -279,6 +308,7 @@ const MESA_FINANS: FirmaFinans = {
 const ELMOS_FINANS: FirmaFinans = {
   firmaId: "elmos",
   son12Ay: uretKpi(3_100_000, 19.6, +1.4),
+  yillarTrend: uretYillarTrend(3_600_000, 0.09),
   paraHaritasi: [
     { ad: "Özel makine üretim", tip: "gelir", tutar: 26_800_000, oran: 62, trend: +4.8, cariler: [
       { ad: "OSB Sanayi müşterileri", tutar: 18_400_000 },
@@ -323,6 +353,7 @@ const ELMOS_FINANS: FirmaFinans = {
 const ARKON_FINANS: FirmaFinans = {
   firmaId: "arkon",
   son12Ay: uretKpi(1_800_000, 16.8, +0.4),
+  yillarTrend: uretYillarTrend(1_830_000, 0.14),
   paraHaritasi: [
     { ad: "Otomasyon proje (Konya bölge)", tip: "gelir", tutar: 14_400_000, oran: 65, trend: +1.8, cariler: [
       { ad: "Konya OSB müşterileri", tutar: 9_200_000 },

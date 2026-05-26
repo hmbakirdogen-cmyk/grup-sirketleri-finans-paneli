@@ -237,10 +237,9 @@ export function App() {
             >
               <Chart3DBackdrop tint={firma.renk} style={{ background: TEMA.bgKart }}>
                 <AnaGrafik
-                  veri={finans.son12Ay.map((a) => ({ ay: a.ay, ciro: a.ciro }))}
-                  hedefAylik={ozet.aylikHedef}
-                  baslik="Gelir ve Kâr Trendi"
-                  altBaslik={`Aylık karşılaştırmalı performans · ort ${fmtTL(ozet.yillikCiro / 12)}`}
+                  veri={finans.yillarTrend}
+                  baslik="3 Yıllık Karşılaştırma"
+                  altBaslik="2024 · 2025 · 2026 takvim yılı ciroları"
                   accent={firma.renk}
                 />
               </Chart3DBackdrop>

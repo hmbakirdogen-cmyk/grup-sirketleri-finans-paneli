@@ -87,9 +87,23 @@ export interface MaliTabloKalemi {
   alt?: MaliTabloKalemi[];
 }
 
+/** 3 yıllık karşılaştırma için yıl trendi (Mehmet Bey direktifi 2026-05-26).
+ *  Her ay aynı X noktasında 3 yıl üst üste — 2024 sönük, 2025 orta, 2026 accent. */
+export interface YilTrendNoktasi {
+  /** Türkçe kısa ay adı: "Oca", "Şub", "Mar", "Nis", "May", "Haz", ... */
+  ay: string;
+  y2024: number;
+  y2025: number;
+  y2026: number;
+  /** Aylık hedef (yıllık hedef / 12), aynı seviyede yatay referans */
+  hedef: number;
+}
+
 export interface FirmaFinans {
   firmaId: FirmaId;
   son12Ay: AylikKpi[];
+  /** Takvim yılı bazlı 3 yıl × 12 ay karşılaştırma */
+  yillarTrend: YilTrendNoktasi[];
   paraHaritasi: ParaHaritasiKategori[];
   nakit90Gun: NakitGun[];
   cariler: Cari[];

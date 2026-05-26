@@ -53,3 +53,19 @@ export function fmtSayi(n: number): string {
 export function fmtYuzde(n: number, basamak = 1): string {
   return `%${n.toFixed(basamak)}`;
 }
+
+/**
+ * Hex renk → daha açık veya daha koyu varyant (basit RGB scale).
+ * `oran` 0-1 arası: 0.3 → %30 daha açık/koyu.
+ * Multi-stop gradient'ler için kullanılır (3D grafik stili).
+ */
+export function rengiKaristir(renk: string, oran: number, hedef: "lighter" | "darker"): string {
+  // "#5b9dff" gibi 7 karakter hex bekleniyor; rgb() string gelirse olduğu gibi döner.
+  if (!renk.startsWith("#") || renk.length < 7) return renk;
+  const r = parseInt(renk.slice(1, 3), 16);
+  const g = parseInt(renk.slice(3, 5), 16);
+  const b = parseInt(renk.slice(5, 7), 16);
+  const factor = hedef === "lighter" ? 1 + oran : 1 - oran;
+  const cl = (v: number) => Math.max(0, Math.min(255, Math.round(v * factor)));
+  return `rgb(${cl(r)}, ${cl(g)}, ${cl(b)})`;
+}
