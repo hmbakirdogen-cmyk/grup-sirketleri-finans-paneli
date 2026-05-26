@@ -144,7 +144,7 @@ export function Chart3DBackdrop({
         aria-hidden
       />
 
-      {/* Slow sweeping light beam */}
+      {/* Birinci sweep beam — yatay sol→sağ, beyaz parıltı */}
       {!reduce && (
         <motion.div
           style={{
@@ -153,41 +153,144 @@ export function Chart3DBackdrop({
             bottom: 0,
             width: "35%",
             pointerEvents: "none",
-            background: `linear-gradient(90deg, transparent 0%, ${tint}44 50%, transparent 100%)`,
+            background: `linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.10) 30%, ${tint}66 50%, rgba(255,255,255,0.10) 70%, transparent 100%)`,
             mixBlendMode: "screen",
-            filter: "blur(8px)",
+            filter: "blur(10px)",
           }}
           initial={{ x: "-50%", opacity: 0 }}
-          animate={{ x: "180%", opacity: [0, 0.85, 0] }}
+          animate={{ x: "180%", opacity: [0, 0.95, 0] }}
           transition={{ duration: 4.5, ease: "easeInOut", repeat: Infinity, repeatDelay: 4 }}
           aria-hidden
         />
       )}
 
-      {/* Top + bottom vignettes — depth hint */}
+      {/* İkinci sweep beam — daha yavaş, ters yön, accent renkli */}
+      {!reduce && (
+        <motion.div
+          style={{
+            position: "absolute",
+            top: 0,
+            bottom: 0,
+            width: "25%",
+            pointerEvents: "none",
+            background: `linear-gradient(90deg, transparent 0%, ${tint}33 50%, transparent 100%)`,
+            mixBlendMode: "screen",
+            filter: "blur(14px)",
+          }}
+          initial={{ x: "180%", opacity: 0 }}
+          animate={{ x: "-60%", opacity: [0, 0.55, 0] }}
+          transition={{
+            duration: 7.5,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatDelay: 2,
+            delay: 2,
+          }}
+          aria-hidden
+        />
+      )}
+
+      {/* Sol üst köşe glow — accent renk halo */}
+      <div
+        aria-hidden
+        style={{
+          position: "absolute",
+          top: -40,
+          left: -40,
+          width: 200,
+          height: 200,
+          borderRadius: "50%",
+          background: `radial-gradient(closest-side, ${tint}33, transparent)`,
+          filter: "blur(28px)",
+          pointerEvents: "none",
+          mixBlendMode: "screen",
+        }}
+      />
+
+      {/* Sağ alt köşe glow — accent renk halo, daha yumuşak */}
+      <div
+        aria-hidden
+        style={{
+          position: "absolute",
+          bottom: -50,
+          right: -50,
+          width: 220,
+          height: 220,
+          borderRadius: "50%",
+          background: `radial-gradient(closest-side, ${tint}22, transparent)`,
+          filter: "blur(32px)",
+          pointerEvents: "none",
+          mixBlendMode: "screen",
+        }}
+      />
+
+      {/* Top inner highlight — cam üzerinde ışık yansıması */}
+      <div
+        aria-hidden
+        style={{
+          position: "absolute",
+          inset: "0 0 auto 0",
+          height: 1,
+          background:
+            "linear-gradient(90deg, transparent 5%, rgba(255,255,255,0.18) 50%, transparent 95%)",
+          pointerEvents: "none",
+        }}
+      />
+
+      {/* Top vignette — koyu üst, depth */}
       <div
         style={{
           position: "absolute",
           left: 0,
           right: 0,
           top: 0,
-          height: 32,
+          height: 48,
           pointerEvents: "none",
-          background: "linear-gradient(180deg, rgba(0,0,0,0.20) 0%, transparent 100%)",
+          background: "linear-gradient(180deg, rgba(0,0,0,0.32) 0%, transparent 100%)",
         }}
         aria-hidden
       />
+
+      {/* Bottom vignette — koyu alt, yere oturma hissi */}
       <div
         style={{
           position: "absolute",
           left: 0,
           right: 0,
           bottom: 0,
-          height: 40,
+          height: 64,
           pointerEvents: "none",
-          background: "linear-gradient(0deg, rgba(0,0,0,0.14) 0%, transparent 100%)",
+          background: "linear-gradient(0deg, rgba(0,0,0,0.28) 0%, transparent 100%)",
         }}
         aria-hidden
+      />
+
+      {/* Sol-sağ rim light — kenarlardan accent sızıntısı */}
+      <div
+        aria-hidden
+        style={{
+          position: "absolute",
+          inset: "10% 0 10% 0",
+          left: 0,
+          width: 2,
+          pointerEvents: "none",
+          background: `linear-gradient(180deg, transparent 0%, ${tint}aa 50%, transparent 100%)`,
+          filter: "blur(3px)",
+          opacity: 0.5,
+        }}
+      />
+      <div
+        aria-hidden
+        style={{
+          position: "absolute",
+          inset: "10% 0 10% 0",
+          right: 0,
+          width: 2,
+          pointerEvents: "none",
+          background: `linear-gradient(180deg, transparent 0%, ${tint}aa 50%, transparent 100%)`,
+          filter: "blur(3px)",
+          opacity: 0.5,
+        }}
       />
 
       {/* Children — chart sits above the floor */}

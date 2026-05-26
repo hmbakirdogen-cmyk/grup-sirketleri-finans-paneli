@@ -180,9 +180,9 @@ export function App() {
             >
               <KpiKart
                 etiket="Toplam Ciro"
-                numerikDeger={ozet.yillikCiro / 1_000_000}
-                ondalik={1}
-                sonek="M ₺"
+                numerikDeger={ozet.yillikCiro}
+                ondalik={0}
+                sonek=" ₺"
                 delta={ozet.ciroYilDelta}
                 deltaEtiketi="yıllık"
                 sparkline={ozet.sparkCiro}
@@ -192,9 +192,9 @@ export function App() {
               />
               <KpiKart
                 etiket="Brüt Kâr"
-                numerikDeger={ozet.brutKarYillik / 1_000_000}
-                ondalik={1}
-                sonek="M ₺"
+                numerikDeger={ozet.brutKarYillik}
+                ondalik={0}
+                sonek=" ₺"
                 delta={ozet.marjYilDelta}
                 deltaEtiketi="marj puanı"
                 sparkline={ozet.sparkBrut}
@@ -203,9 +203,9 @@ export function App() {
               />
               <KpiKart
                 etiket="Net Kâr"
-                numerikDeger={ozet.netKarYillik / 1_000_000}
-                ondalik={1}
-                sonek="M ₺"
+                numerikDeger={ozet.netKarYillik}
+                ondalik={0}
+                sonek=" ₺"
                 delta={ozet.ciroYilDelta * 0.62}
                 deltaEtiketi="yıllık"
                 sparkline={ozet.sparkNet}
@@ -214,9 +214,9 @@ export function App() {
               />
               <KpiKart
                 etiket="Nakit Akışı"
-                numerikDeger={ozet.nakitAylik / 1_000_000}
-                ondalik={1}
-                sonek="M ₺"
+                numerikDeger={ozet.nakitAylik}
+                ondalik={0}
+                sonek=" ₺"
                 delta={4.2}
                 deltaEtiketi="son ay"
                 sparkline={ozet.sparkNakit}

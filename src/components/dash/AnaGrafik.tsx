@@ -18,7 +18,6 @@ import {
   Tooltip,
   XAxis,
   YAxis,
-  LabelList,
 } from "recharts";
 import { TEMA, FONT, fmtTL } from "@/lib/tema";
 
@@ -317,10 +316,10 @@ export function AnaGrafik({
             dy={6}
           />
           <YAxis
-            tick={{ fontSize: 10, fill: TEMA.inkFaded, fontFamily: FONT.ana }}
+            tick={{ fontSize: 10.5, fill: TEMA.inkFaded, fontFamily: FONT.ana }}
             axisLine={false}
             tickLine={false}
-            width={68}
+            width={120}
             tickFormatter={(v) => fmtTL(Number(v))}
           />
 
@@ -378,23 +377,8 @@ export function AnaGrafik({
             animationEasing="ease-out"
             filter={`url(#glow-${uid})`}
             dot={{ r: 3.5, fill: accent, stroke: TEMA.bg, strokeWidth: 2 }}
-            activeDot={{ r: 6, fill: accentLight, stroke: TEMA.bg, strokeWidth: 2 }}
-          >
-            <LabelList
-              dataKey="ciro"
-              position="top"
-              offset={12}
-              fill={TEMA.ink}
-              fontSize={10}
-              fontWeight={600}
-              fontFamily={FONT.ana}
-              formatter={(v: number) => {
-                if (!Number.isFinite(v)) return "";
-                return fmtTL(v);
-              }}
-              style={{ textShadow: "0 1px 2px rgba(0,0,0,0.85)" }}
-            />
-          </Line>
+            activeDot={{ r: 7, fill: accentLight, stroke: TEMA.bg, strokeWidth: 2 }}
+          />
         </ComposedChart>
       </ResponsiveContainer>
 

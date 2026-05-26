@@ -84,8 +84,33 @@ export function KpiKart({
         display: "flex",
         flexDirection: "column",
         transition: "border-color 180ms ease",
+        // Multi-layer ışık-gölge: top inner highlight + corner glow + drop shadow
+        boxShadow: [
+          "inset 0 1px 0 rgba(255,255,255,0.06)",       // top edge bright line
+          "inset 0 -1px 0 rgba(0,0,0,0.30)",            // bottom edge depth
+          "0 1px 2px rgba(0,0,0,0.20)",                  // soft drop
+          "0 8px 24px rgba(0,0,0,0.25)",                 // ambient float
+          vurgu ? `0 0 0 1px ${tone}22, 0 8px 28px ${tone}22` : "0 0 0 0 transparent",
+        ].join(", "),
       }}
     >
+      {/* Köşe glow — accent renk halo (yalnızca vurgu kartta) */}
+      {vurgu && (
+        <span
+          aria-hidden
+          style={{
+            position: "absolute",
+            top: -40,
+            right: -40,
+            width: 120,
+            height: 120,
+            borderRadius: "50%",
+            background: `radial-gradient(closest-side, ${tone}33, transparent)`,
+            filter: "blur(20px)",
+            pointerEvents: "none",
+          }}
+        />
+      )}
       {/* Hover top hairline reveal */}
       <span
         aria-hidden
@@ -149,12 +174,14 @@ export function KpiKart({
         <span
           style={{
             fontFamily: FONT.num,
-            fontSize: 32,
+            // Tam rakam için biraz küçülttük (32 → 26); "30.605.000 ₺" tek satır
+            fontSize: 26,
             fontWeight: 600,
             letterSpacing: "-0.02em",
             color: TEMA.ink,
             fontVariantNumeric: "tabular-nums",
             lineHeight: 1,
+            textShadow: `0 1px 2px rgba(0,0,0,0.40)`,
           }}
         >
           <CountUp

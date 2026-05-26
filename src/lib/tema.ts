@@ -30,16 +30,24 @@ export const FONT = {
 } as const;
 
 // Sayı format
-export function fmtTL(n: number, kisalt = true): string {
-  const abs = Math.abs(n);
+// Mehmet Bey direktifi 2026-05-26: "kısaltmalar fln olmasın. rakamlar düzgün okunsun"
+// Default: tam Türkçe binlik separator formatı (30.605.000 ₺)
+// `kisalt=true` yalnızca dar yerler için (Y axis tick, sparkline aralığı): "30,6 mn ₺"
+export function fmtTL(n: number, kisalt = false): string {
   const isaret = n < 0 ? "-" : "";
+  const abs = Math.abs(n);
   if (kisalt) {
-    if (abs >= 1_000_000_000) return `${isaret}${(abs / 1_000_000_000).toFixed(2)} milyar ₺`;
-    if (abs >= 1_000_000) return `${isaret}${(abs / 1_000_000).toFixed(1)}M ₺`;
-    if (abs >= 1_000) return `${isaret}${(abs / 1_000).toFixed(0)}K ₺`;
+    if (abs >= 1_000_000_000) return `${isaret}${(abs / 1_000_000_000).toFixed(2).replace(".", ",")} mlr ₺`;
+    if (abs >= 1_000_000) return `${isaret}${(abs / 1_000_000).toFixed(1).replace(".", ",")} mn ₺`;
+    if (abs >= 1_000) return `${isaret}${(abs / 1_000).toFixed(0)} b ₺`;
     return `${isaret}${abs.toFixed(0)} ₺`;
   }
   return new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 0 }).format(n) + " ₺";
+}
+
+/** Sadece sayı kısmı, ₺ sembolü olmadan (CountUp suffix ile ayırmak için) */
+export function fmtSayi(n: number): string {
+  return new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 0 }).format(n);
 }
 
 export function fmtYuzde(n: number, basamak = 1): string {
