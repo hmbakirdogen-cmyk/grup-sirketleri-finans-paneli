@@ -16,6 +16,7 @@ import { AiAsistanFAB } from "./components/dash/AiAsistanFAB";
 import type { Sekme } from "./components/dash/SekmeNav";
 import { NabizSayfasi } from "./pages/NabizSayfasi";
 import { AkisSayfasi } from "./pages/AkisSayfasi";
+import { Yarin90GunSayfasi } from "./pages/Yarin90GunSayfasi";
 import { AlacaklarSayfasi } from "./pages/AlacaklarSayfasi";
 import { RaporlarSayfasi } from "./pages/RaporlarSayfasi";
 import { VergiAtolyesiSayfasi } from "./pages/VergiAtolyesiSayfasi";
@@ -103,6 +104,7 @@ export function App() {
           <NabizSayfasi firma={firma} finans={finans} aktifKullanici={aktifKullanici} />
         )}
         {sekme === "akis" && <AkisSayfasi firma={firma} finans={finans} />}
+        {sekme === "yarin90" && <Yarin90GunSayfasi firma={firma} finans={finans} />}
         {sekme === "alacaklar" && <AlacaklarSayfasi firma={firma} finans={finans} />}
         {sekme === "raporlar" && <RaporlarSayfasi firma={firma} finans={finans} />}
         {sekme === "vergi" && <VergiAtolyesiSayfasi firma={firma} finans={finans} />}

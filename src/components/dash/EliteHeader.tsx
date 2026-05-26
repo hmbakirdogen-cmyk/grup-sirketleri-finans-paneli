@@ -35,6 +35,8 @@ interface NavItem {
   id: Sekme;
   label: string;
   icon: LucideIcon;
+  /** V2 rozet — muhasebe defter dışı veri kullanan sayfalar */
+  v2?: boolean;
 }
 
 const NAV: NavItem[] = [
@@ -533,6 +535,24 @@ export function EliteHeader({
                 }}
               />
               <span style={{ letterSpacing: "-0.005em" }}>{item.label}</span>
+              {item.v2 && (
+                <span
+                  style={{
+                    fontSize: 9,
+                    fontWeight: 700,
+                    letterSpacing: "0.10em",
+                    padding: "1px 5px",
+                    borderRadius: 4,
+                    background: "rgba(167,139,250,0.18)",
+                    color: "#a78bfa",
+                    border: "1px solid rgba(167,139,250,0.30)",
+                    textTransform: "uppercase",
+                  }}
+                  title="V2 — muhasebe defter dışı, sonraki sürümde"
+                >
+                  V2
+                </span>
+              )}
             </button>
           );
         })}
