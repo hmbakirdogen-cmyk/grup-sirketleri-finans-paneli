@@ -90,6 +90,8 @@ interface Props {
   onSearchClick?: () => void;
   /** "Senkron" buton tıklama */
   onSyncClick?: () => void;
+  /** Profil avatar tıklama → KullaniciSecici aç (impersonation) */
+  onProfileClick?: () => void;
 }
 
 export function EliteHeader({
@@ -101,6 +103,7 @@ export function EliteHeader({
   aktifKullanici,
   onSearchClick,
   onSyncClick,
+  onProfileClick,
 }: Props) {
   const firma = FIRMALAR[aktifFirma];
   const adKisa = aktifKullanici.hitap;
@@ -335,10 +338,11 @@ export function EliteHeader({
 
             <Divider />
 
-            {/* Profil capsule — Avatar + ad + rol + chevron */}
+            {/* Profil capsule — Avatar + ad + rol + chevron, tıklayınca KullaniciSecici */}
             <button
               type="button"
-              aria-label="Profil"
+              aria-label="Profil — kullanıcı geçişi (süper yönetici)"
+              onClick={onProfileClick}
               style={{
                 position: "relative",
                 display: "inline-flex",

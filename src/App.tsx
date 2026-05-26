@@ -13,6 +13,8 @@ import { MaliTakvimRozetMini } from "./components/dash/MaliTakvimRozetMini";
 import { MansetBandi } from "./components/dash/MansetBandi";
 import { CommandPalette } from "./components/dash/CommandPalette";
 import { AiAsistanFAB } from "./components/dash/AiAsistanFAB";
+import { KullaniciSecici } from "./components/dash/KullaniciSecici";
+import { ImpersonationBanner } from "./components/dash/ImpersonationBanner";
 import type { Sekme } from "./components/dash/SekmeNav";
 import { NabizSayfasi } from "./pages/NabizSayfasi";
 import { AkisSayfasi } from "./pages/AkisSayfasi";
@@ -25,17 +27,64 @@ import { IsBirligiSayfasi } from "./pages/IsBirligiSayfasi";
 import { AyarlarSayfasi } from "./pages/AyarlarSayfasi";
 import { notify } from "./lib/notify";
 import { TEMA, FONT } from "./lib/tema";
-import type { FirmaId } from "./types/domain";
+import type { FirmaId, KullaniciId } from "./types/domain";
 
-const aktifKullanici = KULLANICILAR["mehmet-maras"]!;
+// Gerçek kullanıcı (süper yönetici varsayım): Mehmet Bey
+// Memory: Mehmet Bey MEBA yöneticisi + programı yapılandıran kişi.
+// Default goruntulenen = gercek (no impersonation).
+const GERCEK_KULLANICI: KullaniciId = "mehmet-bakirdogen";
 
 export function App() {
   const [aktif, setAktif] = useState<FirmaId>("meba");
   const [sekme, setSekme] = useState<Sekme>("nabiz");
   const [paletAcik, setPaletAcik] = useState(false);
+  const [seciciAcik, setSeciciAcik] = useState(false);
+  const [goruntulenenId, setGoruntulenenId] = useState<KullaniciId>(GERCEK_KULLANICI);
 
-  const firma = FIRMALAR[aktif];
-  const finans = FINANS_VERISI[aktif];
+  const gercekKullanici = KULLANICILAR[GERCEK_KULLANICI]!;
+  const aktifKullanici = KULLANICILAR[goruntulenenId]!;
+  const impersonation = goruntulenenId !== GERCEK_KULLANICI;
+
+  // Görüntülenen kullanıcının erişim sınırına göre firma seçimi geçerli mi?
+  // Geçerli değilse otomatik ilk izinli firmaya geç.
+  const erisilebilirFirmalar = aktifKullanici.firmaIzin;
+  const gecerliFirma: FirmaId = erisilebilirFirmalar.includes(aktif)
+    ? aktif
+    : erisilebilirFirmalar[0]!;
+  if (gecerliFirma !== aktif) {
+    // Sessiz redirect (useEffect değil çünkü hızlı setState yeterli)
+    setTimeout(() => setAktif(gecerliFirma), 0);
+  }
+
+  const firma = FIRMALAR[gecerliFirma];
+  const finans = FINANS_VERISI[gecerliFirma];
+
+  // Görüntülenen Konsolide göremiyorsa Konsolide sekmesinde değil
+  if (sekme === "grup" && !aktifKullanici.konsolideGorur) {
+    setTimeout(() => setSekme("nabiz"), 0);
+  }
+
+  function kullaniciSec(id: KullaniciId) {
+    setGoruntulenenId(id);
+    // İlk izinli firmaya at
+    const yeniK = KULLANICILAR[id]!;
+    if (!yeniK.firmaIzin.includes(aktif)) {
+      setAktif(yeniK.firmaIzin[0]!);
+    }
+    // Konsolide'de ise ve yeni kullanıcı göremiyorsa Nabız'a dön
+    if (sekme === "grup" && !yeniK.konsolideGorur) setSekme("nabiz");
+    notify.info(
+      id === GERCEK_KULLANICI
+        ? `Kendi hesabınıza döndünüz`
+        : `${yeniK.hitap} olarak görüntülüyorsunuz`,
+      {
+        description:
+          id === GERCEK_KULLANICI
+            ? "Süper yönetici görünümü kapalı."
+            : `${yeniK.rol === "cekirdek-ortak" ? "Çekirdek Ortak" : "Tek Firma Yöneticisi"} · ${yeniK.firmaIzin.length} firma`,
+      },
+    );
+  }
 
   function senkronTetikle() {
     const startMs = performance.now();
@@ -69,15 +118,31 @@ export function App() {
         WebkitFontSmoothing: "antialiased",
       } as React.CSSProperties}
     >
+      {/* Impersonation banner — süper yönetici farklı kullanıcı olarak bakarken */}
+      <ImpersonationBanner
+        goruntulenen={impersonation ? aktifKullanici : null}
+        onGercege={() => kullaniciSec(GERCEK_KULLANICI)}
+        gercekHitap={gercekKullanici.hitap}
+      />
+
       <EliteHeader
         aktifSekme={sekme}
         onSekmeSec={setSekme}
-        aktifFirma={aktif}
+        aktifFirma={gecerliFirma}
         erisilebilirFirmalar={aktifKullanici.firmaIzin}
         onFirmaSec={setAktif}
         aktifKullanici={aktifKullanici}
         onSearchClick={() => setPaletAcik(true)}
         onSyncClick={senkronTetikle}
+        onProfileClick={() => setSeciciAcik(true)}
+      />
+
+      <KullaniciSecici
+        acik={seciciAcik}
+        onClose={() => setSeciciAcik(false)}
+        gercekKullaniciId={GERCEK_KULLANICI}
+        goruntulenenKullaniciId={goruntulenenId}
+        onSec={kullaniciSec}
       />
 
       <CommandPalette
