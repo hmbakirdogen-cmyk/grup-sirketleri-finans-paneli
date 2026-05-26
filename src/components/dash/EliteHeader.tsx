@@ -21,6 +21,7 @@ import {
   Bell,
   Sun,
   Plus,
+  Calculator,
   type LucideIcon,
 } from "lucide-react";
 import { FIRMALAR } from "@/data/firmalar";
@@ -39,6 +40,7 @@ const NAV: NavItem[] = [
   { id: "akis", label: "Akış", icon: TrendingUp },
   { id: "alacaklar", label: "Alacaklar", icon: Users },
   { id: "raporlar", label: "Raporlar", icon: FileText },
+  { id: "vergi", label: "Vergi Atölyesi", icon: Calculator },
   { id: "ayarlar", label: "Ayarlar", icon: Settings },
 ];
 
