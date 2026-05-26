@@ -126,6 +126,24 @@ export interface CekSenet {
   not?: string;
 }
 
+/** Ürün marjı analizi — Logo Go fatura kalemlerinden türetilir.
+ *  V1 muhasebe odaklı: ciro = satış fatura kalemleri, maliyet = alış kalemleri. */
+export interface UrunMarji {
+  kod: string;
+  ad: string;
+  segment: string;
+  /** Yıllık satılan adet */
+  yillikSatisAdet: number;
+  yillikCiro: number;
+  yillikMaliyet: number;
+  /** Brüt marj % */
+  marj: number;
+  /** En çok alan ilk 3 cari */
+  topMusteriler: string[];
+  /** Geçen yıla göre satış değişim (%) */
+  trend: number;
+}
+
 export interface FirmaFinans {
   firmaId: FirmaId;
   son12Ay: AylikKpi[];
@@ -136,6 +154,8 @@ export interface FirmaFinans {
   cariler: Cari[];
   /** Çek/senet portföyü (alacak + verilen) */
   cekSenet: CekSenet[];
+  /** Ürün/segment marjı analiz — Logo Go fatura kalemlerinden */
+  urunMarji: UrunMarji[];
   bilanco: { aktif: MaliTabloKalemi[]; pasif: MaliTabloKalemi[] };
   gelirTablosu: MaliTabloKalemi[];
 }
