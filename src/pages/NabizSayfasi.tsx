@@ -1,23 +1,27 @@
 // NabizSayfasi — Şirket nabzı / yönetim özeti.
 // 3 yıl karşılaştırma AnaGrafik + ProgressRing + Yönetici Özeti + 4 KPI + 3 destek.
 
-import { useMemo } from "react";
-import { Wallet, TrendingUp, Coins, Banknote } from "lucide-react";
+import { useMemo, useState } from "react";
+import { Wallet, TrendingUp, Coins, Banknote, Pencil } from "lucide-react";
 import { KpiKart } from "@/components/dash/KpiKart";
 import { AnaGrafik } from "@/components/dash/AnaGrafik";
 import { OzetKart } from "@/components/dash/OzetKart";
 import { YoneticiOzeti } from "@/components/dash/YoneticiOzeti";
 import { ProgressRing } from "@/components/dash/ProgressRing";
 import { Chart3DBackdrop } from "@/components/dash/Chart3DBackdrop";
+import { FirmaHedefDuzenleModal } from "@/components/modals/FirmaHedefDuzenleModal";
 import { TEMA, FONT, fmtTL, fmtYuzde } from "@/lib/tema";
-import type { Firma, FirmaFinans } from "@/types/domain";
+import type { Firma, FirmaFinans, Kullanici } from "@/types/domain";
 
 interface Props {
   firma: Firma;
   finans: FirmaFinans;
+  aktifKullanici: Kullanici;
 }
 
-export function NabizSayfasi({ firma, finans }: Props) {
+export function NabizSayfasi({ firma, finans, aktifKullanici }: Props) {
+  const [hedefModalAcik, setHedefModalAcik] = useState(false);
+
   const ozet = useMemo(() => {
     const son12 = finans.son12Ay;
     const son = son12[son12.length - 1]!;
@@ -194,16 +198,57 @@ export function NabizSayfasi({ firma, finans }: Props) {
           >
             <div
               style={{
-                fontSize: 11,
-                fontWeight: 600,
-                letterSpacing: "0.14em",
-                textTransform: "uppercase",
-                color: TEMA.inkMuted,
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                width: "100%",
                 marginBottom: 12,
-                alignSelf: "flex-start",
               }}
             >
-              Hedef Gerçekleşme
+              <span
+                style={{
+                  fontSize: 11,
+                  fontWeight: 600,
+                  letterSpacing: "0.14em",
+                  textTransform: "uppercase",
+                  color: TEMA.inkMuted,
+                }}
+              >
+                Hedef Gerçekleşme
+              </span>
+              {aktifKullanici.konsolideGorur && (
+                <button
+                  type="button"
+                  onClick={() => setHedefModalAcik(true)}
+                  title="Yıllık hedefleri düzenle"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 4,
+                    padding: "4px 8px",
+                    borderRadius: 6,
+                    background: "rgba(255,255,255,0.04)",
+                    border: `1px solid ${TEMA.border}`,
+                    color: TEMA.inkMuted,
+                    fontSize: 10.5,
+                    fontWeight: 600,
+                    letterSpacing: "0.04em",
+                    cursor: "pointer",
+                    transition: "color 180ms ease, border-color 180ms ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = TEMA.ink;
+                    e.currentTarget.style.borderColor = TEMA.borderAktif;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = TEMA.inkMuted;
+                    e.currentTarget.style.borderColor = TEMA.border;
+                  }}
+                >
+                  <Pencil size={10} />
+                  Düzenle
+                </button>
+              )}
             </div>
             <ProgressRing
               value={ozet.hedefGerceklesme}
@@ -281,6 +326,12 @@ export function NabizSayfasi({ firma, finans }: Props) {
           baglamRengi={ozet.hedefGerceklesme >= 100 ? "iyi" : "notr"}
         />
       </section>
+
+      <FirmaHedefDuzenleModal
+        acik={hedefModalAcik}
+        onClose={() => setHedefModalAcik(false)}
+        aktifKullanici={aktifKullanici}
+      />
     </>
   );
 }

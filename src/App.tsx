@@ -97,7 +97,9 @@ export function App() {
         <MaliTakvimRozetMini />
         <MansetBandi />
 
-        {sekme === "nabiz" && <NabizSayfasi firma={firma} finans={finans} />}
+        {sekme === "nabiz" && (
+          <NabizSayfasi firma={firma} finans={finans} aktifKullanici={aktifKullanici} />
+        )}
         {sekme === "akis" && <AkisSayfasi firma={firma} finans={finans} />}
         {sekme === "alacaklar" && <AlacaklarSayfasi firma={firma} finans={finans} />}
         {sekme === "raporlar" && <RaporlarSayfasi firma={firma} finans={finans} />}

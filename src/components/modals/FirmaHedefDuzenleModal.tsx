@@ -15,16 +15,17 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useMemo } from "react";
 import { Target, X, RefreshCw, Save, CheckCircle2, AlertTriangle } from "lucide-react";
 import { useGrupHedef } from "@/lib/grup-hedef-store";
-import { useAuth } from "@/hooks/useAuth";
 import { FIRMALAR } from "@/data/firmalar";
 import { notify } from "@/lib/notify";
-import type { FirmaId } from "@/types/domain";
+import type { FirmaId, Kullanici } from "@/types/domain";
 
 const EASE = [0.22, 0.61, 0.36, 1] as const;
 
 interface Props {
   acik: boolean;
   onClose: () => void;
+  /** Aktif kullanıcı (yetki + audit için) */
+  aktifKullanici: Kullanici;
 }
 
 const FIRMA_SIRA: FirmaId[] = ["meba", "mesa", "elmos", "arkon"];
@@ -37,8 +38,8 @@ function formatTL(n: number): string {
   }).format(n);
 }
 
-export function FirmaHedefDuzenleModal({ acik, onClose }: Props) {
-  const { aktifKullanici, konsolideErisim } = useAuth();
+export function FirmaHedefDuzenleModal({ acik, onClose, aktifKullanici }: Props) {
+  const konsolideErisim = aktifKullanici.konsolideGorur;
   const { firmaHedefi, varsayilan, setFirmaHedef, sifirla } = useGrupHedef();
 
   const [grupToplam, setGrupToplam] = useState<string>("0");
