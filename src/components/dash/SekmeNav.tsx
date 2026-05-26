@@ -3,7 +3,7 @@
 
 import { TEMA, FONT } from "@/lib/tema";
 
-export type Sekme = "nabiz" | "akis" | "alacaklar" | "raporlar" | "vergi" | "grup" | "ayarlar";
+export type Sekme = "nabiz" | "akis" | "alacaklar" | "raporlar" | "vergi" | "grup" | "isbirligi" | "ayarlar";
 
 interface Props {
   aktif: Sekme;

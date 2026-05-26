@@ -19,6 +19,7 @@ import { AlacaklarSayfasi } from "./pages/AlacaklarSayfasi";
 import { RaporlarSayfasi } from "./pages/RaporlarSayfasi";
 import { VergiAtolyesiSayfasi } from "./pages/VergiAtolyesiSayfasi";
 import { KonsolideSayfasi } from "./pages/KonsolideSayfasi";
+import { IsBirligiSayfasi } from "./pages/IsBirligiSayfasi";
 import { AyarlarSayfasi } from "./pages/AyarlarSayfasi";
 import { notify } from "./lib/notify";
 import { TEMA, FONT } from "./lib/tema";
@@ -135,6 +136,7 @@ export function App() {
             </p>
           </div>
         )}
+        {sekme === "isbirligi" && <IsBirligiSayfasi />}
         {sekme === "ayarlar" && <AyarlarSayfasi firma={firma} aktifKullanici={aktifKullanici} />}
 
         <footer

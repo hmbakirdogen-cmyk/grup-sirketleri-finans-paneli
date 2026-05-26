@@ -23,6 +23,7 @@ import {
   Plus,
   Calculator,
   Layers,
+  Network,
   type LucideIcon,
 } from "lucide-react";
 import { FIRMALAR } from "@/data/firmalar";
@@ -43,6 +44,7 @@ const NAV: NavItem[] = [
   { id: "raporlar", label: "Raporlar", icon: FileText },
   { id: "vergi", label: "Vergi Atölyesi", icon: Calculator },
   { id: "grup", label: "Konsolide Grup", icon: Layers },
+  { id: "isbirligi", label: "İş Birliği", icon: Network },
   { id: "ayarlar", label: "Ayarlar", icon: Settings },
 ];
 
