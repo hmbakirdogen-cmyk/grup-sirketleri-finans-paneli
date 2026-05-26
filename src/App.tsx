@@ -1,13 +1,7 @@
 // App — Grup Şirketleri Finans Paneli ana sayfası.
 // Mehmet Bey brief 2026-05-26: Apple sadeliği + Tesla premiumluğu.
-//
-// Yapı:
-//   ÜST   : 4 büyük KPI kartı (Ciro / Brüt Kâr / Net Kâr / Nakit Akışı)
-//   ORTA  : 1 büyük ana grafik (12 ay ciro + hedef line)
-//   ALT   : 3 küçük destek kart (Kâr Marjı / Tahmin / Performans)
-//
-// Veri akışı ve hesaplama mantığı korunur — FINANS_VERISI, FIRMALAR aynı.
-// Sadece görsel dil yükseltildi.
+// Lovable AI'nın çıkardığı standart: sekme nav + Mali Takvim rozet + 4 KPI +
+// büyük grafik + Yönetici Özeti dikey panel + GENEL DURUM kutusu.
 
 import { useMemo, useState } from "react";
 import { FIRMALAR } from "./data/firmalar";
@@ -16,6 +10,9 @@ import { KpiKart } from "./components/dash/KpiKart";
 import { AnaGrafik } from "./components/dash/AnaGrafik";
 import { OzetKart } from "./components/dash/OzetKart";
 import { FirmaSecici } from "./components/dash/FirmaSecici";
+import { SekmeNav, type Sekme } from "./components/dash/SekmeNav";
+import { MaliTakvimRozetMini } from "./components/dash/MaliTakvimRozetMini";
+import { YoneticiOzeti } from "./components/dash/YoneticiOzeti";
 import { TEMA, FONT, fmtTL, fmtYuzde } from "./lib/tema";
 import type { FirmaId } from "./types/domain";
 
@@ -23,10 +20,12 @@ const FIRMA_LISTE: FirmaId[] = ["meba", "mesa", "elmos", "arkon"];
 
 export function App() {
   const [aktif, setAktif] = useState<FirmaId>("meba");
+  const [sekme, setSekme] = useState<Sekme>("nabiz");
+
   const firma = FIRMALAR[aktif];
   const finans = FINANS_VERISI[aktif];
 
-  // Mevcut veri akışından türetilmiş yıllık özet (hesap mantığı değişmedi)
+  // Yıllık özet — mevcut hesap mantığı korundu
   const ozet = useMemo(() => {
     const son12 = finans.son12Ay;
     const son = son12[son12.length - 1]!;
@@ -41,16 +40,18 @@ export function App() {
     const ciroYilDelta = ((son.ciro - ilk.ciro) / ilk.ciro) * 100;
     const marjYilDelta = son.brutMarj - ilk.brutMarj;
 
-    // Hedef: yıllık cironun 1/12'si (mock — gerçek senaryoda hedef store'dan gelir)
     const aylikHedef = (yillikCiro / 12) * 1.04;
+    const yillikHedef = aylikHedef * 12;
+    const hedefGerceklesme = (yillikCiro / yillikHedef) * 100;
 
-    // Tahmin: son 3 ay ortalama × 3
     const son3Ay = son12.slice(-3);
     const tahmin3Ay = Math.round((son3Ay.reduce((s, a) => s + a.ciro, 0) / 3) * 3);
 
-    // Performans: yıllık ciro vs (aylık hedef × 12)
-    const yillikHedef = aylikHedef * 12;
-    const performans = (yillikCiro / yillikHedef) * 100;
+    // Operasyonel verimlilik: marj × tahsilat hızı (mock)
+    const operasyonel = Math.min(100, ortalamaMarj * 5 + 35);
+    // Nakit yeterliliği: nakit / (aylık ortalama gider) × 100
+    const aylikOrtGider = (yillikCiro - netKarYillik) / 12;
+    const nakitYeterliligi = Math.min(100, (nakitAylik / Math.max(aylikOrtGider, 1)) * 100);
 
     return {
       yillikCiro,
@@ -62,9 +63,22 @@ export function App() {
       marjYilDelta,
       aylikHedef,
       tahmin3Ay,
-      performans,
+      hedefGerceklesme,
+      operasyonel,
+      nakitYeterliligi,
     };
   }, [finans]);
+
+  const durumRengi: "iyi" | "dikkat" | "kotu" =
+    ozet.hedefGerceklesme >= 95 && ozet.ortalamaMarj > 15 ? "iyi" :
+    ozet.hedefGerceklesme >= 80 ? "dikkat" : "kotu";
+
+  const durumMetni =
+    ozet.hedefGerceklesme >= 95
+      ? `Ciro hedefin ${ozet.hedefGerceklesme >= 100 ? "üstünde" : "yakınında"}, nakit pozisyonu sağlam. Marjı korumak için maliyet tarafı izlenmeli.`
+      : ozet.hedefGerceklesme >= 80
+        ? `Hedefe ${(100 - ozet.hedefGerceklesme).toFixed(0)} puan uzaktayız; son çeyrekte ivme yakalanırsa kapanabilir. Açık alacaklar takipte tutulmalı.`
+        : `Hedefin altında seyrediyoruz; tahsilat hızı ve marj baskısı gözden geçirilmeli. Bayilerle mutabakat tazelenirse toparlanma olası.`;
 
   return (
     <div
@@ -76,134 +90,189 @@ export function App() {
         WebkitFontSmoothing: "antialiased",
       }}
     >
-      {/* Sayfa şablonu */}
       <div
         style={{
-          maxWidth: 1320,
+          maxWidth: 1440,
           margin: "0 auto",
-          padding: "40px 32px 80px",
+          padding: "32px 32px 80px",
         }}
       >
-        {/* Üst bar — minimal */}
+        {/* Üst bar */}
         <header
           style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            marginBottom: 36,
+            marginBottom: 20,
             gap: 24,
           }}
         >
-          <div>
-            <div
-              style={{
-                fontSize: 11,
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                color: TEMA.inkMuted,
-                fontWeight: 500,
-                marginBottom: 6,
-              }}
-            >
-              Grup Şirketleri · Finans
-            </div>
-            <h1
-              style={{
-                fontSize: 26,
-                fontWeight: 600,
-                letterSpacing: "-0.02em",
-                margin: 0,
-                color: TEMA.ink,
-              }}
-            >
-              {firma.kisaAd} · Yönetim Özeti
-            </h1>
+          <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+            <FirmaSecici liste={FIRMA_LISTE} aktif={aktif} onSec={setAktif} />
+            <span style={{ fontSize: 13, color: TEMA.inkMuted }}>{firma.konum.split(" ")[0]}</span>
           </div>
 
-          <FirmaSecici liste={FIRMA_LISTE} aktif={aktif} onSec={setAktif} />
+          <div
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              fontSize: 11,
+              color: TEMA.yesil,
+              letterSpacing: "0.16em",
+              textTransform: "uppercase",
+              fontWeight: 600,
+            }}
+          >
+            <span
+              style={{
+                width: 7,
+                height: 7,
+                borderRadius: "50%",
+                background: TEMA.yesil,
+                boxShadow: `0 0 8px ${TEMA.yesil}80`,
+              }}
+            />
+            Canlı · Mayıs 2026
+          </div>
         </header>
 
-        {/* ÜST — 4 KPI kartı */}
-        <section
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: 16,
-            marginBottom: 24,
-          }}
-        >
-          <KpiKart
-            etiket="Toplam Ciro"
-            deger={fmtTL(ozet.yillikCiro)}
-            delta={ozet.ciroYilDelta}
-            deltaEtiketi="yıllık"
-            vurgu
-          />
-          <KpiKart
-            etiket="Brüt Kâr"
-            deger={fmtTL(ozet.brutKarYillik)}
-            delta={ozet.marjYilDelta}
-            deltaEtiketi="marj puanı"
-          />
-          <KpiKart
-            etiket="Net Kâr"
-            deger={fmtTL(ozet.netKarYillik)}
-            delta={ozet.ciroYilDelta * 0.62}
-            deltaEtiketi="yıllık"
-          />
-          <KpiKart
-            etiket="Nakit Akışı"
-            deger={fmtTL(ozet.nakitAylik)}
-            delta={4.2}
-            deltaEtiketi="son ay"
-          />
-        </section>
+        {/* Sekmeler */}
+        <SekmeNav aktif={sekme} onSec={setSekme} />
 
-        {/* ORTA — ana grafik */}
-        <section style={{ marginBottom: 24 }}>
-          <AnaGrafik
-            veri={finans.son12Ay.map((a) => ({ ay: a.ay, ciro: a.ciro }))}
-            hedefAylik={ozet.aylikHedef}
-            baslik="Aylık Ciro Akışı"
-            altBaslik={`Son 12 ay · ortalama ${fmtTL(ozet.yillikCiro / 12)}`}
-          />
-        </section>
+        {/* Mali Takvim üst rozet */}
+        <MaliTakvimRozetMini />
 
-        {/* ALT — 3 destek kart */}
-        <section
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: 16,
-          }}
-        >
-          <OzetKart
-            etiket="Kâr Marjı"
-            deger={fmtYuzde(ozet.ortalamaMarj)}
-            baglam={
-              ozet.ortalamaMarj > 15
-                ? `Hedef %15 — üstünde`
-                : `Hedef %15 — altında`
-            }
-            baglamRengi={ozet.ortalamaMarj > 15 ? "iyi" : "kotu"}
-          />
-          <OzetKart
-            etiket="Tahmin · 3 Ay"
-            deger={fmtTL(ozet.tahmin3Ay)}
-            baglam="Son 3 ay ortalamasına göre"
-            baglamRengi="notr"
-          />
-          <OzetKart
-            etiket="Performans"
-            deger={fmtYuzde(ozet.performans)}
-            baglam={
-              ozet.performans >= 100
-                ? "Yıllık hedef karşılandı"
-                : `Hedefe ${(100 - ozet.performans).toFixed(0)} puan uzak`
-            }
-            baglamRengi={ozet.performans >= 100 ? "iyi" : "notr"}
-          />
-        </section>
+        {/* Sayfa başlığı */}
+        <div style={{ marginBottom: 24 }}>
+          <div
+            style={{
+              fontSize: 11,
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: TEMA.inkMuted,
+              fontWeight: 500,
+              marginBottom: 6,
+            }}
+          >
+            Finansal Nabız · {firma.konum.split(" ")[0]}
+          </div>
+          <h1
+            style={{
+              fontSize: 28,
+              fontWeight: 600,
+              letterSpacing: "-0.02em",
+              margin: 0,
+              color: TEMA.ink,
+            }}
+          >
+            {firma.unvan}
+          </h1>
+        </div>
+
+        {sekme === "nabiz" && (
+          <>
+            {/* ÜST — 4 KPI */}
+            <section
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(4, 1fr)",
+                gap: 16,
+                marginBottom: 24,
+              }}
+            >
+              <KpiKart
+                etiket="Toplam Ciro"
+                deger={fmtTL(ozet.yillikCiro)}
+                delta={ozet.ciroYilDelta}
+                deltaEtiketi="geçen döneme göre"
+                vurgu
+              />
+              <KpiKart
+                etiket="Brüt Kâr"
+                deger={fmtTL(ozet.brutKarYillik)}
+                delta={ozet.marjYilDelta}
+                deltaEtiketi="marj puanı"
+              />
+              <KpiKart
+                etiket="Net Kâr"
+                deger={fmtTL(ozet.netKarYillik)}
+                delta={ozet.ciroYilDelta * 0.62}
+                deltaEtiketi="geçen döneme göre"
+              />
+              <KpiKart
+                etiket="Nakit Akışı"
+                deger={fmtTL(ozet.nakitAylik)}
+                delta={4.2}
+                deltaEtiketi="son ay"
+              />
+            </section>
+
+            {/* ORTA — büyük grafik (sol 2/3) + Yönetici Özeti (sağ 1/3) */}
+            <section
+              style={{
+                display: "grid",
+                gridTemplateColumns: "2fr 1fr",
+                gap: 16,
+                marginBottom: 24,
+              }}
+            >
+              <AnaGrafik
+                veri={finans.son12Ay.map((a) => ({ ay: a.ay, ciro: a.ciro }))}
+                hedefAylik={ozet.aylikHedef}
+                baslik="Gelir ve Kâr Trendi"
+                altBaslik={`Aylık karşılaştırmalı performans · ort ${fmtTL(ozet.yillikCiro / 12)}`}
+              />
+
+              <YoneticiOzeti
+                baslik="Yönetici Özeti"
+                altBaslik="Bu dönem performansı"
+                satirlar={[
+                  { etiket: "Hedef Gerçekleşme", yuzde: ozet.hedefGerceklesme, renk: "mavi" },
+                  { etiket: "Operasyonel Verimlilik", yuzde: ozet.operasyonel, renk: "yesil" },
+                  { etiket: "Nakit Yeterliliği", yuzde: ozet.nakitYeterliligi, renk: "altin" },
+                ]}
+                durumBasligi="Genel Durum"
+                durumMetni={durumMetni}
+                durumRengi={durumRengi}
+              />
+            </section>
+
+            {/* ALT — 3 destek kart */}
+            <section
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(3, 1fr)",
+                gap: 16,
+              }}
+            >
+              <OzetKart
+                etiket="Kâr Marjı"
+                deger={fmtYuzde(ozet.ortalamaMarj)}
+                baglam={ozet.ortalamaMarj > 15 ? "Hedef %15 — üstünde" : "Hedef %15 — altında"}
+                baglamRengi={ozet.ortalamaMarj > 15 ? "iyi" : "kotu"}
+              />
+              <OzetKart
+                etiket="Tahmin · 3 Ay"
+                deger={fmtTL(ozet.tahmin3Ay)}
+                baglam="Son 3 ay ortalamasına göre"
+                baglamRengi="notr"
+              />
+              <OzetKart
+                etiket="Performans"
+                deger={fmtYuzde(ozet.hedefGerceklesme)}
+                baglam={
+                  ozet.hedefGerceklesme >= 100
+                    ? "Yıllık hedef karşılandı"
+                    : `Hedefe ${(100 - ozet.hedefGerceklesme).toFixed(0)} puan uzak`
+                }
+                baglamRengi={ozet.hedefGerceklesme >= 100 ? "iyi" : "notr"}
+              />
+            </section>
+          </>
+        )}
+
+        {sekme !== "nabiz" && <SayfaIskelet sekme={sekme} />}
 
         {/* Alt — minimal byline */}
         <footer
@@ -218,14 +287,11 @@ export function App() {
             letterSpacing: "0.04em",
           }}
         >
-          <span>{firma.unvan}</span>
-          <span>
-            Veri: Logo Go · {new Date().toLocaleDateString("tr-TR", { day: "numeric", month: "long", year: "numeric" })}
-          </span>
+          <span>Veri: Logo Go canlı sync · {new Date().toLocaleDateString("tr-TR", { day: "numeric", month: "long", year: "numeric" })}</span>
+          <span>Grup Şirketleri · MEBA · MESA · ELMOS · ARKON</span>
         </footer>
       </div>
 
-      {/* Intro animasyonu (sadece opacity + hafif y, ≤200ms) */}
       <style>{`
         [data-anim] {
           animation: fadeUp 280ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
@@ -244,6 +310,9 @@ export function App() {
           to   { opacity: 1; transform: translateY(0); }
         }
 
+        @media (max-width: 1100px) {
+          section[style*="2fr 1fr"] { grid-template-columns: 1fr !important; }
+        }
         @media (max-width: 900px) {
           section[style*="repeat(4, 1fr)"],
           section[style*="repeat(3, 1fr)"] {
@@ -261,6 +330,88 @@ export function App() {
           [data-anim] { animation: none; }
         }
       `}</style>
+    </div>
+  );
+}
+
+// Sayfa iskeleti — diğer sekmeler için placeholder
+// Lovable brief paketinden takip eden sayfalar buraya bağlanacak.
+function SayfaIskelet({ sekme }: { sekme: Sekme }) {
+  const baslik =
+    sekme === "akis"
+      ? "Akış"
+      : sekme === "alacaklar"
+        ? "Alacaklar"
+        : sekme === "raporlar"
+          ? "Raporlar"
+          : "Ayarlar";
+
+  const aciklama =
+    sekme === "akis"
+      ? "Gelir ve gider kategori akışı, marj erozyon paneli."
+      : sekme === "alacaklar"
+        ? "Açık cari takibi, vade dağılımı, riskli müşteriler."
+        : sekme === "raporlar"
+          ? "Bilanço ve gelir tablosu yönetici özeti, dönem karşılaştırma."
+          : "Kullanıcı, firma ve veri kaynağı ayarları.";
+
+  return (
+    <div
+      style={{
+        background: `linear-gradient(180deg, ${TEMA.bgKart}, ${TEMA.bgKartAlt})`,
+        border: `1px solid ${TEMA.border}`,
+        borderRadius: 16,
+        padding: "60px 32px",
+        textAlign: "center",
+      }}
+    >
+      <div
+        style={{
+          fontSize: 11,
+          letterSpacing: "0.18em",
+          textTransform: "uppercase",
+          color: TEMA.inkMuted,
+          fontWeight: 500,
+          marginBottom: 10,
+        }}
+      >
+        Yapım Aşamasında
+      </div>
+      <h2
+        style={{
+          fontSize: 28,
+          fontWeight: 600,
+          letterSpacing: "-0.02em",
+          margin: 0,
+          color: TEMA.ink,
+        }}
+      >
+        {baslik}
+      </h2>
+      <p
+        style={{
+          fontSize: 14,
+          color: TEMA.inkSoft,
+          marginTop: 10,
+          marginBottom: 0,
+          maxWidth: 520,
+          marginLeft: "auto",
+          marginRight: "auto",
+          lineHeight: 1.5,
+        }}
+      >
+        {aciklama}
+      </p>
+      <p
+        style={{
+          fontSize: 12,
+          color: TEMA.inkFaded,
+          marginTop: 20,
+          fontStyle: "italic",
+        }}
+      >
+        Bu sayfa Lovable brief paketinde tanımlı; bir sonraki sprint'te bağlanacak.
+      </p>
     </div>
   );
 }
