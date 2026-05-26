@@ -17,6 +17,7 @@ import {
   etkinTarih,
   type MaliVade,
 } from "@/lib/mali-takvim";
+// vadeMeta sadece iç VadeKart'ta kullanılıyor; üst component'te `meta` artık türetilmiyor.
 
 function formatTarih(iso: string): string {
   return new Date(iso).toLocaleDateString("tr-TR", {
@@ -45,13 +46,12 @@ export function MaliTakvimRozet() {
     return yaklasanVadeler(bugun, 30);
   }, [bugun]);
 
-  if (!bugun || vadeler.length === 0) return null;
-
   const enKritik = vadeler[0];
+  if (!bugun || !enKritik) return null;
+
   const seviye = vadeAciliyet(bugun, enKritik);
   const kalan = kalanGun(bugun, enKritik);
   const renk = aciliyetRenk(seviye);
-  const meta = vadeMeta(enKritik.tip);
   const uzatma = uzatilmisMi(enKritik);
 
   return (
