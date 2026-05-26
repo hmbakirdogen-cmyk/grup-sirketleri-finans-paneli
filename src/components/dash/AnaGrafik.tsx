@@ -1,18 +1,129 @@
-// AnaGrafik — ekranın odak noktası, tek büyük area chart.
-// Maksimum 2 veri serisi (gerçek ciro + hedef line).
-// Çok hafif grid, sade eksen, hover olmadan okunabilir.
+// AnaGrafik — MEBA TrendChart adaptasyonu.
+// 3D illüzyon kombinasyonu:
+//   - Shadow copy line (4px, blur(3px), translateY(6px)) → çizgi altında gölge
+//   - Glow filter (feGaussianBlur 3.2) → çizgi parıltısı
+//   - Multi-stop gradient stroke + area fill → hacim hissi
+//   - LabelList → her nokta üzerinde değer
+//
+// Chart3DBackdrop ile sarmalandığında broadcast moment tam olur.
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
+import {
+  Area,
+  CartesianGrid,
+  ComposedChart,
+  Line,
+  ReferenceLine,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+  LabelList,
+} from "recharts";
 import { TEMA, FONT, fmtTL } from "@/lib/tema";
 
 interface Props {
   veri: { ay: string; ciro: number }[];
-  hedefAylik?: number;     // sabit yatay hedef çizgisi (isteğe bağlı)
+  hedefAylik?: number;
   baslik?: string;
   altBaslik?: string;
-  /** Aktif firmanın signature rengi — çizgi ve dolgu bu renkten türetilir.
-   *  Atanmazsa TEMA.mavi (varsayılan). */
+  /** Aktif firmanın signature rengi — çizgi + dolgu bu renkten türetilir */
   accent?: string;
+}
+
+interface ChartDatum {
+  ay: string;
+  ciro: number;
+  hedef: number | null;
+}
+
+// Color helper — accent renginden açık/koyu varyant
+function rengiKaristir(renk: string, oran: number, hedef: "lighter" | "darker"): string {
+  // Basit hex → rgb → tone shift. accent #5b9dff gibi tam hex bekleniyor.
+  const r = parseInt(renk.slice(1, 3), 16);
+  const g = parseInt(renk.slice(3, 5), 16);
+  const b = parseInt(renk.slice(5, 7), 16);
+  const factor = hedef === "lighter" ? 1 + oran : 1 - oran;
+  const yeniR = Math.max(0, Math.min(255, Math.round(r * factor)));
+  const yeniG = Math.max(0, Math.min(255, Math.round(g * factor)));
+  const yeniB = Math.max(0, Math.min(255, Math.round(b * factor)));
+  return `rgb(${yeniR}, ${yeniG}, ${yeniB})`;
+}
+
+interface TooltipPayload {
+  value: number;
+  payload: ChartDatum;
+}
+
+function CustomTooltip({
+  active,
+  payload,
+  label,
+  accent,
+}: {
+  active?: boolean;
+  payload?: TooltipPayload[];
+  label?: string;
+  accent: string;
+}) {
+  if (!active || !payload?.length) return null;
+  const row = payload[0]?.payload;
+  if (!row) return null;
+  const hedef = row.hedef;
+  const delta = hedef !== null && hedef > 0 ? ((row.ciro - hedef) / hedef) * 100 : null;
+
+  return (
+    <div
+      style={{
+        borderRadius: 12,
+        border: `1px solid ${TEMA.border}`,
+        background: "rgba(15, 17, 22, 0.92)",
+        backdropFilter: "blur(20px) saturate(170%)",
+        boxShadow: "0 12px 32px rgba(0,0,0,0.40)",
+        padding: "10px 14px",
+        fontSize: 12,
+        minWidth: 180,
+        fontFamily: FONT.ana,
+      }}
+    >
+      <div style={{ fontWeight: 600, color: TEMA.ink, marginBottom: 6 }}>{label} 2026</div>
+      <div style={{ display: "flex", flexDirection: "column", gap: 4, fontVariantNumeric: "tabular-nums" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", gap: 12 }}>
+          <span style={{ color: accent }}>● Gerçekleşen</span>
+          <span style={{ color: TEMA.ink, fontWeight: 600 }}>{fmtTL(row.ciro)}</span>
+        </div>
+        {hedef !== null && (
+          <div style={{ display: "flex", justifyContent: "space-between", gap: 12 }}>
+            <span style={{ color: TEMA.altin }}>— Hedef</span>
+            <span style={{ color: TEMA.inkSoft }}>{fmtTL(hedef)}</span>
+          </div>
+        )}
+        {delta !== null && (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              gap: 12,
+              paddingTop: 4,
+              borderTop: `1px solid ${TEMA.border}`,
+              marginTop: 2,
+            }}
+          >
+            <span style={{ color: TEMA.inkFaded }}>Δ vs hedef</span>
+            <span
+              style={{
+                color: delta >= 0 ? TEMA.yesil : TEMA.kirmizi,
+                fontWeight: 600,
+              }}
+            >
+              {delta >= 0 ? "+" : ""}
+              {delta.toFixed(0)}%
+            </span>
+          </div>
+        )}
+      </div>
+    </div>
+  );
 }
 
 export function AnaGrafik({
@@ -23,94 +134,37 @@ export function AnaGrafik({
   accent = TEMA.mavi,
 }: Props) {
   const [hoverIdx, setHoverIdx] = useState<number | null>(null);
-  const svgRef = useRef<SVGSVGElement>(null);
 
-  const W = 1200;
-  const H = 380;
-  const padL = 48;
-  const padR = 32;
-  const padT = 32;
-  const padB = 44;
+  const accentLight = useMemo(() => rengiKaristir(accent, 0.35, "lighter"), [accent]);
+  const accentDark = useMemo(() => rengiKaristir(accent, 0.30, "darker"), [accent]);
 
-  const { yMin, yMax, noktalar, hedefY } = useMemo(() => {
-    const minVeri = Math.min(...veri.map((v) => v.ciro));
-    const maxVeri = Math.max(...veri.map((v) => v.ciro));
-    const min = hedefAylik !== undefined ? Math.min(minVeri, hedefAylik) : minVeri;
-    const max = hedefAylik !== undefined ? Math.max(maxVeri, hedefAylik) : maxVeri;
-    // Üstte ve altta %12 padding
-    const span = max - min;
-    const yMin = min - span * 0.12;
-    const yMax = max + span * 0.15;
-    const yRange = yMax - yMin;
+  // Filter ID'ler için benzersiz suffix (birden fazla AnaGrafik aynı sayfada olabilir)
+  const uid = useMemo(() => `ag-${accent.replace("#", "")}`, [accent]);
 
-    const noktalar = veri.map((v, i) => ({
-      x: padL + (i / (veri.length - 1)) * (W - padL - padR),
-      y: padT + (1 - (v.ciro - yMin) / yRange) * (H - padT - padB),
-      ay: v.ay,
-      ciro: v.ciro,
-    }));
+  const data: ChartDatum[] = useMemo(
+    () =>
+      veri.map((d) => ({
+        ay: d.ay,
+        ciro: d.ciro,
+        hedef: hedefAylik ?? null,
+      })),
+    [veri, hedefAylik],
+  );
 
-    const hedefY =
-      hedefAylik !== undefined
-        ? padT + (1 - (hedefAylik - yMin) / yRange) * (H - padT - padB)
-        : null;
-
-    return { yMin, yMax, noktalar, hedefY };
-  }, [veri, hedefAylik]);
-
-  const path = noktalar.map((n, i) => (i === 0 ? `M ${n.x} ${n.y}` : `L ${n.x} ${n.y}`)).join(" ");
-  const fill =
-    `${path} L ${noktalar[noktalar.length - 1]!.x} ${H - padB} L ${noktalar[0]!.x} ${H - padB} Z`;
-
-  // 3 Y grid çizgisi — hafif
-  const yTicks = useMemo(() => {
-    const adim = (yMax - yMin) / 3;
-    return [0, 1, 2, 3].map((i) => {
-      const v = yMin + adim * i;
-      return {
-        y: padT + (1 - (v - yMin) / (yMax - yMin)) * (H - padT - padB),
-        v,
-      };
-    });
-  }, [yMin, yMax]);
-
-  // Path reveal animasyonu (bir kere, 600ms)
-  useEffect(() => {
-    const p = svgRef.current?.querySelector("path[data-anim='line']") as SVGPathElement | null;
-    if (!p) return;
-    const len = p.getTotalLength();
-    p.style.strokeDasharray = `${len}`;
-    p.style.strokeDashoffset = `${len}`;
-    p.getBoundingClientRect();
-    p.style.transition = "stroke-dashoffset 600ms cubic-bezier(0.22, 0.61, 0.36, 1)";
-    p.style.strokeDashoffset = "0";
-  }, [veri]);
-
-  function handleMove(e: React.MouseEvent<SVGSVGElement>) {
-    const r = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - r.left) / r.width) * W;
-    let yakin = 0;
-    let yakinD = Infinity;
-    noktalar.forEach((n, i) => {
-      const d = Math.abs(n.x - x);
-      if (d < yakinD) {
-        yakinD = d;
-        yakin = i;
-      }
-    });
-    setHoverIdx(yakin);
-  }
-
-  const aktifNokta = hoverIdx !== null ? noktalar[hoverIdx] : noktalar[noktalar.length - 1];
+  const sonCiro = data[data.length - 1]?.ciro ?? 0;
+  const enYukIdx = data.reduce(
+    (maxI, d, i) => (d.ciro > (data[maxI]?.ciro ?? 0) ? i : maxI),
+    0,
+  );
 
   return (
     <div
       data-anim="grafik"
       style={{
-        background: `linear-gradient(180deg, ${TEMA.bgKart}, ${TEMA.bgKartAlt})`,
-        border: `1px solid ${TEMA.border}`,
-        borderRadius: 16,
-        padding: "28px 28px 22px",
+        padding: "24px 24px 18px",
+        position: "relative",
+        height: "100%",
+        minHeight: 420,
       }}
     >
       {/* Üst başlık */}
@@ -120,7 +174,7 @@ export function AnaGrafik({
           alignItems: "flex-start",
           justifyContent: "space-between",
           gap: 24,
-          marginBottom: 22,
+          marginBottom: 16,
         }}
       >
         <div>
@@ -128,8 +182,8 @@ export function AnaGrafik({
             style={{
               fontFamily: FONT.ana,
               fontSize: 11,
-              fontWeight: 500,
-              letterSpacing: "0.12em",
+              fontWeight: 600,
+              letterSpacing: "0.14em",
               textTransform: "uppercase",
               color: TEMA.inkMuted,
               marginBottom: 6,
@@ -137,167 +191,240 @@ export function AnaGrafik({
           >
             {baslik}
           </div>
-          <div style={{ fontFamily: FONT.ana, fontSize: 14, color: TEMA.inkSoft }}>
+          <div style={{ fontFamily: FONT.ana, fontSize: 13, color: TEMA.inkSoft }}>
             {altBaslik ?? "Son 12 ay"}
           </div>
         </div>
 
-        {/* Sağ — aktif nokta özet */}
-        {aktifNokta && (
-          <div style={{ textAlign: "right" }}>
-            <div
-              style={{
-                fontFamily: FONT.num,
-                fontSize: 28,
-                fontWeight: 500,
-                letterSpacing: "-0.02em",
-                color: TEMA.ink,
-                fontVariantNumeric: "tabular-nums",
-                lineHeight: 1,
-              }}
-            >
-              {fmtTL(aktifNokta.ciro)}
-            </div>
-            <div
-              style={{
-                fontFamily: FONT.ana,
-                fontSize: 12,
-                color: TEMA.inkMuted,
-                marginTop: 6,
-                letterSpacing: "0.06em",
-              }}
-            >
-              {aktifNokta.ay}
-            </div>
+        {/* Sağ özet — aktif/son ay */}
+        <div style={{ textAlign: "right" }}>
+          <div
+            style={{
+              fontFamily: FONT.num,
+              fontSize: 28,
+              fontWeight: 600,
+              letterSpacing: "-0.02em",
+              color: TEMA.ink,
+              fontVariantNumeric: "tabular-nums",
+              lineHeight: 1,
+              textShadow: `0 0 24px ${accent}55`,
+            }}
+          >
+            {fmtTL(sonCiro)}
           </div>
+          <div
+            style={{
+              fontFamily: FONT.ana,
+              fontSize: 11,
+              color: TEMA.inkMuted,
+              marginTop: 4,
+              letterSpacing: "0.06em",
+            }}
+          >
+            {data[data.length - 1]?.ay ?? ""} · son ay
+          </div>
+        </div>
+      </div>
+
+      {/* Legend */}
+      <div
+        style={{
+          display: "flex",
+          gap: 16,
+          marginBottom: 8,
+          fontSize: 11,
+          color: TEMA.inkMuted,
+        }}
+      >
+        <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
+          <span style={{ width: 8, height: 8, borderRadius: "50%", background: accent }} />
+          Gerçekleşen
+        </span>
+        {hedefAylik !== undefined && (
+          <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
+            <span
+              style={{
+                width: 14,
+                height: 0,
+                borderTop: `1.5px dashed ${TEMA.altin}`,
+              }}
+            />
+            Aylık Hedef
+          </span>
         )}
       </div>
 
-      {/* SVG grafik */}
-      <svg
-        ref={svgRef}
-        viewBox={`0 0 ${W} ${H}`}
-        preserveAspectRatio="xMidYMid meet"
-        style={{ width: "100%", height: "auto", display: "block", cursor: "crosshair" }}
-        onMouseMove={handleMove}
-        onMouseLeave={() => setHoverIdx(null)}
-      >
-        <defs>
-          <linearGradient id="ana-fill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor={accent} stopOpacity={0.18} />
-            <stop offset="100%" stopColor={accent} stopOpacity={0} />
-          </linearGradient>
-        </defs>
+      {/* Recharts ComposedChart — 3D shadow + glow */}
+      <ResponsiveContainer width="100%" height={300}>
+        <ComposedChart
+          data={data}
+          margin={{ top: 24, right: 12, bottom: 4, left: -8 }}
+          onMouseMove={(e) => {
+            if (e?.activeTooltipIndex !== undefined) setHoverIdx(e.activeTooltipIndex);
+          }}
+          onMouseLeave={() => setHoverIdx(null)}
+        >
+          <defs>
+            {/* Multi-stop area gradient — derinlik hissi */}
+            <linearGradient id={`fill-${uid}`} x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor={accentLight} stopOpacity={0.65} />
+              <stop offset="35%" stopColor={accent} stopOpacity={0.40} />
+              <stop offset="75%" stopColor={accent} stopOpacity={0.15} />
+              <stop offset="100%" stopColor={accentDark} stopOpacity={0} />
+            </linearGradient>
 
-        {/* Hafif yatay grid (3 çizgi) */}
-        {yTicks.map((t, i) => (
-          <line
-            key={i}
-            x1={padL}
-            x2={W - padR}
-            y1={t.y}
-            y2={t.y}
+            {/* Gradient stroke — çizgi boyu renk değişimi */}
+            <linearGradient id={`stroke-${uid}`} x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor={accentDark} />
+              <stop offset="50%" stopColor={accent} />
+              <stop offset="100%" stopColor={accentLight} />
+            </linearGradient>
+
+            {/* Glow filter — çizgi parıltısı */}
+            <filter id={`glow-${uid}`} x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3.2" result="b" />
+              <feMerge>
+                <feMergeNode in="b" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+
+            {/* Drop depth — alttan gölge düşümü */}
+            <filter id={`drop-${uid}`} x="-20%" y="-20%" width="140%" height="160%">
+              <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+              <feOffset dx="0" dy="6" result="off" />
+              <feComponentTransfer>
+                <feFuncA type="linear" slope="0.50" />
+              </feComponentTransfer>
+              <feMerge>
+                <feMergeNode />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+
+          <CartesianGrid
             stroke="rgba(255,255,255,0.04)"
-            strokeWidth={1}
+            vertical={false}
+            strokeDasharray="2 4"
           />
-        ))}
 
-        {/* Sol Y ekseni etiketleri (3 değer) */}
-        {yTicks.slice(0, 3).map((t, i) => (
-          <text
-            key={i}
-            x={padL - 12}
-            y={t.y + 4}
-            textAnchor="end"
-            fontFamily={FONT.ana}
-            fontSize={10.5}
-            fill={TEMA.inkFaded}
-            style={{ fontVariantNumeric: "tabular-nums" }}
-          >
-            {fmtTL(t.v)}
-          </text>
-        ))}
+          <XAxis
+            dataKey="ay"
+            tick={{ fontSize: 11, fill: TEMA.inkFaded, fontFamily: FONT.ana }}
+            axisLine={false}
+            tickLine={false}
+            dy={6}
+          />
+          <YAxis
+            tick={{ fontSize: 10, fill: TEMA.inkFaded, fontFamily: FONT.ana }}
+            axisLine={false}
+            tickLine={false}
+            width={68}
+            tickFormatter={(v) => fmtTL(Number(v))}
+          />
 
-        {/* Hedef yatay çizgi (varsa) */}
-        {hedefY !== null && (
-          <>
-            <line
-              x1={padL}
-              x2={W - padR}
-              y1={hedefY}
-              y2={hedefY}
+          <Tooltip
+            content={<CustomTooltip accent={accent} />}
+            cursor={{
+              stroke: accent + "70",
+              strokeDasharray: "3 3",
+              strokeWidth: 1.5,
+            }}
+          />
+
+          {/* Hedef referans line — turuncu kesik */}
+          {hedefAylik !== undefined && (
+            <ReferenceLine
+              y={hedefAylik}
               stroke={TEMA.altin}
-              strokeWidth={1}
-              strokeDasharray="4 5"
-              opacity={0.6}
+              strokeWidth={1.5}
+              strokeDasharray="6 4"
+              opacity={0.7}
             />
-            <text
-              x={W - padR + 6}
-              y={hedefY + 4}
-              fontFamily={FONT.ana}
+          )}
+
+          {/* SHADOW COPY — kalın siyah çizgi, blur + translateY → 3D depth */}
+          <Line
+            type="monotone"
+            dataKey="ciro"
+            stroke="rgba(0,0,0,0.55)"
+            strokeWidth={4}
+            dot={false}
+            connectNulls={false}
+            animationDuration={1500}
+            style={{ filter: "blur(3px)", transform: "translateY(7px)" }}
+            legendType="none"
+          />
+
+          {/* ANA AREA — gradient fill */}
+          <Area
+            type="monotone"
+            dataKey="ciro"
+            stroke="none"
+            fill={`url(#fill-${uid})`}
+            animationDuration={1500}
+            animationEasing="ease-out"
+          />
+
+          {/* ANA LINE — gradient stroke + glow */}
+          <Line
+            type="monotone"
+            dataKey="ciro"
+            stroke={`url(#stroke-${uid})`}
+            strokeWidth={3}
+            connectNulls={false}
+            animationDuration={1500}
+            animationEasing="ease-out"
+            filter={`url(#glow-${uid})`}
+            dot={{ r: 3.5, fill: accent, stroke: TEMA.bg, strokeWidth: 2 }}
+            activeDot={{ r: 6, fill: accentLight, stroke: TEMA.bg, strokeWidth: 2 }}
+          >
+            <LabelList
+              dataKey="ciro"
+              position="top"
+              offset={12}
+              fill={TEMA.ink}
               fontSize={10}
-              fill={TEMA.altin}
-              style={{ fontVariantNumeric: "tabular-nums", opacity: 0.85, letterSpacing: "0.06em" }}
-            >
-              HEDEF
-            </text>
-          </>
-        )}
-
-        {/* Dolu alan */}
-        <path d={fill} fill="url(#ana-fill)" />
-
-        {/* Ana çizgi */}
-        <path
-          data-anim="line"
-          d={path}
-          fill="none"
-          stroke={accent}
-          strokeWidth={2}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-
-        {/* Hover dikey çizgi + nokta */}
-        {hoverIdx !== null && aktifNokta && (
-          <g>
-            <line
-              x1={aktifNokta.x}
-              x2={aktifNokta.x}
-              y1={padT}
-              y2={H - padB}
-              stroke="rgba(255,255,255,0.10)"
-              strokeWidth={1}
-            />
-            <circle
-              cx={aktifNokta.x}
-              cy={aktifNokta.y}
-              r={5}
-              fill={TEMA.bg}
-              stroke={accent}
-              strokeWidth={2}
-            />
-          </g>
-        )}
-
-        {/* X ekseni — sadece 4 ay etiketi (her 3'te bir) */}
-        {noktalar.map((n, i) =>
-          i % 3 === 0 || i === noktalar.length - 1 ? (
-            <text
-              key={i}
-              x={n.x}
-              y={H - 14}
-              textAnchor="middle"
+              fontWeight={600}
               fontFamily={FONT.ana}
-              fontSize={11}
-              fill={TEMA.inkFaded}
-              letterSpacing="0.04em"
-            >
-              {n.ay}
-            </text>
-          ) : null,
+              formatter={(v: number) => {
+                if (!Number.isFinite(v)) return "";
+                return fmtTL(v);
+              }}
+              style={{ textShadow: "0 1px 2px rgba(0,0,0,0.85)" }}
+            />
+          </Line>
+        </ComposedChart>
+      </ResponsiveContainer>
+
+      {/* Alt info bar — en yüksek nokta etiketi */}
+      <div
+        style={{
+          marginTop: 8,
+          paddingTop: 10,
+          borderTop: `1px solid ${TEMA.border}`,
+          display: "flex",
+          justifyContent: "space-between",
+          fontSize: 10.5,
+          color: TEMA.inkFaded,
+          fontFamily: FONT.ana,
+          letterSpacing: "0.04em",
+        }}
+      >
+        <span>
+          Yıl içi en yüksek: <strong style={{ color: accent }}>{data[enYukIdx]?.ay}</strong>{" "}
+          ·{" "}
+          <span style={{ color: TEMA.inkSoft, fontVariantNumeric: "tabular-nums" }}>
+            {fmtTL(data[enYukIdx]?.ciro ?? 0)}
+          </span>
+        </span>
+        {hoverIdx !== null && data[hoverIdx] && (
+          <span style={{ color: accent, fontWeight: 600 }}>
+            {data[hoverIdx].ay} · {fmtTL(data[hoverIdx].ciro)}
+          </span>
         )}
-      </svg>
+      </div>
     </div>
   );
 }
