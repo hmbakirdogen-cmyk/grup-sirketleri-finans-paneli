@@ -11,14 +11,12 @@ import {
   FileText,
   Settings,
   Calculator,
-  Layers,
   Search,
   Building2,
   CalendarDays,
   FileSignature,
   Package,
   Briefcase,
-  Network,
   type LucideIcon,
 } from "lucide-react";
 import { FIRMALAR } from "@/data/firmalar";
@@ -32,7 +30,6 @@ interface Props {
   onOpenChange: (v: boolean) => void;
   aktifFirma: FirmaId;
   erisilebilirFirmalar: FirmaId[];
-  konsolideErisim: boolean;
   onSekmeSec: (s: Sekme) => void;
   onFirmaSec: (f: FirmaId) => void;
 }
@@ -49,7 +46,6 @@ export function CommandPalette({
   onOpenChange,
   aktifFirma,
   erisilebilirFirmalar,
-  konsolideErisim,
   onSekmeSec,
   onFirmaSec,
 }: Props) {
@@ -75,7 +71,7 @@ export function CommandPalette({
   }, [open, onOpenChange]);
 
   const sekmeler: SekmeOgesi[] = useMemo(() => {
-    const base: SekmeOgesi[] = [
+    return [
       { id: "nabiz", ad: "Nabız", icon: Activity, renk: "#22c55e" },
       { id: "akis", ad: "Akış", icon: TrendingUp, renk: "#f59e0b" },
       { id: "yarin90", ad: "Yarın 90", icon: CalendarDays, renk: "#38bdf8" },
@@ -85,14 +81,9 @@ export function CommandPalette({
       { id: "personel", ad: "Personel", icon: Briefcase, renk: "#a78bfa" },
       { id: "raporlar", ad: "Raporlar", icon: FileText, renk: "#06b6d4" },
       { id: "vergi", ad: "Vergi Atölyesi", icon: Calculator, renk: "#d946ef" },
-      { id: "isbirligi", ad: "İş Birliği", icon: Network, renk: "#14b8a6" },
       { id: "ayarlar", ad: "Ayarlar", icon: Settings, renk: "#94a3b8" },
     ];
-    if (konsolideErisim) {
-      base.push({ id: "grup", ad: "Konsolide Grup", icon: Layers, renk: "#8b5cf6" });
-    }
-    return base;
-  }, [konsolideErisim]);
+  }, []);
   if (!open) return null;
 
   return (

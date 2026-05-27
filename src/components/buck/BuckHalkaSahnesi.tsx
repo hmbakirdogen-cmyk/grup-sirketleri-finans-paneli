@@ -12,7 +12,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Environment, ContactShadows, Float, OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 import { FIRMALAR } from "@/data/firmalar";
-import { FINANS_VERISI } from "@/data/mock-finans";
+import { FINANS_VERISI } from "@/data/gercek-finans";
 import type { FirmaId } from "@/types/domain";
 
 const FIRMA_SIRA: FirmaId[] = ["meba", "mesa", "elmos", "arkon"];

@@ -1,0 +1,49 @@
+{
+  "kaynak": "KDV Beyannamesi 2025 (12 ay) - Gelir İdaresi Başkanlığı resmi",
+  "firma": "MEBA PNÖMATİK HİDROLİK MAKİNE MÜHENDİSLİK SANAYİ VE TİCARET",
+  "vergiKimlikNo": "6130835945",
+  "vergiDairesi": "MİMARSİNAN",
+  "yil": 2025,
+  "guvenirlilik": "yüksek (resmi beyanname)",
+  "olusturulma": "2026-05-22",
+  "aylikVeriler": [
+    { "ay": 1,  "adi": "Ocak",    "yurtIciCiro": 1705528.42, "ihracat": 428479.47, "atiSatis": 0,        "toplam": 2134007.89, "kumulatif": 2134007.89 },
+    { "ay": 2,  "adi": "Şubat",   "yurtIciCiro": 2126992.12, "ihracat": 122809.10, "atiSatis": 0,        "toplam": 2249801.22, "kumulatif": 4383809.11 },
+    { "ay": 3,  "adi": "Mart",    "yurtIciCiro": 1062952.59, "ihracat": 54409.39,  "atiSatis": 0,        "toplam": 1117361.98, "kumulatif": 5501171.09 },
+    { "ay": 4,  "adi": "Nisan",   "yurtIciCiro": 802595.01,  "ihracat": 1580.60,   "atiSatis": 0,        "toplam": 804175.61,  "kumulatif": 6305346.70 },
+    { "ay": 5,  "adi": "Mayıs",   "yurtIciCiro": 1959772.83, "ihracat": 89896.44,  "atiSatis": 0,        "toplam": 2049669.27, "kumulatif": 8355015.97 },
+    { "ay": 6,  "adi": "Haziran", "yurtIciCiro": 2146968.88, "ihracat": 72309.04,  "atiSatis": 0,        "toplam": 2219277.92, "kumulatif": 10574293.89 },
+    { "ay": 7,  "adi": "Temmuz",  "yurtIciCiro": 2022792.64, "ihracat": 363099.63, "atiSatis": 0,        "toplam": 2385892.27, "kumulatif": 12960186.16 },
+    { "ay": 8,  "adi": "Ağustos", "yurtIciCiro": 1933021.38, "ihracat": 77707.45,  "atiSatis": 0,        "toplam": 2010728.83, "kumulatif": 14970914.99 },
+    { "ay": 9,  "adi": "Eylül",   "yurtIciCiro": 2721503.54, "ihracat": 377626.84, "atiSatis": 0,        "toplam": 3099130.38, "kumulatif": 18070045.37 },
+    { "ay": 10, "adi": "Ekim",    "yurtIciCiro": 3337551.39, "ihracat": 173496.09, "atiSatis": 1287128.71, "toplam": 4798176.19, "kumulatif": 22868221.56 },
+    { "ay": 11, "adi": "Kasım",   "yurtIciCiro": 2107710.74, "ihracat": 126173.88, "atiSatis": 0,        "toplam": 2233884.62, "kumulatif": 25102106.18 },
+    { "ay": 12, "adi": "Aralık",  "yurtIciCiro": 1307985.87, "ihracat": 153373.11, "atiSatis": 0,        "toplam": 1461358.98, "kumulatif": 26563465.16 }
+  ],
+  "toplamlar": {
+    "yurtIciCiro": 23235375.41,
+    "ihracat": 2040961.04,
+    "atiSatis": 1287128.71,
+    "genelToplam": 26563465.16
+  },
+  "notlar": [
+    "Yurt içi ciro = KDV beyannamesindeki 'Teslim ve Hizmetlerin Karşılığını Teşkil Eden Bedel (aylık)'",
+    "İhracat = 301 Mal İhracatı + 308 Teşvikli Yatırım Mallarının Teslimi + 316 Serbest Bölge Fason",
+    "ATİ Satış = Amortismana Tabi Sabit Kıymet satışı (Ekim 2025: muhtemelen şirket aracı/ekipman satışı)",
+    "Genel toplam ~26.6M TL — Mehmet Bey'in dediği 27.2M ile uyumlu (~600K fark muhtemelen e-arşiv farklılığı)",
+    "Gemini'nin 76M halüsine ettiği rakam tamamen yanlıştı — kanıtlandı",
+    "Q1 (Oca-Mar): 5.50M (%21) — yavaş başlangıç",
+    "Q2 (Nis-Haz): 5.07M (%19) — sezon arası",
+    "Q3 (Tem-Eyl): 7.50M (%28) — toparlanma",
+    "Q4 (Eki-Ara): 8.49M (%32) — güçlü kapanış (Ekim ATİ satışı dahil 4.8M)"
+  ],
+  "kritikBulgular": {
+    "enYuksekAy": "Ekim 2025 - 4.80M (ATİ satışı dahil)",
+    "enYuksekNormalAy": "Eylül 2025 - 3.10M",
+    "enDusukAy": "Nisan 2025 - 0.80M",
+    "ihracatPayi": "%7.7 (2M / 26M)",
+    "yurtIciYogunluk": "%87",
+    "atiSatisPayi": "%4.8 (tek seferlik)",
+    "trendYonu": "Q3-Q4 güçlü artış: H1 ortalama 1.78M/ay → H2 ortalama 2.66M/ay (+50%)"
+  }
+}

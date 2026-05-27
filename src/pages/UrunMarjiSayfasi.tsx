@@ -162,7 +162,8 @@ export function UrunMarjiSayfasi({ firma, finans }: Props) {
             lineHeight: 1.5,
           }}
         >
-          Logo Go fatura kalemlerinden türetilmiş ürün/segment marjı analizi.
+          Logo Go satış kalemlerinden türetilmiş ürün hacmi analizi. Maliyet tarafı alış
+          faturası gelene kadar segment katsayısı ile tahmini okunur.
           Yıllık ciro <strong style={{ color: TEMA.ink }}>{fmtTL(ozet.toplamCiro)}</strong> · ortalama brüt marj{" "}
           <strong style={{ color: ozet.ortMarj > 22 ? TEMA.yesil : TEMA.altin }}>
             %{ozet.ortMarj.toFixed(1)}

@@ -1,0 +1,51 @@
+{
+  "kaynak": "KDV Beyannamesi 2026 (Ocak-Şubat-Mart) - Gelir İdaresi Başkanlığı resmi",
+  "firma": "MEBA PNÖMATİK HİDROLİK MAKİNE MÜHENDİSLİK SANAYİ VE TİCARET",
+  "vergiKimlikNo": "6130835945",
+  "yil": 2026,
+  "guvenirlilik": "yüksek (resmi beyanname)",
+  "olusturulma": "2026-05-22",
+  "aylikVeriler": [
+    { "ay": 1, "adi": "Ocak",  "yurtIciCiro": 2661450.53, "ihracat": 175995.35, "toplam": 2837445.88, "kumulatif": 2837445.88, "onayTarihi": "2026-03-01" },
+    { "ay": 2, "adi": "Şubat", "yurtIciCiro": 2526842.85, "ihracat": 161994.53, "toplam": 2693837.38, "kumulatif": 5531283.26, "onayTarihi": "2026-03-30" },
+    { "ay": 3, "adi": "Mart",  "yurtIciCiro": 2147813.64, "ihracat": 152032.65, "toplam": 2299846.29, "kumulatif": 7831129.55, "onayTarihi": "2026-04-28" }
+  ],
+  "q1Toplam": {
+    "yurtIciCiro": 7336107.02,
+    "ihracat": 490022.53,
+    "genelToplam": 7831129.55,
+    "ihracatPayi": "6.3%"
+  },
+  "ikiYilKarsilastirma": [
+    { "ay": "Ocak",  "y2025": 2134007.89, "y2026": 2837445.88, "buyumeYuzde": 33.0, "fark": 703437.99 },
+    { "ay": "Şubat", "y2025": 2249801.22, "y2026": 2693837.38, "buyumeYuzde": 19.7, "fark": 444036.16 },
+    { "ay": "Mart",  "y2025": 1117361.98, "y2026": 2299846.29, "buyumeYuzde": 105.8, "fark": 1182484.31 }
+  ],
+  "q1Karsilastirma": {
+    "y2025": 5501171.09,
+    "y2026": 7831129.55,
+    "buyumeYuzde": 42.4,
+    "fark": 2329958.46
+  },
+  "yilSonuProjeksiyonu": {
+    "hedef": 32000000,
+    "q1OranTahmini": 0.245,
+    "q1OranGecmis2025": 0.207,
+    "yilSonuOptimistik": 35000000,
+    "yilSonuRealistik": 31960000,
+    "hedefeUlasmaIhtimali": "Yüksek (Q1 %24.5 = yıllık 32M projeksiyonuna uyumlu)"
+  },
+  "kritikBulgular": [
+    "Q1 2026: 7.83M TL (Q1 2025'e göre +%42 büyüme)",
+    "Mart 2026 yıldız: 2.30M (Mart 2025: 1.12M, +%105) — mevsimsel dip yok!",
+    "Ocak 2026 tarihi bir başlangıç: 2.84M (Ocak 2025: 2.13M, +%33)",
+    "İhracat payı %6.3 (2025: %7.7) — yurt içi daha hızlı büyüyor",
+    "Yıl sonu 32M TL hedefi gerçekçi: Q1 yıllık oranı tutuyor",
+    "Eğer Q4 momentum 2025 gibi (Q4 2025: 8.49M) olursa, yıl sonu 35-36M mümkün"
+  ],
+  "AIGeceAgentIcin": {
+    "buAyTakipNoktasi": "Mayıs 2026 verisi 24 Haziran civarı beyan edilecek",
+    "kıyasNoktasi": "Mayıs 2025: 2.05M — Mayıs 2026 bunun üzerinde gitmeli",
+    "Nisan2026Bekleyen": "Beyanname 26 Mayıs'a kadar — Mehmet Bey'den sorulabilir"
+  }
+}

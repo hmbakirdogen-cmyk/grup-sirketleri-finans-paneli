@@ -17,7 +17,7 @@ import { GlassCard } from "@/components/shared/GlassCard";
 import type { MaliTabloKalemi } from "@/types/domain";
 
 interface VergiAtolyesiKartProps {
-  /** Yıllık gelir tablosu (mock-finans.ts'den) — 4 çeyreğe bölünür */
+  /** Yıllık gelir tablosu — 4 çeyreğe bölünür */
   gelirTablosu: MaliTabloKalemi[];
   firmaKisaAd: string;
 }

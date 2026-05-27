@@ -15,7 +15,7 @@ import gsap from "gsap";
 import CountUp from "react-countup";
 import { ArrowUpRight, Radio } from "lucide-react";
 import { FIRMALAR } from "@/data/firmalar";
-import { FINANS_VERISI } from "@/data/mock-finans";
+import { FINANS_VERISI } from "@/data/gercek-finans";
 import type { FirmaId } from "@/types/domain";
 
 interface Props {

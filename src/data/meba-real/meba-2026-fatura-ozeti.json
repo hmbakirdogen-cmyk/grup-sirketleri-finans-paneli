@@ -1,0 +1,600 @@
+{
+  "meta": {
+    "kaynak": "INVFC_2026.05.24_21.39.06.XML",
+    "olusturma": "2026-05-24",
+    "yil": 2026,
+    "faturaSayisi": 347
+  },
+  "tipBazli": [
+    {
+      "tip": "Perakende Satış Faturası",
+      "adet": 340,
+      "toplam": 12263379
+    },
+    {
+      "tip": "Toptan Satış Faturası",
+      "adet": 5,
+      "toplam": 23145
+    },
+    {
+      "tip": "Toptan Satış İade",
+      "adet": 2,
+      "toplam": 10901
+    }
+  ],
+  "toplamlar": {
+    "tumFaturalarNet": 12297425,
+    "satislarNet": 12286524,
+    "iadelerNet": 10901,
+    "netSatisCiro": 12275623,
+    "satisFaturaSayisi": 345,
+    "iadeSayisi": 2
+  },
+  "aylik": [
+    {
+      "ay": "2026-01",
+      "adet": 92,
+      "toplam": 3459477,
+      "satisToplam": 3459477
+    },
+    {
+      "ay": "2026-02",
+      "adet": 84,
+      "toplam": 3132603,
+      "satisToplam": 3132603
+    },
+    {
+      "ay": "2026-03",
+      "adet": 63,
+      "toplam": 2820737,
+      "satisToplam": 2811229
+    },
+    {
+      "ay": "2026-04",
+      "adet": 71,
+      "toplam": 1643926,
+      "satisToplam": 1643926
+    },
+    {
+      "ay": "2026-05",
+      "adet": 37,
+      "toplam": 1240682,
+      "satisToplam": 1239289
+    }
+  ],
+  "topMusteri30": [
+    {
+      "cariNo": 1640,
+      "cariAdi": "FORM GÜMRÜK MÜŞAVİRLİĞİ TİC. LTD. ŞTİ.",
+      "cariSehir": "İstanbul",
+      "adet": 6,
+      "toplam": 2397621,
+      "ilkTarih": "2026-01-19",
+      "sonTarih": "2026-03-26"
+    },
+    {
+      "cariNo": 1953,
+      "cariAdi": "(Cari #1953)",
+      "cariSehir": null,
+      "adet": 1,
+      "toplam": 649342,
+      "ilkTarih": "2026-03-16",
+      "sonTarih": "2026-03-16"
+    },
+    {
+      "cariNo": 1934,
+      "cariAdi": "(Cari #1934)",
+      "cariSehir": null,
+      "adet": 1,
+      "toplam": 581952,
+      "ilkTarih": "2026-02-17",
+      "sonTarih": "2026-02-17"
+    },
+    {
+      "cariNo": 1555,
+      "cariAdi": "UPS HIZLI KARGO TAŞIMACILIĞI A.Ş.",
+      "cariSehir": "İstanbul",
+      "adet": 4,
+      "toplam": 516496,
+      "ilkTarih": "2026-02-26",
+      "sonTarih": "2026-05-06"
+    },
+    {
+      "cariNo": 1091,
+      "cariAdi": "VENTO YAPI MALZ.OTOMASYON SİS.DIŞ TİC.LTD.ŞTİ.",
+      "cariSehir": "Kayseri",
+      "adet": 10,
+      "toplam": 497936,
+      "ilkTarih": "2026-01-07",
+      "sonTarih": "2026-04-14"
+    },
+    {
+      "cariNo": 60,
+      "cariAdi": "MİKROSİSTEM MAK. İLETİŞİM ELEKTR. SAN.TİC.LTD.STİ.",
+      "cariSehir": "İstanbul",
+      "adet": 9,
+      "toplam": 482300,
+      "ilkTarih": "2026-01-13",
+      "sonTarih": "2026-05-21"
+    },
+    {
+      "cariNo": 789,
+      "cariAdi": "EKOL OTOMASYON SAN.TİC.LTD.ŞTİ.",
+      "cariSehir": "İstanbul",
+      "adet": 19,
+      "toplam": 442947,
+      "ilkTarih": "2026-01-13",
+      "sonTarih": "2026-05-21"
+    },
+    {
+      "cariNo": 254,
+      "cariAdi": "DEMİRKOL SIZDIRMAZLIK ELEMANLAR SAN.VE TİC.LTD.ŞTİ",
+      "cariSehir": "İstanbul",
+      "adet": 13,
+      "toplam": 433087,
+      "ilkTarih": "2026-01-02",
+      "sonTarih": "2026-05-18"
+    },
+    {
+      "cariNo": 1946,
+      "cariAdi": "(Cari #1946)",
+      "cariSehir": null,
+      "adet": 5,
+      "toplam": 421836,
+      "ilkTarih": "2026-01-19",
+      "sonTarih": "2026-04-21"
+    },
+    {
+      "cariNo": 1630,
+      "cariAdi": "İNFOTECH MÜH. OTOM. TEK. YAZ.MAK. SAN.TİC. LTD.ŞTİ",
+      "cariSehir": "Kayseri",
+      "adet": 2,
+      "toplam": 405853,
+      "ilkTarih": "2026-01-22",
+      "sonTarih": "2026-02-05"
+    },
+    {
+      "cariNo": 1521,
+      "cariAdi": "SMS TORK ENDÜSTRİYEL OTOMASYON ÜRÜNLERİ SAN.TİC.LTD.ŞTİ.",
+      "cariSehir": "Kocaeli",
+      "adet": 1,
+      "toplam": 399780,
+      "ilkTarih": "2026-03-27",
+      "sonTarih": "2026-03-27"
+    },
+    {
+      "cariNo": 1550,
+      "cariAdi": "İBRAHİM BOSTANCI",
+      "cariSehir": "Kayseri",
+      "adet": 9,
+      "toplam": 330180,
+      "ilkTarih": "2026-01-13",
+      "sonTarih": "2026-04-16"
+    },
+    {
+      "cariNo": 468,
+      "cariAdi": "ÖZSOY ÇORAPLARI LTD. ŞTİ",
+      "cariSehir": "Kayseri",
+      "adet": 16,
+      "toplam": 301611,
+      "ilkTarih": "2026-01-13",
+      "sonTarih": "2026-05-21"
+    },
+    {
+      "cariNo": 99,
+      "cariAdi": "OHM ELEKTRİK ELEKTRONİK OSMAN ÖZKAYA",
+      "cariSehir": "Kayseri",
+      "adet": 14,
+      "toplam": 276936,
+      "ilkTarih": "2026-01-05",
+      "sonTarih": "2026-05-15"
+    },
+    {
+      "cariNo": 792,
+      "cariAdi": "KAYSERİ CENEZA ARAÇLAR AHMET AKDAĞ",
+      "cariSehir": "Kayseri",
+      "adet": 8,
+      "toplam": 264891,
+      "ilkTarih": "2026-02-03",
+      "sonTarih": "2026-04-06"
+    },
+    {
+      "cariNo": 1664,
+      "cariAdi": "ALEV YANGIN SÖNDÜRME CİHAZLARI VE GÜVENLİK SİSTEMLERİ",
+      "cariSehir": "Kayseri",
+      "adet": 1,
+      "toplam": 246505,
+      "ilkTarih": "2026-01-15",
+      "sonTarih": "2026-01-15"
+    },
+    {
+      "cariNo": 855,
+      "cariAdi": "LALE ORMAN ÜRÜNLERİ SAN.VE TİC.LTD.ŞTİ.",
+      "cariSehir": "Kayseri",
+      "adet": 2,
+      "toplam": 219350,
+      "ilkTarih": "2026-01-05",
+      "sonTarih": "2026-02-24"
+    },
+    {
+      "cariNo": 215,
+      "cariAdi": "UZUNOĞLU MESA METAL LTD. ŞTİ.",
+      "cariSehir": "Kayseri",
+      "adet": 9,
+      "toplam": 192707,
+      "ilkTarih": "2026-01-05",
+      "sonTarih": "2026-05-07"
+    },
+    {
+      "cariNo": 38,
+      "cariAdi": "METE OTOMAYON MUZAFFER METE",
+      "cariSehir": "Kayseri",
+      "adet": 14,
+      "toplam": 185705,
+      "ilkTarih": "2026-01-19",
+      "sonTarih": "2026-05-21"
+    },
+    {
+      "cariNo": 1547,
+      "cariAdi": "TEXHONG TEXTILE TURKEY TEKSTİL LTD. ŞTİ.",
+      "cariSehir": "Kayseri",
+      "adet": 3,
+      "toplam": 153715,
+      "ilkTarih": "2026-01-30",
+      "sonTarih": "2026-04-10"
+    },
+    {
+      "cariNo": 491,
+      "cariAdi": "ASR SEYYAR PLASTİK SAN.TİC.LTD.ŞTİ.",
+      "cariSehir": "Kayseri",
+      "adet": 7,
+      "toplam": 148106,
+      "ilkTarih": "2026-01-13",
+      "sonTarih": "2026-04-17"
+    },
+    {
+      "cariNo": 584,
+      "cariAdi": "TEKNO ELEKTRİK İNŞAAT MÜH SAN VE TİC LTD ŞTİ",
+      "cariSehir": "İstanbul",
+      "adet": 2,
+      "toplam": 144012,
+      "ilkTarih": "2026-02-25",
+      "sonTarih": "2026-04-24"
+    },
+    {
+      "cariNo": 1959,
+      "cariAdi": "(Cari #1959)",
+      "cariSehir": null,
+      "adet": 3,
+      "toplam": 134057,
+      "ilkTarih": "2026-04-13",
+      "sonTarih": "2026-05-18"
+    },
+    {
+      "cariNo": 1237,
+      "cariAdi": "PARK REKLAMCILIK TÜRKER İNCETÜRKMEN",
+      "cariSehir": "Kayseri",
+      "adet": 3,
+      "toplam": 123764,
+      "ilkTarih": "2026-01-16",
+      "sonTarih": "2026-04-02"
+    },
+    {
+      "cariNo": 1148,
+      "cariAdi": "ESSE HALI MOB.GIDA TEKS.SAN.TİC.LTD.ŞTİ.",
+      "cariSehir": "Kayseri",
+      "adet": 1,
+      "toplam": 123262,
+      "ilkTarih": "2026-04-29",
+      "sonTarih": "2026-04-29"
+    },
+    {
+      "cariNo": 1026,
+      "cariAdi": "BAYRAK GIDA SANAYİ TİCARET A.Ş",
+      "cariSehir": "Kayseri",
+      "adet": 3,
+      "toplam": 120141,
+      "ilkTarih": "2026-01-07",
+      "sonTarih": "2026-04-06"
+    },
+    {
+      "cariNo": 108,
+      "cariAdi": "DAĞDEVİREN ELK.ELEKTRONİK MAK.SAN.VE TİC.LTD.STİ",
+      "cariSehir": "Gaziantep",
+      "adet": 3,
+      "toplam": 113530,
+      "ilkTarih": "2026-03-12",
+      "sonTarih": "2026-05-11"
+    },
+    {
+      "cariNo": 1135,
+      "cariAdi": "GAZANFER SANLITOP MEKAT. ÜRÜNLER PAZ.A.Ş",
+      "cariSehir": "İstanbul",
+      "adet": 4,
+      "toplam": 106447,
+      "ilkTarih": "2026-01-26",
+      "sonTarih": "2026-05-21"
+    },
+    {
+      "cariNo": 966,
+      "cariAdi": "ELSİM ELEKTROTEKNİK SİSTEMLERİ SAN. VE TİC. A.Ş.",
+      "cariSehir": "İstanbul",
+      "adet": 9,
+      "toplam": 92830,
+      "ilkTarih": "2026-01-05",
+      "sonTarih": "2026-05-18"
+    },
+    {
+      "cariNo": 189,
+      "cariAdi": "GER-MAK ELEKTRİK ELEKTRONİK SAN VE TİC.LTD.STİ.",
+      "cariSehir": "Kayseri",
+      "adet": 2,
+      "toplam": 77672,
+      "ilkTarih": "2026-01-13",
+      "sonTarih": "2026-01-26"
+    }
+  ],
+  "toplamMusteriSayisi": 106,
+  "paraBirimi": [
+    {
+      "birim": "TL",
+      "adet": 346,
+      "toplam": 11897644
+    },
+    {
+      "birim": "EUR",
+      "adet": 1,
+      "toplam": 399780
+    }
+  ],
+  "vadeDagilimi": [
+    {
+      "vade": "45 gün",
+      "adet": 151,
+      "toplam": 5193562
+    },
+    {
+      "vade": "60 gün",
+      "adet": 143,
+      "toplam": 3469524
+    },
+    {
+      "vade": "30 gün",
+      "adet": 21,
+      "toplam": 291912
+    },
+    {
+      "vade": "Belirtilmemiş",
+      "adet": 10,
+      "toplam": 130543
+    },
+    {
+      "vade": "PEŞİN",
+      "adet": 10,
+      "toplam": 767588
+    },
+    {
+      "vade": "90 gün",
+      "adet": 7,
+      "toplam": 2403445
+    },
+    {
+      "vade": "15 gün",
+      "adet": 3,
+      "toplam": 29950
+    }
+  ],
+  "topUrun30": [
+    {
+      "kod": "PNÖ006755",
+      "tanim": "SMC LAZER PNÖMATİK SET",
+      "satirAdet": 3,
+      "miktar": 16,
+      "toplam": 967495
+    },
+    {
+      "kod": "PNÖ007129",
+      "tanim": "PULSE VALVE (JSXFE-14F-5DSB)SMC",
+      "satirAdet": 1,
+      "miktar": 85,
+      "toplam": 484960
+    },
+    {
+      "kod": "PNÖ006931",
+      "tanim": "SMC GAZ REGÜLATÖRÜ SET",
+      "satirAdet": 1,
+      "miktar": 8,
+      "toplam": 360898
+    },
+    {
+      "kod": "PNÖ003842",
+      "tanim": "SMC LAZER GAZ TESİSAT SET",
+      "satirAdet": 1,
+      "miktar": 7,
+      "toplam": 324163
+    },
+    {
+      "kod": "PNÖ006338",
+      "tanim": "PULSE VALVE (JSXFF-14F-4DSB)SMC",
+      "satirAdet": 1,
+      "miktar": 100,
+      "toplam": 318231
+    },
+    {
+      "kod": "PNÖ005023",
+      "tanim": "MİLİSİZ SİLİNDİR (MY1B25TFG-2450Z)SMC",
+      "satirAdet": 3,
+      "miktar": 13,
+      "toplam": 288141
+    },
+    {
+      "kod": "PNÖ006754",
+      "tanim": "DÖNMEZ MİLLİ SİLİNDİR SET (SMC)",
+      "satirAdet": 2,
+      "miktar": 63,
+      "toplam": 253041
+    },
+    {
+      "kod": "PNÖ007193",
+      "tanim": "TERMO SOĞUTUCU (HRS012-AF-20) SMC",
+      "satirAdet": 1,
+      "miktar": 1,
+      "toplam": 205421
+    },
+    {
+      "kod": "PNÖ006837",
+      "tanim": "KİLİTLEMELİ SİLİNDİR(CP96NDB100-1300C)SMC",
+      "satirAdet": 1,
+      "miktar": 3,
+      "toplam": 196651
+    },
+    {
+      "kod": "PNÖ002559",
+      "tanim": "SUSTURUCU 1-1/4 (VCHN4-12)SMC",
+      "satirAdet": 8,
+      "miktar": 44,
+      "toplam": 168285
+    },
+    {
+      "kod": "PNÖ005597",
+      "tanim": "MİLİSİZ SİLİNDİR (MY1B25TFG-2770Z)SMC",
+      "satirAdet": 3,
+      "miktar": 6,
+      "toplam": 142272
+    },
+    {
+      "kod": "PNÖ007248",
+      "tanim": "ELECTR. ACTUATOR  (LEKFS32EB-300-R3CE17)SMC",
+      "satirAdet": 1,
+      "miktar": 2,
+      "toplam": 116257
+    },
+    {
+      "kod": "PNÖ005039",
+      "tanim": "TAMİR TAKIMI (DKU03586-K-001)SMC",
+      "satirAdet": 1,
+      "miktar": 4,
+      "toplam": 115603
+    },
+    {
+      "kod": "PNÖ007190",
+      "tanim": "9 LU VALF ADASI KOMPLE SMC",
+      "satirAdet": 1,
+      "miktar": 4,
+      "toplam": 110661
+    },
+    {
+      "kod": "PNÖ005944",
+      "tanim": "5/2-24 VDC T.B VALF(SY5100-5U1-NA)SMC",
+      "satirAdet": 3,
+      "miktar": 66,
+      "toplam": 108204
+    },
+    {
+      "kod": "PNÖ007168",
+      "tanim": "AIR CYLINDER (NCA1C150-0400) SMC",
+      "satirAdet": 1,
+      "miktar": 2,
+      "toplam": 105580
+    },
+    {
+      "kod": "PNÖ002690",
+      "tanim": "2/2-12VDC VALF(VQ21A1-6G-C8-Q)SMC",
+      "satirAdet": 2,
+      "miktar": 100,
+      "toplam": 103195
+    },
+    {
+      "kod": "PNÖ007232",
+      "tanim": "KOMPAKT SİLİNDİR (CDQ2AS80TF-70DCZ)SMC",
+      "satirAdet": 2,
+      "miktar": 20,
+      "toplam": 94606
+    },
+    {
+      "kod": "PNÖ003075",
+      "tanim": "5/2-1/4 24V T.B VALF(SY7120-5YO-02F-Q)SMC",
+      "satirAdet": 8,
+      "miktar": 52,
+      "toplam": 94391
+    },
+    {
+      "kod": "PNÖ006582",
+      "tanim": "HASSAS K.TABLALI SİLİNDİR(MXS20-100)SMC",
+      "satirAdet": 1,
+      "miktar": 5,
+      "toplam": 91977
+    },
+    {
+      "kod": "",
+      "tanim": null,
+      "satirAdet": 17,
+      "miktar": 0,
+      "toplam": 88426
+    },
+    {
+      "kod": "PNÖ007237",
+      "tanim": "8 Lİ VALF ADASI KOMPLE SMC (ETHERCATLİ)",
+      "satirAdet": 1,
+      "miktar": 2,
+      "toplam": 88069
+    },
+    {
+      "kod": "PNÖ003079",
+      "tanim": "MANYETİK SENSÖR (D-M9PL)SMC",
+      "satirAdet": 5,
+      "miktar": 60,
+      "toplam": 88060
+    },
+    {
+      "kod": "PNÖ005020",
+      "tanim": "KOMPAKT SİLİNDİR (CDQ2A50TF-10DZ)SMC",
+      "satirAdet": 4,
+      "miktar": 27,
+      "toplam": 84940
+    },
+    {
+      "kod": "PNÖ007297",
+      "tanim": "KOMPAKT YATK. SİLİNDİR(MGPM12-10Z-XC6A)SMC",
+      "satirAdet": 1,
+      "miktar": 10,
+      "toplam": 84107
+    },
+    {
+      "kod": "PNÖ007246",
+      "tanim": "ELEKTRİKLİ DÖNER İŞ ELEMANI (LER30J-S5CE18)SMC",
+      "satirAdet": 1,
+      "miktar": 2,
+      "toplam": 82895
+    },
+    {
+      "kod": "PNÖ007244",
+      "tanim": "KOMPAKT YATK. SİLİNDİR(MGPM50TF-20AZ-XC19)SMC",
+      "satirAdet": 1,
+      "miktar": 4,
+      "toplam": 80592
+    },
+    {
+      "kod": "PNÖ006179",
+      "tanim": "10X6,5 MM HORTUM/MAVİ 100 MT. (TRTU1065BU-100)SMC",
+      "satirAdet": 1,
+      "miktar": 3,
+      "toplam": 79051
+    },
+    {
+      "kod": "PNÖ003227",
+      "tanim": "PROFİL SİLİNDİR ISO(CP96SDB40-50C)SMC",
+      "satirAdet": 5,
+      "miktar": 44,
+      "toplam": 76849
+    },
+    {
+      "kod": "PNÖ007247",
+      "tanim": "ELECTR. ACTUATOR  (LEKFS40GA-500-R5CEH7)SMC",
+      "satirAdet": 1,
+      "miktar": 1,
+      "toplam": 75987
+    }
+  ],
+  "toplamUrunSayisi": 544
+}

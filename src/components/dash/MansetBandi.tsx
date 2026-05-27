@@ -13,7 +13,7 @@ interface Manset {
   renk: string;
 }
 
-const MANSETLER: Manset[] = [
+const VARSAYILAN_MANSETLER: Manset[] = [
   {
     ad: "Bugün",
     baslik: "Logo Go sync tamamlandı",
@@ -37,7 +37,20 @@ const MANSETLER: Manset[] = [
   },
 ];
 
-export function MansetBandi() {
+interface Props {
+  mansetler?: Pick<Manset, "ad" | "baslik" | "alt" | "renk">[];
+}
+
+function mansetIkonu(ad: string): LucideIcon {
+  const etiket = ad.toLocaleLowerCase("tr-TR");
+  if (etiket.includes("uyari")) return AlertTriangle;
+  if (etiket.includes("ivme") || etiket.includes("firsat")) return TrendingUp;
+  return Newspaper;
+}
+
+export function MansetBandi({ mansetler }: Props) {
+  const veri =
+    mansetler?.map((m) => ({ ...m, ikon: mansetIkonu(m.ad) })) ?? VARSAYILAN_MANSETLER;
   return (
     <div
       style={{
@@ -74,7 +87,7 @@ export function MansetBandi() {
           gap: 12,
         }}
       >
-        {MANSETLER.map((m, i) => {
+        {veri.map((m, i) => {
           const Ic = m.ikon;
           return (
             <div

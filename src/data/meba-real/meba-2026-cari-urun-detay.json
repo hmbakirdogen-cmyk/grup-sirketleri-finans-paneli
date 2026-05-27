@@ -1,0 +1,6047 @@
+{
+  "meta": {
+    "olusturma": "2026-05-24",
+    "kaynak": "meba-2026-faturalar.json",
+    "cariSayisi": 106
+  },
+  "detay": {
+    "10": {
+      "cariNo": 10,
+      "urunSayisi": 9,
+      "toplamCiro": 43572,
+      "topUrunler": [
+        {
+          "kod": "PNÖ003653",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB50-600C)SMC",
+          "miktar": 2,
+          "toplam": 13798,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-24",
+          "sonTarih": "2026-04-24"
+        },
+        {
+          "kod": "PNÖ002002",
+          "tanim": "KOMPAKT YATK. SİLİNDİR(MGPM12-75Z)SMC",
+          "miktar": 1,
+          "toplam": 8677,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-18",
+          "sonTarih": "2026-05-18"
+        },
+        {
+          "kod": "PNÖ004506",
+          "tanim": "KOMPAKT SİLİNDİR HAVA YASTIKLI (RDQB63TF-100) SMC",
+          "miktar": 1,
+          "toplam": 8209,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-30",
+          "sonTarih": "2026-01-30"
+        },
+        {
+          "kod": "PNÖ001562",
+          "tanim": "TAMİR TAKIMI (CS95-50)SMC",
+          "miktar": 4,
+          "toplam": 3987,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-04-14",
+          "sonTarih": "2026-04-24"
+        },
+        {
+          "kod": "PNÖ005998",
+          "tanim": "TAMİR TAKIMI (RQB63-PS)SMC",
+          "miktar": 3,
+          "toplam": 3777,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-30",
+          "sonTarih": "2026-01-30"
+        },
+        {
+          "kod": "PNÖ007180",
+          "tanim": "1/4&quot; - 5/2 MEKANİK KONTROLLÜ VALF (MSV 86522 LB)",
+          "miktar": 15,
+          "toplam": 3695,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-06",
+          "sonTarih": "2026-01-06"
+        },
+        {
+          "kod": "PNÖ000216",
+          "tanim": "HAVA TABANCASI PLASTİK",
+          "miktar": 20,
+          "toplam": 1089,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-19",
+          "sonTarih": "2026-02-19"
+        },
+        {
+          "kod": "PNÖ002638",
+          "tanim": "Q8-Q6 NİPEL REDÜKSİYON",
+          "miktar": 20,
+          "toplam": 183,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-19",
+          "sonTarih": "2026-02-19"
+        },
+        {
+          "kod": "PNÖ002640",
+          "tanim": "Q12-Q10 NİPEL REDÜKSİYON",
+          "miktar": 10,
+          "toplam": 157,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-19",
+          "sonTarih": "2026-02-19"
+        }
+      ]
+    },
+    "15": {
+      "cariNo": 15,
+      "urunSayisi": 1,
+      "toplamCiro": 4371,
+      "topUrunler": [
+        {
+          "kod": "PNÖ002801",
+          "tanim": "H.DİJİTAL VAKUM ANAHTARI(ZSE30A-01-F-G)SMC",
+          "miktar": 1,
+          "toplam": 4371,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-04",
+          "sonTarih": "2026-05-04"
+        }
+      ]
+    },
+    "38": {
+      "cariNo": 38,
+      "urunSayisi": 38,
+      "toplamCiro": 154754,
+      "topUrunler": [
+        {
+          "kod": "PNÖ001344",
+          "tanim": "5/2-24 VDC T.B VALF(SY5140-5YO-Q)SMC",
+          "miktar": 9,
+          "toplam": 23349,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-02-03",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ001929",
+          "tanim": "Q8-6 MM TEFLON HORTUM",
+          "miktar": 200,
+          "toplam": 19753,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-24",
+          "sonTarih": "2026-04-24"
+        },
+        {
+          "kod": "PNÖ003076",
+          "tanim": "5/3-1/4 24V K.M. VALF (SY7320-5YO-02F-Q)SMC",
+          "miktar": 2,
+          "toplam": 9704,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ006752",
+          "tanim": "VALF(VF3333-5YOD1-02F)SMC",
+          "miktar": 1,
+          "toplam": 9145,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-21",
+          "sonTarih": "2026-05-21"
+        },
+        {
+          "kod": "PNÖ007300",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB32-85C)SMC",
+          "miktar": 2,
+          "toplam": 7507,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-21",
+          "sonTarih": "2026-05-21"
+        },
+        {
+          "kod": "PNÖ000244",
+          "tanim": "Q10X6.5mm POLİÜRETAN HORTUM (MAVİ)",
+          "miktar": 400,
+          "toplam": 7217,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-01-19",
+          "sonTarih": "2026-04-24"
+        },
+        {
+          "kod": "PNÖ003442",
+          "tanim": "5/2-M5 24VDC Ç.B VALF(SYJ5223-5LOU-M5-Q)SMC",
+          "miktar": 2,
+          "toplam": 7192,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ007240",
+          "tanim": "5/3-24VDC K.M VALF(VS7-8-FHG-D-1-Q)SMC",
+          "miktar": 1,
+          "toplam": 7013,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-03",
+          "sonTarih": "2026-03-03"
+        },
+        {
+          "kod": "PNÖ005825",
+          "tanim": "ANA HAT FİLTRESİ (AFF40-F04D-D) SMC",
+          "miktar": 1,
+          "toplam": 6684,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-25",
+          "sonTarih": "2026-03-25"
+        },
+        {
+          "kod": "PNÖ003648",
+          "tanim": "2/2-24VDC VALF(VQ21A1-5G-C6-Q)SMC",
+          "miktar": 5,
+          "toplam": 6620,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-10",
+          "sonTarih": "2026-03-10"
+        },
+        {
+          "kod": "PNÖ006097",
+          "tanim": "DÖNER İŞ ELEMANI (CRB2BW10-180SZ)SMC",
+          "miktar": 1,
+          "toplam": 5697,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-14",
+          "sonTarih": "2026-04-14"
+        },
+        {
+          "kod": "PNÖ007231",
+          "tanim": "Q100 -1/+1,5 GLİS. MANOVAKUMMETRE ALT. ÇIKIŞ",
+          "miktar": 5,
+          "toplam": 5662,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-23",
+          "sonTarih": "2026-02-23"
+        },
+        {
+          "kod": "PNÖ006578",
+          "tanim": "FİLTRE REGÜLATÖR (AW40-F04DE-D)SMC",
+          "miktar": 1,
+          "toplam": 4370,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-25",
+          "sonTarih": "2026-03-25"
+        },
+        {
+          "kod": "PNÖ002041",
+          "tanim": "VALF ALTLIĞI 10LU (SS5Y5-41-10-01F-Q)SMC",
+          "miktar": 1,
+          "toplam": 3791,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ003224",
+          "tanim": "5/2-24 VDC Ç.B VALF(SY7220-5YO-02F-Q)SMC",
+          "miktar": 1,
+          "toplam": 3614,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ006099",
+          "tanim": "DOĞRUDAN MONTAJ SİLİNDİR(CDU20-30D)SMC",
+          "miktar": 1,
+          "toplam": 3185,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-03",
+          "sonTarih": "2026-02-03"
+        },
+        {
+          "kod": "PNÖ001808",
+          "tanim": "VALF ALTLIĞI 6LI (SS5Y5-41-06-01F-Q)SMC",
+          "miktar": 1,
+          "toplam": 2792,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-10",
+          "sonTarih": "2026-02-10"
+        },
+        {
+          "kod": "PNÖ007112",
+          "tanim": "5/2-1/8 PİMLİ VALF (EVZM550-F01-34B)SMC",
+          "miktar": 1,
+          "toplam": 2743,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ001735",
+          "tanim": "VALF ALTLIĞI 4LÜ (SS5Y5-41-04-01F-Q)SMC",
+          "miktar": 1,
+          "toplam": 2173,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ002818",
+          "tanim": "VALF ALTLIĞI 3LÜ (SS5Y7-20-03-00F-Q)SMC",
+          "miktar": 1,
+          "toplam": 2138,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        }
+      ]
+    },
+    "41": {
+      "cariNo": 41,
+      "urunSayisi": 3,
+      "toplamCiro": 37655,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007094",
+          "tanim": "FİLTRE REGÜLATÖR (AW20-F02BE-D)SMC",
+          "miktar": 30,
+          "toplam": 36200,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-02-03",
+          "sonTarih": "2026-05-18"
+        },
+        {
+          "kod": "PNÖ000083",
+          "tanim": "1/4&quot; - Q10 DÜZ REKOR",
+          "miktar": 50,
+          "toplam": 909,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-18",
+          "sonTarih": "2026-05-18"
+        },
+        {
+          "kod": "PNÖ002513",
+          "tanim": "Q10-Q8 DÜŞÜRÜCÜ",
+          "miktar": 40,
+          "toplam": 546,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-18",
+          "sonTarih": "2026-05-18"
+        }
+      ]
+    },
+    "47": {
+      "cariNo": 47,
+      "urunSayisi": 2,
+      "toplamCiro": 34607,
+      "topUrunler": [
+        {
+          "kod": "PNÖ006468",
+          "tanim": "3/2 24VDC VALF(V111-5MOU)SMC",
+          "miktar": 25,
+          "toplam": 32464,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-30",
+          "sonTarih": "2026-01-30"
+        },
+        {
+          "kod": "PNÖ006690",
+          "tanim": "AÇMA KAP.VALF  3/8-3/8(VHK3A-03S-03S)SMC",
+          "miktar": 3,
+          "toplam": 2142,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-23",
+          "sonTarih": "2026-03-23"
+        }
+      ]
+    },
+    "52": {
+      "cariNo": 52,
+      "urunSayisi": 0,
+      "toplamCiro": 0,
+      "topUrunler": []
+    },
+    "54": {
+      "cariNo": 54,
+      "urunSayisi": 4,
+      "toplamCiro": 57468,
+      "topUrunler": [
+        {
+          "kod": "PNÖ003079",
+          "tanim": "MANYETİK SENSÖR (D-M9PL)SMC",
+          "miktar": 20,
+          "toplam": 39353,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-14",
+          "sonTarih": "2026-05-14"
+        },
+        {
+          "kod": "PNÖ004943",
+          "tanim": "BASINÇ ANAHTARI (ISE20-P-01-L)SMC",
+          "miktar": 2,
+          "toplam": 8822,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-19",
+          "sonTarih": "2026-01-19"
+        },
+        {
+          "kod": "PNÖ007229",
+          "tanim": "MANYETİK SENSÖR (D-P3DWASE)SMC",
+          "miktar": 2,
+          "toplam": 7069,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-19",
+          "sonTarih": "2026-02-19"
+        },
+        {
+          "kod": "PNÖ002115",
+          "tanim": "MANYETİK SENSÖR (D-M9PSAPC)SMC",
+          "miktar": 1,
+          "toplam": 2225,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-21",
+          "sonTarih": "2026-05-21"
+        }
+      ]
+    },
+    "60": {
+      "cariNo": 60,
+      "urunSayisi": 25,
+      "toplamCiro": 401917,
+      "topUrunler": [
+        {
+          "kod": "PNÖ006837",
+          "tanim": "KİLİTLEMELİ SİLİNDİR(CP96NDB100-1300C)SMC",
+          "miktar": 3,
+          "toplam": 196651,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-21",
+          "sonTarih": "2026-05-21"
+        },
+        {
+          "kod": "PNÖ005039",
+          "tanim": "TAMİR TAKIMI (DKU03586-K-001)SMC",
+          "miktar": 4,
+          "toplam": 115603,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-27",
+          "sonTarih": "2026-04-27"
+        },
+        {
+          "kod": "PNÖ001225",
+          "tanim": "BASINÇ YÜKSELTİCİ (VBA10A-F02GN)SMC",
+          "miktar": 2,
+          "toplam": 34390,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-02",
+          "sonTarih": "2026-02-02"
+        },
+        {
+          "kod": "PNÖ001299",
+          "tanim": "5/2-3/8 24V Ç.B VALF(SY9220-5DZ-03F-Q)SMC",
+          "miktar": 5,
+          "toplam": 22607,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-06",
+          "sonTarih": "2026-04-06"
+        },
+        {
+          "kod": "PNÖ006727",
+          "tanim": "KOMPAKT SİLİNDİR (CDQMB40-75)SMC",
+          "miktar": 2,
+          "toplam": 11509,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ005846",
+          "tanim": "ÇABUK EGZOST VALFİ 1/8 ( EAQ2000-F01) SMC",
+          "miktar": 6,
+          "toplam": 5983,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-17",
+          "sonTarih": "2026-04-17"
+        },
+        {
+          "kod": "PNÖ000252",
+          "tanim": "Q12X8mm POLİÜRETAN HORTUM (MAVİ)",
+          "miktar": 100,
+          "toplam": 2300,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-30",
+          "sonTarih": "2026-01-30"
+        },
+        {
+          "kod": "PNÖ002799",
+          "tanim": "ISO-2 TEKLİ ALTLIK 1/2(EVS7-2-A04F)SMC",
+          "miktar": 2,
+          "toplam": 2004,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-24",
+          "sonTarih": "2026-04-24"
+        },
+        {
+          "kod": "PNÖ000244",
+          "tanim": "Q10X6.5mm POLİÜRETAN HORTUM (MAVİ)",
+          "miktar": 100,
+          "toplam": 1500,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-30",
+          "sonTarih": "2026-01-30"
+        },
+        {
+          "kod": "PNÖ003819",
+          "tanim": "1/2&quot; - Q16 DÖNER DİRSEK",
+          "miktar": 30,
+          "toplam": 1485,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        },
+        {
+          "kod": "PNÖ000415",
+          "tanim": "1/2&quot; - Q16 DÜZ REKOR",
+          "miktar": 30,
+          "toplam": 1421,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        },
+        {
+          "kod": "PNÖ007184",
+          "tanim": "3/8&quot;-Q16 DÜZ REKOR",
+          "miktar": 30,
+          "toplam": 1421,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        },
+        {
+          "kod": "PNÖ002746",
+          "tanim": "Q8X5mm POLİÜRETAN HORTUM (MAVİ)",
+          "miktar": 100,
+          "toplam": 995,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-30",
+          "sonTarih": "2026-01-30"
+        },
+        {
+          "kod": "PNÖ000368",
+          "tanim": "3/8&quot; - Q10  DÜZ REKOR",
+          "miktar": 30,
+          "toplam": 645,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        },
+        {
+          "kod": "PNÖ002988",
+          "tanim": "Q16 NİPEL",
+          "miktar": 20,
+          "toplam": 560,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        },
+        {
+          "kod": "PNÖ006709",
+          "tanim": "Q12-Q8 NİPEL REDÜKSİYON",
+          "miktar": 30,
+          "toplam": 453,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        },
+        {
+          "kod": "PNÖ000093",
+          "tanim": "1/4&quot; - Q8 DÖNER DİRSEK",
+          "miktar": 30,
+          "toplam": 390,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-30",
+          "sonTarih": "2026-01-30"
+        },
+        {
+          "kod": "PNÖ002639",
+          "tanim": "Q10-Q8 NİPEL REDÜKSİYON",
+          "miktar": 30,
+          "toplam": 323,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        },
+        {
+          "kod": "PNÖ000132",
+          "tanim": "1/8&quot; - Q8  DÜZ REKOR",
+          "miktar": 30,
+          "toplam": 297,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        },
+        {
+          "kod": "PNÖ000002",
+          "tanim": "Q8 TE BAĞLANTI",
+          "miktar": 30,
+          "toplam": 297,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        }
+      ]
+    },
+    "61": {
+      "cariNo": 61,
+      "urunSayisi": 1,
+      "toplamCiro": 15136,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007181",
+          "tanim": "SİLİNDİR (CDUW16-50D)SMC",
+          "miktar": 3,
+          "toplam": 15136,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-07",
+          "sonTarih": "2026-01-07"
+        }
+      ]
+    },
+    "99": {
+      "cariNo": 99,
+      "urunSayisi": 7,
+      "toplamCiro": 230780,
+      "topUrunler": [
+        {
+          "kod": "PNÖ002559",
+          "tanim": "SUSTURUCU 1-1/4 (VCHN4-12)SMC",
+          "miktar": 31,
+          "toplam": 117497,
+          "faturaSayisi": 7,
+          "ilkTarih": "2026-01-05",
+          "sonTarih": "2026-05-15"
+        },
+        {
+          "kod": "PNÖ002039",
+          "tanim": "PNÖMATİK TUTUCU(MHY2-25D)SMC",
+          "miktar": 5,
+          "toplam": 55216,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-02-18",
+          "sonTarih": "2026-05-06"
+        },
+        {
+          "kod": "PNÖ007219",
+          "tanim": "YÜKSEK BASINÇ REGÜLATÖRÜ (VCHR40-14G)SMC",
+          "miktar": 1,
+          "toplam": 36706,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-06",
+          "sonTarih": "2026-02-06"
+        },
+        {
+          "kod": "PNÖ002115",
+          "tanim": "MANYETİK SENSÖR (D-M9PSAPC)SMC",
+          "miktar": 8,
+          "toplam": 10419,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-05-06"
+        },
+        {
+          "kod": "PNÖ004088",
+          "tanim": "VANTUZ (ZP3E-T40BMN-A10)SMC",
+          "miktar": 6,
+          "toplam": 7073,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-27",
+          "sonTarih": "2026-03-27"
+        },
+        {
+          "kod": "PNÖ003075",
+          "tanim": "5/2-1/4 24V T.B VALF(SY7120-5YO-02F-Q)SMC",
+          "miktar": 1,
+          "toplam": 2231,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-22",
+          "sonTarih": "2026-01-22"
+        },
+        {
+          "kod": "PNÖ003030",
+          "tanim": "5/2-24VDC T.B VALF(SY5120-5YO-01F-Q)SMC",
+          "miktar": 1,
+          "toplam": 1638,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        }
+      ]
+    },
+    "108": {
+      "cariNo": 108,
+      "urunSayisi": 2,
+      "toplamCiro": 113530,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007244",
+          "tanim": "KOMPAKT YATK. SİLİNDİR(MGPM50TF-20AZ-XC19)SMC",
+          "miktar": 4,
+          "toplam": 80592,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-12",
+          "sonTarih": "2026-03-12"
+        },
+        {
+          "kod": "PNÖ005020",
+          "tanim": "KOMPAKT SİLİNDİR (CDQ2A50TF-10DZ)SMC",
+          "miktar": 10,
+          "toplam": 32938,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-04-13",
+          "sonTarih": "2026-05-11"
+        }
+      ]
+    },
+    "122": {
+      "cariNo": 122,
+      "urunSayisi": 4,
+      "toplamCiro": 33148,
+      "topUrunler": [
+        {
+          "kod": "PNÖ004690",
+          "tanim": "TAMİR TAKIMI (CG1N20Z-PS)SMC",
+          "miktar": 30,
+          "toplam": 10668,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ002151",
+          "tanim": "TAMİR TAKIMI (CJP2B16D-PS)SMC",
+          "miktar": 50,
+          "toplam": 10160,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ001646",
+          "tanim": "TAMİR TAKIMI (CQ2B25-PS)SMC",
+          "miktar": 30,
+          "toplam": 9525,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ007227",
+          "tanim": "SİLİNDİR ISO(CD85N16-50C-B)SMC",
+          "miktar": 1,
+          "toplam": 2794,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-16",
+          "sonTarih": "2026-02-16"
+        }
+      ]
+    },
+    "179": {
+      "cariNo": 179,
+      "urunSayisi": 3,
+      "toplamCiro": 45447,
+      "topUrunler": [
+        {
+          "kod": "PNÖ005658",
+          "tanim": "VAKUM ENJEKTÖRÜ (ZL3H04-K15LOZ-VBW) SMC",
+          "miktar": 1,
+          "toplam": 35053,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-08",
+          "sonTarih": "2026-04-08"
+        },
+        {
+          "kod": "PNÖ004014",
+          "tanim": "SİLİNDİR (CDM2B32-75Z)SMC",
+          "miktar": 2,
+          "toplam": 6058,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-06",
+          "sonTarih": "2026-02-06"
+        },
+        {
+          "kod": "PNÖ003649",
+          "tanim": "VANTUZ (ZP80HBN)SMC",
+          "miktar": 5,
+          "toplam": 4336,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-24",
+          "sonTarih": "2026-03-24"
+        }
+      ]
+    },
+    "188": {
+      "cariNo": 188,
+      "urunSayisi": 2,
+      "toplamCiro": 15007,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007223",
+          "tanim": "HIZ AYAR VALFİ 1/4-10(AS2201FS-02-10S)SMC",
+          "miktar": 10,
+          "toplam": 7504,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ004493",
+          "tanim": "HIZ AYAR VALFİ 1/4-8(AS2201FS-02-08S)SMC",
+          "miktar": 10,
+          "toplam": 7504,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        }
+      ]
+    },
+    "189": {
+      "cariNo": 189,
+      "urunSayisi": 2,
+      "toplamCiro": 64727,
+      "topUrunler": [
+        {
+          "kod": "PNÖ006428",
+          "tanim": "VAKUM ÜRETİCİ (ZK2G12K5RWA-08-B)SMC",
+          "miktar": 4,
+          "toplam": 52834,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ007185",
+          "tanim": "STOPPER SİLİNDİR(RSDQB32TF-20TZ)SMC",
+          "miktar": 4,
+          "toplam": 11893,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        }
+      ]
+    },
+    "215": {
+      "cariNo": 215,
+      "urunSayisi": 29,
+      "toplamCiro": 160589,
+      "topUrunler": [
+        {
+          "kod": "PNÖ005042",
+          "tanim": "7 Lİ VALF ADASI SMC",
+          "miktar": 2,
+          "toplam": 60742,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-01-16",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ007282",
+          "tanim": "7 Lİ MULTİPİN VALF ADASI SMC",
+          "miktar": 1,
+          "toplam": 31099,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-14",
+          "sonTarih": "2026-04-14"
+        },
+        {
+          "kod": "PNÖ005985",
+          "tanim": "3/2 24VDC VALF(V111-5G)SMC",
+          "miktar": 14,
+          "toplam": 16755,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-07",
+          "sonTarih": "2026-05-07"
+        },
+        {
+          "kod": "PNÖ007069",
+          "tanim": "SPEED CONTROLLER (ASB2201-01-06SB) SMC",
+          "miktar": 10,
+          "toplam": 8490,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-05",
+          "sonTarih": "2026-01-05"
+        },
+        {
+          "kod": "PNÖ007192",
+          "tanim": "VALF ALTLIĞI 7Lİ (SS5Y5-50F1-07B-02F)SMC",
+          "miktar": 2,
+          "toplam": 7302,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-14",
+          "sonTarih": "2026-04-14"
+        },
+        {
+          "kod": "PNÖ003630",
+          "tanim": "5/2-1/4 24V T.B VALF(SY9120-5YO-02F-Q)SMC",
+          "miktar": 2,
+          "toplam": 6652,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-12",
+          "sonTarih": "2026-03-12"
+        },
+        {
+          "kod": "PNÖ004591",
+          "tanim": "VEYA VALFİ 6mm(VR1210F-06)SMC",
+          "miktar": 5,
+          "toplam": 3966,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ001876",
+          "tanim": "DIN SOKET 1MT(GVVZS3000-21A-1)SMC",
+          "miktar": 2,
+          "toplam": 3868,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-14",
+          "sonTarih": "2026-04-14"
+        },
+        {
+          "kod": "PNÖ002043",
+          "tanim": "3/2-1/4 24VDC BOBİNLİ VALF(VT307-5D1-02F-Q)SMC",
+          "miktar": 2,
+          "toplam": 3493,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-30"
+        },
+        {
+          "kod": "PNÖ007225",
+          "tanim": "4LÜ DİRSEK RAKOR 1/4-8mm(KQ2ZD08-02AS)SMC",
+          "miktar": 5,
+          "toplam": 3059,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ002355",
+          "tanim": "İÇTEN SIKMALI DÜZ RAKOR 1/4&quot;-6mm (KQ2S06-02AS)SMC",
+          "miktar": 24,
+          "toplam": 2572,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-14",
+          "sonTarih": "2026-04-14"
+        },
+        {
+          "kod": "PNÖ004336",
+          "tanim": "PERDE GEÇİŞ REKORU 6mm(KQ2E06-00A)SMC",
+          "miktar": 10,
+          "toplam": 2229,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ004457",
+          "tanim": "DİRSEK PERDE GEÇİŞ 8mm (KQ2LE08-00A)SMC",
+          "miktar": 5,
+          "toplam": 2100,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ007226",
+          "tanim": "PERDE GEÇİŞ RAKORU 1/4-8mm(KQ2E08-02A)SMC",
+          "miktar": 5,
+          "toplam": 1192,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ007224",
+          "tanim": "PERDE GEÇİŞ RAKORU 1/8-8mm(KQ2E08-01A)SMC",
+          "miktar": 5,
+          "toplam": 1166,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ001899",
+          "tanim": "HIZ AYAR VALFİ 1/4-6(AS2201F-02-06SA)SMC",
+          "miktar": 2,
+          "toplam": 1016,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ001889",
+          "tanim": "DİRSEK RAKOR 1/8-8mm(KQ2L08-01AS)SMC",
+          "miktar": 5,
+          "toplam": 829,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ001333",
+          "tanim": "DİRSEK RAKOR 1/8-6mm(KQ2L06-01AS)SMC",
+          "miktar": 5,
+          "toplam": 713,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ003503",
+          "tanim": "GEÇ.REDÜKSİYON 6-8mm(KQ2R06-08A)SMC",
+          "miktar": 5,
+          "toplam": 583,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ001332",
+          "tanim": "DİRSEK RAKOR 1/4-6mm(KQ2L06-02AS)SMC",
+          "miktar": 4,
+          "toplam": 512,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-12",
+          "sonTarih": "2026-03-12"
+        }
+      ]
+    },
+    "218": {
+      "cariNo": 218,
+      "urunSayisi": 1,
+      "toplamCiro": 5385,
+      "topUrunler": [
+        {
+          "kod": "PNÖ001751",
+          "tanim": "KASINTI ALICI (JA50-16-150)SMC",
+          "miktar": 2,
+          "toplam": 5385,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-21",
+          "sonTarih": "2026-04-21"
+        }
+      ]
+    },
+    "226": {
+      "cariNo": 226,
+      "urunSayisi": 2,
+      "toplamCiro": 18392,
+      "topUrunler": [
+        {
+          "kod": "PNÖ005946",
+          "tanim": "DİJİTAL BASINÇ ANAHTARI (ISE20B-T-01-W) SMC",
+          "miktar": 2,
+          "toplam": 12063,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-18",
+          "sonTarih": "2026-05-18"
+        },
+        {
+          "kod": "PNÖ002046",
+          "tanim": "HIZ AYARLI ÇAB EGZ V.1/8-6mm(ASV310F-01-06S)SMC",
+          "miktar": 6,
+          "toplam": 6329,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-24",
+          "sonTarih": "2026-04-24"
+        }
+      ]
+    },
+    "229": {
+      "cariNo": 229,
+      "urunSayisi": 11,
+      "toplamCiro": 41869,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007044",
+          "tanim": "BASINÇ ANAHTARI (ISE20A-Y-01-J)SMC",
+          "miktar": 2,
+          "toplam": 7604,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-06",
+          "sonTarih": "2026-04-06"
+        },
+        {
+          "kod": "PNÖ001834",
+          "tanim": "SİLİNDİR(CM2B25-75Z)SMC",
+          "miktar": 2,
+          "toplam": 5842,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ004148",
+          "tanim": "SİLİNDİR(CM2C20-25Z)SMC",
+          "miktar": 2,
+          "toplam": 5436,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-05",
+          "sonTarih": "2026-02-05"
+        },
+        {
+          "kod": "PNÖ001622",
+          "tanim": "SİLİNDİR ISO(CD85N16-50-B)SMC",
+          "miktar": 2,
+          "toplam": 3988,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ001605",
+          "tanim": "SİLİNDİR ISO(CD85N16-25-B)SMC",
+          "miktar": 2,
+          "toplam": 3846,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ001690",
+          "tanim": "SİLİNDİR ISO(CD85N16-10-B)SMC",
+          "miktar": 2,
+          "toplam": 3759,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ001928",
+          "tanim": "SİLİNDİR (CJ2B16-30RZ)SMC",
+          "miktar": 2,
+          "toplam": 3277,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ002082",
+          "tanim": "SİLİNDİR (CDJ2D10-15Z-B)SMC",
+          "miktar": 2,
+          "toplam": 3224,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-27",
+          "sonTarih": "2026-01-27"
+        },
+        {
+          "kod": "PNÖ006432",
+          "tanim": "ÇEKVALFİ REGÜLATÖR 1/4 (AR20K-F02B-B)SMC",
+          "miktar": 3,
+          "toplam": 3024,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        },
+        {
+          "kod": "PNÖ001743",
+          "tanim": "TAMİR TAKIMI (CQSB20-PS)SMC",
+          "miktar": 7,
+          "toplam": 1707,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-06",
+          "sonTarih": "2026-02-06"
+        },
+        {
+          "kod": "PNÖ005945",
+          "tanim": "Q6 METAL NİPEL",
+          "miktar": 4,
+          "toplam": 163,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        }
+      ]
+    },
+    "230": {
+      "cariNo": 230,
+      "urunSayisi": 10,
+      "toplamCiro": 62375,
+      "topUrunler": [
+        {
+          "kod": "PNÖ006199",
+          "tanim": "3/2-1/4&quot; 24VDC BOBİNLİ VALF (VP342-5DZ1-02FA)SMC",
+          "miktar": 5,
+          "toplam": 17640,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-14",
+          "sonTarih": "2026-04-14"
+        },
+        {
+          "kod": "PNÖ005143",
+          "tanim": "DİJİTAL GÖSTERGELİ MANOMETRE (PPA100) SMC",
+          "miktar": 2,
+          "toplam": 14827,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ004252",
+          "tanim": "3/16&quot; POLİÜRETAN HORTUM/MAVİ (TIUB05BU-20)SMC",
+          "miktar": 10,
+          "toplam": 9246,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ007252",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB63-60CW)SMC",
+          "miktar": 1,
+          "toplam": 6740,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-24",
+          "sonTarih": "2026-03-24"
+        },
+        {
+          "kod": "PNÖ005984",
+          "tanim": "HIZ AYAR VALFİ 6mm(AS1002F-06A)SMC",
+          "miktar": 20,
+          "toplam": 5300,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-03-24"
+        },
+        {
+          "kod": "PNÖ007211",
+          "tanim": "HIZ AYAR VALFİ 4mm(AS1002F-04A)SMC",
+          "miktar": 10,
+          "toplam": 2603,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ005459",
+          "tanim": "VEYA VALFİ 1/4&quot; (VR1220-F02)SMC",
+          "miktar": 2,
+          "toplam": 1813,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-24",
+          "sonTarih": "2026-03-24"
+        },
+        {
+          "kod": "PNÖ001236",
+          "tanim": "ÇEKVALF 6mm (AKH06-00)SMC",
+          "miktar": 5,
+          "toplam": 1773,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-27",
+          "sonTarih": "2026-04-27"
+        },
+        {
+          "kod": "PNÖ002336",
+          "tanim": "Y DAĞITICI 6mm(KQ2U06-00A)SMC",
+          "miktar": 20,
+          "toplam": 1707,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-16",
+          "sonTarih": "2026-02-16"
+        },
+        {
+          "kod": "PNÖ004560",
+          "tanim": "Y DAĞITICI 4mm(KQ2U04-00A)SMC",
+          "miktar": 10,
+          "toplam": 726,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        }
+      ]
+    },
+    "254": {
+      "cariNo": 254,
+      "urunSayisi": 20,
+      "toplamCiro": 360906,
+      "topUrunler": [
+        {
+          "kod": "PNÖ002690",
+          "tanim": "2/2-12VDC VALF(VQ21A1-6G-C8-Q)SMC",
+          "miktar": 100,
+          "toplam": 103195,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-01-02",
+          "sonTarih": "2026-01-29"
+        },
+        {
+          "kod": "PNÖ007260",
+          "tanim": "8 Lİ MULTİPİN VALF ADASI SMC",
+          "miktar": 2,
+          "toplam": 57751,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-04-06",
+          "sonTarih": "2026-04-29"
+        },
+        {
+          "kod": "PNÖ005002",
+          "tanim": "5/2-24VDC T.B VALF(SY5160-5LOU-01F-Q)SMC",
+          "miktar": 21,
+          "toplam": 42982,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-04-29"
+        },
+        {
+          "kod": "PNÖ004976",
+          "tanim": "VAKUM FİLTRE (ZFC54) SMC",
+          "miktar": 100,
+          "toplam": 36821,
+          "faturaSayisi": 4,
+          "ilkTarih": "2026-02-04",
+          "sonTarih": "2026-05-18"
+        },
+        {
+          "kod": "PNÖ006962",
+          "tanim": "8 Lİ VALF ADASI KOMPLE SMC",
+          "miktar": 1,
+          "toplam": 28492,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-06",
+          "sonTarih": "2026-02-06"
+        },
+        {
+          "kod": "PNÖ004239",
+          "tanim": "VAKUM FİLTRE (ZFC75) SMC",
+          "miktar": 60,
+          "toplam": 24655,
+          "faturaSayisi": 4,
+          "ilkTarih": "2026-02-04",
+          "sonTarih": "2026-05-18"
+        },
+        {
+          "kod": "PNÖ007212",
+          "tanim": "NEM ANAHTARI (PSH-RR-01-W) SMC",
+          "miktar": 1,
+          "toplam": 11966,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-03",
+          "sonTarih": "2026-02-03"
+        },
+        {
+          "kod": "PNÖ005005",
+          "tanim": "5/2-24VDC T.B VALF(SY5160-5LOU-01F-X20-Q)SMC",
+          "miktar": 5,
+          "toplam": 11392,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ003172",
+          "tanim": "SUSTURUCU (AN05-M5)SMC",
+          "miktar": 100,
+          "toplam": 11165,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-04-02",
+          "sonTarih": "2026-04-24"
+        },
+        {
+          "kod": "PNÖ005108",
+          "tanim": "2 PORT SELENOID VALVE (VDW10AE)SMC",
+          "miktar": 10,
+          "toplam": 7936,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-18",
+          "sonTarih": "2026-05-18"
+        },
+        {
+          "kod": "PNÖ005011",
+          "tanim": "VAKUM ENJEKTÖRÜ (ZH15DSA-08-10-10)SMC",
+          "miktar": 5,
+          "toplam": 6675,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ005000",
+          "tanim": "HAVA GİRİŞ BAĞLANTISI (SY5000-55-1A-Q)SMC",
+          "miktar": 10,
+          "toplam": 4899,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ005429",
+          "tanim": "DIN RAY (VZ1000-11-1-24)SMC",
+          "miktar": 5,
+          "toplam": 2799,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ004985",
+          "tanim": "UÇ PLAKA D KENARI(SY5000-56-1A-Q)SMC",
+          "miktar": 5,
+          "toplam": 2281,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ004999",
+          "tanim": "UÇ PLAKA U KENARI(SY5000-56-1B-Q)SMC",
+          "miktar": 5,
+          "toplam": 2281,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ005001",
+          "tanim": "EK BASINÇ BLOK BAĞLANTISI (SY5000-54-1C-Q)SMC",
+          "miktar": 5,
+          "toplam": 1814,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ001970",
+          "tanim": "KABLOLU SOKET 60 CM (SY100-30-4A-6)SMC",
+          "miktar": 25,
+          "toplam": 1555,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ006130",
+          "tanim": "SPARE ELEMENT (ZFC-EL-4) SMC",
+          "miktar": 2,
+          "toplam": 1330,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-12",
+          "sonTarih": "2026-03-12"
+        },
+        {
+          "kod": "PNÖ005003",
+          "tanim": "BLOK KÖRLEME TAPASI (SY5000-52-4A)SMC",
+          "miktar": 15,
+          "toplam": 661,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ000008",
+          "tanim": "1/4&quot; - 52 TEK BOBİN VALF (4V210-08)",
+          "miktar": 1,
+          "toplam": 256,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        }
+      ]
+    },
+    "361": {
+      "cariNo": 361,
+      "urunSayisi": 4,
+      "toplamCiro": 39765,
+      "topUrunler": [
+        {
+          "kod": "PNÖ004856",
+          "tanim": "SİLİNDİR (CM2Z20-NOX001-50)SMC",
+          "miktar": 5,
+          "toplam": 19686,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-27",
+          "sonTarih": "2026-02-27"
+        },
+        {
+          "kod": "PNÖ002173",
+          "tanim": "PİM SİLİNDİR (CDJP2D16-10D)SMC",
+          "miktar": 4,
+          "toplam": 8702,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-19"
+        },
+        {
+          "kod": "PNÖ001776",
+          "tanim": "SİLİNDİR ISO(CD85N25-100-B)SMC",
+          "miktar": 3,
+          "toplam": 6610,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ001690",
+          "tanim": "SİLİNDİR ISO(CD85N16-10-B)SMC",
+          "miktar": 3,
+          "toplam": 4767,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-27",
+          "sonTarih": "2026-03-27"
+        }
+      ]
+    },
+    "364": {
+      "cariNo": 364,
+      "urunSayisi": 15,
+      "toplamCiro": 14948,
+      "topUrunler": [
+        {
+          "kod": "PNÖ000239",
+          "tanim": "Q10 HAT TİPİ HIZ AYAR",
+          "miktar": 40,
+          "toplam": 4520,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-14",
+          "sonTarih": "2026-05-14"
+        },
+        {
+          "kod": "PNÖ000282",
+          "tanim": "Q8 HAT TİPİ HIZ AYAR",
+          "miktar": 40,
+          "toplam": 3400,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-14",
+          "sonTarih": "2026-05-14"
+        },
+        {
+          "kod": "PNÖ000329",
+          "tanim": "1/2&quot; - Q12 DÜZ REKOR",
+          "miktar": 30,
+          "toplam": 758,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-14",
+          "sonTarih": "2026-05-14"
+        },
+        {
+          "kod": "PNÖ000028",
+          "tanim": "1/2&quot; - Q10 DÜZ REKOR",
+          "miktar": 30,
+          "toplam": 750,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-14",
+          "sonTarih": "2026-05-14"
+        },
+        {
+          "kod": "PNÖ000034",
+          "tanim": "1/2&quot; - Q8 DÜZ REKOR",
+          "miktar": 30,
+          "toplam": 750,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-14",
+          "sonTarih": "2026-05-14"
+        },
+        {
+          "kod": "PNÖ000166",
+          "tanim": "3/8&quot; - Q12  DÜZ REKOR",
+          "miktar": 30,
+          "toplam": 735,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-14",
+          "sonTarih": "2026-05-14"
+        },
+        {
+          "kod": "PNÖ000348",
+          "tanim": "1/4&quot; - Q12 DÜZ REKOR",
+          "miktar": 30,
+          "toplam": 690,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-14",
+          "sonTarih": "2026-05-14"
+        },
+        {
+          "kod": "PNÖ000170",
+          "tanim": "3/8&quot; - Q8  DÜZ REKOR",
+          "miktar": 30,
+          "toplam": 645,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-14",
+          "sonTarih": "2026-05-14"
+        },
+        {
+          "kod": "PNÖ000083",
+          "tanim": "1/4&quot; - Q10 DÜZ REKOR",
+          "miktar": 30,
+          "toplam": 548,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-14",
+          "sonTarih": "2026-05-14"
+        },
+        {
+          "kod": "PNÖ002640",
+          "tanim": "Q12-Q10 NİPEL REDÜKSİYON",
+          "miktar": 30,
+          "toplam": 419,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-14",
+          "sonTarih": "2026-05-14"
+        },
+        {
+          "kod": "PNÖ000007",
+          "tanim": "Q8 NİPEL",
+          "miktar": 60,
+          "toplam": 405,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-05-14",
+          "sonTarih": "2026-05-14"
+        },
+        {
+          "kod": "PNÖ000249",
+          "tanim": "Q12 NİPEL",
+          "miktar": 30,
+          "toplam": 360,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-14",
+          "sonTarih": "2026-05-14"
+        },
+        {
+          "kod": "PNÖ002639",
+          "tanim": "Q10-Q8 NİPEL REDÜKSİYON",
+          "miktar": 30,
+          "toplam": 360,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-14",
+          "sonTarih": "2026-05-14"
+        },
+        {
+          "kod": "PNÖ000241",
+          "tanim": "Q10 NİPEL",
+          "miktar": 30,
+          "toplam": 311,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-14",
+          "sonTarih": "2026-05-14"
+        },
+        {
+          "kod": "PNÖ000095",
+          "tanim": "1/4&quot; - Q8 DÜZ REKOR",
+          "miktar": 30,
+          "toplam": 299,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-14",
+          "sonTarih": "2026-05-14"
+        }
+      ]
+    },
+    "382": {
+      "cariNo": 382,
+      "urunSayisi": 7,
+      "toplamCiro": 8466,
+      "topUrunler": [
+        {
+          "kod": "PNÖ000282",
+          "tanim": "Q8 HAT TİPİ HIZ AYAR",
+          "miktar": 20,
+          "toplam": 1995,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-25",
+          "sonTarih": "2026-03-25"
+        },
+        {
+          "kod": "PNÖ000412",
+          "tanim": "3/8&quot; - Q8 DİRSEK HIZ AYAR",
+          "miktar": 20,
+          "toplam": 1818,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-25",
+          "sonTarih": "2026-03-25"
+        },
+        {
+          "kod": "PNÖ000091",
+          "tanim": "1/4&quot; - Q8 DİRSEK HIZ AYAR",
+          "miktar": 20,
+          "toplam": 1242,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-25",
+          "sonTarih": "2026-03-25"
+        },
+        {
+          "kod": "PNÖ000366",
+          "tanim": "1/2&quot; - Q12 DÖNER DİRSEK",
+          "miktar": 30,
+          "toplam": 1061,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-18",
+          "sonTarih": "2026-03-18"
+        },
+        {
+          "kod": "PNÖ006512",
+          "tanim": "3/8&quot; - Q6 DİRSEK HIZ AYAR",
+          "miktar": 10,
+          "toplam": 909,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-25",
+          "sonTarih": "2026-03-25"
+        },
+        {
+          "kod": "PNÖ000271",
+          "tanim": "Q6 HAT TİPİ HIZ AYAR",
+          "miktar": 10,
+          "toplam": 843,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-25",
+          "sonTarih": "2026-03-25"
+        },
+        {
+          "kod": "PNÖ000086",
+          "tanim": "1/4&quot; - Q6 DİRSEK HIZ AYAR",
+          "miktar": 10,
+          "toplam": 599,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-25",
+          "sonTarih": "2026-03-25"
+        }
+      ]
+    },
+    "423": {
+      "cariNo": 423,
+      "urunSayisi": 5,
+      "toplamCiro": 48496,
+      "topUrunler": [
+        {
+          "kod": "PNÖ003079",
+          "tanim": "MANYETİK SENSÖR (D-M9PL)SMC",
+          "miktar": 10,
+          "toplam": 15823,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-24",
+          "sonTarih": "2026-04-24"
+        },
+        {
+          "kod": "PNÖ001334",
+          "tanim": "MANYETİK SENSÖR 3mt(D-A93L)SMC",
+          "miktar": 13,
+          "toplam": 12504,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-01-12",
+          "sonTarih": "2026-04-24"
+        },
+        {
+          "kod": "PNÖ006617",
+          "tanim": "DÖNER İŞ ELEMANI (CDRB1BW50-180S-XF)SMC",
+          "miktar": 1,
+          "toplam": 10562,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-27",
+          "sonTarih": "2026-04-27"
+        },
+        {
+          "kod": "PNÖ007021",
+          "tanim": "KOMPAKT SİLİNDİR (CDQSWB12-20DC) SMC",
+          "miktar": 2,
+          "toplam": 5964,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ006914",
+          "tanim": "MANYETİK SENSÖR(D-C73CL)SMC",
+          "miktar": 3,
+          "toplam": 3643,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-21",
+          "sonTarih": "2026-04-21"
+        }
+      ]
+    },
+    "468": {
+      "cariNo": 468,
+      "urunSayisi": 18,
+      "toplamCiro": 251343,
+      "topUrunler": [
+        {
+          "kod": "PNÖ002083",
+          "tanim": "PNÖMATİK TUTUCU PARALEL TİP (MDHR2-30R)SMC",
+          "miktar": 3,
+          "toplam": 53997,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-05",
+          "sonTarih": "2026-02-05"
+        },
+        {
+          "kod": "PNÖ001404",
+          "tanim": "PNÖMATİK TUTUCU(MHL2-40D)SMC",
+          "miktar": 1,
+          "toplam": 41214,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-14",
+          "sonTarih": "2026-05-14"
+        },
+        {
+          "kod": "PNÖ005912",
+          "tanim": "PİM SİLİNDİR (CJP2B10-10D-B)SMC",
+          "miktar": 30,
+          "toplam": 35484,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-05",
+          "sonTarih": "2026-02-05"
+        },
+        {
+          "kod": "PNÖ005475",
+          "tanim": "VAKUM ENJEKTÖRÜ (ZL6H04-K15LZ-EBG) SMC",
+          "miktar": 1,
+          "toplam": 25596,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-10",
+          "sonTarih": "2026-02-10"
+        },
+        {
+          "kod": "PNÖ001544",
+          "tanim": "PNÖMATİK TUTUCU(MHC2-25D)SMC",
+          "miktar": 2,
+          "toplam": 20041,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-30",
+          "sonTarih": "2026-04-30"
+        },
+        {
+          "kod": "PNÖ007063",
+          "tanim": "HEAVY DUTY STOPPER SİLİNDİR(RS2H50-30DM)SMC",
+          "miktar": 1,
+          "toplam": 14273,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-21",
+          "sonTarih": "2026-05-21"
+        },
+        {
+          "kod": "PNÖ004572",
+          "tanim": "SİLİNDİR ISO(CD85N25-400-B-X2018)SMC",
+          "miktar": 4,
+          "toplam": 11312,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-27",
+          "sonTarih": "2026-01-27"
+        },
+        {
+          "kod": "PNÖ006462",
+          "tanim": "ANA HAT FİLTRESİ (AFF60-F10D-D) SMC",
+          "miktar": 1,
+          "toplam": 9965,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-04",
+          "sonTarih": "2026-03-04"
+        },
+        {
+          "kod": "PNÖ003128",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB32-50C)SMC",
+          "miktar": 4,
+          "toplam": 9855,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-04-14"
+        },
+        {
+          "kod": "PNÖ005985",
+          "tanim": "3/2 24VDC VALF(V111-5G)SMC",
+          "miktar": 5,
+          "toplam": 6054,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-09",
+          "sonTarih": "2026-03-09"
+        },
+        {
+          "kod": "PNÖ003227",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB40-50C)SMC",
+          "miktar": 2,
+          "toplam": 5947,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-10",
+          "sonTarih": "2026-02-10"
+        },
+        {
+          "kod": "PNÖ003826",
+          "tanim": "MANYETİK SENSÖR (D-F8PL)SMC",
+          "miktar": 3,
+          "toplam": 5437,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-19",
+          "sonTarih": "2026-02-19"
+        },
+        {
+          "kod": "PNÖ002725",
+          "tanim": "5/2-24VDC TEK BOBİN VALF (SY3120-5LOU-M5-Q)SMC",
+          "miktar": 2,
+          "toplam": 4759,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-12",
+          "sonTarih": "2026-03-12"
+        },
+        {
+          "kod": "PNÖ007220",
+          "tanim": "KOMPAKT SİLİNDİR (CDQ2A16-30DMZ)SMC",
+          "miktar": 2,
+          "toplam": 2585,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-10",
+          "sonTarih": "2026-02-10"
+        },
+        {
+          "kod": "PNÖ001338",
+          "tanim": "HAVA UYARILI VALF 5/2(SYJA3140)SMC",
+          "miktar": 1,
+          "toplam": 2176,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-27",
+          "sonTarih": "2026-02-27"
+        },
+        {
+          "kod": "PNÖ001669",
+          "tanim": "GEÇMELİ SUSTURUCU 10mm(AN20-C10)SMC",
+          "miktar": 6,
+          "toplam": 1428,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-18",
+          "sonTarih": "2026-05-18"
+        },
+        {
+          "kod": "PNÖ001579",
+          "tanim": "GEÇMELİ SUSTURUCU (AN15-C08)SMC",
+          "miktar": 6,
+          "toplam": 963,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-13",
+          "sonTarih": "2026-03-13"
+        },
+        {
+          "kod": "PNÖ001733",
+          "tanim": "KABLOLU SOKET 1 MT.(SY100-30-4A-10)SMC",
+          "miktar": 2,
+          "toplam": 256,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-12",
+          "sonTarih": "2026-03-12"
+        }
+      ]
+    },
+    "491": {
+      "cariNo": 491,
+      "urunSayisi": 8,
+      "toplamCiro": 123422,
+      "topUrunler": [
+        {
+          "kod": "PNÖ006584",
+          "tanim": "KOMPAKT SİLİNDİR (CDQ2B100TF-30DZ)SMC",
+          "miktar": 8,
+          "toplam": 51371,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-19",
+          "sonTarih": "2026-02-19"
+        },
+        {
+          "kod": "PNÖ006440",
+          "tanim": "KOMPAKT SİLİNDİR (CDQ2B80TF-30DZ)SMC",
+          "miktar": 8,
+          "toplam": 40450,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-06",
+          "sonTarih": "2026-03-06"
+        },
+        {
+          "kod": "PNÖ002465",
+          "tanim": "KOMPAKT YATK. SİLİNDİR(MGPM20TF-50Z)SMC",
+          "miktar": 2,
+          "toplam": 14815,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        },
+        {
+          "kod": "PNÖ001629",
+          "tanim": "MANYETİK SENSÖR (D-M9BL)SMC",
+          "miktar": 5,
+          "toplam": 5677,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-03-18",
+          "sonTarih": "2026-04-17"
+        },
+        {
+          "kod": "PNÖ001334",
+          "tanim": "MANYETİK SENSÖR 3mt(D-A93L)SMC",
+          "miktar": 5,
+          "toplam": 4449,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-18",
+          "sonTarih": "2026-03-18"
+        },
+        {
+          "kod": "PNÖ003030",
+          "tanim": "5/2-24VDC T.B VALF(SY5120-5YO-01F-Q)SMC",
+          "miktar": 2,
+          "toplam": 3628,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        },
+        {
+          "kod": "PNÖ003079",
+          "tanim": "MANYETİK SENSÖR (D-M9PL)SMC",
+          "miktar": 2,
+          "toplam": 2427,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-17",
+          "sonTarih": "2026-04-17"
+        },
+        {
+          "kod": "PNÖ003080",
+          "tanim": "DIN SOKET 24VSY.5YZ IŞIKL (DIN43650C-C/LED 24V)SMC",
+          "miktar": 4,
+          "toplam": 605,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        }
+      ]
+    },
+    "573": {
+      "cariNo": 573,
+      "urunSayisi": 1,
+      "toplamCiro": 2708,
+      "topUrunler": [
+        {
+          "kod": "PNÖ002949",
+          "tanim": "5/2-24 VDC T.B VALF(SY5140-5DZ-Q)SMC",
+          "miktar": 1,
+          "toplam": 2708,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-03",
+          "sonTarih": "2026-02-03"
+        }
+      ]
+    },
+    "584": {
+      "cariNo": 584,
+      "urunSayisi": 4,
+      "toplamCiro": 120010,
+      "topUrunler": [
+        {
+          "kod": "PNÖ002559",
+          "tanim": "SUSTURUCU 1-1/4 (VCHN4-12)SMC",
+          "miktar": 13,
+          "toplam": 50788,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-25",
+          "sonTarih": "2026-02-25"
+        },
+        {
+          "kod": "PNÖ004552",
+          "tanim": "SUSTURUCU 1&quot; (VCHN3-10)SMC",
+          "miktar": 10,
+          "toplam": 37976,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-24",
+          "sonTarih": "2026-04-24"
+        },
+        {
+          "kod": "PNÖ001305",
+          "tanim": "SUSTURUCU 1-1/2 (VCHN4-14)SMC",
+          "miktar": 4,
+          "toplam": 15627,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-25",
+          "sonTarih": "2026-02-25"
+        },
+        {
+          "kod": "PNÖ006605",
+          "tanim": "PALETLİ TİP AKIŞ ŞALTERİ(IF311-10-01-Q)SMC",
+          "miktar": 3,
+          "toplam": 15619,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-25",
+          "sonTarih": "2026-02-25"
+        }
+      ]
+    },
+    "607": {
+      "cariNo": 607,
+      "urunSayisi": 3,
+      "toplamCiro": 22354,
+      "topUrunler": [
+        {
+          "kod": "PNÖ003629",
+          "tanim": "FİLTRE REG+YAĞLAYICI 1/2(AC40A-F04E-B)SMC",
+          "miktar": 9,
+          "toplam": 17638,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-02-05",
+          "sonTarih": "2026-05-05"
+        },
+        {
+          "kod": "PNÖ005977",
+          "tanim": "PNÖMATİK SİNYAL GÖSTERİCİ1/8&quot; (VR3110-01R)SMC",
+          "miktar": 20,
+          "toplam": 3940,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-12",
+          "sonTarih": "2026-03-12"
+        },
+        {
+          "kod": "PNÖ006308",
+          "tanim": "MANOMETRE BAĞLANTI APARATI (ARP20P-320AS-F01)SMC",
+          "miktar": 9,
+          "toplam": 776,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-02-05",
+          "sonTarih": "2026-05-05"
+        }
+      ]
+    },
+    "610": {
+      "cariNo": 610,
+      "urunSayisi": 0,
+      "toplamCiro": 0,
+      "topUrunler": []
+    },
+    "649": {
+      "cariNo": 649,
+      "urunSayisi": 4,
+      "toplamCiro": 5211,
+      "topUrunler": [
+        {
+          "kod": "PNÖ002666",
+          "tanim": "1/4&quot;-Q8 METAL DÖNER DİRSEK",
+          "miktar": 30,
+          "toplam": 1803,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-06",
+          "sonTarih": "2026-04-06"
+        },
+        {
+          "kod": "PNÖ007064",
+          "tanim": "TAMİR TAKIMI (NC1A150-PS)SMC",
+          "miktar": 2,
+          "toplam": 1321,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ001246",
+          "tanim": "1/2&quot; - Q14 DÖNER DİRSEK",
+          "miktar": 15,
+          "toplam": 1302,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-06",
+          "sonTarih": "2026-04-06"
+        },
+        {
+          "kod": "PNÖ000008",
+          "tanim": "1/4&quot; - 52 TEK BOBİN VALF (4V210-08)",
+          "miktar": 3,
+          "toplam": 786,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        }
+      ]
+    },
+    "654": {
+      "cariNo": 654,
+      "urunSayisi": 2,
+      "toplamCiro": 15696,
+      "topUrunler": [
+        {
+          "kod": "PNÖ004073",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB40-250C)SMC",
+          "miktar": 4,
+          "toplam": 11079,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-02-19"
+        },
+        {
+          "kod": "PNÖ003075",
+          "tanim": "5/2-1/4 24V T.B VALF(SY7120-5YO-02F-Q)SMC",
+          "miktar": 2,
+          "toplam": 4616,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-02-19"
+        }
+      ]
+    },
+    "667": {
+      "cariNo": 667,
+      "urunSayisi": 2,
+      "toplamCiro": 13053,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007201",
+          "tanim": "PİL.KUM.ÇEKVALF 1/8-6 (ASP330F-U01-06-X352)SMC",
+          "miktar": 2,
+          "toplam": 8392,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ007230",
+          "tanim": "2/2-2/2-220V AC GENEL MAKSAT VALF",
+          "miktar": 1,
+          "toplam": 4661,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-19",
+          "sonTarih": "2026-02-19"
+        }
+      ]
+    },
+    "671": {
+      "cariNo": 671,
+      "urunSayisi": 1,
+      "toplamCiro": 11706,
+      "topUrunler": [
+        {
+          "kod": "PNÖ002719",
+          "tanim": "5/2 - 24V Ç.B. VALF (SY5240-5YO-Q)SMC",
+          "miktar": 3,
+          "toplam": 11706,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-04-16",
+          "sonTarih": "2026-04-21"
+        }
+      ]
+    },
+    "682": {
+      "cariNo": 682,
+      "urunSayisi": 7,
+      "toplamCiro": 38049,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007254",
+          "tanim": "BILYE YATAKLI HASSAS SILINDIR (MXQ12-20AS) SMC",
+          "miktar": 1,
+          "toplam": 24817,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-24",
+          "sonTarih": "2026-03-24"
+        },
+        {
+          "kod": "PNÖ006628",
+          "tanim": "VAKUM REGÜLATÖRÜ (IRV20-F04BG-X3) SMC",
+          "miktar": 1,
+          "toplam": 5311,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-24",
+          "sonTarih": "2026-03-24"
+        },
+        {
+          "kod": "PNÖ001684",
+          "tanim": "HIZ AYARLI ÇAB EGZ V.1/4-8mm(ASV310F-02-08S)SMC",
+          "miktar": 2,
+          "toplam": 1876,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-22",
+          "sonTarih": "2026-01-22"
+        },
+        {
+          "kod": "PNÖ007283",
+          "tanim": "TN 10X50 İKİZ SİLİNDİR",
+          "miktar": 3,
+          "toplam": 1679,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-20",
+          "sonTarih": "2026-04-20"
+        },
+        {
+          "kod": "PNÖ004907",
+          "tanim": "3/2-1/8 ÇEV. BUT.VALF(VM130-F01-34RA)SMC",
+          "miktar": 1,
+          "toplam": 1646,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-25",
+          "sonTarih": "2026-02-25"
+        },
+        {
+          "kod": "PNÖ007284",
+          "tanim": "TN 10X25 İKİZ SİLİNDİR",
+          "miktar": 3,
+          "toplam": 1545,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-20",
+          "sonTarih": "2026-04-20"
+        },
+        {
+          "kod": "PNÖ007255",
+          "tanim": "TAMİR TAKIMI (MXQ12)   (MXQ12-PS) SMC",
+          "miktar": 1,
+          "toplam": 1174,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-24",
+          "sonTarih": "2026-03-24"
+        }
+      ]
+    },
+    "705": {
+      "cariNo": 705,
+      "urunSayisi": 1,
+      "toplamCiro": 13259,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007044",
+          "tanim": "BASINÇ ANAHTARI (ISE20A-Y-01-J)SMC",
+          "miktar": 4,
+          "toplam": 13259,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-02",
+          "sonTarih": "2026-02-02"
+        }
+      ]
+    },
+    "725": {
+      "cariNo": 725,
+      "urunSayisi": 1,
+      "toplamCiro": 1517,
+      "topUrunler": [
+        {
+          "kod": "PNÖ001722",
+          "tanim": "HIZ AYAR VALFİ 1/8-6(AS2201F-01-06S)SMC",
+          "miktar": 3,
+          "toplam": 1517,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-06",
+          "sonTarih": "2026-02-06"
+        }
+      ]
+    },
+    "750": {
+      "cariNo": 750,
+      "urunSayisi": 0,
+      "toplamCiro": 0,
+      "topUrunler": []
+    },
+    "764": {
+      "cariNo": 764,
+      "urunSayisi": 1,
+      "toplamCiro": 4952,
+      "topUrunler": [
+        {
+          "kod": "PNÖ005876",
+          "tanim": "T600-24VDC-2500N-400mm LİNEER AKTÜATÖR",
+          "miktar": 1,
+          "toplam": 4952,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-12",
+          "sonTarih": "2026-01-12"
+        }
+      ]
+    },
+    "789": {
+      "cariNo": 789,
+      "urunSayisi": 42,
+      "toplamCiro": 444576,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007190",
+          "tanim": "9 LU VALF ADASI KOMPLE SMC",
+          "miktar": 4,
+          "toplam": 110661,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        },
+        {
+          "kod": "PNÖ003228",
+          "tanim": "KOMPAKT YATK. SİLİNDİR(MGPM63TF-100Z)SMC",
+          "miktar": 4,
+          "toplam": 60038,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-13",
+          "sonTarih": "2026-05-13"
+        },
+        {
+          "kod": "PNÖ001870",
+          "tanim": "KOMPAKT SİLİNDİR (CDQ2B50TF-50DZ)SMC",
+          "miktar": 12,
+          "toplam": 36882,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ007046",
+          "tanim": "YAĞLAYICI (AL40-F04-D)SMC",
+          "miktar": 19,
+          "toplam": 29136,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-31",
+          "sonTarih": "2026-03-31"
+        },
+        {
+          "kod": "PNÖ001629",
+          "tanim": "MANYETİK SENSÖR (D-M9BL)SMC",
+          "miktar": 30,
+          "toplam": 28626,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-03",
+          "sonTarih": "2026-02-03"
+        },
+        {
+          "kod": "PNÖ005481",
+          "tanim": "VAKUM ÜRETİCİ (ZK2G15K5RWA-08-B)SMC",
+          "miktar": 2,
+          "toplam": 23332,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-05-07",
+          "sonTarih": "2026-05-21"
+        },
+        {
+          "kod": "PNÖ001748",
+          "tanim": "RUL.DİRSEK RAKOR1/2-10mm(KSL10-04S)SMC",
+          "miktar": 25,
+          "toplam": 21287,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-31",
+          "sonTarih": "2026-03-31"
+        },
+        {
+          "kod": "PNÖ007293",
+          "tanim": "VANTUZ (ZP3M-T40RFS-A10-MF)SMC",
+          "miktar": 8,
+          "toplam": 19892,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-05-07",
+          "sonTarih": "2026-05-21"
+        },
+        {
+          "kod": "PNÖ005471",
+          "tanim": "TAMİR TAKIMI (CS95-40)SMC",
+          "miktar": 20,
+          "toplam": 12855,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-27",
+          "sonTarih": "2026-01-27"
+        },
+        {
+          "kod": "PNÖ006741",
+          "tanim": "DİJİTAL VAKUM ANAHTARI (ZSE20A-T-01-J) SMC",
+          "miktar": 3,
+          "toplam": 9254,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-31",
+          "sonTarih": "2026-03-31"
+        },
+        {
+          "kod": "PNÖ007258",
+          "tanim": "125X150 PNÖMATİK SİLİNDİR",
+          "miktar": 2,
+          "toplam": 9160,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-31",
+          "sonTarih": "2026-03-31"
+        },
+        {
+          "kod": "PNÖ002814",
+          "tanim": "KOMPAKT YATK. SİLİNDİR(MGPM25TF-40Z)SMC",
+          "miktar": 1,
+          "toplam": 8412,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-27",
+          "sonTarih": "2026-01-27"
+        },
+        {
+          "kod": "PNÖ005478",
+          "tanim": "VANTUZ MONTAJ ELEMANI (ZP3EB-T1JB10)SMC",
+          "miktar": 8,
+          "toplam": 8041,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-05-07",
+          "sonTarih": "2026-05-21"
+        },
+        {
+          "kod": "PNÖ000244",
+          "tanim": "Q10X6.5mm POLİÜRETAN HORTUM (MAVİ)",
+          "miktar": 410,
+          "toplam": 7414,
+          "faturaSayisi": 4,
+          "ilkTarih": "2026-03-31",
+          "sonTarih": "2026-05-13"
+        },
+        {
+          "kod": "PNÖ007238",
+          "tanim": "VANTUZ (ZPT50BN-B01)SMC",
+          "miktar": 10,
+          "toplam": 7253,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-27",
+          "sonTarih": "2026-02-27"
+        },
+        {
+          "kod": "PNÖ000252",
+          "tanim": "Q12X8mm POLİÜRETAN HORTUM (MAVİ)",
+          "miktar": 300,
+          "toplam": 6578,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-16",
+          "sonTarih": "2026-04-16"
+        },
+        {
+          "kod": "PNÖ000078",
+          "tanim": "1/4&quot; - 53 ÇİFT BOBİN K.M. VALF (4V230C-08)",
+          "miktar": 10,
+          "toplam": 6383,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-21",
+          "sonTarih": "2026-05-21"
+        },
+        {
+          "kod": "PNÖ001927",
+          "tanim": "HIZ AYAR VALFİ 3/8-10(AS3201F-03-10SA)SMC",
+          "miktar": 12,
+          "toplam": 4799,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-13",
+          "sonTarih": "2026-05-13"
+        },
+        {
+          "kod": "PNÖ004976",
+          "tanim": "VAKUM FİLTRE (ZFC54) SMC",
+          "miktar": 10,
+          "toplam": 4524,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-31",
+          "sonTarih": "2026-03-31"
+        },
+        {
+          "kod": "PNÖ002746",
+          "tanim": "Q8X5mm POLİÜRETAN HORTUM (MAVİ)",
+          "miktar": 400,
+          "toplam": 4288,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-04-16",
+          "sonTarih": "2026-05-13"
+        }
+      ]
+    },
+    "792": {
+      "cariNo": 792,
+      "urunSayisi": 8,
+      "toplamCiro": 221410,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007237",
+          "tanim": "8 Lİ VALF ADASI KOMPLE SMC (ETHERCATLİ)",
+          "miktar": 2,
+          "toplam": 88069,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-27",
+          "sonTarih": "2026-02-27"
+        },
+        {
+          "kod": "PNÖ005135",
+          "tanim": "PNÖMATİK TUTUCU(MHY2-20D)SMC",
+          "miktar": 5,
+          "toplam": 52762,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-23",
+          "sonTarih": "2026-02-23"
+        },
+        {
+          "kod": "PNÖ002187",
+          "tanim": "PNÖMATİK TUTUCU(MHZ2-20D)SMC",
+          "miktar": 2,
+          "toplam": 24257,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-04-06"
+        },
+        {
+          "kod": "PNÖ007218",
+          "tanim": "DÖNER KENETLEME SİLİNDİRİ (MKB50TF-20LZ) SMC",
+          "miktar": 2,
+          "toplam": 19328,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-09",
+          "sonTarih": "2026-02-09"
+        },
+        {
+          "kod": "PNÖ007208",
+          "tanim": "DÖNER KENETLEME SİLİNDİRİ (MKB50TF-20RZ) SMC",
+          "miktar": 2,
+          "toplam": 19328,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-09",
+          "sonTarih": "2026-02-09"
+        },
+        {
+          "kod": "PNÖ007213",
+          "tanim": "KOMPAKT YATK. SİLİNDİR(MGPM16-25Z)SMC",
+          "miktar": 2,
+          "toplam": 12906,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-02-03",
+          "sonTarih": "2026-03-27"
+        },
+        {
+          "kod": "PNÖ002115",
+          "tanim": "MANYETİK SENSÖR (D-M9PSAPC)SMC",
+          "miktar": 5,
+          "toplam": 3497,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-27",
+          "sonTarih": "2026-02-27"
+        },
+        {
+          "kod": "PNÖ007214",
+          "tanim": "SİLİNDİR ISO (CD85N12-15-B) SMC",
+          "miktar": 1,
+          "toplam": 1264,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-03",
+          "sonTarih": "2026-02-03"
+        }
+      ]
+    },
+    "814": {
+      "cariNo": 814,
+      "urunSayisi": 1,
+      "toplamCiro": 10715,
+      "topUrunler": [
+        {
+          "kod": "PNÖ001334",
+          "tanim": "MANYETİK SENSÖR 3mt(D-A93L)SMC",
+          "miktar": 10,
+          "toplam": 10715,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-14",
+          "sonTarih": "2026-04-14"
+        }
+      ]
+    },
+    "844": {
+      "cariNo": 844,
+      "urunSayisi": 23,
+      "toplamCiro": 28251,
+      "topUrunler": [
+        {
+          "kod": "PNÖ006666",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB100-140C)SMC",
+          "miktar": 2,
+          "toplam": 12982,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-22",
+          "sonTarih": "2026-01-22"
+        },
+        {
+          "kod": "PNÖ003672",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB63-80C)SMC",
+          "miktar": 1,
+          "toplam": 3115,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-16",
+          "sonTarih": "2026-01-16"
+        },
+        {
+          "kod": "PNÖ002043",
+          "tanim": "3/2-1/4 24VDC BOBİNLİ VALF(VT307-5D1-02F-Q)SMC",
+          "miktar": 2,
+          "toplam": 2487,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-16",
+          "sonTarih": "2026-01-16"
+        },
+        {
+          "kod": "PNÖ001653",
+          "tanim": "T DAĞITICI 8mm(KQ2T08-00A)SMC",
+          "miktar": 14,
+          "toplam": 1759,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-16",
+          "sonTarih": "2026-01-16"
+        },
+        {
+          "kod": "PNÖ003030",
+          "tanim": "5/2-24VDC T.B VALF(SY5120-5YO-01F-Q)SMC",
+          "miktar": 1,
+          "toplam": 1685,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-24",
+          "sonTarih": "2026-03-24"
+        },
+        {
+          "kod": "PNÖ004129",
+          "tanim": "SİLİNDİR ISO(CD85N25-25-B)SMC",
+          "miktar": 1,
+          "toplam": 1366,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-24",
+          "sonTarih": "2026-03-24"
+        },
+        {
+          "kod": "PNÖ002746",
+          "tanim": "Q8X5mm POLİÜRETAN HORTUM (MAVİ)",
+          "miktar": 100,
+          "toplam": 1055,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-16",
+          "sonTarih": "2026-01-16"
+        },
+        {
+          "kod": "PNÖ001947",
+          "tanim": "HIZ AYAR VALFİ 3/8-8(AS3201F-03-08SA)SMC",
+          "miktar": 2,
+          "toplam": 844,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-16",
+          "sonTarih": "2026-01-16"
+        },
+        {
+          "kod": "PNÖ005088",
+          "tanim": "ITV KABLOSU 5 MT 4PİN  (SAC-4P-5,0-PVC/M12FS) SMC",
+          "miktar": 1,
+          "toplam": 468,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-23",
+          "sonTarih": "2026-02-23"
+        },
+        {
+          "kod": "PNÖ003398",
+          "tanim": "DİRSEK BAĞLANTI 8mm (KQ2L08-00A)SMC",
+          "miktar": 4,
+          "toplam": 452,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-16",
+          "sonTarih": "2026-01-16"
+        },
+        {
+          "kod": "PNÖ002112",
+          "tanim": "İÇTEN SIKMALI DÜZ RAKOR 1/4-8mm (KQ2S08-02AS)SMC",
+          "miktar": 4,
+          "toplam": 291,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-16",
+          "sonTarih": "2026-01-16"
+        },
+        {
+          "kod": "PNÖ002097",
+          "tanim": "HORTUM BİRLEŞTİRİCİ 6-8mm(KQ2H06-08A)SMC",
+          "miktar": 2,
+          "toplam": 276,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-16",
+          "sonTarih": "2026-01-16"
+        },
+        {
+          "kod": "PNÖ001362",
+          "tanim": "DİRSEK RAKOR 3/8-8mm(KQ2L08-03AS)SMC",
+          "miktar": 2,
+          "toplam": 201,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-16",
+          "sonTarih": "2026-01-16"
+        },
+        {
+          "kod": "PNÖ005761",
+          "tanim": "DİRSEK RAKOR 1/8- 8mm (KQB2L08-01S)SMC",
+          "miktar": 1,
+          "toplam": 197,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-24",
+          "sonTarih": "2026-03-24"
+        },
+        {
+          "kod": "PNÖ002035",
+          "tanim": "VT307 TESPİT ELEMANI (DXT152-25-1A)SMC",
+          "miktar": 2,
+          "toplam": 181,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-16",
+          "sonTarih": "2026-01-16"
+        },
+        {
+          "kod": "PNÖ003080",
+          "tanim": "DIN SOKET 24VSY.5YZ IŞIKL (DIN43650C-C/LED 24V)SMC",
+          "miktar": 1,
+          "toplam": 161,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-24",
+          "sonTarih": "2026-03-24"
+        },
+        {
+          "kod": "PNÖ002632",
+          "tanim": "1/4&quot;-Q8 METAL DÜZ REKOR",
+          "miktar": 5,
+          "toplam": 146,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-16",
+          "sonTarih": "2026-01-16"
+        },
+        {
+          "kod": "PNÖ001994",
+          "tanim": "Y DAĞITICI 8mm(KQ2U08-00A)SMC",
+          "miktar": 1,
+          "toplam": 143,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-24",
+          "sonTarih": "2026-03-24"
+        },
+        {
+          "kod": "PNÖ001887",
+          "tanim": "DÜZ RAKOR 1/4-8mm(KQ2H08-02AS)SMC",
+          "miktar": 2,
+          "toplam": 131,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-16",
+          "sonTarih": "2026-01-16"
+        },
+        {
+          "kod": "PNÖ000216",
+          "tanim": "HAVA TABANCASI PLASTİK",
+          "miktar": 2,
+          "toplam": 109,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-16",
+          "sonTarih": "2026-01-16"
+        }
+      ]
+    },
+    "855": {
+      "cariNo": 855,
+      "urunSayisi": 10,
+      "toplamCiro": 182792,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007233",
+          "tanim": "5/2-24 VDC T.B VALF(SY7101-5U1-NA)SMC",
+          "miktar": 22,
+          "toplam": 58533,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-24",
+          "sonTarih": "2026-02-24"
+        },
+        {
+          "kod": "PNÖ007234",
+          "tanim": "5 PORT SELENOID VALF (SY7301-5U1-NA)SMC",
+          "miktar": 13,
+          "toplam": 49866,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-24",
+          "sonTarih": "2026-02-24"
+        },
+        {
+          "kod": "PNÖ006844",
+          "tanim": "SMC ŞARTLANDIRICI GRUBU SET",
+          "miktar": 1,
+          "toplam": 17836,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-05",
+          "sonTarih": "2026-01-05"
+        },
+        {
+          "kod": "PNÖ004216",
+          "tanim": "VALF ALTLIĞI 8 Lİ 1/4 (SS5Y7-50F1-08B-02F)SMC",
+          "miktar": 2,
+          "toplam": 13122,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-24",
+          "sonTarih": "2026-02-24"
+        },
+        {
+          "kod": "PNÖ004075",
+          "tanim": "DIN SOKET 5MT(GVVZS3000-21A-3)SMC",
+          "miktar": 5,
+          "toplam": 11753,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-24",
+          "sonTarih": "2026-02-24"
+        },
+        {
+          "kod": "PNÖ007217",
+          "tanim": "5/2-24 VDC T.B VALF(SY5101-5U1-NA)SMC",
+          "miktar": 4,
+          "toplam": 9144,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-24",
+          "sonTarih": "2026-02-24"
+        },
+        {
+          "kod": "PNÖ003229",
+          "tanim": "VALF ALTLIĞI 10 LU 1/4 (SS5Y7-50F1-10B-02F)SMC",
+          "miktar": 1,
+          "toplam": 7685,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-24",
+          "sonTarih": "2026-02-24"
+        },
+        {
+          "kod": "PNÖ006089",
+          "tanim": "5 PORT SOLENOID VALF (SY5A00-5U1-NA) SMC",
+          "miktar": 2,
+          "toplam": 6561,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-24",
+          "sonTarih": "2026-02-24"
+        },
+        {
+          "kod": "PNÖ007216",
+          "tanim": "VALF ALTLIĞI 4 LÜ 1/4 (SS5Y7-50F1-04B-02F)SMC",
+          "miktar": 1,
+          "toplam": 4714,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-24",
+          "sonTarih": "2026-02-24"
+        },
+        {
+          "kod": "PNÖ004610",
+          "tanim": "VALF ALTLIĞI 4 LÜ (SS5Y5-50F1-04B-01F)SMC",
+          "miktar": 1,
+          "toplam": 3578,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-24",
+          "sonTarih": "2026-02-24"
+        }
+      ]
+    },
+    "889": {
+      "cariNo": 889,
+      "urunSayisi": 1,
+      "toplamCiro": 7123,
+      "topUrunler": [
+        {
+          "kod": "PNÖ002115",
+          "tanim": "MANYETİK SENSÖR (D-M9PSAPC)SMC",
+          "miktar": 10,
+          "toplam": 7123,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-17",
+          "sonTarih": "2026-04-17"
+        }
+      ]
+    },
+    "913": {
+      "cariNo": 913,
+      "urunSayisi": 2,
+      "toplamCiro": 8201,
+      "topUrunler": [
+        {
+          "kod": "PNÖ002043",
+          "tanim": "3/2-1/4 24VDC BOBİNLİ VALF(VT307-5D1-02F-Q)SMC",
+          "miktar": 5,
+          "toplam": 7149,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-06",
+          "sonTarih": "2026-02-06"
+        },
+        {
+          "kod": "PNÖ002097",
+          "tanim": "HORTUM BİRLEŞTİRİCİ 6-8mm(KQ2H06-08A)SMC",
+          "miktar": 10,
+          "toplam": 1052,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-06",
+          "sonTarih": "2026-02-06"
+        }
+      ]
+    },
+    "928": {
+      "cariNo": 928,
+      "urunSayisi": 24,
+      "toplamCiro": 65071,
+      "topUrunler": [
+        {
+          "kod": "PNÖ001898",
+          "tanim": "HIZ AYAR VALFİ 1/8-6(AS2201F-01-06SA)SMC",
+          "miktar": 30,
+          "toplam": 8903,
+          "faturaSayisi": 3,
+          "ilkTarih": "2026-01-05",
+          "sonTarih": "2026-01-27"
+        },
+        {
+          "kod": "PNÖ003543",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB32-250C)SMC",
+          "miktar": 2,
+          "toplam": 6592,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-22",
+          "sonTarih": "2026-01-22"
+        },
+        {
+          "kod": "PNÖ001899",
+          "tanim": "HIZ AYAR VALFİ 1/4-6(AS2201F-02-06SA)SMC",
+          "miktar": 10,
+          "toplam": 3702,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-27",
+          "sonTarih": "2026-01-27"
+        },
+        {
+          "kod": "PNÖ002276",
+          "tanim": "HIZ AYAR VALFİ 1/4-10mm (AS2201F-02-10SA)SMC",
+          "miktar": 10,
+          "toplam": 3702,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-27",
+          "sonTarih": "2026-01-27"
+        },
+        {
+          "kod": "PNÖ001670",
+          "tanim": "DİRSEK RAKOR 1/4-10mm(KQ2L10-02AS)SMC",
+          "miktar": 20,
+          "toplam": 3291,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-27",
+          "sonTarih": "2026-01-27"
+        },
+        {
+          "kod": "PNÖ001926",
+          "tanim": "HIZ AYAR VALFİ 1/8-8(AS2201F-01-08SA)SMC",
+          "miktar": 10,
+          "toplam": 3008,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-27",
+          "sonTarih": "2026-01-27"
+        },
+        {
+          "kod": "PNÖ003030",
+          "tanim": "5/2-24VDC T.B VALF(SY5120-5YO-01F-Q)SMC",
+          "miktar": 1,
+          "toplam": 2622,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-25",
+          "sonTarih": "2026-03-25"
+        },
+        {
+          "kod": "PNÖ001890",
+          "tanim": "DİRSEK RAKOR 3/8-10mm(KQ2L10-03AS)SMC",
+          "miktar": 15,
+          "toplam": 2507,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-27",
+          "sonTarih": "2026-01-27"
+        },
+        {
+          "kod": "PNÖ001256",
+          "tanim": "DİRSEK RAKOR 1/4-8mm(KQ2L08-02AS)SMC",
+          "miktar": 20,
+          "toplam": 2365,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-27",
+          "sonTarih": "2026-01-27"
+        },
+        {
+          "kod": "PNÖ002356",
+          "tanim": "İÇTEN SIKMALI DÜZ RAKOR 1/4-10mm (KQ2S10-02AS)SMC",
+          "miktar": 20,
+          "toplam": 2365,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-27",
+          "sonTarih": "2026-01-27"
+        },
+        {
+          "kod": "PNÖ001889",
+          "tanim": "DİRSEK RAKOR 1/8-8mm(KQ2L08-01AS)SMC",
+          "miktar": 20,
+          "toplam": 2262,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-27",
+          "sonTarih": "2026-01-27"
+        },
+        {
+          "kod": "PNÖ002098",
+          "tanim": "HORTUM BİRLEŞTİRİCİ 8-10mm(KQ2H08-10A)SMC",
+          "miktar": 10,
+          "toplam": 2108,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-27",
+          "sonTarih": "2026-01-27"
+        },
+        {
+          "kod": "PNÖ004887",
+          "tanim": "İÇTEN SIKMALI DÜZ RAKOR (KQ2S06-M6A)SMC",
+          "miktar": 20,
+          "toplam": 2066,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-01-05",
+          "sonTarih": "2026-01-12"
+        },
+        {
+          "kod": "PNÖ001332",
+          "tanim": "DİRSEK RAKOR 1/4-6mm(KQ2L06-02AS)SMC",
+          "miktar": 20,
+          "toplam": 2057,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-27",
+          "sonTarih": "2026-01-27"
+        },
+        {
+          "kod": "PNÖ002571",
+          "tanim": "DİRSEK RAKOR 3/8-12mm(KQ2L12-03AS)SMC",
+          "miktar": 10,
+          "toplam": 2057,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-27",
+          "sonTarih": "2026-01-27"
+        },
+        {
+          "kod": "PNÖ001996",
+          "tanim": "HORTUM BİRLEŞTİRİCİ 10-12mm(KQ2H10-12A)SMC",
+          "miktar": 10,
+          "toplam": 1980,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-27",
+          "sonTarih": "2026-01-27"
+        },
+        {
+          "kod": "PNÖ001333",
+          "tanim": "DİRSEK RAKOR 1/8-6mm(KQ2L06-01AS)SMC",
+          "miktar": 20,
+          "toplam": 1954,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-27",
+          "sonTarih": "2026-01-27"
+        },
+        {
+          "kod": "PNÖ004079",
+          "tanim": "İÇTEN SIKMALI DÜZ RAKOR 3/8-10mm (KQ2S10-03AS)SMC",
+          "miktar": 15,
+          "toplam": 1890,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-27",
+          "sonTarih": "2026-01-27"
+        },
+        {
+          "kod": "PNÖ003325",
+          "tanim": "İÇTEN SIKMALI DÜZ RAKOR 1/8-8mm (KQ2S08-01AS)SMC",
+          "miktar": 20,
+          "toplam": 1697,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-27",
+          "sonTarih": "2026-01-27"
+        },
+        {
+          "kod": "PNÖ002355",
+          "tanim": "İÇTEN SIKMALI DÜZ RAKOR 1/4&quot;-6mm (KQ2S06-02AS)SMC",
+          "miktar": 20,
+          "toplam": 1645,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-27",
+          "sonTarih": "2026-01-27"
+        }
+      ]
+    },
+    "937": {
+      "cariNo": 937,
+      "urunSayisi": 1,
+      "toplamCiro": 19650,
+      "topUrunler": [
+        {
+          "kod": "PNÖ005250",
+          "tanim": "3/2-24VDC BOBİNLİ VALF(VQ110-5L-Q)SMC",
+          "miktar": 10,
+          "toplam": 19650,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-05",
+          "sonTarih": "2026-01-05"
+        }
+      ]
+    },
+    "966": {
+      "cariNo": 966,
+      "urunSayisi": 17,
+      "toplamCiro": 77358,
+      "topUrunler": [
+        {
+          "kod": "PNÖ002694",
+          "tanim": "HASSAS BASINÇ REGÜLATÖRÜ1/4 (ARP30-F02)SMC",
+          "miktar": 7,
+          "toplam": 21925,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-01-05",
+          "sonTarih": "2026-02-16"
+        },
+        {
+          "kod": "PNÖ001685",
+          "tanim": "2/2-24VDC VALF(VQ21A1-5G-C6-F-Q)SMC",
+          "miktar": 10,
+          "toplam": 15912,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-04",
+          "sonTarih": "2026-02-04"
+        },
+        {
+          "kod": "PNÖ007221",
+          "tanim": "5/3-1/4 24V K.M. VALF (SY7320-5LOU-02F-Q)SMC",
+          "miktar": 3,
+          "toplam": 12364,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ002082",
+          "tanim": "SİLİNDİR (CDJ2D10-15Z-B)SMC",
+          "miktar": 3,
+          "toplam": 4876,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ002721",
+          "tanim": "AMORTİSÖR 1000N",
+          "miktar": 12,
+          "toplam": 3804,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ004943",
+          "tanim": "BASINÇ ANAHTARI (ISE20-P-01-L)SMC",
+          "miktar": 1,
+          "toplam": 3568,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-10",
+          "sonTarih": "2026-02-10"
+        },
+        {
+          "kod": "PNÖ003983",
+          "tanim": "AMORTİSÖR 350N",
+          "miktar": 12,
+          "toplam": 3504,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ003023",
+          "tanim": "AMORTİSÖR 450N",
+          "miktar": 12,
+          "toplam": 3300,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-04",
+          "sonTarih": "2026-02-04"
+        },
+        {
+          "kod": "PNÖ005427",
+          "tanim": "AMORTİSÖR 580N",
+          "miktar": 11,
+          "toplam": 3234,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ002151",
+          "tanim": "TAMİR TAKIMI (CJP2B16D-PS)SMC",
+          "miktar": 10,
+          "toplam": 2047,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-12",
+          "sonTarih": "2026-03-12"
+        },
+        {
+          "kod": "PNÖ005226",
+          "tanim": "6X4 POLİÜRETAN HORTUM/ŞEFFAF (TU0604C-20)SMC",
+          "miktar": 1,
+          "toplam": 907,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-18",
+          "sonTarih": "2026-05-18"
+        },
+        {
+          "kod": "PNÖ007176",
+          "tanim": "DİYAFRAM (ARP30P-151AS)SMC",
+          "miktar": 1,
+          "toplam": 756,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-05",
+          "sonTarih": "2026-01-05"
+        },
+        {
+          "kod": "PNÖ002901",
+          "tanim": "Q6X4mm POLİÜRETAN HORTUM (ŞEFFAF)",
+          "miktar": 20,
+          "toplam": 365,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-04",
+          "sonTarih": "2026-02-04"
+        },
+        {
+          "kod": "PNÖ002093",
+          "tanim": "KABLOLU SOKET 30 CM (SY100-30-4A)SMC",
+          "miktar": 6,
+          "toplam": 327,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ000028",
+          "tanim": "1/2&quot; - Q10 DÜZ REKOR",
+          "miktar": 8,
+          "toplam": 227,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-10",
+          "sonTarih": "2026-02-10"
+        },
+        {
+          "kod": "PNÖ000263",
+          "tanim": "Q4X2,5mm POLİÜRETAN HORTUM (MAVİ)",
+          "miktar": 20,
+          "toplam": 122,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-04",
+          "sonTarih": "2026-02-04"
+        },
+        {
+          "kod": "PNÖ000252",
+          "tanim": "Q12X8mm POLİÜRETAN HORTUM (MAVİ)",
+          "miktar": 4,
+          "toplam": 121,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-22",
+          "sonTarih": "2026-01-22"
+        }
+      ]
+    },
+    "971": {
+      "cariNo": 971,
+      "urunSayisi": 1,
+      "toplamCiro": 7692,
+      "topUrunler": [
+        {
+          "kod": "PNÖ005944",
+          "tanim": "5/2-24 VDC T.B VALF(SY5100-5U1-NA)SMC",
+          "miktar": 3,
+          "toplam": 7692,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-03",
+          "sonTarih": "2026-04-03"
+        }
+      ]
+    },
+    "976": {
+      "cariNo": 976,
+      "urunSayisi": 0,
+      "toplamCiro": 0,
+      "topUrunler": []
+    },
+    "992": {
+      "cariNo": 992,
+      "urunSayisi": 2,
+      "toplamCiro": 33428,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007299",
+          "tanim": "PATLAÇ VALF BOBİNİ (JSXFE-14F-5GB-KT1)SMC",
+          "miktar": 30,
+          "toplam": 29363,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-18",
+          "sonTarih": "2026-05-18"
+        },
+        {
+          "kod": "PNÖ006381",
+          "tanim": "PULSE VALVE (JSXFE-14F-5GB)SMC",
+          "miktar": 1,
+          "toplam": 4065,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-20",
+          "sonTarih": "2026-04-20"
+        }
+      ]
+    },
+    "1009": {
+      "cariNo": 1009,
+      "urunSayisi": 2,
+      "toplamCiro": 11739,
+      "topUrunler": [
+        {
+          "kod": "PNÖ003217",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB100-50C)SMC",
+          "miktar": 1,
+          "toplam": 8962,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-27",
+          "sonTarih": "2026-02-27"
+        },
+        {
+          "kod": "PNÖ001742",
+          "tanim": "PİM SİLİNDİR (CJPB15-10H4)SMC",
+          "miktar": 2,
+          "toplam": 2777,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-05",
+          "sonTarih": "2026-02-05"
+        }
+      ]
+    },
+    "1026": {
+      "cariNo": 1026,
+      "urunSayisi": 4,
+      "toplamCiro": 100117,
+      "topUrunler": [
+        {
+          "kod": "PNÖ005020",
+          "tanim": "KOMPAKT SİLİNDİR (CDQ2A50TF-10DZ)SMC",
+          "miktar": 15,
+          "toplam": 45407,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-07",
+          "sonTarih": "2026-01-07"
+        },
+        {
+          "kod": "PNÖ004512",
+          "tanim": "SİLİNDİR ISO(CD85N25-50C-B)SMC",
+          "miktar": 30,
+          "toplam": 43841,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        },
+        {
+          "kod": "PNÖ003746",
+          "tanim": "KOMPAKT SİLİNDİR (CDQ2B20-20DZ)SMC",
+          "miktar": 4,
+          "toplam": 6656,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-01-07",
+          "sonTarih": "2026-01-13"
+        },
+        {
+          "kod": "PNÖ001415",
+          "tanim": "MANYETİK SENSÖR(D-Z73L)SMC",
+          "miktar": 4,
+          "toplam": 4213,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-06",
+          "sonTarih": "2026-04-06"
+        }
+      ]
+    },
+    "1031": {
+      "cariNo": 1031,
+      "urunSayisi": 1,
+      "toplamCiro": 3280,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007257",
+          "tanim": "SİLİNDİR ISO (C85N16-5) SMC",
+          "miktar": 2,
+          "toplam": 3280,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-27",
+          "sonTarih": "2026-03-27"
+        }
+      ]
+    },
+    "1032": {
+      "cariNo": 1032,
+      "urunSayisi": 1,
+      "toplamCiro": 10370,
+      "topUrunler": [
+        {
+          "kod": "PNÖ004179",
+          "tanim": "HASSAS REGÜLATÖR1/4 (IR2020-F02BG-A)SMC",
+          "miktar": 2,
+          "toplam": 10370,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-18",
+          "sonTarih": "2026-05-18"
+        }
+      ]
+    },
+    "1037": {
+      "cariNo": 1037,
+      "urunSayisi": 4,
+      "toplamCiro": 62174,
+      "topUrunler": [
+        {
+          "kod": "PNÖ006226",
+          "tanim": "VACUUM EJECTOR (ZK2A12K5ALA-06)SMC",
+          "miktar": 3,
+          "toplam": 40637,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ007182",
+          "tanim": "VAKUM ÜRETİCİ (ZK2C10K5CC-08)SMC",
+          "miktar": 1,
+          "toplam": 13824,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-07",
+          "sonTarih": "2026-01-07"
+        },
+        {
+          "kod": "PNÖ007253",
+          "tanim": "2 PORT SELENOID VALVE (VX250AAXB)SMC",
+          "miktar": 2,
+          "toplam": 5125,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-27",
+          "sonTarih": "2026-03-27"
+        },
+        {
+          "kod": "PNÖ007235",
+          "tanim": "2 PORT SELENOID VALVE (VX220AAXB)SMC",
+          "miktar": 2,
+          "toplam": 2588,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-24",
+          "sonTarih": "2026-02-24"
+        }
+      ]
+    },
+    "1072": {
+      "cariNo": 1072,
+      "urunSayisi": 8,
+      "toplamCiro": 20550,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007203",
+          "tanim": "REGÜLATÖR 1/2 (AR40-F04BG-B-X425)SMC",
+          "miktar": 2,
+          "toplam": 9144,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ005085",
+          "tanim": "5/2-1/8 ÇEVİRMELİ BUTONLU VALF (VZM450-01-34B)SMC",
+          "miktar": 2,
+          "toplam": 5802,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-14",
+          "sonTarih": "2026-04-14"
+        },
+        {
+          "kod": "PNÖ000244",
+          "tanim": "Q10X6.5mm POLİÜRETAN HORTUM (MAVİ)",
+          "miktar": 100,
+          "toplam": 1718,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-05",
+          "sonTarih": "2026-01-05"
+        },
+        {
+          "kod": "PNÖ002746",
+          "tanim": "Q8X5mm POLİÜRETAN HORTUM (MAVİ)",
+          "miktar": 100,
+          "toplam": 988,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-05",
+          "sonTarih": "2026-01-05"
+        },
+        {
+          "kod": "PNÖ007189",
+          "tanim": "Q50 0-10 BAR ARKADAN ÇIKIŞ MANOMETRE PAKKENS",
+          "miktar": 3,
+          "toplam": 906,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-08",
+          "sonTarih": "2026-01-08"
+        },
+        {
+          "kod": "PNÖ000274",
+          "tanim": "Q6 NİPEL",
+          "miktar": 100,
+          "toplam": 694,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-27",
+          "sonTarih": "2026-01-27"
+        },
+        {
+          "kod": "PNÖ000007",
+          "tanim": "Q8 NİPEL",
+          "miktar": 100,
+          "toplam": 694,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-27",
+          "sonTarih": "2026-01-27"
+        },
+        {
+          "kod": "PNÖ007188",
+          "tanim": "Q50 0-10 BAR ALTTAN ÇIKIŞ MANOMETRE PAKKENS",
+          "miktar": 2,
+          "toplam": 604,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-08",
+          "sonTarih": "2026-01-08"
+        }
+      ]
+    },
+    "1091": {
+      "cariNo": 1091,
+      "urunSayisi": 22,
+      "toplamCiro": 474316,
+      "topUrunler": [
+        {
+          "kod": "PNÖ003227",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB40-50C)SMC",
+          "miktar": 42,
+          "toplam": 70902,
+          "faturaSayisi": 4,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        },
+        {
+          "kod": "PNÖ004860",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB50-380C)SMC",
+          "miktar": 16,
+          "toplam": 47167,
+          "faturaSayisi": 4,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        },
+        {
+          "kod": "PNÖ007199",
+          "tanim": "SİLİNDİR (C96SDT40-50C)SMC",
+          "miktar": 18,
+          "toplam": 46095,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-22",
+          "sonTarih": "2026-01-22"
+        },
+        {
+          "kod": "PNÖ005596",
+          "tanim": "SİLİNDİR  (C96SDT40-320C-XC14A)SMC",
+          "miktar": 12,
+          "toplam": 36511,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-22",
+          "sonTarih": "2026-01-22"
+        },
+        {
+          "kod": "PNÖ002986",
+          "tanim": "ŞOK SÖNUMLEYİCİ(BAŞLIKSIZ) (RB2015)SMC",
+          "miktar": 16,
+          "toplam": 33099,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-26",
+          "sonTarih": "2026-02-26"
+        },
+        {
+          "kod": "PNÖ003453",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB50-250C)SMC",
+          "miktar": 14,
+          "toplam": 32453,
+          "faturaSayisi": 4,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        },
+        {
+          "kod": "PNÖ005958",
+          "tanim": "ÖN EKLEM BAĞLANTI Q50",
+          "miktar": 24,
+          "toplam": 29995,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-04-02",
+          "sonTarih": "2026-04-14"
+        },
+        {
+          "kod": "PNÖ003208",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB40-80C)SMC",
+          "miktar": 16,
+          "toplam": 27615,
+          "faturaSayisi": 4,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        },
+        {
+          "kod": "PNÖ006701",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB63-40C)SMC",
+          "miktar": 12,
+          "toplam": 24188,
+          "faturaSayisi": 4,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        },
+        {
+          "kod": "PNÖ004073",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB40-250C)SMC",
+          "miktar": 12,
+          "toplam": 22979,
+          "faturaSayisi": 4,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        },
+        {
+          "kod": "PNÖ003109",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB32-25C)SMC",
+          "miktar": 12,
+          "toplam": 16025,
+          "faturaSayisi": 4,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        },
+        {
+          "kod": "PNÖ006574",
+          "tanim": "REGÜLATÖR 1/4 (AR20-F02BE-D)SMC",
+          "miktar": 20,
+          "toplam": 13858,
+          "faturaSayisi": 4,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        },
+        {
+          "kod": "PNÖ004331",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB100-200C)SMC",
+          "miktar": 3,
+          "toplam": 13152,
+          "faturaSayisi": 3,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        },
+        {
+          "kod": "PNÖ003132",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB50-100C)SMC",
+          "miktar": 6,
+          "toplam": 12548,
+          "faturaSayisi": 4,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        },
+        {
+          "kod": "PNÖ003211",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB50-50C)SMC",
+          "miktar": 4,
+          "toplam": 10515,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-29",
+          "sonTarih": "2026-01-29"
+        },
+        {
+          "kod": "PNÖ004360",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB80-200C)SMC",
+          "miktar": 3,
+          "toplam": 10280,
+          "faturaSayisi": 3,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        },
+        {
+          "kod": "PNÖ006730",
+          "tanim": "FİLTRE REGÜLATÖR 1/2 MAN.(AW40-F04BE-D)SMC",
+          "miktar": 6,
+          "toplam": 9524,
+          "faturaSayisi": 4,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        },
+        {
+          "kod": "PNÖ001235",
+          "tanim": "HIZ AYARLI ÇAB EGZ V.3/8-10mm(ASV510F-03-10S)SMC",
+          "miktar": 8,
+          "toplam": 7063,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-07",
+          "sonTarih": "2026-01-07"
+        },
+        {
+          "kod": "PNÖ007094",
+          "tanim": "FİLTRE REGÜLATÖR (AW20-F02BE-D)SMC",
+          "miktar": 6,
+          "toplam": 5151,
+          "faturaSayisi": 5,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-22"
+        },
+        {
+          "kod": "PNÖ004237",
+          "tanim": "ÇİFT ARKA EKLEM BAĞLANTI (D5050-A) SMC",
+          "miktar": 4,
+          "toplam": 2402,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-29",
+          "sonTarih": "2026-01-29"
+        }
+      ]
+    },
+    "1135": {
+      "cariNo": 1135,
+      "urunSayisi": 7,
+      "toplamCiro": 106447,
+      "topUrunler": [
+        {
+          "kod": "PNÖ005990",
+          "tanim": "KENETLEME SİLİNDİRİ (CKZT32-90S-X2797)SMC",
+          "miktar": 2,
+          "toplam": 58639,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-04",
+          "sonTarih": "2026-03-04"
+        },
+        {
+          "kod": "PNÖ001491",
+          "tanim": "HAVA TABANCASI(VMG11BU-F02)SMC",
+          "miktar": 25,
+          "toplam": 28288,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-19",
+          "sonTarih": "2026-02-19"
+        },
+        {
+          "kod": "PNÖ006156",
+          "tanim": "ANA HAT FİLTRESİ (AFF40-F04D-L-D) SMC",
+          "miktar": 1,
+          "toplam": 6452,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ005826",
+          "tanim": "FİLTRE  (AM40-F04D-D) SMC",
+          "miktar": 1,
+          "toplam": 5220,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ004943",
+          "tanim": "BASINÇ ANAHTARI (ISE20-P-01-L)SMC",
+          "miktar": 1,
+          "toplam": 3912,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-21",
+          "sonTarih": "2026-05-21"
+        },
+        {
+          "kod": "PNÖ006578",
+          "tanim": "FİLTRE REGÜLATÖR (AW40-F04DE-D)SMC",
+          "miktar": 1,
+          "toplam": 3607,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ005721",
+          "tanim": "MOD.TESPİT ELEMANI (Y400T-D)SMC",
+          "miktar": 2,
+          "toplam": 330,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        }
+      ]
+    },
+    "1148": {
+      "cariNo": 1148,
+      "urunSayisi": 15,
+      "toplamCiro": 108373,
+      "topUrunler": [
+        {
+          "kod": "PNÖ003211",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB50-50C)SMC",
+          "miktar": 20,
+          "toplam": 44248,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-29",
+          "sonTarih": "2026-04-29"
+        },
+        {
+          "kod": "PNÖ007290",
+          "tanim": "13 LÜ VALF ADASI KOMPLE SMC",
+          "miktar": 1,
+          "toplam": 32712,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-29",
+          "sonTarih": "2026-04-29"
+        },
+        {
+          "kod": "PNÖ005578",
+          "tanim": "KOMPAKT SİLİNDİR (CDQ2B32TF-30DZ)SMC",
+          "miktar": 6,
+          "toplam": 7222,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-29",
+          "sonTarih": "2026-04-29"
+        },
+        {
+          "kod": "PNÖ004330",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB63-150C)SMC",
+          "miktar": 2,
+          "toplam": 5636,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-29",
+          "sonTarih": "2026-04-29"
+        },
+        {
+          "kod": "PNÖ005228",
+          "tanim": "8X5 POLİÜRETAN HORTUM/MAVİ (TU0805BU-100)SMC",
+          "miktar": 1,
+          "toplam": 4293,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-29",
+          "sonTarih": "2026-04-29"
+        },
+        {
+          "kod": "PNÖ004225",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB63-450C)SMC",
+          "miktar": 1,
+          "toplam": 4109,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-29",
+          "sonTarih": "2026-04-29"
+        },
+        {
+          "kod": "PNÖ002112",
+          "tanim": "İÇTEN SIKMALI DÜZ RAKOR 1/4-8mm (KQ2S08-02AS)SMC",
+          "miktar": 42,
+          "toplam": 2323,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-04-29",
+          "sonTarih": "2026-04-29"
+        },
+        {
+          "kod": "PNÖ001947",
+          "tanim": "HIZ AYAR VALFİ 3/8-8(AS3201F-03-08SA)SMC",
+          "miktar": 6,
+          "toplam": 2133,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-29",
+          "sonTarih": "2026-04-29"
+        },
+        {
+          "kod": "PNÖ007267",
+          "tanim": "FİLTRE REGÜLATÖR (AW40-F04E-D)SMC",
+          "miktar": 1,
+          "toplam": 1857,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-29",
+          "sonTarih": "2026-04-29"
+        },
+        {
+          "kod": "PNÖ007266",
+          "tanim": "KOMPAKT SİLİNDİR (CDQ2B50TF-10DZ)SMC",
+          "miktar": 1,
+          "toplam": 1554,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-29",
+          "sonTarih": "2026-04-29"
+        },
+        {
+          "kod": "PNÖ005719",
+          "tanim": "3/2-1/2 AÇ. KAPAMA VALFİ(VHS40-F04-D)SMC",
+          "miktar": 1,
+          "toplam": 1225,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-29",
+          "sonTarih": "2026-04-29"
+        },
+        {
+          "kod": "PNÖ003325",
+          "tanim": "İÇTEN SIKMALI DÜZ RAKOR 1/8-8mm (KQ2S08-01AS)SMC",
+          "miktar": 12,
+          "toplam": 664,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-29",
+          "sonTarih": "2026-04-29"
+        },
+        {
+          "kod": "PNÖ003014",
+          "tanim": "İÇTEN SIKMALI DÜZ RAKOR 1/2-12mm (KQ2S12-04AS)SMC",
+          "miktar": 2,
+          "toplam": 216,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-29",
+          "sonTarih": "2026-04-29"
+        },
+        {
+          "kod": "PNÖ005721",
+          "tanim": "MOD.TESPİT ELEMANI (Y400T-D)SMC",
+          "miktar": 1,
+          "toplam": 155,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-29",
+          "sonTarih": "2026-04-29"
+        },
+        {
+          "kod": "PNÖ006211",
+          "tanim": "3/8&quot; TAPA TİP SUSTURUCU",
+          "miktar": 1,
+          "toplam": 26,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-29",
+          "sonTarih": "2026-04-29"
+        }
+      ]
+    },
+    "1237": {
+      "cariNo": 1237,
+      "urunSayisi": 12,
+      "toplamCiro": 107920,
+      "topUrunler": [
+        {
+          "kod": "PNÖ003546",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB50-300C)SMC",
+          "miktar": 16,
+          "toplam": 39593,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-16",
+          "sonTarih": "2026-01-16"
+        },
+        {
+          "kod": "PNÖ003075",
+          "tanim": "5/2-1/4 24V T.B VALF(SY7120-5YO-02F-Q)SMC",
+          "miktar": 8,
+          "toplam": 13483,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-01-16",
+          "sonTarih": "2026-04-02"
+        },
+        {
+          "kod": "PNÖ003211",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB50-50C)SMC",
+          "miktar": 5,
+          "toplam": 10928,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-16",
+          "sonTarih": "2026-01-16"
+        },
+        {
+          "kod": "PNÖ003076",
+          "tanim": "5/3-1/4 24V K.M. VALF (SY7320-5YO-02F-Q)SMC",
+          "miktar": 4,
+          "toplam": 10451,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-16",
+          "sonTarih": "2026-01-16"
+        },
+        {
+          "kod": "PNÖ002043",
+          "tanim": "3/2-1/4 24VDC BOBİNLİ VALF(VT307-5D1-02F-Q)SMC",
+          "miktar": 8,
+          "toplam": 8240,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-16",
+          "sonTarih": "2026-01-16"
+        },
+        {
+          "kod": "PNÖ003510",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB40-200C)SMC",
+          "miktar": 3,
+          "toplam": 6331,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-16",
+          "sonTarih": "2026-01-16"
+        },
+        {
+          "kod": "PNÖ002991",
+          "tanim": "VALF ALTLIĞI 6 LI (SS5Y7-20-06-00F-Q)SMC",
+          "miktar": 3,
+          "toplam": 6007,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-16",
+          "sonTarih": "2026-01-16"
+        },
+        {
+          "kod": "PNÖ004303",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB100-80C)SMC",
+          "miktar": 1,
+          "toplam": 4974,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-16",
+          "sonTarih": "2026-01-16"
+        },
+        {
+          "kod": "PNÖ003672",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB63-80C)SMC",
+          "miktar": 1,
+          "toplam": 2638,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-16",
+          "sonTarih": "2026-01-16"
+        },
+        {
+          "kod": "PNÖ003080",
+          "tanim": "DIN SOKET 24VSY.5YZ IŞIKL (DIN43650C-C/LED 24V)SMC",
+          "miktar": 15,
+          "toplam": 2566,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-06",
+          "sonTarih": "2026-03-06"
+        },
+        {
+          "kod": "PNÖ001836",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB50-50)SMC",
+          "miktar": 1,
+          "toplam": 2186,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-16",
+          "sonTarih": "2026-01-16"
+        },
+        {
+          "kod": "PNÖ002035",
+          "tanim": "VT307 TESPİT ELEMANI (DXT152-25-1A)SMC",
+          "miktar": 8,
+          "toplam": 523,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-16",
+          "sonTarih": "2026-01-16"
+        }
+      ]
+    },
+    "1251": {
+      "cariNo": 1251,
+      "urunSayisi": 1,
+      "toplamCiro": 29573,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007210",
+          "tanim": "DÖNER İŞ ELEMANI (CDRB1BW100-100D-XF)SMC",
+          "miktar": 1,
+          "toplam": 29573,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-02",
+          "sonTarih": "2026-02-02"
+        }
+      ]
+    },
+    "1342": {
+      "cariNo": 1342,
+      "urunSayisi": 2,
+      "toplamCiro": 1511,
+      "topUrunler": [
+        {
+          "kod": "PNÖ004280",
+          "tanim": "VACUUM EJECTOR CABLE (ZK2-FE1-3-A)SMC",
+          "miktar": 1,
+          "toplam": 1108,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-02",
+          "sonTarih": "2026-01-02"
+        },
+        {
+          "kod": "PNÖ007177",
+          "tanim": "VACUUM EJECTOR CABLE (ZK2-FCP-A)SMC",
+          "miktar": 1,
+          "toplam": 403,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-02",
+          "sonTarih": "2026-01-02"
+        }
+      ]
+    },
+    "1356": {
+      "cariNo": 1356,
+      "urunSayisi": 2,
+      "toplamCiro": 7566,
+      "topUrunler": [
+        {
+          "kod": "PNÖ003157",
+          "tanim": "3/2-24VDC VALF(VQZ115-5MOB1-C6-Q)SMC",
+          "miktar": 2,
+          "toplam": 6619,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-24",
+          "sonTarih": "2026-04-24"
+        },
+        {
+          "kod": "PNÖ007286",
+          "tanim": "VALF ALTLIĞI (VV3QZ12-02C-Q)SMC",
+          "miktar": 1,
+          "toplam": 946,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-24",
+          "sonTarih": "2026-04-24"
+        }
+      ]
+    },
+    "1371": {
+      "cariNo": 1371,
+      "urunSayisi": 2,
+      "toplamCiro": 8203,
+      "topUrunler": [
+        {
+          "kod": "PNÖ006885",
+          "tanim": "VANTUZ (ZP3E-T125UMS-A16)SMC",
+          "miktar": 2,
+          "toplam": 5114,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-23",
+          "sonTarih": "2026-01-23"
+        },
+        {
+          "kod": "PNÖ006886",
+          "tanim": "VANTUZ MONTAJ ELEMANI (ZP3EB-T2JB30)SMC",
+          "miktar": 2,
+          "toplam": 3089,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-23",
+          "sonTarih": "2026-01-23"
+        }
+      ]
+    },
+    "1433": {
+      "cariNo": 1433,
+      "urunSayisi": 2,
+      "toplamCiro": 7763,
+      "topUrunler": [
+        {
+          "kod": "PNÖ006725",
+          "tanim": "4 KONUMLU 2X3/2 NK-NK 24V VALF(SY3A00-5U1-NA)SMC",
+          "miktar": 1,
+          "toplam": 4415,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-30",
+          "sonTarih": "2026-01-30"
+        },
+        {
+          "kod": "PNÖ001629",
+          "tanim": "MANYETİK SENSÖR (D-M9BL)SMC",
+          "miktar": 2,
+          "toplam": 3348,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-02",
+          "sonTarih": "2026-04-02"
+        }
+      ]
+    },
+    "1486": {
+      "cariNo": 1486,
+      "urunSayisi": 9,
+      "toplamCiro": 52341,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007187",
+          "tanim": "KOMPAKT YANDAN KIZAKLI SİLİNDİR (MXH20-60Z)SMC",
+          "miktar": 1,
+          "toplam": 14145,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-12",
+          "sonTarih": "2026-01-12"
+        },
+        {
+          "kod": "PNÖ007200",
+          "tanim": "DİJİTAL BASINÇ ANAHTARI (ISE35-N-65-M)SMC",
+          "miktar": 3,
+          "toplam": 11393,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-23",
+          "sonTarih": "2026-01-23"
+        },
+        {
+          "kod": "PNÖ007209",
+          "tanim": "5 PORT SOLENOID VALF(VQ5101-4W1)SMC",
+          "miktar": 2,
+          "toplam": 9147,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-30",
+          "sonTarih": "2026-01-30"
+        },
+        {
+          "kod": "PNÖ001334",
+          "tanim": "MANYETİK SENSÖR 3mt(D-A93L)SMC",
+          "miktar": 9,
+          "toplam": 7939,
+          "faturaSayisi": 3,
+          "ilkTarih": "2026-02-24",
+          "sonTarih": "2026-04-09"
+        },
+        {
+          "kod": "PNÖ003079",
+          "tanim": "MANYETİK SENSÖR (D-M9PL)SMC",
+          "miktar": 2,
+          "toplam": 2851,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-21",
+          "sonTarih": "2026-04-21"
+        },
+        {
+          "kod": "PNÖ007202",
+          "tanim": "VALF ALTLIĞI 1/2 (VQ5000-PW-04F-Q)SMC",
+          "miktar": 2,
+          "toplam": 2841,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-30",
+          "sonTarih": "2026-01-30"
+        },
+        {
+          "kod": "PNÖ007256",
+          "tanim": "272338 LGW 3 A4 PRESOSTAT (DUNGS)",
+          "miktar": 1,
+          "toplam": 2254,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-25",
+          "sonTarih": "2026-03-25"
+        },
+        {
+          "kod": "PNÖ000205",
+          "tanim": "BOBİN+SOKET",
+          "miktar": 10,
+          "toplam": 904,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-06",
+          "sonTarih": "2026-05-06"
+        },
+        {
+          "kod": "PNÖ000008",
+          "tanim": "1/4&quot; - 52 TEK BOBİN VALF (4V210-08)",
+          "miktar": 3,
+          "toplam": 868,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-05",
+          "sonTarih": "2026-05-05"
+        }
+      ]
+    },
+    "1521": {
+      "cariNo": 1521,
+      "urunSayisi": 29,
+      "toplamCiro": 333361,
+      "topUrunler": [
+        {
+          "kod": "PNÖ005944",
+          "tanim": "5/2-24 VDC T.B VALF(SY5100-5U1-NA)SMC",
+          "miktar": 48,
+          "toplam": 71345,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-27",
+          "sonTarih": "2026-03-27"
+        },
+        {
+          "kod": "PNÖ003769",
+          "tanim": "6X4 HORTUM/MAVİ 100MT. (TRTU0604BU-100)SMC",
+          "miktar": 3,
+          "toplam": 37210,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-27",
+          "sonTarih": "2026-03-27"
+        },
+        {
+          "kod": "PNÖ004240",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB50-30C)SMC",
+          "miktar": 16,
+          "toplam": 32597,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-27",
+          "sonTarih": "2026-03-27"
+        },
+        {
+          "kod": "PNÖ006495",
+          "tanim": "KOMPAKT YATK. SİLİNDİR(MGPM32TF-25AZ)SMC",
+          "miktar": 4,
+          "toplam": 28446,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-27",
+          "sonTarih": "2026-03-27"
+        },
+        {
+          "kod": "PNÖ006875",
+          "tanim": "SİLİNDİR ISO(CD85N25-30-B)SMC",
+          "miktar": 20,
+          "toplam": 24448,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-27",
+          "sonTarih": "2026-03-27"
+        },
+        {
+          "kod": "PNÖ005118",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB50-75C)SMC",
+          "miktar": 8,
+          "toplam": 23987,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-27",
+          "sonTarih": "2026-03-27"
+        },
+        {
+          "kod": "PNÖ007068",
+          "tanim": "SPEED CONTROLLER (ASB2201-02-06SB) SMC",
+          "miktar": 32,
+          "toplam": 15499,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-27",
+          "sonTarih": "2026-03-27"
+        },
+        {
+          "kod": "PNÖ001629",
+          "tanim": "MANYETİK SENSÖR (D-M9BL)SMC",
+          "miktar": 24,
+          "toplam": 13531,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-27",
+          "sonTarih": "2026-03-27"
+        },
+        {
+          "kod": "PNÖ002047",
+          "tanim": "VALF ALTLIĞI 12Lİ (SS5Y5-50F1-12B-01F)SMC",
+          "miktar": 4,
+          "toplam": 13121,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-27",
+          "sonTarih": "2026-03-27"
+        },
+        {
+          "kod": "PNÖ004093",
+          "tanim": "DİRSEK RAKOR 1/4-6MM(KQB2L06-02S)SMC",
+          "miktar": 72,
+          "toplam": 8857,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-27",
+          "sonTarih": "2026-03-27"
+        },
+        {
+          "kod": "PNÖ003132",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB50-100C)SMC",
+          "miktar": 4,
+          "toplam": 8764,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-27",
+          "sonTarih": "2026-03-27"
+        },
+        {
+          "kod": "PNÖ001903",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB50-60C)SMC",
+          "miktar": 4,
+          "toplam": 8303,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-27",
+          "sonTarih": "2026-03-27"
+        },
+        {
+          "kod": "PNÖ004180",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB50-25C)SMC",
+          "miktar": 4,
+          "toplam": 8149,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-27",
+          "sonTarih": "2026-03-27"
+        },
+        {
+          "kod": "PNÖ005941",
+          "tanim": "DİRSEK RAKOR UZUN 1/8-6mm(KQ2W06-01AS)SMC",
+          "miktar": 48,
+          "toplam": 5412,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-27",
+          "sonTarih": "2026-03-27"
+        },
+        {
+          "kod": "PNÖ002018",
+          "tanim": "KÜRESEL MAFSAL M16X1.5(KJ16D)SMC",
+          "miktar": 20,
+          "toplam": 5330,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-27",
+          "sonTarih": "2026-03-27"
+        },
+        {
+          "kod": "PNÖ003212",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB63-50C)SMC",
+          "miktar": 2,
+          "toplam": 4828,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-27",
+          "sonTarih": "2026-03-27"
+        },
+        {
+          "kod": "PNÖ002563",
+          "tanim": "DIN SOKET 3MT(GVVZS3000-21A-2)SMC",
+          "miktar": 4,
+          "toplam": 4408,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-27",
+          "sonTarih": "2026-03-27"
+        },
+        {
+          "kod": "PNÖ007069",
+          "tanim": "SPEED CONTROLLER (ASB2201-01-06SB) SMC",
+          "miktar": 8,
+          "toplam": 3875,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-27",
+          "sonTarih": "2026-03-27"
+        },
+        {
+          "kod": "PNÖ001333",
+          "tanim": "DİRSEK RAKOR 1/8-6mm(KQ2L06-01AS)SMC",
+          "miktar": 48,
+          "toplam": 3444,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-27",
+          "sonTarih": "2026-03-27"
+        },
+        {
+          "kod": "PNÖ003030",
+          "tanim": "5/2-24VDC T.B VALF(SY5120-5YO-01F-Q)SMC",
+          "miktar": 2,
+          "toplam": 3091,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-27",
+          "sonTarih": "2026-03-27"
+        }
+      ]
+    },
+    "1522": {
+      "cariNo": 1522,
+      "urunSayisi": 5,
+      "toplamCiro": 48619,
+      "topUrunler": [
+        {
+          "kod": "PNÖ002843",
+          "tanim": "FİLTRE ELEMANI AMG450 (AMG-EL450) SMC",
+          "miktar": 9,
+          "toplam": 20996,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ005161",
+          "tanim": "5/3 24VDC K.M. VALF (SY3340-5LOU-Q)SMC",
+          "miktar": 3,
+          "toplam": 12111,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-24",
+          "sonTarih": "2026-02-24"
+        },
+        {
+          "kod": "PNÖ002841",
+          "tanim": "FİLTRE ELEMANI AM450 (AM-EL450) SMC",
+          "miktar": 9,
+          "toplam": 11665,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ002082",
+          "tanim": "SİLİNDİR (CDJ2D10-15Z-B)SMC",
+          "miktar": 2,
+          "toplam": 3123,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-10",
+          "sonTarih": "2026-04-10"
+        },
+        {
+          "kod": "PNÖ002853",
+          "tanim": "İÇTEN SIKMALI DÜZ RAKOR (KQ2S06-M5A)SMC",
+          "miktar": 10,
+          "toplam": 725,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-24",
+          "sonTarih": "2026-02-24"
+        }
+      ]
+    },
+    "1535": {
+      "cariNo": 1535,
+      "urunSayisi": 1,
+      "toplamCiro": 6595,
+      "topUrunler": [
+        {
+          "kod": "PNÖ005020",
+          "tanim": "KOMPAKT SİLİNDİR (CDQ2A50TF-10DZ)SMC",
+          "miktar": 2,
+          "toplam": 6595,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-17",
+          "sonTarih": "2026-04-17"
+        }
+      ]
+    },
+    "1547": {
+      "cariNo": 1547,
+      "urunSayisi": 6,
+      "toplamCiro": 128096,
+      "topUrunler": [
+        {
+          "kod": "PNÖ001702",
+          "tanim": "BASINÇ YÜKSELTİCİ (VBA40A-F04GN)SMC",
+          "miktar": 1,
+          "toplam": 51006,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-10",
+          "sonTarih": "2026-04-10"
+        },
+        {
+          "kod": "PNÖ001334",
+          "tanim": "MANYETİK SENSÖR 3mt(D-A93L)SMC",
+          "miktar": 25,
+          "toplam": 19441,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-13",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ001225",
+          "tanim": "BASINÇ YÜKSELTİCİ (VBA10A-F02GN)SMC",
+          "miktar": 1,
+          "toplam": 18217,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-10",
+          "sonTarih": "2026-04-10"
+        },
+        {
+          "kod": "PNÖ003082",
+          "tanim": "5/3 24V K.M VALF(EVS7-8-FHG-D-3CVO-Q)SMC",
+          "miktar": 2,
+          "toplam": 16031,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-10",
+          "sonTarih": "2026-04-10"
+        },
+        {
+          "kod": "PNÖ001590",
+          "tanim": "5/2 24V Ç.B VALF(EVS7-8-FG-D-3CVO-Q)SMC",
+          "miktar": 2,
+          "toplam": 13532,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-10",
+          "sonTarih": "2026-04-10"
+        },
+        {
+          "kod": "PNÖ003378",
+          "tanim": "SİLİNDİR ISO(CD85N20-20-B)SMC",
+          "miktar": 5,
+          "toplam": 9869,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-30",
+          "sonTarih": "2026-01-30"
+        }
+      ]
+    },
+    "1550": {
+      "cariNo": 1550,
+      "urunSayisi": 13,
+      "toplamCiro": 275150,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007168",
+          "tanim": "AIR CYLINDER (NCA1C150-0400) SMC",
+          "miktar": 2,
+          "toplam": 105580,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-24",
+          "sonTarih": "2026-02-24"
+        },
+        {
+          "kod": "PNÖ007228",
+          "tanim": "AIR CYLINDER (NCQ2D32-35DZ-XB13)SMC",
+          "miktar": 2,
+          "toplam": 51681,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-19",
+          "sonTarih": "2026-02-19"
+        },
+        {
+          "kod": "PNÖ007206",
+          "tanim": "12 Lİ VALF ADASI + 2 KÖRLEME (SMC)",
+          "miktar": 1,
+          "toplam": 45639,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-22",
+          "sonTarih": "2026-01-22"
+        },
+        {
+          "kod": "PNÖ005037",
+          "tanim": "6 LI VALF ADASI KOMPLE SMC",
+          "miktar": 1,
+          "toplam": 15974,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-22",
+          "sonTarih": "2026-01-22"
+        },
+        {
+          "kod": "PNÖ001899",
+          "tanim": "HIZ AYAR VALFİ 1/4-6(AS2201F-02-06SA)SMC",
+          "miktar": 50,
+          "toplam": 14866,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        },
+        {
+          "kod": "PNÖ005041",
+          "tanim": "4 LÜ VALF ADASI SMC",
+          "miktar": 1,
+          "toplam": 11004,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-22",
+          "sonTarih": "2026-01-22"
+        },
+        {
+          "kod": "PNÖ001897",
+          "tanim": "HIZ AYAR VALFİ M5-6mm(AS1201F-M5-06A)SMC",
+          "miktar": 50,
+          "toplam": 9197,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-13",
+          "sonTarih": "2026-01-13"
+        },
+        {
+          "kod": "PNÖ005002",
+          "tanim": "5/2-24VDC T.B VALF(SY5160-5LOU-01F-Q)SMC",
+          "miktar": 2,
+          "toplam": 5646,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-04",
+          "sonTarih": "2026-02-04"
+        },
+        {
+          "kod": "PNÖ006294",
+          "tanim": "5/2-24VDC KAPALI MERKEZ VALF(SY5200-5U1-NA)SMC",
+          "miktar": 1,
+          "toplam": 4401,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-12",
+          "sonTarih": "2026-03-12"
+        },
+        {
+          "kod": "PNÖ007027",
+          "tanim": "5/2-24 VDC T.B VALF(S07A0-5)SMC",
+          "miktar": 1,
+          "toplam": 3633,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-12",
+          "sonTarih": "2026-03-12"
+        },
+        {
+          "kod": "PNÖ003030",
+          "tanim": "5/2-24VDC T.B VALF(SY5120-5YO-01F-Q)SMC",
+          "miktar": 1,
+          "toplam": 2795,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-16",
+          "sonTarih": "2026-04-16"
+        },
+        {
+          "kod": "PNÖ005515",
+          "tanim": "5/2-24 VDC T.B VALF(S0710-5)SMC",
+          "miktar": 1,
+          "toplam": 2379,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-12",
+          "sonTarih": "2026-03-12"
+        },
+        {
+          "kod": "PNÖ001645",
+          "tanim": "KOMPAKT SİLİNDİR(CD55B25-15)SMC",
+          "miktar": 1,
+          "toplam": 2356,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-19",
+          "sonTarih": "2026-02-19"
+        }
+      ]
+    },
+    "1555": {
+      "cariNo": 1555,
+      "urunSayisi": 2,
+      "toplamCiro": 430413,
+      "topUrunler": [
+        {
+          "kod": "PNÖ005023",
+          "tanim": "MİLİSİZ SİLİNDİR (MY1B25TFG-2450Z)SMC",
+          "miktar": 13,
+          "toplam": 288141,
+          "faturaSayisi": 3,
+          "ilkTarih": "2026-02-26",
+          "sonTarih": "2026-05-06"
+        },
+        {
+          "kod": "PNÖ005597",
+          "tanim": "MİLİSİZ SİLİNDİR (MY1B25TFG-2770Z)SMC",
+          "miktar": 6,
+          "toplam": 142272,
+          "faturaSayisi": 3,
+          "ilkTarih": "2026-02-26",
+          "sonTarih": "2026-05-06"
+        }
+      ]
+    },
+    "1572": {
+      "cariNo": 1572,
+      "urunSayisi": 4,
+      "toplamCiro": 47438,
+      "topUrunler": [
+        {
+          "kod": "PNÖ003075",
+          "tanim": "5/2-1/4 24V T.B VALF(SY7120-5YO-02F-Q)SMC",
+          "miktar": 6,
+          "toplam": 16090,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-20",
+          "sonTarih": "2026-04-20"
+        },
+        {
+          "kod": "PNÖ005371",
+          "tanim": "HASSAS FİLTRE (AM30-F03D-D) SMC",
+          "miktar": 3,
+          "toplam": 15204,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-04-20",
+          "sonTarih": "2026-04-25"
+        },
+        {
+          "kod": "PNÖ006137",
+          "tanim": "ANA HAT FİLTRESİ (AFF30-F03D-D) SMC",
+          "miktar": 3,
+          "toplam": 14659,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-04-20",
+          "sonTarih": "2026-04-25"
+        },
+        {
+          "kod": "PNÖ006304",
+          "tanim": "BRACKET ASSEMBLY (AF34P-070AS) SMC",
+          "miktar": 6,
+          "toplam": 1484,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-04-20",
+          "sonTarih": "2026-04-25"
+        }
+      ]
+    },
+    "1578": {
+      "cariNo": 1578,
+      "urunSayisi": 13,
+      "toplamCiro": 38405,
+      "topUrunler": [
+        {
+          "kod": "PNÖ006188",
+          "tanim": "3/2-24VDC TEK BOBİN VALF (VP746E-5YZ1)SMC",
+          "miktar": 2,
+          "toplam": 9500,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ005720",
+          "tanim": "FİLTRE REGÜLATÖR (AW40-F04D-D)SMC",
+          "miktar": 2,
+          "toplam": 7061,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ007207",
+          "tanim": "BASINÇ ANAHTARI M.TİP(IS10T-40-F04-6L-D)SMC",
+          "miktar": 2,
+          "toplam": 6401,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ006578",
+          "tanim": "FİLTRE REGÜLATÖR (AW40-F04DE-D)SMC",
+          "miktar": 1,
+          "toplam": 4274,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-27",
+          "sonTarih": "2026-02-27"
+        },
+        {
+          "kod": "PNÖ007046",
+          "tanim": "YAĞLAYICI (AL40-F04-D)SMC",
+          "miktar": 2,
+          "toplam": 3201,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ002456",
+          "tanim": "3/2-1/2 AÇ. KAPAMA VALFİ(VHS40-F04A)SMC",
+          "miktar": 2,
+          "toplam": 3005,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-27",
+          "sonTarih": "2026-02-27"
+        },
+        {
+          "kod": "PNÖ005719",
+          "tanim": "3/2-1/2 AÇ. KAPAMA VALFİ(VHS40-F04-D)SMC",
+          "miktar": 2,
+          "toplam": 2774,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ003693",
+          "tanim": "MANOMETRE 0-10 BAR (G46-10-01) SMC",
+          "miktar": 2,
+          "toplam": 777,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ005721",
+          "tanim": "MOD.TESPİT ELEMANI (Y400T-D)SMC",
+          "miktar": 4,
+          "toplam": 711,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ006187",
+          "tanim": "MOD.TESPİT ELEMANI (Y400-D)SMC",
+          "miktar": 4,
+          "toplam": 508,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ002656",
+          "tanim": "1/2&quot; KÖR TAPA ORİNGLİ",
+          "miktar": 2,
+          "toplam": 91,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ000049",
+          "tanim": "1/2&quot; TAPA TİP SUSTURUCU",
+          "miktar": 2,
+          "toplam": 56,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ006211",
+          "tanim": "3/8&quot; TAPA TİP SUSTURUCU",
+          "miktar": 2,
+          "toplam": 46,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        }
+      ]
+    },
+    "1630": {
+      "cariNo": 1630,
+      "urunSayisi": 3,
+      "toplamCiro": 338211,
+      "topUrunler": [
+        {
+          "kod": "PNÖ006338",
+          "tanim": "PULSE VALVE (JSXFF-14F-4DSB)SMC",
+          "miktar": 100,
+          "toplam": 318231,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-05",
+          "sonTarih": "2026-02-05"
+        },
+        {
+          "kod": "PNÖ007205",
+          "tanim": "SİLİNDİR ISO(C96SDB125-150)SMC",
+          "miktar": 1,
+          "toplam": 17774,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-22",
+          "sonTarih": "2026-01-22"
+        },
+        {
+          "kod": "PNÖ002977",
+          "tanim": "3/2-1/4 24VDC VALF(EVT317-5D-02F-Q)SMC",
+          "miktar": 1,
+          "toplam": 2206,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-22",
+          "sonTarih": "2026-01-22"
+        }
+      ]
+    },
+    "1637": {
+      "cariNo": 1637,
+      "urunSayisi": 1,
+      "toplamCiro": 4747,
+      "topUrunler": [
+        {
+          "kod": "PNÖ006128",
+          "tanim": "TÜRBİN DEBİMETRE VISION (4F22-DIN56500) BADGER",
+          "miktar": 1,
+          "toplam": 4747,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-24",
+          "sonTarih": "2026-04-24"
+        }
+      ]
+    },
+    "1640": {
+      "cariNo": 1640,
+      "urunSayisi": 7,
+      "toplamCiro": 1998017,
+      "topUrunler": [
+        {
+          "kod": "PNÖ006755",
+          "tanim": "SMC LAZER PNÖMATİK SET",
+          "miktar": 16,
+          "toplam": 967495,
+          "faturaSayisi": 3,
+          "ilkTarih": "2026-01-19",
+          "sonTarih": "2026-03-26"
+        },
+        {
+          "kod": "PNÖ006931",
+          "tanim": "SMC GAZ REGÜLATÖRÜ SET",
+          "miktar": 8,
+          "toplam": 360898,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-19",
+          "sonTarih": "2026-01-19"
+        },
+        {
+          "kod": "PNÖ003842",
+          "tanim": "SMC LAZER GAZ TESİSAT SET",
+          "miktar": 7,
+          "toplam": 324163,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-26",
+          "sonTarih": "2026-03-26"
+        },
+        {
+          "kod": "PNÖ006754",
+          "tanim": "DÖNMEZ MİLLİ SİLİNDİR SET (SMC)",
+          "miktar": 63,
+          "toplam": 253041,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-01-19",
+          "sonTarih": "2026-02-13"
+        },
+        {
+          "kod": "PNÖ006179",
+          "tanim": "10X6,5 MM HORTUM/MAVİ 100 MT. (TRTU1065BU-100)SMC",
+          "miktar": 3,
+          "toplam": 79051,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-03",
+          "sonTarih": "2026-03-03"
+        },
+        {
+          "kod": "PNÖ006055",
+          "tanim": "MANYETİK SENSÖR (D-M9PEL)SMC",
+          "miktar": 8,
+          "toplam": 8418,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-04",
+          "sonTarih": "2026-02-04"
+        },
+        {
+          "kod": "PNÖ007243",
+          "tanim": "ESTUN ROBOT PNÖMATİK VAKUMLAMA EKİPMAN SETİ (SMC)",
+          "miktar": 1,
+          "toplam": 4951,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-12",
+          "sonTarih": "2026-03-12"
+        }
+      ]
+    },
+    "1664": {
+      "cariNo": 1664,
+      "urunSayisi": 1,
+      "toplamCiro": 205421,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007193",
+          "tanim": "TERMO SOĞUTUCU (HRS012-AF-20) SMC",
+          "miktar": 1,
+          "toplam": 205421,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-15",
+          "sonTarih": "2026-01-15"
+        }
+      ]
+    },
+    "1669": {
+      "cariNo": 1669,
+      "urunSayisi": 1,
+      "toplamCiro": 3793,
+      "topUrunler": [
+        {
+          "kod": "PNÖ004101",
+          "tanim": "3 PORT SELENOID VALF(VT307V-5DZ1-01F-Q)SMC",
+          "miktar": 2,
+          "toplam": 3793,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-27",
+          "sonTarih": "2026-03-27"
+        }
+      ]
+    },
+    "1706": {
+      "cariNo": 1706,
+      "urunSayisi": 1,
+      "toplamCiro": 3907,
+      "topUrunler": [
+        {
+          "kod": "PNÖ004943",
+          "tanim": "BASINÇ ANAHTARI (ISE20-P-01-L)SMC",
+          "miktar": 1,
+          "toplam": 3907,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-26",
+          "sonTarih": "2026-04-26"
+        }
+      ]
+    },
+    "1723": {
+      "cariNo": 1723,
+      "urunSayisi": 1,
+      "toplamCiro": 6573,
+      "topUrunler": [
+        {
+          "kod": "PNÖ003075",
+          "tanim": "5/2-1/4 24V T.B VALF(SY7120-5YO-02F-Q)SMC",
+          "miktar": 2,
+          "toplam": 6573,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-13",
+          "sonTarih": "2026-04-13"
+        }
+      ]
+    },
+    "1725": {
+      "cariNo": 1725,
+      "urunSayisi": 1,
+      "toplamCiro": 1039,
+      "topUrunler": [
+        {
+          "kod": "PNÖ001334",
+          "tanim": "MANYETİK SENSÖR 3mt(D-A93L)SMC",
+          "miktar": 1,
+          "toplam": 1039,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-21",
+          "sonTarih": "2026-01-21"
+        }
+      ]
+    },
+    "1734": {
+      "cariNo": 1734,
+      "urunSayisi": 3,
+      "toplamCiro": 13469,
+      "topUrunler": [
+        {
+          "kod": "PNÖ001259",
+          "tanim": "5/2-1/4 24V T.B VALF(SY7120-5DZ-02F-Q)SMC",
+          "miktar": 2,
+          "toplam": 5230,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-12",
+          "sonTarih": "2026-03-12"
+        },
+        {
+          "kod": "PNÖ003030",
+          "tanim": "5/2-24VDC T.B VALF(SY5120-5YO-01F-Q)SMC",
+          "miktar": 2,
+          "toplam": 4591,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-23",
+          "sonTarih": "2026-03-23"
+        },
+        {
+          "kod": "PNÖ002805",
+          "tanim": "5/2-24 VDC Ç.B VALF(SY7220-5DZ-02F-Q)SMC",
+          "miktar": 1,
+          "toplam": 3648,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-12",
+          "sonTarih": "2026-03-12"
+        }
+      ]
+    },
+    "1902": {
+      "cariNo": 1902,
+      "urunSayisi": 0,
+      "toplamCiro": 0,
+      "topUrunler": []
+    },
+    "1912": {
+      "cariNo": 1912,
+      "urunSayisi": 3,
+      "toplamCiro": 965,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007296",
+          "tanim": "CROSS SPACER (Y44-F04-1-D)SMC",
+          "miktar": 1,
+          "toplam": 625,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-14",
+          "sonTarih": "2026-05-14"
+        },
+        {
+          "kod": "PNÖ002396",
+          "tanim": "MOD.TESPİT ELEMANI (Y400-A)SMC",
+          "miktar": 1,
+          "toplam": 170,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-14",
+          "sonTarih": "2026-05-14"
+        },
+        {
+          "kod": "PNÖ006187",
+          "tanim": "MOD.TESPİT ELEMANI (Y400-D)SMC",
+          "miktar": 1,
+          "toplam": 170,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-14",
+          "sonTarih": "2026-05-14"
+        }
+      ]
+    },
+    "1913": {
+      "cariNo": 1913,
+      "urunSayisi": 4,
+      "toplamCiro": 24109,
+      "topUrunler": [
+        {
+          "kod": "PNÖ005481",
+          "tanim": "VAKUM ÜRETİCİ (ZK2G15K5RWA-08-B)SMC",
+          "miktar": 1,
+          "toplam": 11787,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-12",
+          "sonTarih": "2026-01-12"
+        },
+        {
+          "kod": "PNÖ007032",
+          "tanim": "VAKUM ÜRETİCİ (ZK2A12K5RWA-08)SMC",
+          "miktar": 1,
+          "toplam": 10689,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-13",
+          "sonTarih": "2026-03-13"
+        },
+        {
+          "kod": "PNÖ004280",
+          "tanim": "VACUUM EJECTOR CABLE (ZK2-FE1-3-A)SMC",
+          "miktar": 1,
+          "toplam": 1112,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ003593",
+          "tanim": "KABLOLU SOKET 5 MT.(SY100-30-4A-50)SMC",
+          "miktar": 1,
+          "toplam": 520,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-10",
+          "sonTarih": "2026-04-10"
+        }
+      ]
+    },
+    "1928": {
+      "cariNo": 1928,
+      "urunSayisi": 1,
+      "toplamCiro": 32229,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007239",
+          "tanim": "SİLİNDİR (MXQ12L-75)SMC",
+          "miktar": 1,
+          "toplam": 32229,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-03",
+          "sonTarih": "2026-03-03"
+        }
+      ]
+    },
+    "1933": {
+      "cariNo": 1933,
+      "urunSayisi": 1,
+      "toplamCiro": 6658,
+      "topUrunler": [
+        {
+          "kod": "PNÖ005937",
+          "tanim": "KOMPAKT SİLİNDİR (CDQMB50TF-50)SMC",
+          "miktar": 1,
+          "toplam": 6658,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-29",
+          "sonTarih": "2026-04-29"
+        }
+      ]
+    },
+    "1934": {
+      "cariNo": 1934,
+      "urunSayisi": 1,
+      "toplamCiro": 484960,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007129",
+          "tanim": "PULSE VALVE (JSXFE-14F-5DSB)SMC",
+          "miktar": 85,
+          "toplam": 484960,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-17",
+          "sonTarih": "2026-02-17"
+        }
+      ]
+    },
+    "1940": {
+      "cariNo": 1940,
+      "urunSayisi": 3,
+      "toplamCiro": 20688,
+      "topUrunler": [
+        {
+          "kod": "PNÖ006428",
+          "tanim": "VAKUM ÜRETİCİ (ZK2G12K5RWA-08-B)SMC",
+          "miktar": 1,
+          "toplam": 13116,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-18",
+          "sonTarih": "2026-04-18"
+        },
+        {
+          "kod": "PNÖ006886",
+          "tanim": "VANTUZ MONTAJ ELEMANI (ZP3EB-T2JB30)SMC",
+          "miktar": 4,
+          "toplam": 5960,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-18",
+          "sonTarih": "2026-04-18"
+        },
+        {
+          "kod": "PNÖ004832",
+          "tanim": "VANTUZ BAĞLANTI BUFFER (ZPB3J30-B01)SMC",
+          "miktar": 1,
+          "toplam": 1612,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-05",
+          "sonTarih": "2026-01-05"
+        }
+      ]
+    },
+    "1942": {
+      "cariNo": 1942,
+      "urunSayisi": 5,
+      "toplamCiro": 4215,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007196",
+          "tanim": "Q50 0-10 BAR ALTTAN ÇIKIŞ GLİS. MANOMETRE PAKKENS",
+          "miktar": 4,
+          "toplam": 2195,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-01-20",
+          "sonTarih": "2026-02-03"
+        },
+        {
+          "kod": "PNÖ007195",
+          "tanim": "Q100 0-10BAR ALTTAN ÇIKIŞLI MANOMETRE PAKKENS",
+          "miktar": 2,
+          "toplam": 950,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-20",
+          "sonTarih": "2026-01-20"
+        },
+        {
+          "kod": "PNÖ002377",
+          "tanim": "Q50 0-10 BAR ARKA BAĞLANTI MANOMETRE PAKKENS",
+          "miktar": 2,
+          "toplam": 660,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-20",
+          "sonTarih": "2026-01-20"
+        },
+        {
+          "kod": "PNÖ000083",
+          "tanim": "1/4&quot; - Q10 DÜZ REKOR",
+          "miktar": 10,
+          "toplam": 216,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ000250",
+          "tanim": "Q12 TE BAĞLANTI",
+          "miktar": 10,
+          "toplam": 194,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-02-03",
+          "sonTarih": "2026-02-03"
+        }
+      ]
+    },
+    "1945": {
+      "cariNo": 1945,
+      "urunSayisi": 2,
+      "toplamCiro": 6761,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007007",
+          "tanim": "3/2-1/4 24VDC VALF(VT317-5DZ-02F-Q)SMC",
+          "miktar": 2,
+          "toplam": 5499,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-07",
+          "sonTarih": "2026-01-07"
+        },
+        {
+          "kod": "PNÖ001827",
+          "tanim": "HIZ AYAR VALFİ H.TİPİ 8mm(AS2052F-08A)SMC",
+          "miktar": 2,
+          "toplam": 1261,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-07",
+          "sonTarih": "2026-01-07"
+        }
+      ]
+    },
+    "1946": {
+      "cariNo": 1946,
+      "urunSayisi": 69,
+      "toplamCiro": 351530,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007232",
+          "tanim": "KOMPAKT SİLİNDİR (CDQ2AS80TF-70DCZ)SMC",
+          "miktar": 20,
+          "toplam": 94606,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-02-23",
+          "sonTarih": "2026-04-17"
+        },
+        {
+          "kod": "PNÖ003075",
+          "tanim": "5/2-1/4 24V T.B VALF(SY7120-5YO-02F-Q)SMC",
+          "miktar": 33,
+          "toplam": 51397,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-21",
+          "sonTarih": "2026-04-21"
+        },
+        {
+          "kod": "PNÖ007264",
+          "tanim": "1&quot; PİSTONLU VANA",
+          "miktar": 17,
+          "toplam": 30516,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-21",
+          "sonTarih": "2026-04-21"
+        },
+        {
+          "kod": "PNÖ007265",
+          "tanim": "KOMPAKT SİLİNDİR (CDQ2AS50-50DCZ)SMC",
+          "miktar": 6,
+          "toplam": 15880,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-10",
+          "sonTarih": "2026-04-10"
+        },
+        {
+          "kod": "PNÖ007194",
+          "tanim": "KOMPAKT SİLİNDİR (CDQ2AS50TF-50DCZ)SMC",
+          "miktar": 6,
+          "toplam": 15037,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-19",
+          "sonTarih": "2026-01-19"
+        },
+        {
+          "kod": "PNÖ001813",
+          "tanim": "KOMPAKT SİLİNDİR (CDQ2B40TF-50DZ)SMC",
+          "miktar": 6,
+          "toplam": 10612,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-21",
+          "sonTarih": "2026-04-21"
+        },
+        {
+          "kod": "PNÖ006725",
+          "tanim": "4 KONUMLU 2X3/2 NK-NK 24V VALF(SY3A00-5U1-NA)SMC",
+          "miktar": 5,
+          "toplam": 10295,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-21",
+          "sonTarih": "2026-04-21"
+        },
+        {
+          "kod": "PNÖ004408",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB80-125C)SMC",
+          "miktar": 2,
+          "toplam": 7376,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-21",
+          "sonTarih": "2026-04-21"
+        },
+        {
+          "kod": "PNÖ007275",
+          "tanim": "HASSAS K.TABLALI SİLİNDİR(MXS8-30)SMC",
+          "miktar": 1,
+          "toplam": 7365,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-21",
+          "sonTarih": "2026-04-21"
+        },
+        {
+          "kod": "PNÖ003278",
+          "tanim": "KOMPAKT YATK. SİLİNDİR(MGPM32TF-100Z)SMC",
+          "miktar": 1,
+          "toplam": 7339,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-21",
+          "sonTarih": "2026-04-21"
+        },
+        {
+          "kod": "PNÖ007274",
+          "tanim": "KOMPAKT YATK. SİLİNDİR(MGPM25TF-200Z)SMC",
+          "miktar": 1,
+          "toplam": 6864,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-21",
+          "sonTarih": "2026-04-21"
+        },
+        {
+          "kod": "PNÖ003214",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB63-160C)SMC",
+          "miktar": 2,
+          "toplam": 6652,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-21",
+          "sonTarih": "2026-04-21"
+        },
+        {
+          "kod": "PNÖ007276",
+          "tanim": "VANTUZ (ZP3E-T100BMN-A16)SMC",
+          "miktar": 5,
+          "toplam": 6032,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-21",
+          "sonTarih": "2026-04-21"
+        },
+        {
+          "kod": "PNÖ003555",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB32-350C)SMC",
+          "miktar": 3,
+          "toplam": 5702,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-21",
+          "sonTarih": "2026-04-21"
+        },
+        {
+          "kod": "PNÖ001947",
+          "tanim": "HIZ AYAR VALFİ 3/8-8(AS3201F-03-08SA)SMC",
+          "miktar": 16,
+          "toplam": 5660,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-21",
+          "sonTarih": "2026-04-21"
+        },
+        {
+          "kod": "PNÖ003080",
+          "tanim": "DIN SOKET 24VSY.5YZ IŞIKL (DIN43650C-C/LED 24V)SMC",
+          "miktar": 37,
+          "toplam": 5567,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-21",
+          "sonTarih": "2026-04-21"
+        },
+        {
+          "kod": "PNÖ006886",
+          "tanim": "VANTUZ MONTAJ ELEMANI (ZP3EB-T2JB30)SMC",
+          "miktar": 5,
+          "toplam": 5451,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-21",
+          "sonTarih": "2026-04-21"
+        },
+        {
+          "kod": "PNÖ003224",
+          "tanim": "5/2-24 VDC Ç.B VALF(SY7220-5YO-02F-Q)SMC",
+          "miktar": 2,
+          "toplam": 4118,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-21",
+          "sonTarih": "2026-04-21"
+        },
+        {
+          "kod": "PNÖ002112",
+          "tanim": "İÇTEN SIKMALI DÜZ RAKOR 1/4-8mm (KQ2S08-02AS)SMC",
+          "miktar": 90,
+          "toplam": 4086,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-04-21",
+          "sonTarih": "2026-04-21"
+        },
+        {
+          "kod": "PNÖ001751",
+          "tanim": "KASINTI ALICI (JA50-16-150)SMC",
+          "miktar": 3,
+          "toplam": 3667,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-21",
+          "sonTarih": "2026-04-21"
+        }
+      ]
+    },
+    "1947": {
+      "cariNo": 1947,
+      "urunSayisi": 2,
+      "toplamCiro": 13209,
+      "topUrunler": [
+        {
+          "kod": "PNÖ005481",
+          "tanim": "VAKUM ÜRETİCİ (ZK2G15K5RWA-08-B)SMC",
+          "miktar": 1,
+          "toplam": 10618,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        },
+        {
+          "kod": "PNÖ007204",
+          "tanim": "VANTUZ (ZPT40CN-B01)SMC",
+          "miktar": 6,
+          "toplam": 2591,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-01-26",
+          "sonTarih": "2026-01-26"
+        }
+      ]
+    },
+    "1950": {
+      "cariNo": 1950,
+      "urunSayisi": 7,
+      "toplamCiro": 950,
+      "topUrunler": [
+        {
+          "kod": "PNÖ002509",
+          "tanim": "1/2&quot; QUICK KAPLİN ERKEK GÖVDE",
+          "miktar": 2,
+          "toplam": 300,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-04",
+          "sonTarih": "2026-03-04"
+        },
+        {
+          "kod": "PNÖ002746",
+          "tanim": "Q8X5mm POLİÜRETAN HORTUM (MAVİ)",
+          "miktar": 15,
+          "toplam": 181,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-04",
+          "sonTarih": "2026-03-04"
+        },
+        {
+          "kod": "PNÖ002510",
+          "tanim": "1/2&quot; QUICK KAPLİN DİŞİ GÖVDE",
+          "miktar": 1,
+          "toplam": 150,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-04",
+          "sonTarih": "2026-03-04"
+        },
+        {
+          "kod": "PNÖ002915",
+          "tanim": "1/2 YE SARI",
+          "miktar": 1,
+          "toplam": 128,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-04",
+          "sonTarih": "2026-03-04"
+        },
+        {
+          "kod": "PNÖ000282",
+          "tanim": "Q8 HAT TİPİ HIZ AYAR",
+          "miktar": 1,
+          "toplam": 108,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-04",
+          "sonTarih": "2026-03-04"
+        },
+        {
+          "kod": "PNÖ002705",
+          "tanim": "1/4&quot; QUICK KAPLİN ERKEK UÇ",
+          "miktar": 1,
+          "toplam": 50,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-04",
+          "sonTarih": "2026-03-04"
+        },
+        {
+          "kod": "PNÖ000092",
+          "tanim": "1/4&quot; - Q8 DİŞİ DÜZ REKOR",
+          "miktar": 2,
+          "toplam": 34,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-04",
+          "sonTarih": "2026-03-04"
+        }
+      ]
+    },
+    "1952": {
+      "cariNo": 1952,
+      "urunSayisi": 1,
+      "toplamCiro": 19352,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007242",
+          "tanim": "HAVA KAÇAK SENSÖRÜ (ISA3-HFP-1N)SMC",
+          "miktar": 2,
+          "toplam": 19352,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-03-10",
+          "sonTarih": "2026-03-12"
+        }
+      ]
+    },
+    "1953": {
+      "cariNo": 1953,
+      "urunSayisi": 27,
+      "toplamCiro": 553338,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007248",
+          "tanim": "ELECTR. ACTUATOR  (LEKFS32EB-300-R3CE17)SMC",
+          "miktar": 2,
+          "toplam": 116257,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ006582",
+          "tanim": "HASSAS K.TABLALI SİLİNDİR(MXS20-100)SMC",
+          "miktar": 5,
+          "toplam": 91977,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ007246",
+          "tanim": "ELEKTRİKLİ DÖNER İŞ ELEMANI (LER30J-S5CE18)SMC",
+          "miktar": 2,
+          "toplam": 82895,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ007247",
+          "tanim": "ELECTR. ACTUATOR  (LEKFS40GA-500-R5CEH7)SMC",
+          "miktar": 1,
+          "toplam": 75987,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ003958",
+          "tanim": "DÖNER TUTUCU (MRHQ16D-180S-N)SMC",
+          "miktar": 2,
+          "toplam": 55775,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ003701",
+          "tanim": "PNÖMATİK TUTUCU(MHZ2-16D)SMC",
+          "miktar": 4,
+          "toplam": 39094,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ005944",
+          "tanim": "5/2-24 VDC T.B VALF(SY5100-5U1-NA)SMC",
+          "miktar": 15,
+          "toplam": 29167,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ003079",
+          "tanim": "MANYETİK SENSÖR (D-M9PL)SMC",
+          "miktar": 26,
+          "toplam": 27606,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ006312",
+          "tanim": "VALF ALTLIĞI 8Lİ (SS5Y5-50F1-08B-02F)SMC",
+          "miktar": 2,
+          "toplam": 6089,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ003359",
+          "tanim": "MANYETİK SENSÖR (D-M9PVL)SMC",
+          "miktar": 4,
+          "toplam": 5833,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ004075",
+          "tanim": "DIN SOKET 5MT(GVVZS3000-21A-3)SMC",
+          "miktar": 2,
+          "toplam": 4196,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ003546",
+          "tanim": "PROFİL SİLİNDİR ISO(CP96SDB50-300C)SMC",
+          "miktar": 1,
+          "toplam": 3748,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ004858",
+          "tanim": "FİLTRE REGÜLATÖR 1/2 MAN.(AW40-F04BE-B)SMC",
+          "miktar": 1,
+          "toplam": 2533,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ007249",
+          "tanim": "KOMPAKT SİLİNDİR (CDQSB20-15D) SMC",
+          "miktar": 2,
+          "toplam": 2175,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ004085",
+          "tanim": "SİLİNDİR ISO(CD85N25-40-B)SMC",
+          "miktar": 1,
+          "toplam": 1676,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ001935",
+          "tanim": "DİRSEK RAKOR M5-6mm(KQ2L06-M5A)SMC",
+          "miktar": 16,
+          "toplam": 1637,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ001889",
+          "tanim": "DİRSEK RAKOR 1/8-8mm(KQ2L08-01AS)SMC",
+          "miktar": 12,
+          "toplam": 1228,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ007250",
+          "tanim": "DİRSEK RAKOR UZUN 1/4-6mm(KQ2W06-02AS)SMC",
+          "miktar": 8,
+          "toplam": 1105,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ007251",
+          "tanim": "DİRSEK RAKOR UZUN 1/4-8mm(KQ2W08-02AS)SMC",
+          "miktar": 7,
+          "toplam": 1092,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        },
+        {
+          "kod": "PNÖ001256",
+          "tanim": "DİRSEK RAKOR 1/4-8mm(KQ2L08-02AS)SMC",
+          "miktar": 9,
+          "toplam": 967,
+          "faturaSayisi": 2,
+          "ilkTarih": "2026-03-16",
+          "sonTarih": "2026-03-16"
+        }
+      ]
+    },
+    "1954": {
+      "cariNo": 1954,
+      "urunSayisi": 5,
+      "toplamCiro": 601,
+      "topUrunler": [
+        {
+          "kod": "PNÖ000008",
+          "tanim": "1/4&quot; - 52 TEK BOBİN VALF (4V210-08)",
+          "miktar": 1,
+          "toplam": 282,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-18",
+          "sonTarih": "2026-03-18"
+        },
+        {
+          "kod": "PNÖ002746",
+          "tanim": "Q8X5mm POLİÜRETAN HORTUM (MAVİ)",
+          "miktar": 20,
+          "toplam": 235,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-18",
+          "sonTarih": "2026-03-18"
+        },
+        {
+          "kod": "PNÖ000095",
+          "tanim": "1/4&quot; - Q8 DÜZ REKOR",
+          "miktar": 3,
+          "toplam": 33,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-18",
+          "sonTarih": "2026-03-18"
+        },
+        {
+          "kod": "PNÖ000132",
+          "tanim": "1/8&quot; - Q8  DÜZ REKOR",
+          "miktar": 3,
+          "toplam": 33,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-18",
+          "sonTarih": "2026-03-18"
+        },
+        {
+          "kod": "PNÖ000140",
+          "tanim": "1/8&quot; SİNTER SUSTURUCU",
+          "miktar": 2,
+          "toplam": 18,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-18",
+          "sonTarih": "2026-03-18"
+        }
+      ]
+    },
+    "1955": {
+      "cariNo": 1955,
+      "urunSayisi": 2,
+      "toplamCiro": 14206,
+      "topUrunler": [
+        {
+          "kod": "PNÖ004621",
+          "tanim": "KOMPAKT YAT. SİLİNDİR (MGPL25TF-30Z)SMC",
+          "miktar": 1,
+          "toplam": 13846,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-03",
+          "sonTarih": "2026-04-03"
+        },
+        {
+          "kod": "PNÖ007245",
+          "tanim": "TAMİR TAKIMI (MGP25-Z-PS)SMC",
+          "miktar": 1,
+          "toplam": 360,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-03-25",
+          "sonTarih": "2026-03-25"
+        }
+      ]
+    },
+    "1958": {
+      "cariNo": 1958,
+      "urunSayisi": 1,
+      "toplamCiro": 1750,
+      "topUrunler": [
+        {
+          "kod": "PNÖ002115",
+          "tanim": "MANYETİK SENSÖR (D-M9PSAPC)SMC",
+          "miktar": 1,
+          "toplam": 1750,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-10",
+          "sonTarih": "2026-04-10"
+        }
+      ]
+    },
+    "1959": {
+      "cariNo": 1959,
+      "urunSayisi": 3,
+      "toplamCiro": 111714,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007297",
+          "tanim": "KOMPAKT YATK. SİLİNDİR(MGPM12-10Z-XC6A)SMC",
+          "miktar": 10,
+          "toplam": 84107,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-14",
+          "sonTarih": "2026-05-14"
+        },
+        {
+          "kod": "PNÖ007279",
+          "tanim": "VANTUZ (ZP3C-32BFS)SMC",
+          "miktar": 20,
+          "toplam": 15650,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-13",
+          "sonTarih": "2026-04-13"
+        },
+        {
+          "kod": "PNÖ007298",
+          "tanim": "SİLİNDİR (CD75E32-300C-B-XC6B)SMC",
+          "miktar": 2,
+          "toplam": 11957,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-18",
+          "sonTarih": "2026-05-18"
+        }
+      ]
+    },
+    "1960": {
+      "cariNo": 1960,
+      "urunSayisi": 1,
+      "toplamCiro": 4854,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007280",
+          "tanim": "VALF (DXT1215T-5WOU-01F) SMC",
+          "miktar": 1,
+          "toplam": 4854,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-04-17",
+          "sonTarih": "2026-04-17"
+        }
+      ]
+    },
+    "1961": {
+      "cariNo": 1961,
+      "urunSayisi": 1,
+      "toplamCiro": 44989,
+      "topUrunler": [
+        {
+          "kod": "PNÖ007292",
+          "tanim": "ELECTRIC ACTUATOR  (EQY32HB-300M-B6) SMC",
+          "miktar": 1,
+          "toplam": 44989,
+          "faturaSayisi": 1,
+          "ilkTarih": "2026-05-05",
+          "sonTarih": "2026-05-05"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,789 @@
+{
+  "meta": {
+    "olusturma": "2026-05-25",
+    "not": "Mock kural tabanlı atama — gerçek LOGO Tiger \"satış temsilcisi\" alanı geldiğinde değiştirilir",
+    "kurallar": [
+      "VIP (top 5 büyük cari) → Mehmet Bey",
+      "Kayseri merkezli → Yusuf Bey (saha)",
+      "Küçük cari (<30K) → Furkan Bey (ofis destek)",
+      "Default → Yusuf Bey"
+    ]
+  },
+  "personelOzet": [
+    {
+      "id": "mehmet",
+      "ad": "Mehmet Bey",
+      "tip": "yonetici-vip",
+      "payTavan": 0.3,
+      "cariSayisi": 3,
+      "toplamCiro": 3412053,
+      "payYuzde": "27.8",
+      "buYukCariSayisi": 3
+    },
+    {
+      "id": "yusuf",
+      "ad": "Yusuf Bey",
+      "tip": "saha-satis",
+      "payTavan": 0.55,
+      "cariSayisi": 78,
+      "toplamCiro": 8628397,
+      "payYuzde": "70.2",
+      "buYukCariSayisi": 25
+    },
+    {
+      "id": "furkan",
+      "ad": "Furkan Bey",
+      "tip": "ofis-destek",
+      "payTavan": 0.15,
+      "cariSayisi": 25,
+      "toplamCiro": 246073,
+      "payYuzde": "2.0",
+      "buYukCariSayisi": 0
+    }
+  ],
+  "cariSayisi": 106,
+  "cariAtamalar": [
+    {
+      "cariNo": 1640,
+      "cariAdi": "FORM GÜMRÜK MÜŞAVİRLİĞİ TİC. LTD. ŞTİ.",
+      "sehir": "İstanbul",
+      "ciro2026": 2397621,
+      "personelId": "mehmet"
+    },
+    {
+      "cariNo": 1953,
+      "cariAdi": "Cari #1953",
+      "sehir": null,
+      "ciro2026": 649342,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1934,
+      "cariAdi": "Cari #1934",
+      "sehir": null,
+      "ciro2026": 581952,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1555,
+      "cariAdi": "UPS HIZLI KARGO TAŞIMACILIĞI A.Ş.",
+      "sehir": "İstanbul",
+      "ciro2026": 516496,
+      "personelId": "mehmet"
+    },
+    {
+      "cariNo": 1091,
+      "cariAdi": "VENTO YAPI MALZ.OTOMASYON SİS.DIŞ TİC.LTD.ŞTİ.",
+      "sehir": "Kayseri",
+      "ciro2026": 497936,
+      "personelId": "mehmet"
+    },
+    {
+      "cariNo": 60,
+      "cariAdi": "MİKROSİSTEM MAK. İLETİŞİM ELEKTR. SAN.TİC.LTD.STİ.",
+      "sehir": "İstanbul",
+      "ciro2026": 482300,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 789,
+      "cariAdi": "EKOL OTOMASYON SAN.TİC.LTD.ŞTİ.",
+      "sehir": "İstanbul",
+      "ciro2026": 442947,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 254,
+      "cariAdi": "DEMİRKOL SIZDIRMAZLIK ELEMANLAR SAN.VE TİC.LTD.ŞTİ",
+      "sehir": "İstanbul",
+      "ciro2026": 433087,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1946,
+      "cariAdi": "Cari #1946",
+      "sehir": null,
+      "ciro2026": 421836,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1630,
+      "cariAdi": "İNFOTECH MÜH. OTOM. TEK. YAZ.MAK. SAN.TİC. LTD.ŞTİ",
+      "sehir": "Kayseri",
+      "ciro2026": 405853,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1521,
+      "cariAdi": "SMS TORK ENDÜSTRİYEL OTOMASYON ÜRÜNLERİ SAN.TİC.LTD.ŞTİ.",
+      "sehir": "Kocaeli",
+      "ciro2026": 399780,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1550,
+      "cariAdi": "İBRAHİM BOSTANCI",
+      "sehir": "Kayseri",
+      "ciro2026": 330180,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 468,
+      "cariAdi": "ÖZSOY ÇORAPLARI LTD. ŞTİ",
+      "sehir": "Kayseri",
+      "ciro2026": 301611,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 99,
+      "cariAdi": "OHM ELEKTRİK ELEKTRONİK OSMAN ÖZKAYA",
+      "sehir": "Kayseri",
+      "ciro2026": 276936,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 792,
+      "cariAdi": "KAYSERİ CENEZA ARAÇLAR AHMET AKDAĞ",
+      "sehir": "Kayseri",
+      "ciro2026": 264891,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1664,
+      "cariAdi": "ALEV YANGIN SÖNDÜRME CİHAZLARI VE GÜVENLİK SİSTEMLERİ",
+      "sehir": "Kayseri",
+      "ciro2026": 246505,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 855,
+      "cariAdi": "LALE ORMAN ÜRÜNLERİ SAN.VE TİC.LTD.ŞTİ.",
+      "sehir": "Kayseri",
+      "ciro2026": 219350,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 215,
+      "cariAdi": "UZUNOĞLU MESA METAL LTD. ŞTİ.",
+      "sehir": "Kayseri",
+      "ciro2026": 192707,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 38,
+      "cariAdi": "METE OTOMAYON MUZAFFER METE",
+      "sehir": "Kayseri",
+      "ciro2026": 185705,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1547,
+      "cariAdi": "TEXHONG TEXTILE TURKEY TEKSTİL LTD. ŞTİ.",
+      "sehir": "Kayseri",
+      "ciro2026": 153715,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 491,
+      "cariAdi": "ASR SEYYAR PLASTİK SAN.TİC.LTD.ŞTİ.",
+      "sehir": "Kayseri",
+      "ciro2026": 148106,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 584,
+      "cariAdi": "TEKNO ELEKTRİK İNŞAAT MÜH SAN VE TİC LTD ŞTİ",
+      "sehir": "İstanbul",
+      "ciro2026": 144012,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1959,
+      "cariAdi": "Cari #1959",
+      "sehir": null,
+      "ciro2026": 134057,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1237,
+      "cariAdi": "PARK REKLAMCILIK TÜRKER İNCETÜRKMEN",
+      "sehir": "Kayseri",
+      "ciro2026": 123764,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1148,
+      "cariAdi": "ESSE HALI MOB.GIDA TEKS.SAN.TİC.LTD.ŞTİ.",
+      "sehir": "Kayseri",
+      "ciro2026": 123262,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1026,
+      "cariAdi": "BAYRAK GIDA SANAYİ TİCARET A.Ş",
+      "sehir": "Kayseri",
+      "ciro2026": 120141,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 108,
+      "cariAdi": "DAĞDEVİREN ELK.ELEKTRONİK MAK.SAN.VE TİC.LTD.STİ",
+      "sehir": "Gaziantep",
+      "ciro2026": 113530,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1135,
+      "cariAdi": "GAZANFER SANLITOP MEKAT. ÜRÜNLER PAZ.A.Ş",
+      "sehir": "İstanbul",
+      "ciro2026": 106447,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 966,
+      "cariAdi": "ELSİM ELEKTROTEKNİK SİSTEMLERİ SAN. VE TİC. A.Ş.",
+      "sehir": "İstanbul",
+      "ciro2026": 92830,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 189,
+      "cariAdi": "GER-MAK ELEKTRİK ELEKTRONİK SAN VE TİC.LTD.STİ.",
+      "sehir": "Kayseri",
+      "ciro2026": 77672,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 230,
+      "cariAdi": "ÖZALP UN VE UNLU MAMÜLLERİ GIDA SAN.VETİC.LTD.STİ.",
+      "sehir": "Kayseri",
+      "ciro2026": 74850,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1037,
+      "cariAdi": "MAREL ELEKTRONİK ELEKTRİK BİLİŞİM OTOMASYON SAN. TİC. LTD. ŞTİ.",
+      "sehir": "Kayseri",
+      "ciro2026": 74608,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 54,
+      "cariAdi": "HAS ÇELİK VE HALAT SAN.TİC.A.Ş.",
+      "sehir": "Kayseri",
+      "ciro2026": 68962,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 928,
+      "cariAdi": "ÖZHAN PLASTİK VE AYDINLATMA MALZ.SAN.TİC.LTD.ŞTİ",
+      "sehir": "Kayseri",
+      "ciro2026": 65071,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1486,
+      "cariAdi": "GİLAN GIDA MÜH. MAK. İNŞ. TAR. VE HAY. TİC. SAN. LTD. ŞTİ.",
+      "sehir": "Sivas",
+      "ciro2026": 62810,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 423,
+      "cariAdi": "SPREYMAK MAK. OTO. SAN. VE TİC. LTD. ŞTİ.",
+      "sehir": "İzmir",
+      "ciro2026": 58195,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1522,
+      "cariAdi": "HAN TORNA HİDROLİK MAK. SAN. TİC. LTD. ŞTİ.",
+      "sehir": "Kayseri",
+      "ciro2026": 58156,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 179,
+      "cariAdi": "MUHAMMED BERAT ALASSİ",
+      "sehir": "İstanbul",
+      "ciro2026": 54536,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1961,
+      "cariAdi": "Cari #1961",
+      "sehir": null,
+      "ciro2026": 53987,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1572,
+      "cariAdi": "BAŞARI MAKİNA SANAYİ VE TİCARET LTD. ŞTİ.",
+      "sehir": "Kayseri",
+      "ciro2026": 53414,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 10,
+      "cariAdi": "KAMER OTOMASYON TAAH.İNŞ.SAN.VE TİC.LTD.STİ.",
+      "sehir": "Kayseri",
+      "ciro2026": 52287,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 229,
+      "cariAdi": "TOPÇUOĞLU MÜHENDİSLİK MEHMET TOPÇUOĞLU",
+      "sehir": "Kayseri",
+      "ciro2026": 50242,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 361,
+      "cariAdi": "ERNE HİDROLİK PNÖMATİK SAN. VE TİC. LTD. ŞTİ.",
+      "sehir": "İstanbul",
+      "ciro2026": 47718,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1578,
+      "cariAdi": "KOCALAR PAZARLAMA A.Ş.",
+      "sehir": "Kayseri",
+      "ciro2026": 46086,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 682,
+      "cariAdi": "AYDIN PLASTİK A.Ş.",
+      "sehir": "Sivas",
+      "ciro2026": 45658,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 41,
+      "cariAdi": "SADABAT ELEKTRİK OTOMASYON SAN.TİC.LTD.STİ.",
+      "sehir": "İstanbul",
+      "ciro2026": 45186,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 47,
+      "cariAdi": "ARKOPA AHŞAP PANEL SANAYİ A.Ş",
+      "sehir": "Kayseri",
+      "ciro2026": 41406,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 992,
+      "cariAdi": "KÜÇÜKARSLANLAR BAKIR ÇİNKO SAN.VE TİC. A.Ş.",
+      "sehir": "Trabzon",
+      "ciro2026": 40113,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 122,
+      "cariAdi": "SİMKA KAĞIT VE SAN.TİC. A.Ş.",
+      "sehir": "Kayseri",
+      "ciro2026": 39777,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1928,
+      "cariAdi": "Cari #1928",
+      "sehir": null,
+      "ciro2026": 38675,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 844,
+      "cariAdi": "ŞAFAK OTOMASYON PROJE MÜH.İNS.LTD.STİ.",
+      "sehir": "Kayseri",
+      "ciro2026": 33902,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1251,
+      "cariAdi": "ERKARA ELEKTRİK SUNULLAH KARACA",
+      "sehir": "Kayseri",
+      "ciro2026": 29573,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1913,
+      "cariAdi": "Cari #1913",
+      "sehir": null,
+      "ciro2026": 28931,
+      "personelId": "furkan"
+    },
+    {
+      "cariNo": 607,
+      "cariAdi": "NADİR KOÇ ENDÜSTRİYEL SAN. TİC. LTD. ŞTİ.",
+      "sehir": "Balıkesir",
+      "ciro2026": 26825,
+      "personelId": "furkan"
+    },
+    {
+      "cariNo": 1940,
+      "cariAdi": "Cari #1940",
+      "sehir": null,
+      "ciro2026": 24826,
+      "personelId": "furkan"
+    },
+    {
+      "cariNo": 1072,
+      "cariAdi": "3G MÜHENDİSLİK METAL SANAYİ LTD.ŞTİ",
+      "sehir": "Kayseri",
+      "ciro2026": 24660,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 937,
+      "cariAdi": "GÜNBERİ ELK ÜRETİM VE DANIŞMANLIK A.Ş",
+      "sehir": "Kayseri",
+      "ciro2026": 23580,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1952,
+      "cariAdi": "Cari #1952",
+      "sehir": null,
+      "ciro2026": 23222,
+      "personelId": "furkan"
+    },
+    {
+      "cariNo": 226,
+      "cariAdi": "BOYTEKS TEKSTİL SAN. VE TİC. A.Ş.",
+      "sehir": "Kayseri",
+      "ciro2026": 22070,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 654,
+      "cariAdi": "ERKAN MARKETCİLİK HIRDAVAT SAN. TİC. LTD. ŞTİ.",
+      "sehir": "Kayseri",
+      "ciro2026": 18835,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 61,
+      "cariAdi": "ÇOBANOĞLU YAY YATAK TEKSTİL LTD.STİ.",
+      "sehir": "Kayseri",
+      "ciro2026": 18163,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 188,
+      "cariAdi": "MURAT YEŞİLYURT ELEKTRİK ELEKTRONİK OTOMASYON",
+      "sehir": "Kayseri",
+      "ciro2026": 18009,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 364,
+      "cariAdi": "SMA ARAS TORNA MAKİNA MEHMET ARAS",
+      "sehir": "Kayseri",
+      "ciro2026": 17937,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1955,
+      "cariAdi": "Cari #1955",
+      "sehir": null,
+      "ciro2026": 17047,
+      "personelId": "furkan"
+    },
+    {
+      "cariNo": 1734,
+      "cariAdi": "ALN PETROL AKARYAKIT ENERJİOTOMOTİV İNŞ. SAN.TİC. LTD.ŞTİ",
+      "sehir": "Elazığ",
+      "ciro2026": 16163,
+      "personelId": "furkan"
+    },
+    {
+      "cariNo": 705,
+      "cariAdi": "AYKON ELEKTROMEKANİK ENERJİ SA. VE TİC.A.Ş.",
+      "sehir": "Ankara",
+      "ciro2026": 15911,
+      "personelId": "furkan"
+    },
+    {
+      "cariNo": 1947,
+      "cariAdi": "Cari #1947",
+      "sehir": null,
+      "ciro2026": 15850,
+      "personelId": "furkan"
+    },
+    {
+      "cariNo": 667,
+      "cariAdi": "MOHER KİMYA SAN. TİC. A.Ş.",
+      "sehir": "Kayseri",
+      "ciro2026": 15664,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1009,
+      "cariAdi": "PANDOĞA SANAYİ VE TİCARET A.Ş",
+      "sehir": "Kayseri",
+      "ciro2026": 14087,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 671,
+      "cariAdi": "KARE MOBİLYA İMALAT SAN.TİC.LTD.ŞTİ.",
+      "sehir": "Kayseri",
+      "ciro2026": 14047,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 750,
+      "cariAdi": "BİREL YAZILIM OTOMASYON BİL.SAN.TİC.LTD.ŞTİ.",
+      "sehir": "Kayseri",
+      "ciro2026": 14035,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 814,
+      "cariAdi": "DORUK KAĞIT SAN. A.Ş.",
+      "sehir": "Kayseri",
+      "ciro2026": 12858,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1032,
+      "cariAdi": "D-MARKET ELEKTRONİK HİZMETLER VE TİCARET A.Ş.",
+      "sehir": "İstanbul",
+      "ciro2026": 12444,
+      "personelId": "furkan"
+    },
+    {
+      "cariNo": 382,
+      "cariAdi": "OKTAY MAKİNA OKTAY KAYA",
+      "sehir": "Kayseri",
+      "ciro2026": 10159,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1371,
+      "cariAdi": "ZAMBAK MOBİLYA AĞAÇ ÜRÜN. METAL SAN.TİC.LTD.ŞTİ",
+      "sehir": "Kayseri",
+      "ciro2026": 9843,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 913,
+      "cariAdi": "METRO GROSMARKET BAK. ALIŞVERİŞ HİZM TİC.LTD.ŞTİ",
+      "sehir": "Kayseri",
+      "ciro2026": 9841,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1433,
+      "cariAdi": "ÖNER DOGAL TAŞ MERMER YAPI SAN.TİC.A.Ş.",
+      "sehir": "Kayseri",
+      "ciro2026": 9315,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 971,
+      "cariAdi": "MERT YATAK VE TEKSTİL MAK.İMALAT SAN TİC LTD ŞTİ",
+      "sehir": "Kayseri",
+      "ciro2026": 9231,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 889,
+      "cariAdi": "İLTER FASON PLASTİK SAN TİC LTD ŞTİ",
+      "sehir": "Kayseri",
+      "ciro2026": 8547,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1356,
+      "cariAdi": "KAYBAKS OLUKLU MUKAVVA İNŞ.ÇEV.TEKN.SAN.TİC. LTD.ŞTİ.",
+      "sehir": "Kayseri",
+      "ciro2026": 8228,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1945,
+      "cariAdi": "Cari #1945",
+      "sehir": null,
+      "ciro2026": 8113,
+      "personelId": "furkan"
+    },
+    {
+      "cariNo": 1933,
+      "cariAdi": "Cari #1933",
+      "sehir": null,
+      "ciro2026": 7990,
+      "personelId": "furkan"
+    },
+    {
+      "cariNo": 1723,
+      "cariAdi": "ALTUNUMAY OTOMOTİV YEDEK PARÇA GIDA TURZ. TEKS. İTH. İHR. SAN. LTD. ŞTİ.",
+      "sehir": "Ankara",
+      "ciro2026": 7888,
+      "personelId": "furkan"
+    },
+    {
+      "cariNo": 1535,
+      "cariAdi": "CHAMPION OTO YEDEK PARÇA GIDA TEKSTİL SAN. TİC. LTD. ŞTİ.",
+      "sehir": "Kayseri",
+      "ciro2026": 6595,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 218,
+      "cariAdi": "ATA BİLİŞİM SAN.TİC.LTD.STİ",
+      "sehir": "Nevşehir",
+      "ciro2026": 6462,
+      "personelId": "furkan"
+    },
+    {
+      "cariNo": 649,
+      "cariAdi": "MASELMAK MÜH.ELK.ELEKT.İNŞ.MAK.OTOM.DAN.SAN.VE TİC.LTD.ŞTİ",
+      "sehir": "Ankara",
+      "ciro2026": 6253,
+      "personelId": "furkan"
+    },
+    {
+      "cariNo": 764,
+      "cariAdi": "OYLUM SINAİ YATIRIMLAR A.Ş.",
+      "sehir": "Kayseri",
+      "ciro2026": 5943,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1960,
+      "cariAdi": "Cari #1960",
+      "sehir": null,
+      "ciro2026": 5825,
+      "personelId": "furkan"
+    },
+    {
+      "cariNo": 1637,
+      "cariAdi": "FURNİCİN MÜMESSİLLİK İÇ VE DIŞ TİC.",
+      "sehir": "İzmir",
+      "ciro2026": 5696,
+      "personelId": "furkan"
+    },
+    {
+      "cariNo": 15,
+      "cariAdi": "TEM TEKNİK END.MALZ.SAN.VE TİC.LTD.STİ.",
+      "sehir": "Kayseri",
+      "ciro2026": 5246,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1942,
+      "cariAdi": "Cari #1942",
+      "sehir": null,
+      "ciro2026": 5058,
+      "personelId": "furkan"
+    },
+    {
+      "cariNo": 1706,
+      "cariAdi": "BÜNSA DÖKÜM MAKİNA ALET SAN. TİC. A.Ş.",
+      "sehir": "Kayseri",
+      "ciro2026": 4688,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1669,
+      "cariAdi": "ARŞİMED MEDİKAL KOZMETİK BİL. İTH. İHR. PAZ. TİC. LTD. ŞTİ.",
+      "sehir": "Yozgat",
+      "ciro2026": 4551,
+      "personelId": "furkan"
+    },
+    {
+      "cariNo": 976,
+      "cariAdi": "ASİL EV VE BÜRO MOBİLYALARI İMALAT SAN TİC LTD ŞTİ",
+      "sehir": "Kayseri",
+      "ciro2026": 4277,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 52,
+      "cariAdi": "NAME ELK. ELEKT. ENERJİ TAAH.SAN.VE TİC.LTD.STİ",
+      "sehir": "Kayseri",
+      "ciro2026": 3990,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1031,
+      "cariAdi": "TEKMOSA REKLAM BASKI MOB.TEK.SAN.TİC.LTD.ŞTİ",
+      "sehir": "Kayseri",
+      "ciro2026": 3936,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 573,
+      "cariAdi": "DOSTLAR MAKİNA BURHAN VURAL VE ORT.",
+      "sehir": "Kayseri",
+      "ciro2026": 3249,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1958,
+      "cariAdi": "Cari #1958",
+      "sehir": null,
+      "ciro2026": 2100,
+      "personelId": "furkan"
+    },
+    {
+      "cariNo": 725,
+      "cariAdi": "KUTEKS GİPE SAN.TİC.LTD.ŞTİ",
+      "sehir": "Kayseri",
+      "ciro2026": 1820,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1342,
+      "cariAdi": "İDEAL KAYNAK MAK.SAN.TİC.LTD.ŞTİ",
+      "sehir": "Kayseri",
+      "ciro2026": 1814,
+      "personelId": "yusuf"
+    },
+    {
+      "cariNo": 1725,
+      "cariAdi": "İZ YAPI MALZ. VE EKİPMANLARI SAN. VE TİC. A.Ş",
+      "sehir": "İstanbul",
+      "ciro2026": 1247,
+      "personelId": "furkan"
+    },
+    {
+      "cariNo": 1912,
+      "cariAdi": "Cari #1912",
+      "sehir": null,
+      "ciro2026": 1158,
+      "personelId": "furkan"
+    },
+    {
+      "cariNo": 1950,
+      "cariAdi": "Cari #1950",
+      "sehir": null,
+      "ciro2026": 950,
+      "personelId": "furkan"
+    },
+    {
+      "cariNo": 1902,
+      "cariAdi": "Cari #1902",
+      "sehir": null,
+      "ciro2026": 724,
+      "personelId": "furkan"
+    },
+    {
+      "cariNo": 1954,
+      "cariAdi": "Cari #1954",
+      "sehir": null,
+      "ciro2026": 720,
+      "personelId": "furkan"
+    },
+    {
+      "cariNo": 610,
+      "cariAdi": "HİSAR MADENCİLİK SAN. TİC. A.Ş.",
+      "sehir": "Aksaray",
+      "ciro2026": 119,
+      "personelId": "furkan"
+    }
+  ]
+}

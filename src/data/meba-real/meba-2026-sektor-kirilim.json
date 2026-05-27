@@ -1,0 +1,511 @@
+{
+  "meta": {
+    "kaynak": "meba-2026-faturalar.json",
+    "olusturma": "2026-05-24",
+    "yontem": "Cari adı keyword bazlı sektör tahmini (ileride AI sınıflandırma ile geliştirilecek)",
+    "sektorTanimSayisi": 26
+  },
+  "toplamlar": {
+    "toplamCiro": 12286522,
+    "cariSayisi": 106,
+    "siniflandirilanCari": 79,
+    "sektorSayisi": 23
+  },
+  "sektorler": [
+    {
+      "id": "lojistik",
+      "ad": "Lojistik & Kargo",
+      "renk": "#fbbf24",
+      "ikon": "solar:delivery-bold-duotone",
+      "kw": [
+        "KARGO",
+        "TAŞIMACILIK",
+        "LOJİSTİK",
+        "NAKLIYE",
+        "UPS ",
+        "TRANSPORT",
+        "GÜMRÜK"
+      ],
+      "toplam": 2914116,
+      "cariSayisi": 2,
+      "faturaSayisi": 10,
+      "ornekCariler": [
+        "FORM GÜMRÜK MÜŞAVİRLİĞİ TİC. LTD. ŞTİ.",
+        "UPS HIZLI KARGO TAŞIMACILIĞI A.Ş."
+      ]
+    },
+    {
+      "id": "diger",
+      "ad": "Diğer / Sınıflandırılmamış",
+      "renk": "#64748b",
+      "ikon": "solar:question-circle-bold-duotone",
+      "toplam": 2899449,
+      "cariSayisi": 27,
+      "faturaSayisi": 64,
+      "ornekCariler": [
+        "DEMİRKOL SIZDIRMAZLIK ELEMANLAR SAN.VE TİC.LTD.ŞTİ",
+        "İBRAHİM BOSTANCI",
+        "MUHAMMED BERAT ALASSİ"
+      ]
+    },
+    {
+      "id": "otomasyon",
+      "ad": "Otomasyon & Pnömatik",
+      "renk": "#06b6d4",
+      "ikon": "solar:cpu-bolt-bold-duotone",
+      "kw": [
+        "OTOMASYON",
+        "PNÖMATİK",
+        "PNEUMATIC",
+        "VANA ",
+        "VENTO ",
+        "EKOL OTOM",
+        "METE OTOMA",
+        "GAZANFER",
+        "NADİR KOÇ ENDÜSTR",
+        "ARŞİMED MEDİKAL"
+      ],
+      "toplam": 1838938,
+      "cariSayisi": 12,
+      "faturaSayisi": 69,
+      "ornekCariler": [
+        "BİREL YAZILIM OTOMASYON BİL.SAN.TİC.LTD.ŞTİ.",
+        "KAMER OTOMASYON TAAH.İNŞ.SAN.VE TİC.LTD.STİ.",
+        "VENTO YAPI MALZ.OTOMASYON SİS.DIŞ TİC.LTD.ŞTİ."
+      ]
+    },
+    {
+      "id": "makina",
+      "ad": "Makine & Mekanik",
+      "renk": "#fb923c",
+      "ikon": "solar:settings-minimalistic-bold-duotone",
+      "kw": [
+        "MAKİNA",
+        "MAKİNE",
+        "MAK.",
+        "MAKİN ",
+        "OKTAY MAKİN",
+        "DOSTLAR MAKİN",
+        "MEKAT",
+        "OYLUM SINAİ"
+      ],
+      "toplam": 1096153,
+      "cariSayisi": 10,
+      "faturaSayisi": 36,
+      "ornekCariler": [
+        "GİLAN GIDA MÜH. MAK. İNŞ. TAR. VE HAY. TİC. SAN. LTD. ŞTİ.",
+        "SPREYMAK MAK. OTO. SAN. VE TİC. LTD. ŞTİ.",
+        "MİKROSİSTEM MAK. İLETİŞİM ELEKTR. SAN.TİC.LTD.STİ."
+      ]
+    },
+    {
+      "id": "elektrikDis",
+      "ad": "Elektrik Distribütör",
+      "renk": "#3b82f6",
+      "ikon": "solar:plug-circle-bold-duotone",
+      "kw": [
+        "ELEKTRİK",
+        "ELK ",
+        "ELK.",
+        "ELEKTRO",
+        "OHM ELEKTRİK",
+        "GER-MAK ELEKTR",
+        "DAĞDEVİREN ELK",
+        "NAME ELK"
+      ],
+      "toplam": 602984,
+      "cariSayisi": 6,
+      "faturaSayisi": 30,
+      "ornekCariler": [
+        "OHM ELEKTRİK ELEKTRONİK OSMAN ÖZKAYA",
+        "ELSİM ELEKTROTEKNİK SİSTEMLERİ SAN. VE TİC. A.Ş.",
+        "GER-MAK ELEKTRİK ELEKTRONİK SAN VE TİC.LTD.STİ."
+      ]
+    },
+    {
+      "id": "tekstil",
+      "ad": "Tekstil & Konfeksiyon",
+      "renk": "#ec4899",
+      "ikon": "solar:hanger-bold-duotone",
+      "kw": [
+        "TEKSTİL",
+        "KUMAŞ",
+        "İPLİK",
+        "KONFEKSİYON",
+        "ÖRGÜ",
+        "BOYA ",
+        "TERZI",
+        "ÇORAP",
+        "GİPE"
+      ],
+      "toplam": 503322,
+      "cariSayisi": 6,
+      "faturaSayisi": 24,
+      "ornekCariler": [
+        "ÇOBANOĞLU YAY YATAK TEKSTİL LTD.STİ.",
+        "OYLUM SINAİ YATIRIMLAR A.Ş.",
+        "ÖZSOY ÇORAPLARI LTD. ŞTİ"
+      ]
+    },
+    {
+      "id": "kaynakMetal",
+      "ad": "Kaynak & Metal İşleme",
+      "renk": "#f97316",
+      "ikon": "solar:settings-bold-duotone",
+      "kw": [
+        "KAYNAK",
+        "METAL",
+        "SAC ",
+        "DEMİR ",
+        "ÇELİK",
+        "TORNA",
+        "LAZER",
+        "3G METAL",
+        "HIRDAVAT",
+        "SPREYMAK"
+      ],
+      "toplam": 364236,
+      "cariSayisi": 6,
+      "faturaSayisi": 23,
+      "ornekCariler": [
+        "İDEAL KAYNAK MAK.SAN.TİC.LTD.ŞTİ",
+        "UZUNOĞLU MESA METAL LTD. ŞTİ.",
+        "3G MÜHENDİSLİK METAL SANAYİ LTD.ŞTİ"
+      ]
+    },
+    {
+      "id": "gida",
+      "ad": "Gıda & Un",
+      "renk": "#84cc16",
+      "ikon": "solar:bread-bold-duotone",
+      "kw": [
+        "GIDA",
+        "GIDA ",
+        "UN VE",
+        "MAMUL",
+        "EKMEK",
+        "YEM ",
+        "YAĞ ",
+        "SÜT",
+        "PEYNIR",
+        "TARIM"
+      ],
+      "toplam": 332340,
+      "cariSayisi": 4,
+      "faturaSayisi": 16,
+      "ornekCariler": [
+        "BAYRAK GIDA SANAYİ TİCARET A.Ş",
+        "ÖZALP UN VE UNLU MAMÜLLERİ GIDA SAN.VETİC.LTD.STİ.",
+        "PANDOĞA SANAYİ VE TİCARET A.Ş"
+      ]
+    },
+    {
+      "id": "otomotiv",
+      "ad": "Otomotiv & Yan Sanayi",
+      "renk": "#fb7185",
+      "ikon": "solar:wheel-bold-duotone",
+      "kw": [
+        "OTOMOTİV",
+        "OTOMOTİVE",
+        "YAN SAN",
+        "OTO ",
+        "CARROZ",
+        "AUTOMOTIVE",
+        "CENEZA ARAÇ"
+      ],
+      "toplam": 295536,
+      "cariSayisi": 4,
+      "faturaSayisi": 12,
+      "ornekCariler": [
+        "KAYSERİ CENEZA ARAÇLAR AHMET AKDAĞ",
+        "ALN PETROL AKARYAKIT ENERJİOTOMOTİV İNŞ. SAN.TİC. LTD.ŞTİ",
+        "ALTUNUMAY OTOMOTİV YEDEK PARÇA GIDA TURZ. TEKS. İTH. İHR. SAN. LTD. ŞTİ."
+      ]
+    },
+    {
+      "id": "mobilya",
+      "ad": "Mobilya & Ahşap",
+      "renk": "#a78bfa",
+      "ikon": "solar:armchair-bold-duotone",
+      "kw": [
+        "MOBİLYA",
+        "MOBILYA",
+        "MOBİLY",
+        "FURNITURE",
+        "BULUT MOBİLYA",
+        "BELLONA",
+        "İSTİKBAL",
+        "YATAŞ",
+        "KOLTUK",
+        "AHŞAP",
+        "ORMAN ÜRÜN",
+        "ARKOPA AHŞAP",
+        "PANDOĞA SAN"
+      ],
+      "toplam": 288923,
+      "cariSayisi": 5,
+      "faturaSayisi": 8,
+      "ornekCariler": [
+        "LALE ORMAN ÜRÜNLERİ SAN.VE TİC.LTD.ŞTİ.",
+        "ZAMBAK MOBİLYA AĞAÇ ÜRÜN. METAL SAN.TİC.LTD.ŞTİ",
+        "ARKOPA AHŞAP PANEL SANAYİ A.Ş"
+      ]
+    },
+    {
+      "id": "plastik",
+      "ad": "Plastik & Kalıp",
+      "renk": "#22d3ee",
+      "ikon": "solar:droplet-bold-duotone",
+      "kw": [
+        "PLASTİK",
+        "PLASTIC",
+        "KALIP",
+        "KALIBI",
+        "MNF",
+        "ENJEKSIYON"
+      ],
+      "toplam": 267383,
+      "cariSayisi": 4,
+      "faturaSayisi": 17,
+      "ornekCariler": [
+        "ÖZHAN PLASTİK VE AYDINLATMA MALZ.SAN.TİC.LTD.ŞTİ",
+        "ASR SEYYAR PLASTİK SAN.TİC.LTD.ŞTİ.",
+        "AYDIN PLASTİK A.Ş."
+      ]
+    },
+    {
+      "id": "guvenlik",
+      "ad": "Güvenlik & Yangın",
+      "renk": "#dc2626",
+      "ikon": "solar:shield-bold-duotone",
+      "kw": [
+        "YANGIN",
+        "GÜVENLİK",
+        "ALEV YANGIN"
+      ],
+      "toplam": 246505,
+      "cariSayisi": 1,
+      "faturaSayisi": 1,
+      "ornekCariler": [
+        "ALEV YANGIN SÖNDÜRME CİHAZLARI VE GÜVENLİK SİSTEMLERİ"
+      ]
+    },
+    {
+      "id": "insaat",
+      "ad": "İnşaat & Yapı",
+      "renk": "#a3a3a3",
+      "ikon": "solar:buildings-bold-duotone",
+      "kw": [
+        "İNŞAAT",
+        "INSAAT",
+        "YAPI MALZ",
+        "YAPI VE",
+        "BETON",
+        "MİMARLIK",
+        "HAZIR BETON"
+      ],
+      "toplam": 145259,
+      "cariSayisi": 2,
+      "faturaSayisi": 3,
+      "ornekCariler": [
+        "İZ YAPI MALZ. VE EKİPMANLARI SAN. VE TİC. A.Ş",
+        "TEKNO ELEKTRİK İNŞAAT MÜH SAN VE TİC LTD ŞTİ"
+      ]
+    },
+    {
+      "id": "reklam",
+      "ad": "Reklam & Medya",
+      "renk": "#d946ef",
+      "ikon": "solar:videocamera-record-bold-duotone",
+      "kw": [
+        "REKLAM",
+        "MEDYA",
+        "PARK REKLAMC"
+      ],
+      "toplam": 127700,
+      "cariSayisi": 2,
+      "faturaSayisi": 4,
+      "ornekCariler": [
+        "PARK REKLAMCILIK TÜRKER İNCETÜRKMEN",
+        "TEKMOSA REKLAM BASKI MOB.TEK.SAN.TİC.LTD.ŞTİ"
+      ]
+    },
+    {
+      "id": "mekatronik",
+      "ad": "Mekatronik",
+      "renk": "#0ea5e9",
+      "ikon": "solar:cpu-bold-duotone",
+      "kw": [
+        "MEKAT",
+        "MEKATRONİK",
+        "MECHATRONIC"
+      ],
+      "toplam": 106447,
+      "cariSayisi": 1,
+      "faturaSayisi": 4,
+      "ornekCariler": [
+        "GAZANFER SANLITOP MEKAT. ÜRÜNLER PAZ.A.Ş"
+      ]
+    },
+    {
+      "id": "perakende",
+      "ad": "Perakende & Market",
+      "renk": "#9333ea",
+      "ikon": "solar:shop-bold-duotone",
+      "kw": [
+        "MARKET",
+        "GROSMARKET",
+        "PAZARLAMA",
+        "KOCALAR PAZAR"
+      ],
+      "toplam": 74762,
+      "cariSayisi": 3,
+      "faturaSayisi": 5,
+      "ornekCariler": [
+        "KOCALAR PAZARLAMA A.Ş.",
+        "ERKAN MARKETCİLİK HIRDAVAT SAN. TİC. LTD. ŞTİ.",
+        "METRO GROSMARKET BAK. ALIŞVERİŞ HİZM TİC.LTD.ŞTİ"
+      ]
+    },
+    {
+      "id": "muhendislik",
+      "ad": "Mühendislik & Yazılım",
+      "renk": "#8b5cf6",
+      "ikon": "solar:laptop-bold-duotone",
+      "kw": [
+        "MÜHENDİSLİK",
+        "MÜH.",
+        "YAZILIM",
+        "BİLİŞİM",
+        "INFOTECH",
+        "MİKROSİSTEM",
+        "OTOM. SAN",
+        "TEKNO",
+        "SOFTWARE",
+        "ELEKTROTEKNİK"
+      ],
+      "toplam": 56705,
+      "cariSayisi": 2,
+      "faturaSayisi": 7,
+      "ornekCariler": [
+        "TOPÇUOĞLU MÜHENDİSLİK MEHMET TOPÇUOĞLU",
+        "ATA BİLİŞİM SAN.TİC.LTD.STİ"
+      ]
+    },
+    {
+      "id": "kagit",
+      "ad": "Kağıt & Ambalaj",
+      "renk": "#a16207",
+      "ikon": "solar:document-bold-duotone",
+      "kw": [
+        "KAĞIT",
+        "AMBALAJ",
+        "SİMKA KAĞIT"
+      ],
+      "toplam": 52635,
+      "cariSayisi": 2,
+      "faturaSayisi": 3,
+      "ornekCariler": [
+        "SİMKA KAĞIT VE SAN.TİC. A.Ş.",
+        "DORUK KAĞIT SAN. A.Ş."
+      ]
+    },
+    {
+      "id": "enerji",
+      "ad": "Enerji & Üretim",
+      "renk": "#10b981",
+      "ikon": "solar:bolt-bold-duotone",
+      "kw": [
+        "ENERJİ",
+        "ENERJI",
+        "ELEKTRİK ÜRETİM",
+        "JEOTERMAL",
+        "GÜNEŞ ",
+        "RÜZGAR",
+        "EPDK",
+        "ELK ÜRETİM"
+      ],
+      "toplam": 43480,
+      "cariSayisi": 3,
+      "faturaSayisi": 3,
+      "ornekCariler": [
+        "NAME ELK. ELEKT. ENERJİ TAAH.SAN.VE TİC.LTD.STİ",
+        "GÜNBERİ ELK ÜRETİM VE DANIŞMANLIK A.Ş",
+        "AYKON ELEKTROMEKANİK ENERJİ SA. VE TİC.A.Ş."
+      ]
+    },
+    {
+      "id": "kimyaIlac",
+      "ad": "Kimya & İlaç",
+      "renk": "#0891b2",
+      "ikon": "solar:test-tube-bold-duotone",
+      "kw": [
+        "KİMYA",
+        "İLAÇ ",
+        "BOYA SAN",
+        "KOZMETIK",
+        "MOHER"
+      ],
+      "toplam": 15664,
+      "cariSayisi": 1,
+      "faturaSayisi": 2,
+      "ornekCariler": [
+        "MOHER KİMYA SAN. TİC. A.Ş."
+      ]
+    },
+    {
+      "id": "mermerTas",
+      "ad": "Mermer & Taş",
+      "renk": "#737373",
+      "ikon": "solar:square-bold-duotone",
+      "kw": [
+        "MERMER",
+        "GRANIT",
+        "TAŞ ",
+        "DOGAL TAŞ",
+        "DOĞAL TAŞ"
+      ],
+      "toplam": 9315,
+      "cariSayisi": 1,
+      "faturaSayisi": 2,
+      "ornekCariler": [
+        "ÖNER DOGAL TAŞ MERMER YAPI SAN.TİC.A.Ş."
+      ]
+    },
+    {
+      "id": "medikal",
+      "ad": "Medikal & Sağlık",
+      "renk": "#14b8a6",
+      "ikon": "solar:health-bold-duotone",
+      "kw": [
+        "MEDİKAL",
+        "KOZMETİK",
+        "ECZANE",
+        "HASTANE"
+      ],
+      "toplam": 4551,
+      "cariSayisi": 1,
+      "faturaSayisi": 1,
+      "ornekCariler": [
+        "ARŞİMED MEDİKAL KOZMETİK BİL. İTH. İHR. PAZ. TİC. LTD. ŞTİ."
+      ]
+    },
+    {
+      "id": "madencilik",
+      "ad": "Madencilik",
+      "renk": "#92400e",
+      "ikon": "solar:mountain-bold-duotone",
+      "kw": [
+        "MADENCİLİK",
+        "MADEN ",
+        "MINING"
+      ],
+      "toplam": 119,
+      "cariSayisi": 1,
+      "faturaSayisi": 1,
+      "ornekCariler": [
+        "HİSAR MADENCİLİK SAN. TİC. A.Ş."
+      ]
+    }
+  ]
+}

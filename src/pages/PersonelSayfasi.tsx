@@ -26,6 +26,10 @@ const BOLUM_RENGI: Record<Personel["bolum"], string> = {
 
 export function PersonelSayfasi({ firma, finans }: Props) {
   const [sira, setSira] = useState<Sira>("verim");
+  const bordroVerisiEksik = useMemo(
+    () => finans.personel.length > 0 && finans.personel.every((p) => p.brutMaas === 0 && p.sgkIsveren === 0),
+    [finans.personel],
+  );
 
   const ozet = useMemo(() => {
     const p = finans.personel;
@@ -82,6 +86,163 @@ export function PersonelSayfasi({ firma, finans }: Props) {
     const yillikMaliyet = (p.brutMaas + p.sgkIsveren) * 12;
     if (!p.yillikSatis || yillikMaliyet === 0) return 0;
     return p.yillikSatis / yillikMaliyet;
+  }
+
+  if (bordroVerisiEksik) {
+    const satisToplami = finans.personel.reduce((sum, p) => sum + (p.yillikSatis ?? 0), 0);
+    const satisEkibi = finans.personel.filter((p) => p.bolum === "Satış");
+    return (
+      <>
+        <div style={{ marginBottom: 20 }}>
+          <div
+            style={{
+              fontSize: 11,
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: firma.renk,
+              fontWeight: 600,
+              marginBottom: 6,
+              opacity: 0.85,
+            }}
+          >
+            Personel · Rol Dağılımı · {firma.konum.split(" ")[0]}
+          </div>
+          <h1
+            style={{
+              fontSize: 28,
+              fontWeight: 600,
+              letterSpacing: "-0.02em",
+              margin: 0,
+              color: TEMA.ink,
+            }}
+          >
+            Bordro değil, ekip sahipliği görünümü aktif
+          </h1>
+          <p
+            style={{
+              fontSize: 13,
+              color: TEMA.inkMuted,
+              marginTop: 6,
+              marginBottom: 0,
+              maxWidth: 760,
+              lineHeight: 1.5,
+            }}
+          >
+            Bu ekranda şu an gerçek bordro exportu yok. Buna rağmen rol, kıdem ve 2026 satış
+            sahipliği bilgisini kullanarak ekibin saha dağılımını dürüstçe gösteriyoruz.
+          </p>
+        </div>
+
+        <section
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(4, 1fr)",
+            gap: 14,
+            marginBottom: 20,
+          }}
+        >
+          <KpiKart
+            etiket="Kayıtlı Kişi"
+            numerikDeger={finans.personel.length}
+            ondalik={0}
+            sonek=" kişi"
+            tone={firma.renk}
+            ikon={Users}
+            vurgu
+          />
+          <KpiKart
+            etiket="Satış Sahipliği"
+            numerikDeger={satisToplami}
+            ondalik={0}
+            sonek=" ₺"
+            tone={TEMA.yesil}
+            ikon={TrendingUp}
+          />
+          <KpiKart
+            etiket="Satış Ekibi"
+            numerikDeger={satisEkibi.length}
+            ondalik={0}
+            sonek=" kişi"
+            tone={TEMA.altin}
+            ikon={Briefcase}
+          />
+          <KpiKart
+            etiket="Bordro Verisi"
+            numerikDeger={0}
+            ondalik={0}
+            sonek=" ₺"
+            deltaEtiketi="Logo Go bordro exportu bekleniyor"
+            tone="#60a5fa"
+            ikon={Coins}
+          />
+        </section>
+
+        <section
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: 16,
+            marginBottom: 20,
+          }}
+        >
+          {finans.personel.map((p) => (
+            <div
+              key={p.id}
+              style={{
+                background: `linear-gradient(180deg, ${TEMA.bgKart}, ${TEMA.bgKartAlt})`,
+                border: `1px solid ${TEMA.border}`,
+                borderRadius: 14,
+                padding: "16px 18px",
+              }}
+            >
+              <div style={{ display: "flex", justifyContent: "space-between", gap: 12 }}>
+                <div>
+                  <div style={{ fontSize: 16, fontWeight: 600, color: TEMA.ink }}>{p.ad}</div>
+                  <div style={{ fontSize: 12, color: TEMA.inkMuted, marginTop: 4 }}>{p.rol}</div>
+                </div>
+                <span
+                  style={{
+                    alignSelf: "flex-start",
+                    fontSize: 11,
+                    fontWeight: 700,
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                    color: BOLUM_RENGI[p.bolum],
+                  }}
+                >
+                  {p.bolum}
+                </span>
+              </div>
+              <div style={{ marginTop: 14, fontSize: 12, color: TEMA.inkSoft, lineHeight: 1.7 }}>
+                <div>Başlangıç: {p.baslangic}</div>
+                <div>2026 satış sahipliği: {fmtTL(p.yillikSatis ?? 0)}</div>
+                <div>Aylık hedef izi: {fmtTL(p.aylikHedef ?? 0)}</div>
+              </div>
+            </div>
+          ))}
+        </section>
+
+        <AiYorumKart
+          sayfaBasligi="Personel"
+          maddeler={[
+            {
+              ton: "dikkat",
+              baslik: "Bordro tarafı bilinçli olarak hesap dışı bırakıldı",
+              detay:
+                "Maaş ve SGK exportu gelmeden verim katsayısı üretmiyoruz. Böylece sahte verimlilik yorumundan kaçınmış oluyoruz.",
+              vurguSayi: "0 bordro",
+            },
+            {
+              ton: "firsat",
+              baslik: "Satış sahipliği görünürlüğü şimdiden faydalı",
+              detay:
+                "Mehmet, Yusuf ve Furkan hattında hangi portföyün kimde durduğu görünüyor. Bordro geldiğinde bu ekran doğrudan tam verimlilik paneline dönecek.",
+              vurguSayi: `${satisEkibi.length} kişi`,
+            },
+          ]}
+        />
+      </>
+    );
   }
 
   const siraliPersonel = useMemo(() => {

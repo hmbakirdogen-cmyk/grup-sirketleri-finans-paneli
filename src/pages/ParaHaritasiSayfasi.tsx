@@ -13,7 +13,7 @@
 import { useMemo } from "react";
 import { Map as MapIcon } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
-import { FINANS_VERISI } from "@/data/mock-finans";
+import { FINANS_VERISI } from "@/data/gercek-finans";
 import { FIRMALAR } from "@/data/firmalar";
 import { KategoriKart } from "@/components/para-haritasi/KategoriKart";
 import { MarjErozyonPaneli } from "@/components/para-haritasi/MarjErozyonPaneli";

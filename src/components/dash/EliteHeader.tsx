@@ -1,14 +1,3 @@
-// EliteHeader — MEBA Komuta Merkezi'nin ElitHeader v3.1 adaptasyonu.
-// Mehmet Bey direktifi 2026-05-26: "diğer programdaki yapıyı al da çek".
-// Pattern aktarım haritası reference_meba_pattern_aktarim_2026_05_26.md
-//
-// Adaptasyon notları:
-// - hugeicons/iconify → lucide-react (grup paneli ikon stack'i)
-// - CSS var(--brand-accent) → TEMA sabitleri (5 renk diski)
-// - 21 nav item → 5 sayfa (Nabız/Akış/Alacaklar/Raporlar/Ayarlar)
-// - Org switcher: "Production/2026 Q2" → 4 firma seçici (Çekirdek ortak için 4, tek firma için 1)
-// - Profil capsule: aktif kullanıcı + rol rozet
-
 import { motion } from "framer-motion";
 import {
   Activity,
@@ -22,8 +11,6 @@ import {
   Sun,
   Plus,
   Calculator,
-  Layers,
-  Network,
   CalendarDays,
   FileSignature,
   Package,
@@ -53,8 +40,6 @@ const NAV: NavItem[] = [
   { id: "personel", label: "Personel", icon: Briefcase },
   { id: "raporlar", label: "Raporlar", icon: FileText },
   { id: "vergi", label: "Vergi Atölyesi", icon: Calculator },
-  { id: "grup", label: "Konsolide Grup", icon: Layers },
-  { id: "isbirligi", label: "İş Birliği", icon: Network },
   { id: "ayarlar", label: "Ayarlar", icon: Settings },
 ];
 
@@ -247,7 +232,7 @@ export function EliteHeader({
                   letterSpacing: "-0.018em",
                 }}
               >
-                Grup Şirketleri
+                MEBA Finans
               </span>
               <span
                 style={{
@@ -258,7 +243,7 @@ export function EliteHeader({
                   fontWeight: 600,
                 }}
               >
-                Finans Paneli
+                Gercek Veri Modu
               </span>
             </div>
           </div>

@@ -164,6 +164,110 @@ export function CekSenetSayfasi({ firma, finans }: Props) {
     return list;
   }, [firma.kisaAd, ozet]);
 
+  if (ozet.portfoy.length === 0) {
+    return (
+      <>
+        <div style={{ marginBottom: 20 }}>
+          <div
+            style={{
+              fontSize: 11,
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: firma.renk,
+              fontWeight: 600,
+              marginBottom: 6,
+              opacity: 0.85,
+            }}
+          >
+            Çek/Senet Portföyü · {firma.konum.split(" ")[0]}
+          </div>
+          <h1
+            style={{
+              fontSize: 28,
+              fontWeight: 600,
+              letterSpacing: "-0.02em",
+              margin: 0,
+              color: TEMA.ink,
+            }}
+          >
+            Belge bazlı portföy exportu bekleniyor
+          </h1>
+          <p
+            style={{
+              fontSize: 13,
+              color: TEMA.inkMuted,
+              marginTop: 6,
+              marginBottom: 0,
+              maxWidth: 760,
+              lineHeight: 1.5,
+            }}
+          >
+            Şu an bu panelde yalnızca genel durum toplamları var; tek tek çek ve senet listesi
+            yüklenmediği için portföyü uydurmuyoruz. Gerçek belge exportu geldiğinde vade
+            takvimi, risk kovası ve tahsilat durumu bu ekranda otomatik açılacak.
+          </p>
+        </div>
+
+        <section
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 1fr)",
+            gap: 14,
+            marginBottom: 20,
+          }}
+        >
+          <KpiKart
+            etiket="Belge Listesi"
+            numerikDeger={0}
+            ondalik={0}
+            sonek=" kayıt"
+            tone={firma.renk}
+            ikon={FileSignature}
+            vurgu
+          />
+          <KpiKart
+            etiket="Durum"
+            numerikDeger={0}
+            ondalik={0}
+            sonek=" aktif"
+            deltaEtiketi="portföy exportu bekleniyor"
+            tone={TEMA.altin}
+            ikon={Clock}
+          />
+          <KpiKart
+            etiket="Risk Analizi"
+            numerikDeger={0}
+            ondalik={0}
+            sonek=" ₺"
+            deltaEtiketi="belge detayı olmadan hesaplanmaz"
+            tone={TEMA.kirmizi}
+            ikon={AlertTriangle}
+          />
+        </section>
+
+        <AiYorumKart
+          sayfaBasligi="Çek/Senet"
+          maddeler={[
+            {
+              ton: "dikkat",
+              baslik: "Bu ekran bilinçli olarak boş tutuluyor",
+              detay:
+                "Genel durum raporundaki toplamları belge listesi gibi davranmıyoruz. Gerçek portföy exportu gelmeden çek/senet dağılımı üretmek yanıltıcı olur.",
+              vurguSayi: "0 belge",
+            },
+            {
+              ton: "firsat",
+              baslik: "Gereken veri tek export ile kapanır",
+              detay:
+                "Belge no, cari, tutar, vade, durum ve portföy/tahsil alanları geldiğinde bu ekran aynı gün gerçek moda geçer.",
+              vurguSayi: "1 export",
+            },
+          ]}
+        />
+      </>
+    );
+  }
+
   return (
     <>
       <div style={{ marginBottom: 20 }}>

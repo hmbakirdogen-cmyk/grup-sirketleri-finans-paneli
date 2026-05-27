@@ -1,0 +1,293 @@
+{
+  "meta": {
+    "kaynak": "Desktop/MEBA MEKANİK HESAPLAR/{Yeni klasör,2023-2025 RAPORLAR}",
+    "importZamani": "2026-05-24T17:52:34.117Z",
+    "aciklama": "Aylık KDV beyannameleri + 3 yıllık cari bakiye + 3 yıllık tam mali tablo (satış/alım/masraf/kar)."
+  },
+  "yillikMaliTablo": {
+    "2023": {
+      "yil": 2023,
+      "satis": 14403452.64,
+      "satisKdv": 2166111.62,
+      "satisNet": 16554865.93,
+      "satisIade": 38522,
+      "alim": 12175384,
+      "alimKdv": 2305966,
+      "alimIade": 21000,
+      "masrafAlinanHizmet": 2844601,
+      "verilenHizmet": 10780,
+      "brutKar": 4820044,
+      "netKar": 1975443,
+      "personelMaasYillik": 3444000,
+      "kiraYillik": 1800000,
+      "kurEurOrtalama": 30.5,
+      "kurUsdOrtalama": 27.5
+    },
+    "2024": {
+      "yil": 2024,
+      "satis": 21140253.63,
+      "satisKdv": 3515108.40,
+      "satisNet": 24611401.13,
+      "satisIade": 0,
+      "alim": 17092690,
+      "alimKdv": 3353923,
+      "alimIade": 10700,
+      "masrafAlinanHizmet": 4486289,
+      "verilenHizmet": 405160,
+      "brutKar": 6367475,
+      "netKar": 1881186,
+      "personelMaasYillik": 5050000,
+      "kiraYillik": 3000000,
+      "kurEurOrtalama": 38.5,
+      "kurUsdOrtalama": 35.0
+    },
+    "2025": {
+      "yil": 2025,
+      "satis": 23259663.91,
+      "satisKdv": 3975676.77,
+      "satisNet": 27165898.25,
+      "satisIade": 76332,
+      "alim": 16305054,
+      "alimKdv": 3338014,
+      "alimIade": 20920,
+      "masrafAlinanHizmet": 5357607,
+      "verilenHizmet": 28801,
+      "brutKar": 7562750,
+      "netKar": 2205144,
+      "personelMaasYillik": 6660000,
+      "kiraYillik": 4200000,
+      "kurEurOrtalama": 44.8,
+      "kurUsdOrtalama": 41.2
+    },
+    "2026": {
+      "yil": 2026,
+      "satis": 5315632,
+      "satisKdv": 728041,
+      "satisNet": 5805655,
+      "alim": 0,
+      "alimKdv": 0,
+      "masrafAlinanHizmet": 0,
+      "brutKar": 0,
+      "netKar": 0,
+      "personelMaasYillik": 8376000,
+      "kiraYillik": 4800000,
+      "kurEurOrtalama": 50.5,
+      "kurUsdOrtalama": 46.0,
+      "kismi": "Sadece Q1 (Oca-Mart) verisi"
+    }
+  },
+  "aylik": [
+    {
+      "yil": 2025,
+      "ay": 1,
+      "matrah": 1277048.95,
+      "istisnaToplam": 428479.47,
+      "toplamCiro": 1705528.42,
+      "hesaplananKdv": 255409.79,
+      "indirilecekKdv": 169545.21,
+      "odenecekKdv": 40984.11
+    },
+    {
+      "yil": 2025,
+      "ay": 2,
+      "matrah": 2004183.02,
+      "istisnaToplam": 122809.1,
+      "toplamCiro": 2126992.12,
+      "hesaplananKdv": 400836.6,
+      "indirilecekKdv": 0,
+      "odenecekKdv": 69181.33
+    },
+    {
+      "yil": 2025,
+      "ay": 3,
+      "matrah": 1008543.2,
+      "istisnaToplam": 54409.39,
+      "toplamCiro": 1062952.5899999999,
+      "hesaplananKdv": 201708.64,
+      "indirilecekKdv": 327065.19,
+      "odenecekKdv": 0
+    },
+    {
+      "yil": 2025,
+      "ay": 4,
+      "matrah": 801014.41,
+      "istisnaToplam": 1580.6,
+      "toplamCiro": 802595.01,
+      "hesaplananKdv": 160202.88,
+      "indirilecekKdv": 281485.7,
+      "odenecekKdv": 0
+    },
+    {
+      "yil": 2025,
+      "ay": 5,
+      "matrah": 1869876.39,
+      "istisnaToplam": 89896.44,
+      "toplamCiro": 1959772.8299999998,
+      "hesaplananKdv": 373975.28,
+      "indirilecekKdv": 582470.36,
+      "odenecekKdv": 0
+    },
+    {
+      "yil": 2025,
+      "ay": 6,
+      "matrah": 2074659.84,
+      "istisnaToplam": 72309.04,
+      "toplamCiro": 2146968.88,
+      "hesaplananKdv": 414931.97,
+      "indirilecekKdv": 378849.11,
+      "odenecekKdv": 36082.86
+    },
+    {
+      "yil": 2025,
+      "ay": 7,
+      "matrah": 1659693.01,
+      "istisnaToplam": 363099.63,
+      "toplamCiro": 2022792.6400000001,
+      "hesaplananKdv": 331938.6,
+      "indirilecekKdv": 0,
+      "odenecekKdv": 0
+    },
+    {
+      "yil": 2025,
+      "ay": 8,
+      "matrah": 1855313.93,
+      "istisnaToplam": 77707.45,
+      "toplamCiro": 1933021.38,
+      "hesaplananKdv": 371062.79,
+      "indirilecekKdv": 332524.28,
+      "odenecekKdv": 38538.51
+    },
+    {
+      "yil": 2025,
+      "ay": 9,
+      "matrah": 2343876.7,
+      "istisnaToplam": 377626.84,
+      "toplamCiro": 2721503.54,
+      "hesaplananKdv": 468775.34,
+      "indirilecekKdv": 335473.83,
+      "odenecekKdv": 131949.85
+    },
+    {
+      "yil": 2025,
+      "ay": 10,
+      "matrah": 0,
+      "istisnaToplam": 173496.09,
+      "toplamCiro": 173496.09,
+      "hesaplananKdv": 39065.24,
+      "indirilecekKdv": 349191.37,
+      "odenecekKdv": 39065.24
+    },
+    {
+      "yil": 2025,
+      "ay": 11,
+      "matrah": 1981536.86,
+      "istisnaToplam": 126173.88,
+      "toplamCiro": 2107710.74,
+      "hesaplananKdv": 396307.37,
+      "indirilecekKdv": 200023.65,
+      "odenecekKdv": 190202.14
+    },
+    {
+      "yil": 2025,
+      "ay": 12,
+      "matrah": 230922.55,
+      "istisnaToplam": 153373.11,
+      "toplamCiro": 384295.66,
+      "hesaplananKdv": 1533.63,
+      "indirilecekKdv": 229388.92,
+      "odenecekKdv": 1533.63
+    },
+    {
+      "yil": 2026,
+      "ay": 1,
+      "matrah": 2661450.53,
+      "istisnaToplam": 175995.35,
+      "toplamCiro": 2837445.88,
+      "hesaplananKdv": 532290.11,
+      "indirilecekKdv": 475791.2,
+      "odenecekKdv": 56498.91
+    },
+    {
+      "yil": 2026,
+      "ay": 2,
+      "matrah": 506368.57,
+      "istisnaToplam": 161994.53,
+      "toplamCiro": 668363.1,
+      "hesaplananKdv": 161987.99,
+      "indirilecekKdv": 344380.58,
+      "odenecekKdv": 161987.99
+    },
+    {
+      "yil": 2026,
+      "ay": 3,
+      "matrah": 2147813.64,
+      "istisnaToplam": 152032.65,
+      "toplamCiro": 2299846.29,
+      "hesaplananKdv": 429562.73,
+      "indirilecekKdv": 393622.59,
+      "odenecekKdv": 34355.52
+    }
+  ],
+  "yillikToplam": {
+    "2025": {
+      "yil": 2025,
+      "matrah": 17106668.86,
+      "istisnaToplam": 2040961.04,
+      "toplamCiro": 19147629.900000002,
+      "hesaplananKdv": 3415748.13,
+      "indirilecekKdv": 3186017.6199999996,
+      "odenecekKdv": 547537.67,
+      "aySayisi": 12
+    },
+    "2026": {
+      "yil": 2026,
+      "matrah": 5315632.74,
+      "istisnaToplam": 490022.53,
+      "toplamCiro": 5805655.27,
+      "hesaplananKdv": 1123840.83,
+      "indirilecekKdv": 1213794.37,
+      "odenecekKdv": 252842.41999999998,
+      "aySayisi": 3
+    }
+  },
+  "cariBakiye": {
+    "2023": {
+      "yil": 2023,
+      "mebaBorcu": 17424467.77,
+      "mebaAlacagi": 20332292.69
+    },
+    "2024": {
+      "yil": 2024,
+      "mebaBorcu": 23387792.32,
+      "mebaAlacagi": 27994721.49
+    },
+    "2025": {
+      "yil": 2025,
+      "mebaBorcu": 27133200.69,
+      "mebaAlacagi": 34649026.64
+    }
+  },
+  "yillikOzet": {
+    "2023": {
+      "yil": 2023,
+      "faturaBorc": 11101957.68,
+      "faturaAlacak": 11101957.68,
+      "bankaBorc": 9825337.15,
+      "bankaAlacak": 51251981.83
+    },
+    "2024": {
+      "yil": 2024,
+      "faturaBorc": 15961181.98,
+      "faturaAlacak": 16747008.34,
+      "bankaBorc": 11077163.86,
+      "bankaAlacak": 11077163.86
+    },
+    "2025": {
+      "yil": 2025,
+      "faturaBorc": 9203679.42,
+      "faturaAlacak": 34852679.53,
+      "bankaBorc": 91900659.66,
+      "bankaAlacak": 0
+    }
+  }
+}

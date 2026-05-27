@@ -16,6 +16,7 @@ import { useState, useEffect, useMemo } from "react";
 import { Target, X, RefreshCw, Save, CheckCircle2, AlertTriangle } from "lucide-react";
 import { useGrupHedef } from "@/lib/grup-hedef-store";
 import { FIRMALAR } from "@/data/firmalar";
+import { MEVCUT_FIRMALAR } from "@/data/gercek-finans";
 import { notify } from "@/lib/notify";
 import type { FirmaId, Kullanici } from "@/types/domain";
 
@@ -28,7 +29,7 @@ interface Props {
   aktifKullanici: Kullanici;
 }
 
-const FIRMA_SIRA: FirmaId[] = ["meba", "mesa", "elmos", "arkon"];
+const FIRMA_SIRA: FirmaId[] = [...MEVCUT_FIRMALAR];
 
 function formatTL(n: number): string {
   return new Intl.NumberFormat("tr-TR", {
@@ -93,7 +94,7 @@ export function FirmaHedefDuzenleModal({ acik, onClose, aktifKullanici }: Props)
   function sifirlaTumu() {
     sifirla();
     notify.info("Hedefler varsayılana döndürüldü", {
-      description: "Mock veri rakamları geri yüklendi",
+      description: "Gerçek veri hedef tablosu varsayılan düzene alındı",
     });
     onClose();
   }

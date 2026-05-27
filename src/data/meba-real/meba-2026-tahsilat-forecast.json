@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "olusturma": "2026-05-24",
+    "referansTarih": "2026-05-24",
+    "aylarOnde": 6,
+    "not": "Tahsilatlar LOGO ödeme planı vadelerinden (gerçek). İleri aylar XML'de vade yoksa 2025 gerçek cirosu × büyüme oranı (+%42) ile tahmin edilir. Vergi muhasebeci dökümü. Sabit gider 380K/ay temkinli tahmin. Banka+kasa+bordro entegrasyonu açıldığında gerçekleşir.",
+    "buyumeOrani": 0.424
+  },
+  "varsayimlar": {
+    "aylikSabitVergi": 115943,
+    "ucAylikKurumlarGecici": 2515,
+    "sabitOperasyonelGider": 380000
+  },
+  "projeksiyon": [
+    {
+      "ay": "2026-05",
+      "ayAdi": "Mayıs",
+      "aySayisi": 5,
+      "yil": 2026,
+      "beklenenTahsilat": 8431059,
+      "tahsilatKaynak": "xml-gercek-vade",
+      "vergiOdeme": 118458,
+      "sabitGider": 380000,
+      "toplamOdeme": 498458,
+      "netAkis": 7932601,
+      "kumulatifNet": 7932601,
+      "durum": "pozitif"
+    },
+    {
+      "ay": "2026-06",
+      "ayAdi": "Haziran",
+      "aySayisi": 6,
+      "yil": 2026,
+      "beklenenTahsilat": 2829701,
+      "tahsilatKaynak": "xml-gercek-vade",
+      "vergiOdeme": 115943,
+      "sabitGider": 380000,
+      "toplamOdeme": 495943,
+      "netAkis": 2333758,
+      "kumulatifNet": 10266360,
+      "durum": "pozitif"
+    },
+    {
+      "ay": "2026-07",
+      "ayAdi": "Temmuz",
+      "aySayisi": 7,
+      "yil": 2026,
+      "beklenenTahsilat": 633783,
+      "tahsilatKaynak": "xml-gercek-vade",
+      "vergiOdeme": 115943,
+      "sabitGider": 380000,
+      "toplamOdeme": 495943,
+      "netAkis": 137840,
+      "kumulatifNet": 10404200,
+      "durum": "pozitif"
+    },
+    {
+      "ay": "2026-08",
+      "ayAdi": "Ağustos",
+      "aySayisi": 8,
+      "yil": 2026,
+      "beklenenTahsilat": 2752622,
+      "tahsilatKaynak": "tahmin-2025-buyume-orani",
+      "vergiOdeme": 118458,
+      "sabitGider": 380000,
+      "toplamOdeme": 498458,
+      "netAkis": 2254164,
+      "kumulatifNet": 12658364,
+      "durum": "pozitif"
+    },
+    {
+      "ay": "2026-09",
+      "ayAdi": "Eylül",
+      "aySayisi": 9,
+      "yil": 2026,
+      "beklenenTahsilat": 3875421,
+      "tahsilatKaynak": "tahmin-2025-buyume-orani",
+      "vergiOdeme": 115943,
+      "sabitGider": 380000,
+      "toplamOdeme": 495943,
+      "netAkis": 3379478,
+      "kumulatifNet": 16037842,
+      "durum": "pozitif"
+    },
+    {
+      "ay": "2026-10",
+      "ayAdi": "Ekim",
+      "aySayisi": 10,
+      "yil": 2026,
+      "beklenenTahsilat": 4752673,
+      "tahsilatKaynak": "tahmin-2025-buyume-orani",
+      "vergiOdeme": 115943,
+      "sabitGider": 380000,
+      "toplamOdeme": 495943,
+      "netAkis": 4256730,
+      "kumulatifNet": 20294572,
+      "durum": "pozitif"
+    }
+  ],
+  "toplamlar": {
+    "toplamBeklenenTahsilat": 23275259,
+    "toplamBeklenenOdeme": 2980688,
+    "netToplam": 20294571,
+    "riskliAylar": 0
+  }
+}

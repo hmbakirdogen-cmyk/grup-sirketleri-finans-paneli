@@ -4,6 +4,11 @@
 import { useMemo, useState } from "react";
 import { User, Building2, Bell, Database, LogOut } from "lucide-react";
 import { AiYorumKart, type AiYorumMaddesi } from "@/components/dash/AiYorumKart";
+import {
+  PANEL_VERI_KAPSAMI,
+  PANEL_VERI_OZETI,
+  PANEL_YETENEKLERI,
+} from "@/data/gercek-finans";
 import { notify } from "@/lib/notify";
 import { TEMA, FONT } from "@/lib/tema";
 import type { Firma, Kullanici } from "@/types/domain";
@@ -38,20 +43,20 @@ export function AyarlarSayfasi({
       },
       {
         ton: "pozitif",
-        baslik: "Logo Go sync hattı ritme girmiş durumda",
-        detay: "MESA server bağlantısı aktif, gece 02:00 otomatik tarama kurgusu oturmuş. Gün içi tetikleme de burada olduğu için finans akışı tek düğmeden yönetiliyor.",
-        vurguSayi: "02:00",
+        baslik: "Gerçek veri hattı yerel import ile akıyor",
+        detay: `Şu an ${PANEL_VERI_OZETI.sonGuncelleme} tarihli XML ve PDF kesitleri üstünden çalışıyoruz. Canlı Logo Go bağlantısı bir sonraki katman; mevcut panel ise dürüst biçimde dosya tabanlı veri gösteriyor.`,
+        vurguSayi: PANEL_VERI_OZETI.sonGuncelleme,
       },
       {
         ton: "dikkat",
-        baslik: "Manuel yükleme hattı hâlâ kritik yedek kapı",
-        detay: "Osman Bey'den gelen PDF, Excel ve CSV trafiği devrede kaldığı sürece bu ekran sadece ayar sayfası değil, veri güvenliği kapısı gibi çalışıyor. Özellikle vergi ve bilanço tarafında bu kapı açık kalmalı.",
-        vurguSayi: "PDF/XL",
+        baslik: "Veri kapsamı modül modül izlenmeli",
+        detay: "Alacak, ciro ve vade tarafı güçlü; bordro, çek/senet ve net ürün maliyeti ise hâlâ ek export bekliyor. Bu ekran o boşlukları gizlemek yerine görünür tutmalı.",
+        vurguSayi: `${PANEL_VERI_KAPSAMI.length} modül`,
       },
       {
         ton: "firsat",
         baslik: "Ayarlar sayfası ekip standardını taşıyabilir",
-        detay: `${firma.kisaAd} renkleri, yetki sınırları ve sync düzeni burada net. Mehmet Bey, bu netliği diğer ortaklara kısa onboarding akışı gibi göstermek kullanıcı alışmasını hızlandırır.`,
+        detay: `${firma.kisaAd} renkleri, yetki sınırları ve veri kapsamı burada net. Mehmet Bey, bu netliği diğer ortaklara kısa onboarding akışı gibi göstermek kullanıcı alışmasını hızlandırır.`,
         vurguSayi: firma.kisaAd,
       },
     ];
@@ -336,15 +341,14 @@ function ToggleSatir({ ad, varsayilan }: { ad: string; varsayilan: boolean }) {
 function VeriBolum({ onSyncClick }: { onSyncClick?: () => void }) {
   return (
     <>
-      <BaslikBlok baslik="Veri Kaynağı" alt="Logo Go bağlantısı, sync durumu ve manuel yükleme" />
+      <BaslikBlok baslik="Veri Kaynağı" alt="Yerel import akışı, kapsam ve sonraki entegrasyon katmanı" />
 
-      {/* Logo Go bağlantı durumu */}
       <div
         style={{
           padding: "16px 18px",
           borderRadius: 12,
-          background: `linear-gradient(180deg, ${TEMA.yesil}10, transparent)`,
-          border: `1px solid ${TEMA.yesil}30`,
+          background: `linear-gradient(180deg, ${TEMA.altin}12, transparent)`,
+          border: `1px solid ${TEMA.altin}30`,
           marginBottom: 20,
           display: "flex",
           alignItems: "center",
@@ -362,33 +366,33 @@ function VeriBolum({ onSyncClick }: { onSyncClick?: () => void }) {
             position: "relative",
             flexShrink: 0,
           }}
-        >
-          <span
-            style={{
-              width: 10,
-              height: 10,
-              borderRadius: "50%",
-              background: TEMA.yesil,
-              boxShadow: `0 0 12px ${TEMA.yesil}80`,
-            }}
-          />
-          <span
+          >
+            <span
+              style={{
+                width: 10,
+                height: 10,
+                borderRadius: "50%",
+                background: TEMA.altin,
+                boxShadow: `0 0 12px ${TEMA.altin}80`,
+              }}
+            />
+            <span
             aria-hidden
             style={{
               position: "absolute",
               inset: -6,
               borderRadius: "50%",
-              border: `2px solid ${TEMA.yesil}40`,
+              border: `2px solid ${TEMA.altin}40`,
               animation: "pulse-soft 2s infinite",
             }}
           />
         </div>
         <div style={{ flex: 1 }}>
           <div style={{ fontSize: 14, fontWeight: 600, color: TEMA.ink }}>
-            Logo Go aktif · MESA Server bağlı
+            Canlı Logo Go hattı henüz açık değil
           </div>
           <div style={{ fontSize: 12, color: TEMA.inkMuted, marginTop: 2 }}>
-            192.168.1.10:5432 · TCP/IP · son sync 12 saniye önce
+            Son gerçek kesit: {PANEL_VERI_OZETI.sonGuncelleme} · masaüstü klasörü + XML/PDF importu
           </div>
         </div>
         <button
@@ -398,33 +402,36 @@ function VeriBolum({ onSyncClick }: { onSyncClick?: () => void }) {
               onSyncClick();
               return;
             }
-            notify.info("Muhasebe senkronizasyonu hazır", {
-              description: "Logo Go bağlantısı bu ekrandan tetiklenecek şekilde kurgulandı.",
+            notify.info("Veri hattı hazır", {
+              description: "Canlı bağlantı açılana kadar bu alan son import kesitini ve kapsam durumunu gösterir.",
             });
           }}
           style={{
             padding: "8px 14px",
             borderRadius: 8,
-            background: `linear-gradient(180deg, ${TEMA.yesil}, ${TEMA.yesil}cc)`,
+            background: `linear-gradient(180deg, ${TEMA.altin}, ${TEMA.altin}cc)`,
             color: "white",
             border: "none",
             fontFamily: FONT.ana,
             fontSize: 12,
             fontWeight: 600,
             cursor: "pointer",
-            boxShadow: `0 4px 12px ${TEMA.yesil}40`,
+            boxShadow: `0 4px 12px ${TEMA.altin}40`,
           }}
         >
-          Şimdi Sync Et
+          Durumu Yenile
         </button>
       </div>
 
-      <SatirEtiketDeger etiket="Sync Frekansı" deger="Her gece 02:00 · otomatik" />
-      <SatirEtiketDeger etiket="Toplam Sync Bugün" deger="3 başarılı · 0 hata" accent={TEMA.yesil} />
-      <SatirEtiketDeger etiket="Son XML Boyutu" deger="3.4 MB · 1.247 kayıt" />
-      <SatirEtiketDeger etiket="e-Defter / GİB API" deger="Yapılandırılmadı" accent={TEMA.altin} />
+      <SatirEtiketDeger etiket="2026 XML Kesiti" deger={`${PANEL_VERI_OZETI.faturaSayisi2026} fatura · ${PANEL_VERI_OZETI.cariSayisi2026} cari`} />
+      <SatirEtiketDeger etiket="Q1 2026 Büyüme" deger={`+%${PANEL_VERI_OZETI.q1BuyumeYuzde.toFixed(1)}`} accent={TEMA.yesil} />
+      <SatirEtiketDeger etiket="Açık Alacak" deger={`${PANEL_VERI_OZETI.toplamAcikAlacak.toLocaleString("tr-TR")} TL`} />
+      <SatirEtiketDeger
+        etiket="Canlı Entegrasyon"
+        deger={PANEL_YETENEKLERI.konsolideAcik ? "Açık" : "Kapalı · yerel import modu"}
+        accent={PANEL_YETENEKLERI.konsolideAcik ? TEMA.yesil : TEMA.altin}
+      />
 
-      {/* Sync log son 5 */}
       <div style={{ marginTop: 24, marginBottom: 12 }}>
         <div
           style={{
@@ -436,42 +443,22 @@ function VeriBolum({ onSyncClick }: { onSyncClick?: () => void }) {
             marginBottom: 10,
           }}
         >
-          Son Senkronizasyonlar
+          Veri Kapsamı
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-          <SyncLogSatir
-            zaman="12 sn önce"
-            tarih="2026-05-27 14:23"
-            kim="otomatik"
-            sonuc="başarılı"
-            detay="47 fatura · 12 cari · 3 hareket"
-          />
-          <SyncLogSatir
-            zaman="2 saat önce"
-            tarih="2026-05-27 12:18"
-            kim="otomatik"
-            sonuc="başarılı"
-            detay="22 fatura · 4 cari"
-          />
-          <SyncLogSatir
-            zaman="bugün 02:00"
-            tarih="2026-05-27 02:00"
-            kim="gece sync"
-            sonuc="başarılı"
-            detay="284 hareket · tam tarama"
-          />
-          <SyncLogSatir
-            zaman="dün 02:00"
-            tarih="2026-05-26 02:00"
-            kim="gece sync"
-            sonuc="başarılı"
-            detay="312 hareket"
-          />
+          {PANEL_VERI_KAPSAMI.map((kalem) => (
+            <SyncLogSatir
+              key={kalem.alan}
+              zaman={kalem.durum === "canli" ? "hazır" : kalem.durum === "tahmini" ? "tahmini" : "bekliyor"}
+              tarih={PANEL_VERI_OZETI.sonGuncelleme}
+              kim="veri katmanı"
+              sonuc={kalem.durum === "bekliyor" ? "hata" : "başarılı"}
+              detay={`${kalem.alan} · ${kalem.not}`}
+            />
+          ))}
         </div>
       </div>
 
-      {/* Manuel veri yükleme — Mehmet Bey direktif:
-          "muhasebecimizden alacağımız verileri yükleyebileceğiz" */}
       <div style={{ marginTop: 24 }}>
         <div
           style={{
@@ -500,7 +487,7 @@ function VeriBolum({ onSyncClick }: { onSyncClick?: () => void }) {
           onClick={() =>
             notify.info("Manuel veri yükleme merkezi hazır", {
               description:
-                "Muhasebeciden gelen PDF, Excel ve CSV dosyalari bu alandan alinip Mali Takvim ve ilgili modullere işlenecek.",
+                "Muhasebeciden gelen PDF, Excel ve CSV dosyalari bu alandan alinip gerçek veri katmanina yeniden işlenecek.",
             })
           }
           onKeyDown={(e) => {
@@ -508,7 +495,7 @@ function VeriBolum({ onSyncClick }: { onSyncClick?: () => void }) {
               e.preventDefault();
               notify.info("Manuel veri yükleme merkezi hazır", {
                 description:
-                  "Muhasebeciden gelen PDF, Excel ve CSV dosyalari bu alandan alinip Mali Takvim ve ilgili modullere işlenecek.",
+                  "Muhasebeciden gelen PDF, Excel ve CSV dosyalari bu alandan alinip gerçek veri katmanina yeniden işlenecek.",
               });
             }
           }}

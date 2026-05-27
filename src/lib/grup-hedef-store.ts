@@ -8,6 +8,7 @@
 //   setFirmaHedef("meba", 30_000_000, aktifKullaniciId);
 
 import { useEffect, useState, useCallback } from "react";
+import { MEVCUT_FIRMALAR, PANEL_HEDEFLERI } from "@/data/gercek-finans";
 import type { FirmaId } from "@/types/domain";
 
 const STORAGE_KEY = "gsfp.grup-hedef.v1";
@@ -21,10 +22,10 @@ interface GrupHedef {
 }
 
 const VARSAYILAN: Record<FirmaId, number> = {
-  meba: 29_540_000, // mock-finans.ts'den (yıllık ciro)
-  mesa: 52_600_000,
-  elmos: 43_200_000,
-  arkon: 22_000_000,
+  meba: PANEL_HEDEFLERI.meba ?? 32_000_000,
+  mesa: 0,
+  elmos: 0,
+  arkon: 0,
 };
 
 export function okuHedef(): GrupHedef {
@@ -88,7 +89,7 @@ export function useGrupHedef() {
   );
 
   const grupToplam = useCallback((): number => {
-    return (["meba", "mesa", "elmos", "arkon"] as FirmaId[]).reduce(
+    return MEVCUT_FIRMALAR.reduce(
       (s, f) => s + firmaHedefi(f),
       0,
     );

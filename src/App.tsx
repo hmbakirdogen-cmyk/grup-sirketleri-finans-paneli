@@ -6,7 +6,12 @@
 import { useEffect, useState } from "react";
 import { Toaster } from "sonner";
 import { FIRMALAR } from "./data/firmalar";
-import { FINANS_VERISI } from "./data/mock-finans";
+import {
+  FINANS_VERISI,
+  MEVCUT_FIRMALAR,
+  PANEL_MANSETLERI,
+  PANEL_VERI_OZETI,
+} from "./data/gercek-finans";
 import { KULLANICILAR } from "./data/kullanicilar";
 import { EliteHeader } from "./components/dash/EliteHeader";
 import { MaliTakvimRozetMini } from "./components/dash/MaliTakvimRozetMini";
@@ -24,8 +29,6 @@ import { UrunMarjiSayfasi } from "./pages/UrunMarjiSayfasi";
 import { PersonelSayfasi } from "./pages/PersonelSayfasi";
 import { RaporlarSayfasi } from "./pages/RaporlarSayfasi";
 import { VergiAtolyesiSayfasi } from "./pages/VergiAtolyesiSayfasi";
-import { KonsolideSayfasi } from "./pages/KonsolideSayfasi";
-import { IsBirligiSayfasi } from "./pages/IsBirligiSayfasi";
 import { AyarlarSayfasi } from "./pages/AyarlarSayfasi";
 import { notify } from "./lib/notify";
 import { TEMA, FONT } from "./lib/tema";
@@ -47,15 +50,12 @@ export function App() {
   const aktifKullanici = KULLANICILAR[goruntulenenId]!;
   const impersonation = goruntulenenId !== GERCEK_KULLANICI;
 
-  // Görüntülenen kullanıcının erişim sınırına göre firma seçimi geçerli mi?
-  // Geçerli değilse otomatik ilk izinli firmaya geç.
-  const erisilebilirFirmalar = aktifKullanici.firmaIzin;
+  const erisilebilirFirmalar = aktifKullanici.firmaIzin.filter((id) =>
+    MEVCUT_FIRMALAR.includes(id),
+  );
   const gecerliFirma: FirmaId = erisilebilirFirmalar.includes(aktif)
     ? aktif
-    : erisilebilirFirmalar[0]!;
-  if (gecerliFirma !== aktif) {
-    // Sessiz redirect (useEffect değil çünkü hızlı setState yeterli)
-  }
+    : (erisilebilirFirmalar[0] ?? "meba");
 
   const firma = FIRMALAR[gecerliFirma];
   const finans = FINANS_VERISI[gecerliFirma];
@@ -67,22 +67,19 @@ export function App() {
   }, [aktif, gecerliFirma]);
 
   useEffect(() => {
-    if (sekme === "grup" && !aktifKullanici.konsolideGorur) {
+    if (sekme === "grup" || sekme === "isbirligi") {
       setSekme("nabiz");
     }
-  }, [aktifKullanici.konsolideGorur, sekme]);
-
-  // Görüntülenen Konsolide göremiyorsa Konsolide sekmesinde değil
+  }, [sekme]);
 
   function kullaniciSec(id: KullaniciId) {
     setGoruntulenenId(id);
-    // İlk izinli firmaya at
     const yeniK = KULLANICILAR[id]!;
-    if (!yeniK.firmaIzin.includes(aktif)) {
-      setAktif(yeniK.firmaIzin[0]!);
+    const izinli = yeniK.firmaIzin.filter((firmaId) => MEVCUT_FIRMALAR.includes(firmaId));
+    if (!izinli.includes(aktif)) {
+      setAktif(izinli[0] ?? "meba");
     }
-    // Konsolide'de ise ve yeni kullanıcı göremiyorsa Nabız'a dön
-    if (sekme === "grup" && !yeniK.konsolideGorur) setSekme("nabiz");
+    if (sekme === "grup" || sekme === "isbirligi") setSekme("nabiz");
     notify.info(
       id === GERCEK_KULLANICI
         ? `Kendi hesabınıza döndünüz`
@@ -97,24 +94,10 @@ export function App() {
   }
 
   function senkronTetikle() {
-    const startMs = performance.now();
-    notify.info("Logo Go senkronizasyonu başlatıldı", {
-      description: "MESA server'a bağlanılıyor…",
+    notify.info("Veri yenileme hattı hazır", {
+      description:
+        "Bu sürüm masaüstündeki MEBA klasöründen üretilen gerçek kesitle çalışıyor. Canlı Logo Go bağlantısı açılınca bu düğme gerçek senkron başlatacak.",
     });
-    // Simüle: 1.5sn sonra başarı
-    setTimeout(() => {
-      const sn = ((performance.now() - startMs) / 1000).toFixed(1);
-      notify.success(`Senkronizasyon tamam · ${sn} sn`, {
-        description: "47 yeni fatura · 12 yeni cari · 3 yeni hareket",
-        aiAction: {
-          label: "Sapma raporu hazırla",
-          onAccept: () =>
-            notify.info("AI sapma raporu hazırlanıyor", {
-              description: "Anlık marj sapması ve nakit pozisyon analizi tamamlanınca bildirilecek.",
-            }),
-        },
-      });
-    }, 1500);
   }
 
   function demoOturumKapat() {
@@ -146,7 +129,7 @@ export function App() {
         aktifSekme={sekme}
         onSekmeSec={setSekme}
         aktifFirma={gecerliFirma}
-        erisilebilirFirmalar={aktifKullanici.firmaIzin}
+        erisilebilirFirmalar={erisilebilirFirmalar}
         onFirmaSec={setAktif}
         aktifKullanici={aktifKullanici}
         onSearchClick={() => setPaletAcik(true)}
@@ -166,8 +149,7 @@ export function App() {
         open={paletAcik}
         onOpenChange={setPaletAcik}
         aktifFirma={gecerliFirma}
-        erisilebilirFirmalar={aktifKullanici.firmaIzin}
-        konsolideErisim={aktifKullanici.konsolideGorur}
+        erisilebilirFirmalar={erisilebilirFirmalar}
         onSekmeSec={setSekme}
         onFirmaSec={setAktif}
       />
@@ -180,7 +162,7 @@ export function App() {
         }}
       >
         <MaliTakvimRozetMini />
-        <MansetBandi />
+        <MansetBandi mansetler={PANEL_MANSETLERI} />
 
         {sekme === "nabiz" && (
           <NabizSayfasi firma={firma} finans={finans} aktifKullanici={aktifKullanici} />
@@ -193,38 +175,6 @@ export function App() {
         {sekme === "personel" && <PersonelSayfasi firma={firma} finans={finans} />}
         {sekme === "raporlar" && <RaporlarSayfasi firma={firma} finans={finans} />}
         {sekme === "vergi" && <VergiAtolyesiSayfasi firma={firma} finans={finans} />}
-        {sekme === "grup" && aktifKullanici.konsolideGorur && <KonsolideSayfasi />}
-        {sekme === "grup" && !aktifKullanici.konsolideGorur && (
-          <div
-            style={{
-              padding: "60px 32px",
-              textAlign: "center",
-              background: `linear-gradient(180deg, ${TEMA.bgKart}, ${TEMA.bgKartAlt})`,
-              border: `1px solid ${TEMA.border}`,
-              borderRadius: 16,
-            }}
-          >
-            <div
-              style={{
-                fontSize: 11,
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                color: TEMA.altin,
-                fontWeight: 600,
-                marginBottom: 10,
-              }}
-            >
-              Erişim Sınırlı
-            </div>
-            <h2 style={{ fontSize: 22, fontWeight: 600, margin: 0, color: TEMA.ink }}>
-              Konsolide Grup yalnızca Çekirdek Ortaklara açık
-            </h2>
-            <p style={{ fontSize: 13, color: TEMA.inkSoft, marginTop: 8 }}>
-              Bu görünüm 4 firmanın hepsine yetkili olan ortaklar içindir.
-            </p>
-          </div>
-        )}
-        {sekme === "isbirligi" && <IsBirligiSayfasi />}
         {sekme === "ayarlar" && (
           <AyarlarSayfasi
             firma={firma}
@@ -247,14 +197,14 @@ export function App() {
           }}
         >
           <span>
-            Veri: Logo Go canlı sync ·{" "}
+            Veri: {PANEL_VERI_OZETI.kaynakEtiketi} ·{" "}
             {new Date().toLocaleDateString("tr-TR", {
               day: "numeric",
               month: "long",
               year: "numeric",
             })}
           </span>
-          <span>Grup Şirketleri · MEBA · MESA · ELMOS · ARKON</span>
+          <span>MEBA Mekanik · Son kesit {PANEL_VERI_OZETI.sonGuncelleme}</span>
         </footer>
       </div>
 

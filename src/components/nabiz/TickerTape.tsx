@@ -6,7 +6,7 @@
 
 import { useMemo } from "react";
 import { TrendingUp, TrendingDown } from "lucide-react";
-import { FINANS_VERISI } from "@/data/mock-finans";
+import { FINANS_VERISI } from "@/data/gercek-finans";
 import { FIRMALAR } from "@/data/firmalar";
 import type { FirmaId } from "@/types/domain";
 

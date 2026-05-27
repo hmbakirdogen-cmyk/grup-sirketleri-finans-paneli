@@ -12,6 +12,7 @@ import { Chart3DBackdrop } from "@/components/dash/Chart3DBackdrop";
 import { FirmaHedefDuzenleModal } from "@/components/modals/FirmaHedefDuzenleModal";
 import { MuhasebeBriefKart } from "@/components/dash/MuhasebeBriefKart";
 import { AiYorumKart, type AiYorumMaddesi } from "@/components/dash/AiYorumKart";
+import { PANEL_HEDEFLERI } from "@/data/gercek-finans";
 import { TEMA, FONT, fmtTL, fmtYuzde } from "@/lib/tema";
 import type { Firma, FirmaFinans, Kullanici } from "@/types/domain";
 
@@ -38,8 +39,7 @@ export function NabizSayfasi({ firma, finans, aktifKullanici }: Props) {
     const ciroYilDelta = ((son.ciro - ilk.ciro) / ilk.ciro) * 100;
     const marjYilDelta = son.brutMarj - ilk.brutMarj;
 
-    const aylikHedef = (yillikCiro / 12) * 1.04;
-    const yillikHedef = aylikHedef * 12;
+    const yillikHedef = PANEL_HEDEFLERI[finans.firmaId] ?? Math.round((yillikCiro / 12) * 1.04 * 12);
     const hedefGerceklesme = (yillikCiro / yillikHedef) * 100;
 
     const son3Ay = son12.slice(-3);

@@ -1,0 +1,18 @@
+[
+  {
+    "adSoyad": "YUSUF BOSTANCI",
+    "unvan": "MAKİNA MÜHENDİSİ",
+    "eposta": "yusuf@mebamekanik.com",
+    "telefon": "5416223427",
+    "dahili": null,
+    "firmaId": "meba"
+  },
+  {
+    "adSoyad": "FURKAN ÖZTÜRK",
+    "unvan": "SATIŞ SORUMLUSU",
+    "eposta": "satis@mebamekanik.com",
+    "telefon": "5516305902",
+    "dahili": null,
+    "firmaId": "meba"
+  }
+]

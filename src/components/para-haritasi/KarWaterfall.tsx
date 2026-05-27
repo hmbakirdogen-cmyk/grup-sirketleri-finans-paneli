@@ -36,7 +36,7 @@ interface BarVeri {
 }
 
 function bridgeUret(gt: MaliTabloKalemi[]): BarVeri[] {
-  // gelirTablosu satır sırası mock-finans.ts'de sabit:
+  // gelirTablosu satır sırası veri katmanında sabit:
   // 0: Net Satışlar, 1: SMM, 2: Brüt, 3: Faaliyet Gid, 4: Faaliyet Kâr,
   // 5: Finansman, 6: Vergi Öncesi, 7: Vergi, 8: Net Dönem Kârı
   const net = gt[0]?.tutar ?? 0;
