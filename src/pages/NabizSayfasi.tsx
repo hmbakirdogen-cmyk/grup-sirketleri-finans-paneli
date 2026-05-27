@@ -11,6 +11,7 @@ import { ProgressRing } from "@/components/dash/ProgressRing";
 import { Chart3DBackdrop } from "@/components/dash/Chart3DBackdrop";
 import { FirmaHedefDuzenleModal } from "@/components/modals/FirmaHedefDuzenleModal";
 import { MuhasebeBriefKart } from "@/components/dash/MuhasebeBriefKart";
+import { AiYorumKart, type AiYorumMaddesi } from "@/components/dash/AiYorumKart";
 import { TEMA, FONT, fmtTL, fmtYuzde } from "@/lib/tema";
 import type { Firma, FirmaFinans, Kullanici } from "@/types/domain";
 
@@ -82,6 +83,110 @@ export function NabizSayfasi({ firma, finans, aktifKullanici }: Props) {
       : ozet.hedefGerceklesme >= 80
         ? `Hedefe ${(100 - ozet.hedefGerceklesme).toFixed(0)} puan uzaktayız; son çeyrekte ivme yakalanırsa kapanabilir. Açık alacaklar takipte tutulmalı.`
         : `Hedefin altında seyrediyoruz; tahsilat hızı ve marj baskısı gözden geçirilmeli. Bayilerle mutabakat tazelenirse toparlanma olası.`;
+
+  // AI yorum maddeleri — sayfa verisinden Anadolu iş dili ile çıkarım
+  // Mehmet Bey'in samimi okuma stili: kısa cümle, abi tonu, somut sayı + ne yapılır
+  const aiMaddeler = useMemo<AiYorumMaddesi[]>(() => {
+    const list: AiYorumMaddesi[] = [];
+
+    // 1) Ciro yıl deltası
+    if (ozet.ciroYilDelta >= 8) {
+      list.push({
+        ton: "pozitif",
+        baslik: "Ciro yukarı yön çizgisinde",
+        detay: `Yıl başına göre %${ozet.ciroYilDelta.toFixed(1)} ivme var. Mehmet Bey, mevcut tempo ${firma.kisaAd}'da çekirdek müşteri sadakatinin tuttuğunu söylüyor.`,
+        vurguSayi: `+%${ozet.ciroYilDelta.toFixed(1)}`,
+      });
+    } else if (ozet.ciroYilDelta >= 0) {
+      list.push({
+        ton: "dikkat",
+        baslik: "Ciro yatay, ivme zayıf",
+        detay: `Yıl başına yakın seyrediyoruz (%${ozet.ciroYilDelta.toFixed(1)}). SMC zam yansımalarına ve bayi siparişlerine sıkı bakmak gerekir.`,
+        vurguSayi: `%${ozet.ciroYilDelta.toFixed(1)}`,
+      });
+    } else {
+      list.push({
+        ton: "kritik",
+        baslik: "Ciro yıl başının altında",
+        detay: `Yıl başına göre %${Math.abs(ozet.ciroYilDelta).toFixed(1)} düşüş. Bayilerle mutabakat + kampanya tazelenmesi öncelikli; Maraş Bey'le bir oturum konuşulmalı.`,
+        vurguSayi: `−%${Math.abs(ozet.ciroYilDelta).toFixed(1)}`,
+      });
+    }
+
+    // 2) Marj puanı
+    if (ozet.marjYilDelta >= 1) {
+      list.push({
+        ton: "pozitif",
+        baslik: "Marj puanı güçleniyor",
+        detay: `Yıl başına göre +${ozet.marjYilDelta.toFixed(1)} puan iyileşme. Pnömatik tarafta fiyat disiplini ve kur yönetimi işe yaramış.`,
+        vurguSayi: `+${ozet.marjYilDelta.toFixed(1)} puan`,
+      });
+    } else if (ozet.marjYilDelta >= -1.5) {
+      list.push({
+        ton: "dikkat",
+        baslik: "Marj dengede ama dar",
+        detay: `Yıl başına göre ${ozet.marjYilDelta >= 0 ? "+" : ""}${ozet.marjYilDelta.toFixed(1)} puan oynama var. SMC EUR fiyatı ile satış TL'si arasında tampon eridi mi diye bakmak iyi olur.`,
+        vurguSayi: `${ozet.marjYilDelta >= 0 ? "+" : ""}${ozet.marjYilDelta.toFixed(1)} puan`,
+      });
+    } else {
+      list.push({
+        ton: "kritik",
+        baslik: "Marj puanı eriyor",
+        detay: `Yıl başına göre ${ozet.marjYilDelta.toFixed(1)} puan kayıp. Bayi indirimleri + nakliye + EUR/TL üçgenini tekrar masaya yatırmak gerekir.`,
+        vurguSayi: `${ozet.marjYilDelta.toFixed(1)} puan`,
+      });
+    }
+
+    // 3) Hedef gerçekleşme
+    if (ozet.hedefGerceklesme >= 100) {
+      list.push({
+        ton: "pozitif",
+        baslik: "Yıllık hedef karşılandı",
+        detay: `Mehmet Bey, hedefin üzerine ${(ozet.hedefGerceklesme - 100).toFixed(0)} puan eklendi. Yıl sonu ekibe küçük bir tebrik notu denebilir.`,
+        vurguSayi: `%${ozet.hedefGerceklesme.toFixed(0)}`,
+      });
+    } else if (ozet.hedefGerceklesme >= 85) {
+      list.push({
+        ton: "firsat",
+        baslik: "Hedefe yakın, son çeyrek belirleyici",
+        detay: `Hedefe ${(100 - ozet.hedefGerceklesme).toFixed(0)} puan uzağız. Bayi ziyaretlerinin sıklaştırılması ve büyük teklif takipleri kapatabilir.`,
+        vurguSayi: `%${ozet.hedefGerceklesme.toFixed(0)}`,
+      });
+    } else {
+      list.push({
+        ton: "dikkat",
+        baslik: "Hedef geriden takip ediliyor",
+        detay: `%${ozet.hedefGerceklesme.toFixed(0)} ile hedefin gerisinde kaldık. Hedef tablosu yeniden gözden geçirilmeli; gerçekçi revizyon konuşulmalı.`,
+        vurguSayi: `%${ozet.hedefGerceklesme.toFixed(0)}`,
+      });
+    }
+
+    // 4) Nakit yeterliliği
+    if (ozet.nakitYeterliligi >= 80) {
+      list.push({
+        ton: "firsat",
+        baslik: "Nakit tarafı rahat",
+        detay: `Aylık ortalama giderin %${ozet.nakitYeterliligi.toFixed(0)}'ı kasada duruyor. SMC erken ödeme indirimini değerlendirmek mantıklı olabilir.`,
+        vurguSayi: `%${ozet.nakitYeterliligi.toFixed(0)}`,
+      });
+    } else if (ozet.nakitYeterliligi >= 50) {
+      list.push({
+        ton: "dikkat",
+        baslik: "Nakit tampon orta seviyede",
+        detay: `%${ozet.nakitYeterliligi.toFixed(0)} yeterlilik var, takvim baskısı normalde sorun çıkarmaz ama büyük teklif olursa Furkan Bey'le birlikte hesap yapalım.`,
+        vurguSayi: `%${ozet.nakitYeterliligi.toFixed(0)}`,
+      });
+    } else {
+      list.push({
+        ton: "kritik",
+        baslik: "Nakit baskısı yakın",
+        detay: `Yeterlilik %${ozet.nakitYeterliligi.toFixed(0)}. Açık alacaklarda tahsilat hızlandırılmazsa ay sonu vergi/SGK tarafı zorlanır.`,
+        vurguSayi: `%${ozet.nakitYeterliligi.toFixed(0)}`,
+      });
+    }
+
+    return list;
+  }, [ozet, firma.kisaAd]);
 
   return (
     <>
@@ -331,6 +436,11 @@ export function NabizSayfasi({ firma, finans, aktifKullanici }: Props) {
       {/* Aylık Muhasebe Brief — Osman Bey'in WhatsApp/email mesajı parse */}
       <section style={{ marginTop: 20 }}>
         <MuhasebeBriefKart />
+      </section>
+
+      {/* AI Yorum — sayfa verisinden Anadolu iş dili çıkarımlar */}
+      <section style={{ marginTop: 20 }}>
+        <AiYorumKart sayfaBasligi="Nabız" maddeler={aiMaddeler} />
       </section>
 
       <FirmaHedefDuzenleModal

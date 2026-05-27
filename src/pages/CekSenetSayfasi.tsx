@@ -10,6 +10,7 @@ import {
   AlertTriangle,
   Clock,
 } from "lucide-react";
+import { AiYorumKart, type AiYorumMaddesi } from "@/components/dash/AiYorumKart";
 import { KpiKart } from "@/components/dash/KpiKart";
 import { OzetKart } from "@/components/dash/OzetKart";
 import { TEMA, FONT, fmtTL, rengiKaristir } from "@/lib/tema";
@@ -108,6 +109,60 @@ export function CekSenetSayfasi({ firma, finans }: Props) {
   }, [ozet]);
 
   const vadeMaks = Math.max(vadeGrup.kisa, vadeGrup.orta, vadeGrup.uzun, vadeGrup.gec, 1);
+
+  const aiMaddeler = useMemo<AiYorumMaddesi[]>(() => {
+    const list: AiYorumMaddesi[] = [];
+    const karsiliksizOran =
+      ozet.toplamAlacak > 0 ? (ozet.karsiliksizRisk / ozet.toplamAlacak) * 100 : 0;
+
+    if (ozet.karsiliksizRisk === 0) {
+      list.push({
+        ton: "pozitif",
+        baslik: "Karşılıksız riski görünmüyor",
+        detay: `Portföyde sorunlu çek/senet yok. ${firma.kisaAd} tahsilat disiplini bu tarafta temiz ilerliyor.`,
+        vurguSayi: "0 ₺",
+      });
+    } else {
+      list.push({
+        ton: karsiliksizOran > 10 ? "kritik" : "dikkat",
+        baslik: "Karşılıksız takip dosyası açılmalı",
+        detay: `${fmtTL(ozet.karsiliksizRisk)} riskli tutar portföyün %${karsiliksizOran.toFixed(1)}'ine geldi. Mutabakat ve hukuki aksiyon planı netleşmeli.`,
+        vurguSayi: fmtTL(ozet.karsiliksizRisk),
+      });
+    }
+
+    list.push({
+      ton: ozet.buAyTutar >= ozet.toplamBorc ? "pozitif" : "firsat",
+      baslik: "Yakın vade tahsilat penceresi açık",
+      detay:
+        ozet.buAyTutar >= ozet.toplamBorc
+          ? `Önümüzdeki 30 günde ${fmtTL(ozet.buAyTutar)} tahsilat bekleniyor; verilen portföy baskısı dengelenebilir.`
+          : `Önümüzdeki 30 günde ${fmtTL(ozet.buAyTutar)} tahsilat var. Gerekirse verilen çek/senet vadeleri yeniden dağıtılmalı.`,
+      vurguSayi: fmtTL(ozet.buAyTutar),
+    });
+
+    list.push({
+      ton: ozet.netPozisyon >= 0 ? "firsat" : "kritik",
+      baslik: ozet.netPozisyon >= 0 ? "Net çek/senet pozisyonu artıda" : "Net çek/senet pozisyonu ekside",
+      detay:
+        ozet.netPozisyon >= 0
+          ? `Alacak portföyü borç portföyünü ${fmtTL(ozet.netPozisyon)} aşıyor. Banka tahsilat planı rahat kurulabilir.`
+          : `Verilen kağıtlar alacak tarafını ${fmtTL(Math.abs(ozet.netPozisyon))} geçti. Nakit takvimiyle birlikte izlemek gerekir.`,
+      vurguSayi: fmtTL(ozet.netPozisyon),
+    });
+
+    list.push({
+      ton: ozet.tahsilEdilen.length >= 2 ? "pozitif" : "dikkat",
+      baslik: "Kapanan kağıt ritmi izlenmeli",
+      detay:
+        ozet.tahsilEdilen.length >= 2
+          ? `${ozet.tahsilEdilen.length} belge sorunsuz kapandı. Aynı ritim portföy yaşını aşağı çeker.`
+          : `Kapanan belge sayısı düşük kaldı. Özellikle 30 gün üstü portföy için takip sıklığı artırılmalı.`,
+      vurguSayi: `${ozet.tahsilEdilen.length} adet`,
+    });
+
+    return list;
+  }, [firma.kisaAd, ozet]);
 
   return (
     <>
@@ -535,6 +590,10 @@ export function CekSenetSayfasi({ firma, finans }: Props) {
           }
           baglamRengi={ozet.karsiliksiz.length > 0 ? "kotu" : "iyi"}
         />
+      </section>
+
+      <section style={{ marginTop: 20 }}>
+        <AiYorumKart sayfaBasligi="Çek/Senet" maddeler={aiMaddeler} />
       </section>
     </>
   );

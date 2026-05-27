@@ -1,20 +1,61 @@
 // AyarlarSayfasi — kullanıcı + firma + bildirim + veri kaynağı.
 // Sade tek sayfa, sol nav + sağ form yerine üst-alt blok yığını.
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { User, Building2, Bell, Database, LogOut } from "lucide-react";
+import { AiYorumKart, type AiYorumMaddesi } from "@/components/dash/AiYorumKart";
+import { notify } from "@/lib/notify";
 import { TEMA, FONT } from "@/lib/tema";
 import type { Firma, Kullanici } from "@/types/domain";
 
 interface Props {
   firma: Firma;
   aktifKullanici: Kullanici;
+  onSyncClick?: () => void;
+  onSignOutClick?: () => void;
 }
 
 type Bolum = "profil" | "firma" | "bildirim" | "veri" | "cikis";
 
-export function AyarlarSayfasi({ firma, aktifKullanici }: Props) {
+export function AyarlarSayfasi({
+  firma,
+  aktifKullanici,
+  onSyncClick,
+  onSignOutClick,
+}: Props) {
   const [bolum, setBolum] = useState<Bolum>("profil");
+  const aiMaddeler = useMemo<AiYorumMaddesi[]>(() => {
+    const cokluFirma = aktifKullanici.firmaIzin.length > 1;
+
+    return [
+      {
+        ton: cokluFirma ? "pozitif" : "dikkat",
+        baslik: cokluFirma ? "Yetki kapsami geniş, merkez tek elde" : "Erişim dar ama odağı net",
+        detay: cokluFirma
+          ? `${aktifKullanici.hitap} şu an ${aktifKullanici.firmaIzin.length} firmaya ve ${aktifKullanici.konsolideGorur ? "konsolide görünüme" : "tekil görünümlere"} erişebiliyor. Bu yapı merkezî kontrol için güçlü, ama firma geçiş disiplinini canlı tutmak önemli.`
+          : `${aktifKullanici.hitap} yalnızca ${firma.kisaAd} tarafını görüyor. V1 için bu sınır iyi; yanlış ekran, yanlış veri riski daha baştan kapanmış oluyor.`,
+        vurguSayi: `${aktifKullanici.firmaIzin.length} firma`,
+      },
+      {
+        ton: "pozitif",
+        baslik: "Logo Go sync hattı ritme girmiş durumda",
+        detay: "MESA server bağlantısı aktif, gece 02:00 otomatik tarama kurgusu oturmuş. Gün içi tetikleme de burada olduğu için finans akışı tek düğmeden yönetiliyor.",
+        vurguSayi: "02:00",
+      },
+      {
+        ton: "dikkat",
+        baslik: "Manuel yükleme hattı hâlâ kritik yedek kapı",
+        detay: "Osman Bey'den gelen PDF, Excel ve CSV trafiği devrede kaldığı sürece bu ekran sadece ayar sayfası değil, veri güvenliği kapısı gibi çalışıyor. Özellikle vergi ve bilanço tarafında bu kapı açık kalmalı.",
+        vurguSayi: "PDF/XL",
+      },
+      {
+        ton: "firsat",
+        baslik: "Ayarlar sayfası ekip standardını taşıyabilir",
+        detay: `${firma.kisaAd} renkleri, yetki sınırları ve sync düzeni burada net. Mehmet Bey, bu netliği diğer ortaklara kısa onboarding akışı gibi göstermek kullanıcı alışmasını hızlandırır.`,
+        vurguSayi: firma.kisaAd,
+      },
+    ];
+  }, [aktifKullanici, firma]);
 
   return (
     <>
@@ -123,10 +164,24 @@ export function AyarlarSayfasi({ firma, aktifKullanici }: Props) {
           {bolum === "profil" && <ProfilBolum kullanici={aktifKullanici} accent={firma.renk} />}
           {bolum === "firma" && <FirmaBolum kullanici={aktifKullanici} firma={firma} />}
           {bolum === "bildirim" && <BildirimBolum />}
-          {bolum === "veri" && <VeriBolum />}
-          {bolum === "cikis" && <CikisBolum />}
+          {bolum === "veri" && <VeriBolum onSyncClick={onSyncClick} />}
+          {bolum === "cikis" && <CikisBolum onSignOutClick={onSignOutClick} />}
         </div>
       </section>
+
+      <div style={{ marginTop: 24 }}>
+        <AiYorumKart
+          sayfaBasligi="Ayarlar"
+          maddeler={aiMaddeler}
+          ctaMetni="Mehmet Bey, bu kullanım disiplinini kısa ekip notuna çevirip herkesin aynı panel alışkanlığıyla ilerlemesini sağlayalım mı?"
+          ctaButonMetni="Notu işle"
+          ctaAksiyonu={() =>
+            notify.success("Ayar disiplini not edildi", {
+              description: `${aktifKullanici.hitap} için yetki kapsamı, sync ritmi ve manuel veri hattı ekip notuna işlendi.`,
+            })
+          }
+        />
+      </div>
     </>
   );
 }
@@ -278,7 +333,7 @@ function ToggleSatir({ ad, varsayilan }: { ad: string; varsayilan: boolean }) {
   );
 }
 
-function VeriBolum() {
+function VeriBolum({ onSyncClick }: { onSyncClick?: () => void }) {
   return (
     <>
       <BaslikBlok baslik="Veri Kaynağı" alt="Logo Go bağlantısı, sync durumu ve manuel yükleme" />
@@ -338,6 +393,15 @@ function VeriBolum() {
         </div>
         <button
           type="button"
+          onClick={() => {
+            if (onSyncClick) {
+              onSyncClick();
+              return;
+            }
+            notify.info("Muhasebe senkronizasyonu hazır", {
+              description: "Logo Go bağlantısı bu ekrandan tetiklenecek şekilde kurgulandı.",
+            });
+          }}
           style={{
             padding: "8px 14px",
             borderRadius: 8,
@@ -422,6 +486,8 @@ function VeriBolum() {
           Muhasebeci'den Manuel Veri Yükleme
         </div>
         <div
+          role="button"
+          tabIndex={0}
           style={{
             padding: "26px 24px",
             borderRadius: 12,
@@ -430,6 +496,21 @@ function VeriBolum() {
             textAlign: "center",
             cursor: "pointer",
             transition: "border-color 180ms ease, background 180ms ease",
+          }}
+          onClick={() =>
+            notify.info("Manuel veri yükleme merkezi hazır", {
+              description:
+                "Muhasebeciden gelen PDF, Excel ve CSV dosyalari bu alandan alinip Mali Takvim ve ilgili modullere işlenecek.",
+            })
+          }
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              notify.info("Manuel veri yükleme merkezi hazır", {
+                description:
+                  "Muhasebeciden gelen PDF, Excel ve CSV dosyalari bu alandan alinip Mali Takvim ve ilgili modullere işlenecek.",
+              });
+            }
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.borderColor = TEMA.borderAktif;
@@ -518,7 +599,7 @@ function SyncLogSatir({
   );
 }
 
-function CikisBolum() {
+function CikisBolum({ onSignOutClick }: { onSignOutClick?: () => void }) {
   return (
     <>
       <BaslikBlok baslik="Çıkış" alt="Oturumu kapat ve giriş ekranına dön" />
@@ -527,6 +608,15 @@ function CikisBolum() {
       </p>
       <button
         type="button"
+        onClick={() => {
+          if (onSignOutClick) {
+            onSignOutClick();
+            return;
+          }
+          notify.info("Cikis akisi hazir", {
+            description: "Gerçek kimlik doğrulama bağlı değil; bu butonun yeri ve davranışı netleştirildi.",
+          });
+        }}
         style={{
           padding: "10px 18px",
           borderRadius: 10,

@@ -18,6 +18,7 @@ import { FIRMALAR } from "@/data/firmalar";
 import { KategoriKart } from "@/components/para-haritasi/KategoriKart";
 import { MarjErozyonPaneli } from "@/components/para-haritasi/MarjErozyonPaneli";
 import { KarWaterfall } from "@/components/para-haritasi/KarWaterfall";
+import { notify } from "@/lib/notify";
 import type { ParaHaritasiKategori } from "@/types/domain";
 
 export function ParaHaritasiSayfasi() {

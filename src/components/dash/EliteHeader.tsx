@@ -24,6 +24,10 @@ import {
   Calculator,
   Layers,
   Network,
+  CalendarDays,
+  FileSignature,
+  Package,
+  Briefcase,
   type LucideIcon,
 } from "lucide-react";
 import { FIRMALAR } from "@/data/firmalar";
@@ -42,7 +46,11 @@ interface NavItem {
 const NAV: NavItem[] = [
   { id: "nabiz", label: "Nabız", icon: Activity },
   { id: "akis", label: "Akış", icon: TrendingUp },
+  { id: "yarin90", label: "Yarın 90", icon: CalendarDays },
   { id: "alacaklar", label: "Alacaklar", icon: Users },
+  { id: "ceksenet", label: "Çek/Senet", icon: FileSignature },
+  { id: "urun", label: "Ürün Marjı", icon: Package },
+  { id: "personel", label: "Personel", icon: Briefcase },
   { id: "raporlar", label: "Raporlar", icon: FileText },
   { id: "vergi", label: "Vergi Atölyesi", icon: Calculator },
   { id: "grup", label: "Konsolide Grup", icon: Layers },

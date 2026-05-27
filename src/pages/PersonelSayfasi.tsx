@@ -3,6 +3,7 @@
 
 import { useMemo, useState } from "react";
 import { Users, Coins, TrendingUp, Briefcase } from "lucide-react";
+import { AiYorumKart, type AiYorumMaddesi } from "@/components/dash/AiYorumKart";
 import { KpiKart } from "@/components/dash/KpiKart";
 import { OzetKart } from "@/components/dash/OzetKart";
 import { TEMA, FONT, fmtTL, rengiKaristir } from "@/lib/tema";
@@ -95,6 +96,56 @@ export function PersonelSayfasi({ firma, finans }: Props) {
   }, [finans.personel, sira]);
 
   const maxBolumAdet = Math.max(...ozet.bolumler.map((b) => b.adet), 1);
+
+  const aiMaddeler = useMemo<AiYorumMaddesi[]>(() => {
+    const list: AiYorumMaddesi[] = [];
+    const satisVerimli = ozet.satisEkibi.filter((p) => verim(p) >= 8).length;
+    const kidemliAdet = finans.personel.filter((p) => kidemYil(p.baslangic) >= 5).length;
+
+    list.push({
+      ton: ozet.bordroOrani < 22 ? "pozitif" : ozet.bordroOrani < 30 ? "dikkat" : "kritik",
+      baslik: "Bordro yükü ciroya göre okunuyor",
+      detay:
+        ozet.bordroOrani < 22
+          ? `Bordro/ciro oranı %${ozet.bordroOrani.toFixed(1)} seviyesinde; ekip yükü satış hacmi tarafından taşınıyor.`
+          : ozet.bordroOrani < 30
+            ? `Bordro/ciro oranı %${ozet.bordroOrani.toFixed(1)}. Yeni işe alım öncesi bölüm verimi tekrar bakılmalı.`
+            : `Bordro/ciro oranı %${ozet.bordroOrani.toFixed(1)} ile yüksek. Verimsiz rol dağılımı varsa sadeleştirme düşünülmeli.`,
+      vurguSayi: `%${ozet.bordroOrani.toFixed(1)}`,
+    });
+
+    list.push({
+      ton: satisVerimli >= Math.max(1, ozet.satisEkibi.length / 2) ? "pozitif" : "firsat",
+      baslik: "Satış ekibi üretkenliği izleniyor",
+      detay:
+        ozet.satisEkibi.length === 0
+          ? "Bu firmada satış kadrosu görünmüyor. Operasyon ve idari ekip verimi kişi başı ciro üzerinden izlenmeli."
+          : `${satisVerimli} satış çalışanı 8× verim bandında. Hedef gerisinde kalanlara aylık koçluk ve portföy dağıtımı iyi gelir.`,
+      vurguSayi: `${satisVerimli} kişi`,
+    });
+
+    list.push({
+      ton: kidemliAdet >= Math.ceil(ozet.personelSayisi / 3) ? "pozitif" : "dikkat",
+      baslik: "Kıdem omurgası korunuyor",
+      detay:
+        kidemliAdet >= Math.ceil(ozet.personelSayisi / 3)
+          ? `${kidemliAdet} çalışan 5 yıl ve üzeri kıdeme sahip. Bilgi transferi tarafı güçlü.`
+          : `5 yıl üstü kıdeme sahip çalışan sayısı ${kidemliAdet}. Devir riski varsa süreç dokümantasyonu hızlanmalı.`,
+      vurguSayi: `${kidemliAdet} kişi`,
+    });
+
+    list.push({
+      ton: ozet.kisiBasiCiro > ozet.ortBrutMaas * 40 ? "firsat" : "dikkat",
+      baslik: "Kişi başı ciro çıtası net",
+      detay:
+        ozet.kisiBasiCiro > ozet.ortBrutMaas * 40
+          ? `Kişi başı yıllık ciro ${fmtTL(ozet.kisiBasiCiro)} ile bordro maliyetini rahat karşılıyor. Büyüme için seçici işe alım düşünülebilir.`
+          : `Kişi başı ciro ${fmtTL(ozet.kisiBasiCiro)} seviyesinde. Yeni alım yerine mevcut ekipte verim artışı önce denenmeli.`,
+      vurguSayi: fmtTL(ozet.kisiBasiCiro),
+    });
+
+    return list;
+  }, [finans.personel, ozet]);
 
   return (
     <>
@@ -646,6 +697,10 @@ export function PersonelSayfasi({ firma, finans }: Props) {
           } yıl tecrübe`}
           baglamRengi="notr"
         />
+      </section>
+
+      <section style={{ marginTop: 20 }}>
+        <AiYorumKart sayfaBasligi="Personel" maddeler={aiMaddeler} />
       </section>
     </>
   );

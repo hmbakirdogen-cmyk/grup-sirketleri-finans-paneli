@@ -13,12 +13,16 @@ import {
   Calculator,
   Layers,
   Search,
-  Sparkles,
-  ArrowRight,
   Building2,
+  CalendarDays,
+  FileSignature,
+  Package,
+  Briefcase,
+  Network,
   type LucideIcon,
 } from "lucide-react";
 import { FIRMALAR } from "@/data/firmalar";
+import { notify } from "@/lib/notify";
 import { TEMA, FONT } from "@/lib/tema";
 import type { FirmaId } from "@/types/domain";
 import type { Sekme } from "./SekmeNav";
@@ -74,9 +78,14 @@ export function CommandPalette({
     const base: SekmeOgesi[] = [
       { id: "nabiz", ad: "Nabız", icon: Activity, renk: "#22c55e" },
       { id: "akis", ad: "Akış", icon: TrendingUp, renk: "#f59e0b" },
+      { id: "yarin90", ad: "Yarın 90", icon: CalendarDays, renk: "#38bdf8" },
       { id: "alacaklar", ad: "Alacaklar", icon: Users, renk: "#0ea5e9" },
+      { id: "ceksenet", ad: "Çek/Senet", icon: FileSignature, renk: "#f97316" },
+      { id: "urun", ad: "Ürün Marjı", icon: Package, renk: "#10b981" },
+      { id: "personel", ad: "Personel", icon: Briefcase, renk: "#a78bfa" },
       { id: "raporlar", ad: "Raporlar", icon: FileText, renk: "#06b6d4" },
       { id: "vergi", ad: "Vergi Atölyesi", icon: Calculator, renk: "#d946ef" },
+      { id: "isbirligi", ad: "İş Birliği", icon: Network, renk: "#14b8a6" },
       { id: "ayarlar", ad: "Ayarlar", icon: Settings, renk: "#94a3b8" },
     ];
     if (konsolideErisim) {
@@ -84,23 +93,6 @@ export function CommandPalette({
     }
     return base;
   }, [konsolideErisim]);
-
-  const aiOnerileri = useMemo(() => {
-    if (q.trim().length < 2) {
-      return [
-        "MEBA bu ay nakit pozisyon",
-        "MESA top 10 cari",
-        "ELMOS marj sapması analizi",
-        "Konsolide grup yıllık kâr",
-      ];
-    }
-    return [
-      `"${q}" için detay raporu hazırla`,
-      `"${q}" cari listesinde ara`,
-      `"${q}" hakkında AI yorumu`,
-    ];
-  }, [q]);
-
   if (!open) return null;
 
   return (
@@ -145,7 +137,6 @@ export function CommandPalette({
           boxShadow: "0 32px 80px rgba(0,0,0,0.50), inset 0 1px 0 rgba(255,255,255,0.05)",
           fontFamily: FONT.ana,
         }}
-        filter={() => 1}
         loop
       >
         <div
@@ -161,7 +152,7 @@ export function CommandPalette({
           <Command.Input
             value={q}
             onValueChange={setQ}
-            placeholder="Sayfa, firma, AI sorgu ara…"
+            placeholder="Sayfa, firma, kayıt ara…"
             style={{
               flex: 1,
               background: "transparent",
@@ -204,39 +195,8 @@ export function CommandPalette({
             Eşleşen sonuç yok.
           </Command.Empty>
 
-          {/* AI Hızlı Sorgu */}
-          <GrupBaslik>AI Hızlı Sorgu</GrupBaslik>
-          {aiOnerileri.map((oneri) => (
-            <Command.Item
-              key={oneri}
-              value={`ai-${oneri}`}
-              onSelect={() => {
-                console.log("AI sorgu:", oneri);
-                onOpenChange(false);
-              }}
-              style={ogeStili}
-            >
-              <span
-                style={{
-                  display: "grid",
-                  placeItems: "center",
-                  width: 28,
-                  height: 28,
-                  borderRadius: 8,
-                  background: "rgba(139,92,246,0.15)",
-                  color: "#a78bfa",
-                  flexShrink: 0,
-                }}
-              >
-                <Sparkles size={14} />
-              </span>
-              <span style={{ flex: 1, color: TEMA.ink }}>{oneri}</span>
-              <ArrowRight size={12} color={TEMA.inkFaded} />
-            </Command.Item>
-          ))}
-
           {/* Sayfalar */}
-          <GrupBaslik style={{ marginTop: 12 }}>Sayfalar</GrupBaslik>
+          <GrupBaslik>Sayfalar</GrupBaslik>
           {sekmeler.map((s) => {
             const Ic = s.icon;
             return (
@@ -325,6 +285,29 @@ export function CommandPalette({
             color: TEMA.inkFaded,
           }}
         >
+          <button
+            type="button"
+            onClick={() => {
+              notify.info("Komut paleti muhasebe odaklı çalışıyor", {
+                description:
+                  q.trim().length > 0
+                    ? `"${q}" ifadesi sayfa ve firma aramasında kullanılıyor. Dış veri ya da serbest AI sorgusu açılmadı.`
+                    : "Sayfa geçişleri, firma seçimi ve iç aksiyonlar bu paletten yönetilir.",
+              });
+            }}
+            style={{
+              marginRight: "auto",
+              background: "transparent",
+              border: "none",
+              color: TEMA.inkFaded,
+              fontSize: 10.5,
+              cursor: "pointer",
+              padding: 0,
+              fontFamily: FONT.ana,
+            }}
+          >
+            Sadece muhasebe verisi ile çalışır
+          </button>
           <KisayolEtiket k="↑↓" ad="dolaş" />
           <KisayolEtiket k="↵" ad="seç" />
           <KisayolEtiket k="ESC" ad="kapat" />

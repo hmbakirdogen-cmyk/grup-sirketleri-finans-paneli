@@ -2,6 +2,7 @@
 
 import { useMemo } from "react";
 import { FileText, Coins, Wallet, TrendingUp } from "lucide-react";
+import { AiYorumKart, type AiYorumMaddesi } from "@/components/dash/AiYorumKart";
 import { KpiKart } from "@/components/dash/KpiKart";
 import { OzetKart } from "@/components/dash/OzetKart";
 import { TEMA, FONT, fmtTL, fmtYuzde } from "@/lib/tema";
@@ -47,6 +48,58 @@ export function RaporlarSayfasi({ firma, finans }: Props) {
       netMarj,
     };
   }, [finans]);
+
+  const aiMaddeler = useMemo<AiYorumMaddesi[]>(() => {
+    const list: AiYorumMaddesi[] = [];
+
+    list.push({
+      ton: ozet.cariOran >= 1.5 ? "pozitif" : ozet.cariOran >= 1 ? "dikkat" : "kritik",
+      baslik: "Likidite fotoğrafı net",
+      detay:
+        ozet.cariOran >= 1.5
+          ? `Cari oran ${ozet.cariOran.toFixed(2)} ile kısa vadeli yükümlülükler rahat taşınıyor.`
+          : ozet.cariOran >= 1
+            ? `Cari oran ${ozet.cariOran.toFixed(2)}. Tampon var ama büyük ödeme haftalarında ek dikkat gerekir.`
+            : `Cari oran ${ozet.cariOran.toFixed(2)} ile kısa vadeli baskı yüksek. Nakit planı ve tahsilat yakın izlenmeli.`,
+      vurguSayi: ozet.cariOran.toFixed(2),
+    });
+
+    list.push({
+      ton: ozet.netMarj > 10 ? "pozitif" : ozet.netMarj > 5 ? "firsat" : "kritik",
+      baslik: "Net kâr marjı karar verdiriyor",
+      detay:
+        ozet.netMarj > 10
+          ? `Net marj %${ozet.netMarj.toFixed(1)} ile güçlü. Kârlılık sadece ciroyla değil operasyon kalitesiyle de destekleniyor.`
+          : ozet.netMarj > 5
+            ? `Net marj %${ozet.netMarj.toFixed(1)}. Maliyet ve finansman tarafında küçük iyileştirmeler ciddi fark yaratır.`
+            : `Net marj %${ozet.netMarj.toFixed(1)} seviyesinde. Kâğıt üstü ciro var ama alta kalan kâr zayıf.`,
+      vurguSayi: `%${ozet.netMarj.toFixed(1)}`,
+    });
+
+    list.push({
+      ton: ozet.borcOzKaynak <= 1 ? "pozitif" : ozet.borcOzKaynak <= 2 ? "dikkat" : "kritik",
+      baslik: "Kaldıraç seviyesi okunuyor",
+      detay:
+        ozet.borcOzKaynak <= 1
+          ? `Borç/öz kaynak ${ozet.borcOzKaynak.toFixed(2)}. Bilanço yükü öz kaynakla dengede.`
+          : ozet.borcOzKaynak <= 2
+            ? `Borç/öz kaynak ${ozet.borcOzKaynak.toFixed(2)}. Yeni yatırım düşünülürse finansman maliyeti ayrıca hesaplanmalı.`
+            : `Borç/öz kaynak ${ozet.borcOzKaynak.toFixed(2)} ile yükselmiş. Kredi ve tedarikçi baskısı bilanço esnekliğini düşürüyor.`,
+      vurguSayi: ozet.borcOzKaynak.toFixed(2),
+    });
+
+    list.push({
+      ton: ozet.pasifToplam >= ozet.aktifToplam * 0.98 && ozet.pasifToplam <= ozet.aktifToplam * 1.02 ? "pozitif" : "dikkat",
+      baslik: "Bilanço dengesi tutarlı",
+      detay:
+        ozet.pasifToplam >= ozet.aktifToplam * 0.98 && ozet.pasifToplam <= ozet.aktifToplam * 1.02
+          ? "Aktif ve pasif toplamları dengeli. Muhasebe fotoğrafı yönetim okunurluğu açısından temiz."
+          : "Bilanço grupları arasında yeniden sınıflama ihtiyacı olabilir; özellikle alt kalem kırılımları gözden geçirilmeli.",
+      vurguSayi: fmtTL(ozet.aktifToplam),
+    });
+
+    return list;
+  }, [ozet]);
 
   return (
     <>
@@ -169,6 +222,10 @@ export function RaporlarSayfasi({ firma, finans }: Props) {
           baglam={ozet.netMarj > 10 ? "Güçlü" : ozet.netMarj > 5 ? "Orta" : "Zayıf"}
           baglamRengi={ozet.netMarj > 10 ? "iyi" : ozet.netMarj > 5 ? "notr" : "kotu"}
         />
+      </section>
+
+      <section style={{ marginTop: 20 }}>
+        <AiYorumKart sayfaBasligi="Mali Raporlar" maddeler={aiMaddeler} />
       </section>
     </>
   );

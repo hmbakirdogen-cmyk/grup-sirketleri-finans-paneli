@@ -4,6 +4,7 @@
 
 import { useMemo, useState } from "react";
 import { Package, TrendingUp, Star, AlertTriangle, ArrowUpRight, ArrowDownRight } from "lucide-react";
+import { AiYorumKart, type AiYorumMaddesi } from "@/components/dash/AiYorumKart";
 import { KpiKart } from "@/components/dash/KpiKart";
 import { OzetKart } from "@/components/dash/OzetKart";
 import { TEMA, FONT, fmtTL, rengiKaristir } from "@/lib/tema";
@@ -69,6 +70,60 @@ export function UrunMarjiSayfasi({ firma, finans }: Props) {
     if (sira === "trend") liste.sort((a, b) => b.trend - a.trend);
     return liste;
   }, [ozet, sira, seciliSegment]);
+
+  const aiMaddeler = useMemo<AiYorumMaddesi[]>(() => {
+    const list: AiYorumMaddesi[] = [];
+    const dusukMarjliAdet = ozet.urunler.filter((u) => u.marj < 18).length;
+    const negatifTrendliAdet = ozet.urunler.filter((u) => u.trend < 0).length;
+    const ilkSegment = ozet.segmentler[0];
+
+    if (ozet.ortMarj >= 24) {
+      list.push({
+        ton: "pozitif",
+        baslik: "Ürün karması marjı taşıyor",
+        detay: `Ortalama brüt marj %${ozet.ortMarj.toFixed(1)} seviyesinde. Fiyat disiplini korunursa bu yapı nakdi rahatlatır.`,
+        vurguSayi: `%${ozet.ortMarj.toFixed(1)}`,
+      });
+    } else {
+      list.push({
+        ton: ozet.ortMarj < 18 ? "kritik" : "dikkat",
+        baslik: "Marj karışımı yeniden gözden geçirilmeli",
+        detay: `Ortalama marj %${ozet.ortMarj.toFixed(1)}. Düşük marjlı ürünlerde iskontoyu ve maliyet geçişini yeniden ele almak gerekir.`,
+        vurguSayi: `%${ozet.ortMarj.toFixed(1)}`,
+      });
+    }
+
+    if (ilkSegment) {
+      list.push({
+        ton: "firsat",
+        baslik: `${ilkSegment.ad} segmenti ana taşıyıcı`,
+        detay: `Cironun %${ilkSegment.oran.toFixed(0)}'i bu segmentten geliyor. Stok, bayi odağı ve fiyat güncellemesi burada daha çok etki üretir.`,
+        vurguSayi: `%${ilkSegment.oran.toFixed(0)}`,
+      });
+    }
+
+    list.push({
+      ton: negatifTrendliAdet > 0 ? "dikkat" : "pozitif",
+      baslik: negatifTrendliAdet > 0 ? "Yavaşlayan ürünler var" : "Trend tarafı dengeli",
+      detay:
+        negatifTrendliAdet > 0
+          ? `${negatifTrendliAdet} ürün geçen yıla göre geri gidiyor. Raf temizliği, kampanya ya da fiyat revizyonu gerekebilir.`
+          : "Negatif trendli ürün görünmüyor. Mevcut portföy büyümeyi destekliyor.",
+      vurguSayi: `${negatifTrendliAdet} ürün`,
+    });
+
+    list.push({
+      ton: dusukMarjliAdet > 0 ? "kritik" : "pozitif",
+      baslik: dusukMarjliAdet > 0 ? "Alt marj bandı kontrol altında tutulmalı" : "Düşük marjlı ürün baskısı yok",
+      detay:
+        dusukMarjliAdet > 0
+          ? `${dusukMarjliAdet} ürün %18 marjın altında kaldı. Bu ürünler teklif verirken ayrıca işaretlenmeli.`
+          : "Ürünlerin tamamı kabul edilebilir marj bandında. Ek büyüme fırsatı daha rahat aranabilir.",
+      vurguSayi: `${dusukMarjliAdet} ürün`,
+    });
+
+    return list;
+  }, [ozet]);
 
   return (
     <>
@@ -454,6 +509,10 @@ export function UrunMarjiSayfasi({ firma, finans }: Props) {
           }
           baglamRengi={ozet.enYavasUrun && ozet.enYavasUrun.trend < 0 ? "kotu" : "notr"}
         />
+      </section>
+
+      <section style={{ marginTop: 20 }}>
+        <AiYorumKart sayfaBasligi="Ürün Marjı" maddeler={aiMaddeler} />
       </section>
     </>
   );

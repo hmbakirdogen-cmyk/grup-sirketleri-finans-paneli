@@ -15,6 +15,7 @@ import {
   Sliders,
   RotateCcw,
 } from "lucide-react";
+import { AiYorumKart, type AiYorumMaddesi } from "@/components/dash/AiYorumKart";
 import { KpiKart } from "@/components/dash/KpiKart";
 import { OzetKart } from "@/components/dash/OzetKart";
 import { Chart3DBackdrop } from "@/components/dash/Chart3DBackdrop";
@@ -59,14 +60,14 @@ export function Yarin90GunSayfasi({ firma, finans }: Props) {
     const toplam = netler.reduce((s, n) => s + n, 0);
     const pozitifGun = netler.filter((n) => n > 0).length;
     const negatifGun = netler.filter((n) => n < 0).length;
-    const enBuyukGiris = Math.max(...netler);
-    const enBuyukCikis = Math.min(...netler);
+    const enBuyukGiris = netler.length > 0 ? Math.max(...netler) : 0;
+    const enBuyukCikis = netler.length > 0 ? Math.min(...netler) : 0;
 
     // Kümülatif nakit pozisyon (basit yaklaşım: bugünden başlar, gün gün toplar)
     let kumulatif = 0;
     const kumDizi = netler.map((n) => (kumulatif += n));
-    const enDusukKumulatif = Math.min(...kumDizi);
-    const enDusukIdx = kumDizi.indexOf(enDusukKumulatif);
+    const enDusukKumulatif = kumDizi.length > 0 ? Math.min(...kumDizi) : 0;
+    const enDusukIdx = kumDizi.length > 0 ? kumDizi.indexOf(enDusukKumulatif) : -1;
 
     return {
       toplam,
@@ -80,10 +81,10 @@ export function Yarin90GunSayfasi({ firma, finans }: Props) {
     };
   }, [islenmis]);
 
-  const maxAbs = useMemo(
-    () => Math.max(...islenmis.map((g) => Math.abs(gunNetNakit(g)))),
-    [islenmis],
-  );
+  const maxAbs = useMemo(() => {
+    const tumNetler = islenmis.map((g) => Math.abs(gunNetNakit(g)));
+    return tumNetler.length > 0 ? Math.max(...tumNetler) : 1;
+  }, [islenmis]);
 
   // Haftalara böl — 13 hafta (90 gün)
   const haftalar = useMemo(() => {
@@ -93,6 +94,55 @@ export function Yarin90GunSayfasi({ firma, finans }: Props) {
     }
     return h;
   }, [islenmis]);
+
+  const aiMaddeler = useMemo<AiYorumMaddesi[]>(() => {
+    const list: AiYorumMaddesi[] = [];
+    const enRiskliGun = islenmis[ozet.enDusukIdx];
+    const riskOrani = (ozet.negatifGun / Math.max(islenmis.length, 1)) * 100;
+
+    list.push({
+      ton: ozet.toplam >= 0 ? "pozitif" : "kritik",
+      baslik: ozet.toplam >= 0 ? "90 gün toplamı artıda kapanıyor" : "90 gün toplamı ekside kapanıyor",
+      detay:
+        ozet.toplam >= 0
+          ? `Projeksiyon sonunda ${fmtTL(ozet.toplam)} net tampon oluşuyor. Büyük ödeme haftaları yönetilebilir görünüyor.`
+          : `Projeksiyon sonunda ${fmtTL(Math.abs(ozet.toplam))} açık var. Tahsilat hızlanmadan rahat bir dönem görünmüyor.`,
+      vurguSayi: fmtTL(ozet.toplam),
+    });
+
+    list.push({
+      ton: riskOrani < 20 ? "pozitif" : riskOrani < 35 ? "dikkat" : "kritik",
+      baslik: "Negatif gün yoğunluğu netleşti",
+      detay:
+        riskOrani < 20
+          ? `Sadece %${riskOrani.toFixed(0)} gün negatifte. Nakit akışı genel olarak dengeli.`
+          : `Negatif gün oranı %${riskOrani.toFixed(0)}. Özellikle tahsilat gecikirse kırmızı bölge büyür.`,
+      vurguSayi: `%${riskOrani.toFixed(0)}`,
+    });
+
+    if (enRiskliGun) {
+      list.push({
+        ton: "dikkat",
+        baslik: "En zayıf gün şimdiden belli",
+        detay: `${new Date(enRiskliGun.tarih).toLocaleDateString("tr-TR", {
+          day: "numeric",
+          month: "long",
+        })} çevresinde kümülatif dip ${fmtTL(ozet.enDusukKumulatif)} seviyesine iniyor. O haftaya ön tahsilat konulmalı.`,
+        vurguSayi: fmtTL(ozet.enDusukKumulatif),
+      });
+    }
+
+    list.push({
+      ton: vergiErtelemesi ? "firsat" : "dikkat",
+      baslik: vergiErtelemesi ? "Vergi ertelemesi tampon yaratıyor" : "Tahsilat senaryosu ana kaldıraç",
+      detay: vergiErtelemesi
+        ? "Devlet çıkışlarını ötelemek haritada rahatlama yarattı; fakat bu yalnızca geçici nefes olarak okunmalı."
+        : `Tahsilat çarpanı ×${tahsilatHizi.toFixed(2)} seviyesinde. En büyük etkiyi stok değil tahsilat ritmi üretiyor.`,
+      vurguSayi: `×${tahsilatHizi.toFixed(2)}`,
+    });
+
+    return list;
+  }, [islenmis, ozet, tahsilatHizi, vergiErtelemesi]);
 
   function sifirla() {
     setTahsilatHizi(1.0);
@@ -597,6 +647,10 @@ export function Yarin90GunSayfasi({ firma, finans }: Props) {
           }
           baglamRengi={ozet.negatifGun > 30 ? "kotu" : ozet.toplam < 0 ? "kotu" : "iyi"}
         />
+      </section>
+
+      <section style={{ marginTop: 20 }}>
+        <AiYorumKart sayfaBasligi="Yarın 90 Gün" maddeler={aiMaddeler} />
       </section>
     </>
   );

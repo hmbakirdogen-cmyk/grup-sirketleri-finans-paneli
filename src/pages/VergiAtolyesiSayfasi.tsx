@@ -6,7 +6,9 @@
 
 import { useMemo, useState } from "react";
 import { Calculator, FileDown, Info, Send } from "lucide-react";
+import { AiYorumKart, type AiYorumMaddesi } from "@/components/dash/AiYorumKart";
 import { KpiKart } from "@/components/dash/KpiKart";
+import { notify } from "@/lib/notify";
 import { TEMA, FONT, fmtTL, rengiKaristir } from "@/lib/tema";
 import type { Firma, FirmaFinans } from "@/types/domain";
 
@@ -64,6 +66,61 @@ export function VergiAtolyesiSayfasi({ firma, finans }: Props) {
 
   const vergiDelta = senaryo.vergi - bazSenaryo.vergi;
   const stokSinir = baz.smmQ * 0.20; // ±%20 slider sınırı
+
+  const aiMaddeler = useMemo<AiYorumMaddesi[]>(() => {
+    const list: AiYorumMaddesi[] = [];
+
+    list.push({
+      ton: vergiDelta < 0 ? "pozitif" : vergiDelta > 0 ? "dikkat" : "firsat",
+      baslik:
+        vergiDelta < 0
+          ? "Senaryo vergi tasarrufu üretiyor"
+          : vergiDelta > 0
+            ? "Senaryo vergiyi yukarı taşıyor"
+            : "Senaryo bazla aynı kaldı",
+      detay:
+        vergiDelta < 0
+          ? `${fmtTL(Math.abs(vergiDelta))} daha düşük geçici vergi çıkıyor. Bu farkın dayanağı stok ve yöntem notuyla birlikte saklanmalı.`
+          : vergiDelta > 0
+            ? `${fmtTL(vergiDelta)} ek vergi baskısı oluşuyor. Stok artışı ya da yöntem tercihi matrahı yukarı taşıdı.`
+            : "Mevcut ayar baz senaryoyu değiştirmedi. Muhasebeci görüşmesinde temel referans korunabilir.",
+      vurguSayi: fmtTL(vergiDelta),
+    });
+
+    list.push({
+      ton: yontem === "fifo" ? "firsat" : "dikkat",
+      baslik: yontem === "fifo" ? "FIFO etkisi görünür oldu" : "Ağırlıklı ortalama muhafazakâr kaldı",
+      detay:
+        yontem === "fifo"
+          ? "FIFO seçimi enflasyon etkisini daha net gösteriyor. Yöntem değişikliği hukuki zeminde ayrıca teyit edilmeden uygulanmamalı."
+          : "Ağırlıklı ortalama daha güvenli baz senaryo sunuyor. Kayıt disiplini açısından savunması daha rahat.",
+      vurguSayi: yontem.toUpperCase(),
+    });
+
+    list.push({
+      ton: stokAyar > 0 ? "dikkat" : stokAyar < 0 ? "firsat" : "pozitif",
+      baslik: "Stok ayarı matrahı doğrudan oynatıyor",
+      detay:
+        stokAyar > 0
+          ? "Pozitif stok ayarı SMM'yi aşağı çekip matrahı yükseltti. Sayım farkı gerçekten desteklenmiyorsa risk doğurur."
+          : stokAyar < 0
+            ? "Negatif stok ayarı SMM'yi yukarı çekip geçici vergi yükünü azalttı. Envanter tutarlılığı mutlaka kontrol edilmeli."
+            : "Stok ayarı sıfırda kaldığı için temel maliyet fotoğrafı korunuyor.",
+      vurguSayi: fmtTL(stokAyar),
+    });
+
+    list.push({
+      ton: senaryo.matrah > bazSenaryo.matrah ? "dikkat" : "pozitif",
+      baslik: "Matrah etkisi konuşma notuna bağlanmalı",
+      detay:
+        senaryo.matrah > bazSenaryo.matrah
+          ? `Senaryo matrahı ${fmtTL(senaryo.matrah)} seviyesine çıktı. Muhasebeci görüşmesine bu farkın sebebi kısa not olarak eklenmeli.`
+          : `Senaryo matrahı ${fmtTL(senaryo.matrah)} seviyesinde kaldı. Uygulama notu ve belge iziyle birlikte savunulabilir görünüyor.`,
+      vurguSayi: fmtTL(senaryo.matrah),
+    });
+
+    return list;
+  }, [bazSenaryo.matrah, senaryo.matrah, stokAyar, vergiDelta, yontem]);
 
   return (
     <>
@@ -391,6 +448,11 @@ export function VergiAtolyesiSayfasi({ firma, finans }: Props) {
         </div>
         <button
           type="button"
+          onClick={() =>
+            notify.success("Vergi senaryosu Osman Bey icin hazirlandi", {
+              description: `${yontem === "fifo" ? "FIFO" : "Agirlikli ortalama"} · stok ayari ${fmtTL(stokAyar)} · gecici vergi ${fmtTL(senaryo.vergi)}`,
+            })
+          }
           style={{
             display: "inline-flex",
             alignItems: "center",
@@ -411,6 +473,10 @@ export function VergiAtolyesiSayfasi({ firma, finans }: Props) {
           <Send size={14} />
           Osman Bey'e Gönder
         </button>
+      </section>
+
+      <section style={{ marginTop: 20 }}>
+        <AiYorumKart sayfaBasligi="Vergi Atölyesi" maddeler={aiMaddeler} />
       </section>
     </>
   );

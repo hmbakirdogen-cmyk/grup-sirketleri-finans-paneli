@@ -18,6 +18,7 @@ import { AnaGrafik } from "@/components/dash/AnaGrafik";
 import { OzetKart } from "@/components/dash/OzetKart";
 import { Chart3DBackdrop } from "@/components/dash/Chart3DBackdrop";
 import { KategoriDagilim } from "@/components/dash/KategoriDagilim";
+import { AiYorumKart, type AiYorumMaddesi } from "@/components/dash/AiYorumKart";
 import { TEMA, FONT, fmtTL, fmtYuzde } from "@/lib/tema";
 import type { Firma, FirmaFinans } from "@/types/domain";
 
@@ -61,6 +62,73 @@ export function AkisSayfasi({ firma, finans }: Props) {
 
   const sparkGelir = finans.yillarTrend.map((y) => y.y2026);
   const sparkGider = finans.yillarTrend.map((y) => Math.round(y.y2026 * 0.78));
+
+  const aiMaddeler = useMemo<AiYorumMaddesi[]>(() => {
+    const list: AiYorumMaddesi[] = [];
+
+    // 1) Net akış pozitif/negatif
+    if (ozet.aylikNetAkis > 0) {
+      list.push({
+        ton: "pozitif",
+        baslik: "Aylık net akış pozitif",
+        detay: `Her ay ortalama ${fmtTL(ozet.aylikNetAkis)} kasada birikiyor. Bu tampon, büyük SMC siparişlerinde peşin avantajı için biriktirilebilir.`,
+        vurguSayi: fmtTL(ozet.aylikNetAkis),
+      });
+    } else {
+      list.push({
+        ton: "kritik",
+        baslik: "Aylık net akış negatif",
+        detay: `Her ay ortalama ${fmtTL(Math.abs(ozet.aylikNetAkis))} kasadan eksiliyor. Gider tarafı sadeleştirilmeli; Furkan Bey'le bir oturum konuşulmalı.`,
+        vurguSayi: fmtTL(ozet.aylikNetAkis),
+      });
+    }
+
+    // 2) En hızlı büyüyen gelir
+    if (ozet.enBuyuyenGelir) {
+      list.push({
+        ton: "firsat",
+        baslik: `${ozet.enBuyuyenGelir.ad} öne çıkıyor`,
+        detay: `Yıllık +${ozet.enBuyuyenGelir.trend.toFixed(1)}% büyüme. Bu kanala özel ekstra çaba (ekip yönlendirmesi, stok rezervi, kampanya) düşünülebilir.`,
+        vurguSayi: `+%${ozet.enBuyuyenGelir.trend.toFixed(1)}`,
+      });
+    }
+
+    // 3) En hızlı artan gider
+    if (ozet.enArtanGider && ozet.enArtanGider.trend > 5) {
+      list.push({
+        ton: "dikkat",
+        baslik: `${ozet.enArtanGider.ad} kalemi şişiyor`,
+        detay: `Yıllık +${ozet.enArtanGider.trend.toFixed(1)}% artış. Maliyet sözleşmeleri masada gözden geçirilmeli; alternatif tedarikçi araştırılabilir.`,
+        vurguSayi: `+%${ozet.enArtanGider.trend.toFixed(1)}`,
+      });
+    }
+
+    // 4) Operasyon marjı durumu
+    if (ozet.operasyonMarji >= 18) {
+      list.push({
+        ton: "pozitif",
+        baslik: "Operasyon marjı sağlıklı",
+        detay: `%${ozet.operasyonMarji.toFixed(1)} ile pnömatik dağıtım sektörü için iyi seviyede. Bu konfor SaaS/eğitim gibi yan girişimlere imkân tanır.`,
+        vurguSayi: `%${ozet.operasyonMarji.toFixed(1)}`,
+      });
+    } else if (ozet.operasyonMarji >= 10) {
+      list.push({
+        ton: "firsat",
+        baslik: "Operasyon marjı orta",
+        detay: `%${ozet.operasyonMarji.toFixed(1)} marjı sektör ortalamasının üstünde ama hedef %18+ olmalı. Servis/eğitim gelirleri eklemek tampon yaratır.`,
+        vurguSayi: `%${ozet.operasyonMarji.toFixed(1)}`,
+      });
+    } else {
+      list.push({
+        ton: "kritik",
+        baslik: "Operasyon marjı dar",
+        detay: `%${ozet.operasyonMarji.toFixed(1)} ile tampon ince. Sabit gider tarafında kira/personel/yakıt kalemlerine sıkı bakmak gerekir.`,
+        vurguSayi: `%${ozet.operasyonMarji.toFixed(1)}`,
+      });
+    }
+
+    return list;
+  }, [ozet]);
 
   return (
     <>
@@ -232,6 +300,11 @@ export function AkisSayfasi({ firma, finans }: Props) {
           }
           baglamRengi={ozet.marjDelta > 0 ? "iyi" : "kotu"}
         />
+      </section>
+
+      {/* AI Yorum — para akışı verisinden Anadolu iş dili çıkarımlar */}
+      <section style={{ marginTop: 20 }}>
+        <AiYorumKart sayfaBasligi="Para Akışı" maddeler={aiMaddeler} />
       </section>
     </>
   );

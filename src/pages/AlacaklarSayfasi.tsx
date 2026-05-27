@@ -7,6 +7,7 @@ import { KpiKart } from "@/components/dash/KpiKart";
 import { OzetKart } from "@/components/dash/OzetKart";
 import { YoneticiOzeti } from "@/components/dash/YoneticiOzeti";
 import { CariDetayDrawer } from "@/components/dash/CariDetayDrawer";
+import { AiYorumKart, type AiYorumMaddesi } from "@/components/dash/AiYorumKart";
 import { TEMA, FONT, fmtTL } from "@/lib/tema";
 import type { Cari, Firma, FirmaFinans } from "@/types/domain";
 
@@ -55,6 +56,89 @@ export function AlacaklarSayfasi({ firma, finans }: Props) {
       enBuyuk,
     };
   }, [finans]);
+
+  const aiMaddeler = useMemo<AiYorumMaddesi[]>(() => {
+    const list: AiYorumMaddesi[] = [];
+    const gecmisOran =
+      ozet.toplamAlacak > 0
+        ? (ozet.dagilim.vadeGecmis / ozet.toplamAlacak) * 100
+        : 0;
+    const kisaOran =
+      ozet.toplamAlacak > 0
+        ? (ozet.dagilim.kisaVade / ozet.toplamAlacak) * 100
+        : 0;
+
+    // 1) Vade geçmiş durumu
+    if (ozet.dagilim.vadeGecmis === 0) {
+      list.push({
+        ton: "pozitif",
+        baslik: "Vade geçmiş alacak yok",
+        detay: `Mehmet Bey, tüm açık alacaklar vade içinde. ${firma.kisaAd} tahsilat disiplini bu ay net çalışıyor.`,
+        vurguSayi: "0 ₺",
+      });
+    } else if (gecmisOran < 5) {
+      list.push({
+        ton: "dikkat",
+        baslik: "Vade geçmiş küçük ama var",
+        detay: `${fmtTL(ozet.dagilim.vadeGecmis)} (%${gecmisOran.toFixed(1)}) 90+ günde takıldı. Bir hatırlatma turuyla kapanabilir.`,
+        vurguSayi: fmtTL(ozet.dagilim.vadeGecmis),
+      });
+    } else {
+      list.push({
+        ton: "kritik",
+        baslik: "Vade geçmiş yığını büyüyor",
+        detay: `${fmtTL(ozet.dagilim.vadeGecmis)} (%${gecmisOran.toFixed(1)}) 90+ gün geride. Mutabakat + ödeme planı acil masaya gelmeli.`,
+        vurguSayi: fmtTL(ozet.dagilim.vadeGecmis),
+      });
+    }
+
+    // 2) En riskli cari
+    if (ozet.enRiskli[0] && ozet.enRiskli[0].vadesi > 60) {
+      const r = ozet.enRiskli[0];
+      list.push({
+        ton: "dikkat",
+        baslik: `${r.ad} en geç vadeli`,
+        detay: `${r.vadesi} gün vadede ${fmtTL(r.acikBakiye)} bekliyor. Telefonda nazikçe hatırlatma + ödeme planı önerisi uygun olur.`,
+        vurguSayi: `${r.vadesi} gün`,
+      });
+    }
+
+    // 3) Net pozisyon
+    if (ozet.netPozisyon > 0) {
+      list.push({
+        ton: "firsat",
+        baslik: "Net pozisyon olumlu",
+        detay: `Tahsilat tarafı borçtan ${fmtTL(ozet.netPozisyon)} fazla. Erken ödeme indirimleri için bu tampon iyi kullanılabilir.`,
+        vurguSayi: fmtTL(ozet.netPozisyon),
+      });
+    } else {
+      list.push({
+        ton: "kritik",
+        baslik: "Net pozisyon negatif",
+        detay: `Borç alacağı ${fmtTL(Math.abs(ozet.netPozisyon))} aşıyor. SMC ödeme planı + bayilerden hızlandırma birlikte düşünülmeli.`,
+        vurguSayi: fmtTL(ozet.netPozisyon),
+      });
+    }
+
+    // 4) Kısa vade konsantrasyonu
+    if (kisaOran >= 60) {
+      list.push({
+        ton: "pozitif",
+        baslik: "Tahsilatın çoğu kısa vadede",
+        detay: `Açık alacağın %${kisaOran.toFixed(0)}'ı 30 gün içinde gelecek. Nakit planı rahat kuruluyor.`,
+        vurguSayi: `%${kisaOran.toFixed(0)}`,
+      });
+    } else {
+      list.push({
+        ton: "firsat",
+        baslik: "Vade dağılımı uzuna kayık",
+        detay: `Kısa vade payı %${kisaOran.toFixed(0)}. Erken ödeme iskontosu (örn. 15 günde %1) teklif edilirse tahsilat hızı artar.`,
+        vurguSayi: `%${kisaOran.toFixed(0)}`,
+      });
+    }
+
+    return list;
+  }, [ozet, firma.kisaAd]);
 
   return (
     <>
@@ -337,6 +421,11 @@ export function AlacaklarSayfasi({ firma, finans }: Props) {
           baglam="Açık borcu olan cari"
           baglamRengi="notr"
         />
+      </section>
+
+      {/* AI Yorum — alacak/vade verisinden Anadolu iş dili çıkarımlar */}
+      <section style={{ marginTop: 20 }}>
+        <AiYorumKart sayfaBasligi="Alacaklar" maddeler={aiMaddeler} />
       </section>
 
       <CariDetayDrawer

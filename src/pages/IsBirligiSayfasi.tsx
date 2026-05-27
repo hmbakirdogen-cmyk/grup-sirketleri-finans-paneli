@@ -3,7 +3,7 @@
 // ilişki/fırsat odaklı; çapraz fırsat panosu + ortak müşteri haritası +
 // yönlendirme defteri + tedarikçi havuzu.
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import {
   Sparkles,
   Users,
@@ -11,6 +11,7 @@ import {
   Network,
   HandshakeIcon,
 } from "lucide-react";
+import { AiYorumKart, type AiYorumMaddesi } from "@/components/dash/AiYorumKart";
 import { KpiKart } from "@/components/dash/KpiKart";
 import { OzetKart } from "@/components/dash/OzetKart";
 import { FIRMALAR } from "@/data/firmalar";
@@ -20,6 +21,7 @@ import {
   YONLENDIRME_DEFTERI,
   TEDARIKCI_HAVUZU,
 } from "@/data/mock-grup-isbirligi";
+import { notify } from "@/lib/notify";
 import { TEMA, FONT, fmtTL } from "@/lib/tema";
 
 type Sekme = "firsat" | "musteri" | "yonlendirme" | "tedarikci";
@@ -34,6 +36,51 @@ export function IsBirligiSayfasi() {
     aktifYonlendirme: YONLENDIRME_DEFTERI.filter((y) => y.sonuc === "açık").length,
     tedarikciSayisi: TEDARIKCI_HAVUZU.length,
   };
+  const enBuyukFirsat = [...CAPRAZ_FIRSATLAR].sort((a, b) => b.potansiyelTutar - a.potansiyelTutar)[0]!;
+  const enBuyukOrtakMusteri = [...ORTAK_MUSTERILER].sort((a, b) => b.toplam - a.toplam)[0]!;
+  const enHacimliTedarikci = [...TEDARIKCI_HAVUZU].sort((a, b) => b.yillikHacim - a.yillikHacim)[0]!;
+  const yeniFirsatSayisi = CAPRAZ_FIRSATLAR.filter((f) => f.durum === "yeni").length;
+  const aktifVeKapaliYonlendirme = YONLENDIRME_DEFTERI.filter((y) => y.sonuc !== "iptal");
+  const kapananYonlendirme = aktifVeKapaliYonlendirme.filter((y) => y.sonuc === "kapandı").length;
+  const yonlendirmeBasariOrani =
+    (kapananYonlendirme / Math.max(aktifVeKapaliYonlendirme.length, 1)) * 100;
+
+  const aiMaddeler = useMemo<AiYorumMaddesi[]>(
+    () => [
+      {
+        ton: "firsat",
+        baslik: `${FIRMALAR[enBuyukFirsat.kaynakFirma].kisaAd} → ${FIRMALAR[enBuyukFirsat.hedefFirma].kisaAd} hattı sıcak`,
+        detay: `${enBuyukFirsat.musteri} için görünen en büyük çapraz fırsat ${fmtTL(enBuyukFirsat.potansiyelTutar)} seviyesinde. Mehmet Bey, bu pası bekletmeden ilgili ortağın masasına indirmek iyi olur.`,
+        vurguSayi: fmtTL(enBuyukFirsat.potansiyelTutar),
+      },
+      {
+        ton: yeniFirsatSayisi >= 3 ? "dikkat" : "pozitif",
+        baslik: "Yeni fırsat trafiği açık takip istiyor",
+        detay: `${yeniFirsatSayisi} fırsat henüz yeni statüde duruyor, ${ozet.aktifYonlendirme} yönlendirme ise hâlâ açık. Fırsat çok ama pas ritmi yavaşlarsa sıcaklık çabuk düşer.`,
+        vurguSayi: `${yeniFirsatSayisi} yeni`,
+      },
+      {
+        ton: "pozitif",
+        baslik: `${enBuyukOrtakMusteri.ad} grup içinde doğal köprü olmuş`,
+        detay: `${enBuyukOrtakMusteri.ad} toplam ${fmtTL(enBuyukOrtakMusteri.toplam)} hacimle birden fazla firmayı aynı masada buluşturuyor. Böyle müşteriler grup güvenini büyütür, çapraz tanışma için hazır zemin sağlar.`,
+        vurguSayi: fmtTL(enBuyukOrtakMusteri.toplam),
+      },
+      {
+        ton: yonlendirmeBasariOrani >= 50 ? "firsat" : "dikkat",
+        baslik: `${enHacimliTedarikci.ad} ortak alımda pazarlık gücü veriyor`,
+        detay: `${enHacimliTedarikci.kullanan.length} firma aynı tedarikçiden yıllık ${fmtTL(enHacimliTedarikci.yillikHacim)} hacim yapıyor. Yönlendirmelerde kapanış oranı %${yonlendirmeBasariOrani.toFixed(0)}; tedarik avantajı ile bunu biraz daha yukarı taşımak mümkün.`,
+        vurguSayi: `%${enHacimliTedarikci.iskontoOrani}`,
+      },
+    ],
+    [
+      enBuyukFirsat,
+      enBuyukOrtakMusteri,
+      enHacimliTedarikci,
+      yeniFirsatSayisi,
+      ozet.aktifYonlendirme,
+      yonlendirmeBasariOrani,
+    ],
+  );
 
   return (
     <>
@@ -198,6 +245,20 @@ export function IsBirligiSayfasi() {
           baglamRengi="iyi"
         />
       </section>
+
+      <div style={{ marginTop: 24 }}>
+        <AiYorumKart
+          sayfaBasligi="İş Birliği"
+          maddeler={aiMaddeler}
+          ctaMetni="Mehmet Bey, en sıcak iki fırsatı bugün ilgili ortağa paslayıp takip halkasını kapatalım mı?"
+          ctaButonMetni="Pası aç"
+          ctaAksiyonu={() =>
+            notify.success("İş birliği aksiyonu hazır", {
+              description: `${enBuyukFirsat.musteri} ve ${CAPRAZ_FIRSATLAR[1]?.musteri ?? enBuyukOrtakMusteri.ad} ilk takip listesine işlendi.`,
+            })
+          }
+        />
+      </div>
     </>
   );
 }

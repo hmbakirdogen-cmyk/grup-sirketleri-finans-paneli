@@ -10,12 +10,14 @@ import {
   Coins,
   Banknote,
 } from "lucide-react";
+import { AiYorumKart, type AiYorumMaddesi } from "@/components/dash/AiYorumKart";
 import { KpiKart } from "@/components/dash/KpiKart";
 import { AnaGrafik } from "@/components/dash/AnaGrafik";
 import { OzetKart } from "@/components/dash/OzetKart";
 import { Chart3DBackdrop } from "@/components/dash/Chart3DBackdrop";
 import { FIRMALAR } from "@/data/firmalar";
 import { FINANS_VERISI, konsolideOzetUret } from "@/data/mock-finans";
+import { notify } from "@/lib/notify";
 import { TEMA, FONT, fmtTL, fmtYuzde, rengiKaristir } from "@/lib/tema";
 import type { FirmaId, YilTrendNoktasi } from "@/types/domain";
 
@@ -70,7 +72,45 @@ export function KonsolideSayfasi() {
 
   const enBuyuk = firmaToplamlari[0]!;
   const enHizliBuyuyen = [...firmaToplamlari].sort((a, b) => b.delta - a.delta)[0]!;
-  const maxYillik = Math.max(...firmaToplamlari.map((f) => f.yillikCiro));
+  const maxYillik = Math.max(...firmaToplamlari.map((f) => f.yillikCiro), 1);
+  const enBuyukPay = (enBuyuk.yillikCiro / ozet.toplamCiro) * 100;
+  const ilkIkiToplam =
+    enBuyuk.yillikCiro + (firmaToplamlari[1]?.yillikCiro ?? 0);
+  const ilkIkiPay = (ilkIkiToplam / ozet.toplamCiro) * 100;
+  const netPozisyon = ozet.toplamAlacak - ozet.toplamBorc;
+
+  const aiMaddeler = useMemo<AiYorumMaddesi[]>(
+    () => [
+      {
+        ton: enBuyukPay >= 34 ? "dikkat" : "pozitif",
+        baslik: `${enBuyuk.firma.kisaAd} grup cirosunun lokomotifi`,
+        detay: `${enBuyuk.firma.kisaAd} tek başına ${fmtTL(enBuyuk.yillikCiro)} üretiyor. Konsolide resimde payı yüksek olduğu için bu firmadaki tempo düşerse grup toplamı da hemen hisseder.`,
+        vurguSayi: `%${enBuyukPay.toFixed(1)}`,
+      },
+      {
+        ton: enHizliBuyuyen.delta >= 12 ? "firsat" : "pozitif",
+        baslik: `${enHizliBuyuyen.firma.kisaAd} büyüme ivmesi çekiyor`,
+        detay: `${enHizliBuyuyen.firma.kisaAd} son 12 ayda ${enHizliBuyuyen.delta > 0 ? "+" : ""}${enHizliBuyuyen.delta.toFixed(0)}% hareket etmiş. Mehmet Bey, hangi satış modeli tuttuysa onu diğer firmalara da kopyalamak kıymetli olur.`,
+        vurguSayi: `${enHizliBuyuyen.delta > 0 ? "+" : ""}${enHizliBuyuyen.delta.toFixed(0)}%`,
+      },
+      {
+        ton: ilkIkiPay >= 70 ? "dikkat" : "pozitif",
+        baslik: "Konsolide yük iki firmanın sırtında toplanıyor",
+        detay: `İlk iki firma toplam ${fmtTL(ilkIkiToplam)} ile grubun %${ilkIkiPay.toFixed(1)}'ini taşıyor. Grup dengesi için üçüncü ve dördüncü firmanın da ritim alması önemli.`,
+        vurguSayi: `%${ilkIkiPay.toFixed(1)}`,
+      },
+      {
+        ton: netPozisyon >= 0 ? "pozitif" : "kritik",
+        baslik: netPozisyon >= 0 ? "Net açık pozisyon artıda" : "Borç yükü alacağın önüne geçmiş",
+        detay:
+          netPozisyon >= 0
+            ? `Alacak ${fmtTL(ozet.toplamAlacak)} seviyesinde, borç ${fmtTL(ozet.toplamBorc)} altında kalıyor. Nakit ${fmtTL(ozet.toplamNakit)} olduğu için grup kısa vadede nefes alıyor.`
+            : `Alacak ${fmtTL(ozet.toplamAlacak)} kalsa da borç ${fmtTL(ozet.toplamBorc)} daha yukarıda. Çekirdek ortakların ödeme temposunu haftalık izlemesi gerekir.`,
+        vurguSayi: fmtTL(Math.abs(netPozisyon)),
+      },
+    ],
+    [enBuyuk, enBuyukPay, enHizliBuyuyen, ilkIkiPay, ilkIkiToplam, netPozisyon, ozet],
+  );
 
   return (
     <>
@@ -344,6 +384,20 @@ export function KonsolideSayfasi() {
           baglamRengi={ozet.toplamAlacak > ozet.toplamBorc ? "iyi" : "kotu"}
         />
       </section>
+
+      <div style={{ marginTop: 24 }}>
+        <AiYorumKart
+          sayfaBasligi="Konsolide Grup"
+          maddeler={aiMaddeler}
+          ctaMetni="Mehmet Bey, bu konsolide resmi aylık ortak özetine iliştirip toplantı açılışını buradan yapalım mı?"
+          ctaButonMetni="Özete işle"
+          ctaAksiyonu={() =>
+            notify.success("Konsolide yorum özete işlendi", {
+              description: `${enBuyuk.firma.kisaAd} lokomotif, ${enHizliBuyuyen.firma.kisaAd} ise büyüme ivmesi olarak ortak brief'e not edildi.`,
+            })
+          }
+        />
+      </div>
     </>
   );
 }

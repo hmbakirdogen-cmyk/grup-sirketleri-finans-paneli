@@ -3,7 +3,7 @@
 // + Toaster (sonner), CommandPalette (Cmd+K), MansetBandi.
 // Aktif firmaya göre CSS var --accent dinamik kayar.
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Toaster } from "sonner";
 import { FIRMALAR } from "./data/firmalar";
 import { FINANS_VERISI } from "./data/mock-finans";
@@ -12,7 +12,6 @@ import { EliteHeader } from "./components/dash/EliteHeader";
 import { MaliTakvimRozetMini } from "./components/dash/MaliTakvimRozetMini";
 import { MansetBandi } from "./components/dash/MansetBandi";
 import { CommandPalette } from "./components/dash/CommandPalette";
-import { AiAsistanFAB } from "./components/dash/AiAsistanFAB";
 import { KullaniciSecici } from "./components/dash/KullaniciSecici";
 import { ImpersonationBanner } from "./components/dash/ImpersonationBanner";
 import type { Sekme } from "./components/dash/SekmeNav";
@@ -20,6 +19,9 @@ import { NabizSayfasi } from "./pages/NabizSayfasi";
 import { AkisSayfasi } from "./pages/AkisSayfasi";
 import { Yarin90GunSayfasi } from "./pages/Yarin90GunSayfasi";
 import { AlacaklarSayfasi } from "./pages/AlacaklarSayfasi";
+import { CekSenetSayfasi } from "./pages/CekSenetSayfasi";
+import { UrunMarjiSayfasi } from "./pages/UrunMarjiSayfasi";
+import { PersonelSayfasi } from "./pages/PersonelSayfasi";
 import { RaporlarSayfasi } from "./pages/RaporlarSayfasi";
 import { VergiAtolyesiSayfasi } from "./pages/VergiAtolyesiSayfasi";
 import { KonsolideSayfasi } from "./pages/KonsolideSayfasi";
@@ -53,16 +55,24 @@ export function App() {
     : erisilebilirFirmalar[0]!;
   if (gecerliFirma !== aktif) {
     // Sessiz redirect (useEffect değil çünkü hızlı setState yeterli)
-    setTimeout(() => setAktif(gecerliFirma), 0);
   }
 
   const firma = FIRMALAR[gecerliFirma];
   const finans = FINANS_VERISI[gecerliFirma];
 
+  useEffect(() => {
+    if (gecerliFirma !== aktif) {
+      setAktif(gecerliFirma);
+    }
+  }, [aktif, gecerliFirma]);
+
+  useEffect(() => {
+    if (sekme === "grup" && !aktifKullanici.konsolideGorur) {
+      setSekme("nabiz");
+    }
+  }, [aktifKullanici.konsolideGorur, sekme]);
+
   // Görüntülenen Konsolide göremiyorsa Konsolide sekmesinde değil
-  if (sekme === "grup" && !aktifKullanici.konsolideGorur) {
-    setTimeout(() => setSekme("nabiz"), 0);
-  }
 
   function kullaniciSec(id: KullaniciId) {
     setGoruntulenenId(id);
@@ -107,6 +117,13 @@ export function App() {
     }, 1500);
   }
 
+  function demoOturumKapat() {
+    notify.info("Oturum kapatma akisi demo modda hazir", {
+      description:
+        "Gercek kimlik dogrulama baglantisi sonraki asamada eklenecek. Mevcut yapida kullanici tercihleri ve firma kapsami korunuyor.",
+    });
+  }
+
   return (
     <div
       style={{
@@ -148,7 +165,7 @@ export function App() {
       <CommandPalette
         open={paletAcik}
         onOpenChange={setPaletAcik}
-        aktifFirma={aktif}
+        aktifFirma={gecerliFirma}
         erisilebilirFirmalar={aktifKullanici.firmaIzin}
         konsolideErisim={aktifKullanici.konsolideGorur}
         onSekmeSec={setSekme}
@@ -171,6 +188,9 @@ export function App() {
         {sekme === "akis" && <AkisSayfasi firma={firma} finans={finans} />}
         {sekme === "yarin90" && <Yarin90GunSayfasi firma={firma} finans={finans} />}
         {sekme === "alacaklar" && <AlacaklarSayfasi firma={firma} finans={finans} />}
+        {sekme === "ceksenet" && <CekSenetSayfasi firma={firma} finans={finans} />}
+        {sekme === "urun" && <UrunMarjiSayfasi firma={firma} finans={finans} />}
+        {sekme === "personel" && <PersonelSayfasi firma={firma} finans={finans} />}
         {sekme === "raporlar" && <RaporlarSayfasi firma={firma} finans={finans} />}
         {sekme === "vergi" && <VergiAtolyesiSayfasi firma={firma} finans={finans} />}
         {sekme === "grup" && aktifKullanici.konsolideGorur && <KonsolideSayfasi />}
@@ -205,7 +225,14 @@ export function App() {
           </div>
         )}
         {sekme === "isbirligi" && <IsBirligiSayfasi />}
-        {sekme === "ayarlar" && <AyarlarSayfasi firma={firma} aktifKullanici={aktifKullanici} />}
+        {sekme === "ayarlar" && (
+          <AyarlarSayfasi
+            firma={firma}
+            aktifKullanici={aktifKullanici}
+            onSyncClick={senkronTetikle}
+            onSignOutClick={demoOturumKapat}
+          />
+        )}
 
         <footer
           style={{
@@ -232,7 +259,6 @@ export function App() {
       </div>
 
       {/* AI Asistan FAB — sağ alt sabit, Cmd+K */}
-      <AiAsistanFAB accent={firma.renk} onClick={() => setPaletAcik(true)} />
 
       {/* Sonner Toaster mount — notify.* buradan render */}
       <Toaster
