@@ -28,6 +28,16 @@ npm install
 npm run dev
 ```
 
+## Tek tikla baslatma
+
+Windows'ta repo kokundeki `Start-Grup-Finans-Paneli.cmd` dosyasina cift tiklayin.
+Bu baslatici otomatik olarak:
+
+- GitHub'dan en guncel surumu ceker
+- Gerekirse `npm install --legacy-peer-deps` calistirir
+- `http://127.0.0.1:3000/` adresinde paneli baslatir
+- Tarayicida otomatik acar
+
 ## Klasör yapısı
 
 ```
