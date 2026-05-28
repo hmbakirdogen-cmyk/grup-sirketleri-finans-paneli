@@ -3,9 +3,15 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "node:path";
 
-// GitHub Pages base path — `/grup-sirketleri-finans-paneli/` (repo adı).
-// Production'da bu path altında host edilir; dev'de "/" kalır.
-const GH_BASE = "/grup-sirketleri-finans-paneli/";
+// NE: GitHub Pages base path repo adına eşitlendi.
+// NEDEN: Repo 2026-05-29'da `grup-sirketleri-finans-paneli` -> `grup-finans-paneli`
+//        olarak yeniden adlandırıldı; Pages URL'si değişti. Base path eski adda
+//        kalırsa production'da tüm CSS/JS `/grup-sirketleri-finans-paneli/...`
+//        yolundan 404 döner ve canlı panel bozuk (stilsiz/boş) açılır.
+// NASIL: GH_BASE yeni repo adına çekildi; dev'de yine "/" kalır.
+// YAN ETKİ: Yeni Pages adresi https://hmbakirdogen-cmyk.github.io/grup-finans-paneli/.
+//           Eski adres artık geçersiz — yer imi/paylaşım varsa güncellenmeli.
+const GH_BASE = "/grup-finans-paneli/";
 
 export default defineConfig(({ command }) => ({
   base: command === "build" ? GH_BASE : "/",
